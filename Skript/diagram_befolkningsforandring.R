@@ -7,8 +7,8 @@ diagram_befolkning <- function(region_vekt = "20", # Val av kommuner
                                   spara_figur = TRUE, # Sparar figuren till output_mapp_figur
                                   diag_folkmangd = TRUE, # Skapa diagram för flyttnetto
                                   diag_forandring = TRUE, # Skapa diagram för flyttnetto uppdelat
-                                  returnera_figur = TRUE # Om man vill att figuren skall returneras från funktionen
-                                  #returnera_data = FALSE, # True om användaren vill returnera data från funktionen
+                                  returnera_figur = TRUE, # Om man vill att figuren skall returneras från funktionen
+                                  returnera_data = TRUE # True om användaren vill returnera data från funktionen
                                   #diag_totalt = TRUE, # Skriver ut diagram för kön totalt
                                   #diag_kon = TRUE # Skriver ut diagram uppdelat på kön
 ){
@@ -37,6 +37,10 @@ diagram_befolkning <- function(region_vekt = "20", # Val av kommuner
                                                                kon_klartext = NA,
                                                                forandringar_klartext = c("folkmängd", "folkökning"),
                                                                period_klartext = "hela året")
+  
+  if(returnera_data == TRUE){
+    assign("befolkning_df", befolkning_df, envir = .GlobalEnv)
+  }
   
   
   if(diag_folkmangd == TRUE){

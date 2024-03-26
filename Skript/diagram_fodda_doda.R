@@ -8,8 +8,8 @@ diagram_fodda_doda <- function(region_vekt = "20", # Val av kommuner
                                   diag_fodda = TRUE, # Skapa diagram för flyttnetto
                                   visa_totalvarden = TRUE, # Visa totalvärden i diagrammet
                                   tid = c("2000":"9999"),
-                                  returnera_figur = TRUE # Om man vill att figuren skall returneras från funktionen
-                                  #returnera_data = FALSE, # True om användaren vill returnera data från funktionen
+                                  returnera_figur = TRUE, # Om man vill att figuren skall returneras från funktionen
+                                  returnera_data = FALSE # True om användaren vill returnera data från funktionen
                                   #diag_totalt = TRUE, # Skriver ut diagram för kön totalt
                                   #diag_kon = TRUE # Skriver ut diagram uppdelat på kön
 ){
@@ -51,6 +51,10 @@ diagram_fodda_doda <- function(region_vekt = "20", # Val av kommuner
         pivot_longer(cols = c("födda", "Döda", "netto"),
                      names_to = "variabel",
                      values_to = "varde")
+  
+  if(returnera_data == TRUE){
+    assign("fodda_doda_df", df, envir = .GlobalEnv)
+  }
   
 
   if(diag_fodda == TRUE){

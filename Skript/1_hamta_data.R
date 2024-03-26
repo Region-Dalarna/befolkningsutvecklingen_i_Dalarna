@@ -9,13 +9,15 @@ vald_region = "2021"
 source(here("Skript","diagram_befolkningsforandring.R"), encoding="UTF-8")
 gg_befolkning = diagram_befolkning(region_vekt = vald_region,
                           spara_figur=FALSE,
-                          diag_folkmangd = FALSE)
+                          diag_folkmangd = FALSE,
+                          returnera_data = TRUE)
 
 # Diagram 2, födda och döda
 source(here("Skript","diagram_fodda_doda.R"), encoding="UTF-8")
 gg_fodda_doda = diagram_fodda_doda(region_vekt = vald_region,
                           spara_figur=FALSE,
-                          diag_fodda = TRUE)
+                          diag_fodda = TRUE,
+                          returnera_data = TRUE)
 
 # Diagram 3-5 flyttnetto
 source(here("Skript","diagam_inrikes_flytt.R"), encoding="UTF-8")
