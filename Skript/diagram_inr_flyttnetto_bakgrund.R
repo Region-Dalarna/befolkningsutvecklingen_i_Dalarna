@@ -1,13 +1,5 @@
 
-if (!require("pacman")) install.packages("pacman")
-p_load(pxweb,
-       tidyverse)
-
-source("https://raw.githubusercontent.com/Region-Dalarna/funktioner/main/func_SkapaDiagram.R", encoding = "utf-8", echo = FALSE)
-source("https://raw.githubusercontent.com/Region-Dalarna/funktioner/main/func_API.R", encoding = "utf-8", echo = FALSE)
-source("https://raw.githubusercontent.com/Region-Dalarna/funktioner/main/func_text.R", encoding = "utf-8", echo = FALSE)
-options(dplyr.summarise.inform = FALSE)
-
+#test = diag_inr_flyttnetto_inr_utr_fodda(output_mapp =  "G:/skript/jon/Figurer/",farg_vekt = diagramfarger("rus_sex"))
 
 diag_inr_flyttnetto_inr_utr_fodda <- function(
     region_vekt = "20",
@@ -26,6 +18,16 @@ diag_inr_flyttnetto_inr_utr_fodda <- function(
     totalvarden_dataetiketter_textstorlek = 2,        # justerar textstorlek för dataetiketter för totalvärden
     totalvarden_linjetjocklek = 4                     # tjocklek på totalstrecken i tiondels % av hela diffen i datasetet
 ) {
+  
+  
+  if (!require("pacman")) install.packages("pacman")
+  p_load(pxweb,
+         tidyverse)
+  
+  source("https://raw.githubusercontent.com/Region-Dalarna/funktioner/main/func_SkapaDiagram.R", encoding = "utf-8", echo = FALSE)
+  source("https://raw.githubusercontent.com/Region-Dalarna/funktioner/main/func_API.R", encoding = "utf-8", echo = FALSE)
+  source("https://raw.githubusercontent.com/Region-Dalarna/funktioner/main/func_text.R", encoding = "utf-8", echo = FALSE)
+  options(dplyr.summarise.inform = FALSE)
   
   gg_list <- list()
   objektnamn <- c()
@@ -130,7 +132,7 @@ diag_inr_flyttnetto_inr_utr_fodda <- function(
                                  diagram_titel = diagram_titel,
                                  diagram_capt = diagram_capt,
                                  #x_axis_storlek = 8,
-                                 stodlinjer_avrunda_fem = TRUE,
+                                 stodlinjer_avrunda_fem = FALSE,
                                  manual_x_axis_text_vjust = 1,
                                  manual_x_axis_text_hjust = 1,
                                  manual_y_axis_title = "",

@@ -4,8 +4,6 @@ author: ""
 date: ""
 output: 
   html_document:
-    includes:
-      in_header: hero_image.html
     toc: yes
     toc_float: yes
     toc_depth: 6
@@ -18,13 +16,38 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-<p style="font-weight: 600;font-size: 1.6rem">Befolkningsutvecklingen i Vansbro - en kort analys</p>
+<p style="font-weight: 600;font-size: 1.5rem;line-height:1;padding-top:15px">Befolkningsutvecklingen i Vansbro<br> <span style="font-weight: 400;font-size: 1.2rem">- en kort analys</span></p>
+
+<style>
+h1 { /* Header 1 */
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: #000000;
+  margin-top: 2rem;
+}
+h2 { /* Header 2 */
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: #000000;
+  margin-top: 1.5rem;
+}
+h3 { /* Header 3 */
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: #000000;
+}
+</style>
+
+<p style = "font-size:12px">
+<i>Rapporten är skapad av Samhällsanalys, Region Dalarna<br>
+Senast uppdaterad: `r Sys.Date()`</i>
+</p>
 
 # Hur har befolkningen förändrats?
 
-I likhet med många mindre kommuner på landsbygden har Vansbros befolkning minskat under en majoritet av åren det senaste decennierna. År `r min(befolkning_df$år)` var befolkningen ungefär `r format(plyr::round_any(befolkning_df %>% filter(år == min(år), förändringar == "folkmängd") %>% .$personer,100),,big.mark=" ") ` invånare, men har idag minskat till ca `r format(plyr::round_any(befolkning_df %>% filter(år == max(år), förändringar == "folkmängd") %>% .$personer,100),,big.mark=" ") `. 
+I likhet med många mindre kommuner på landsbygden har Vansbros befolkning minskat de senaste decennierna, från ca `r format(plyr::round_any(befolkning_df %>% filter(år == min(år), förändringar == "folkmängd") %>% .$personer,100),big.mark=" ") ` invånare  år `r min(befolkning_df$år)` till ungefär `r format(plyr::round_any(befolkning_df %>% filter(år == max(år), förändringar == "folkmängd") %>% .$personer,100),big.mark=" ") ` år `r max(befolkning_df$år)`.
 
-Befolkningen minskar i en majoritet av åren, vilket syns tydligt i diagrammet nedan. Det stora undantaget var i samband med flyktingkrisen 2016-2017, när Vansbros befolkning ökade med närmare 200 personer. Därefter minskade befolkningen under några år, vilket delvis kan förklaras med att personer som flyttade till Vansbro i samband med flyktingkrisen lämnade för andra länder. Under 2022 ökade Vansbros befolkning för första gången sedan flyktingkrisen, men denna ökning har mer än reverserats av en tydlig nedgång i befolkning under 2023, den enskilt största nedgången sedan mitten av 00-talet. Detta är dock inget unikt för Vansbro, även befolkningen i Dalarna som helhet minskade med ungefär 1000 personer, vilket är den största nedgången i länet sedan 2001.
+Befolkningen minskar under en majoritet av åren, vilket syns tydligt i diagrammet nedan. Det stora undantaget var i samband med flyktingkrisen 2015-2016, när Vansbros befolkning ökade med närmare 200 personer. Därefter minskade befolkningen under några år, vilket till stor del kan förklaras med att personer som flyttade till Vansbro i samband med flyktingkrisen lämnade för andra delar av Sverige. Under 2022 ökade Vansbros befolkning för första gången sedan flyktingkrisen, men denna ökning följdes av en tydlig minskning under 2023, den enskilt största nedgången sedan mitten av 00-talet. Detta är dock inget unikt för Vansbro, även befolkningen i Dalarna som helhet minskade med ungefär 1000 personer, vilket är den största nedgången i länet sedan 2001.
 
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
@@ -33,7 +56,7 @@ gg_befolkning$Befolkningsutveckling_Vansbro_ar_2000_2023
 
 I fortsättningen av denna korta analys delas Vansbros befolkningsutveckling upp i dess komponenter, födelsenetto, dvs. nettot av födda och döda, och flyttnetto, dvs. nettot av inrikes och utrikes flyttar. Vi börjar med födelsenettot.
 
-# Födelsenettot
+# Födelsenetto
 
 En tydlig trend är att det dör färre personer i Vansbro idag än det gjorde för ungefär 20 år sedan. Med undantag för Corona-pandemin, 2020 och 2021, så dör idag mellan 80 och 90 personer under ett normalt år i Vansbro. Detta kan jämföras med närmare 120 personer per år i början av 2000-talet. Denna utveckling kan sannolikt härröras till utveckling inom det medicinska området. Befolkningens medelålder ökar över tid och har gjort så länge.
 
@@ -46,11 +69,10 @@ Sammantaget har födelsenettot alltid varit negativt i Vansbro under 2000-talet 
 gg_fodda_doda$Födelsenetto_Vansbro_ar_2000_2023
 ```
 
-# Flyttar
+# Flyttnetto
 Den andra komponenten som styr befolkningsutvecklingen är det så kallade flyttnettot. Detta kan i sin tur delas upp i två komponenter, inrikes och utrikes flyttar. I det här avsnittet undersöker vi först flyttnettot, för att därefter titta på de två komponenterna.
 
-## Flyttnettot
-Nettot mellan inrikes och utrikes flyttar varierar relativt mycket mellan åren och ligger normalt mellan +/- 50 personer. Undantaget är flyktingkrisen, när drygt 270 personer flyttade till Vansbro (netto) under 2015 och 2016. På senare år har Vansbro haft ett positivt flyttnetto under flera år (de svarta linjerna i diagrammet nedan), men under 2023 var flyttnettot återigen negativt. Det största negativa nettot sedan 2006. Intressant att notera är även att det positiva nettot mestadels bestod av män under 2019 och 2020, för att därefter i praktiken bara bestå av kvinnor. De negativa nettot 2023 består även det av en överväldigande majoritet kvinnor. 
+Nettot mellan inrikes och utrikes flyttar varierar relativt mycket mellan åren och ligger normalt mellan +/- 50 personer. Undantaget är flyktingkrisen, när drygt 270 personer flyttade till Vansbro (netto) under 2015 och 2016. På senare år har Vansbro haft ett positivt flyttnetto under flera år (de svarta linjerna i diagrammet nedan), men under `r max(flytt_df$år)` var flyttnettot återigen negativt (`r flytt_df %>% filter(år==max(år)) %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer),  det största negativa nettot sedan 2006. Intressant att notera är även att det positiva nettot mestadels bestod av män under 2019 och 2020, för att därefter i praktiken bara bestå av kvinnor. De negativa nettot 2023 består även det av en överväldigande majoritet kvinnor. 
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt$Flyttnetto_Vansbro_ar_2000_2023
@@ -59,8 +81,8 @@ gg_flytt$Flyttnetto_Vansbro_ar_2000_2023
 
 För att förstå flyttnettot bättre, delar vi i nästa avsnitt upp det i dess komponenter, utrikes flyttar (invandring och utvandring) och inrikes flyttar.
 
-### Utrikes flyttar
-Som vi berörde i föregående avsnitt var flyttnettot i Vansbro kraftigt positivt under framförallt 2016, vilket till stor del kan förklaras av att invandringen då var stor. I början av 2000-talet var invandringen ofta väldigt låg och till och med negativ under vissa år (fler utvandrade än invandrade) men därefter skedde en gradvis ökning innan den stora toppen 2016. Därefter minskade invandringen tydligt, men låg på relativt höga nivåer fram till 2019. På senare år syns effekterna av en tydligt stramare immigrationspolitik, då allt färre invandrar till Vansbro. Under 2023 var det utrikes flyttnettot blott 10 personer, det lägsta nettot sedan 2001. Intressant att notera är att det positiva nettot i praktiken enbart består av män. Generellt invandrar ungefär lika många kvinnor och män, även om det har varit en viss övervikt för de sistnämnda efter flyktingkrisen. 
+## Utrikes flyttnetto
+Som vi berörde i föregående avsnitt var flyttnettot i Vansbro kraftigt positivt under framförallt 2016, vilket till stor del kan förklaras av att invandringen då var stor. I början av 2000-talet var invandringen ofta väldigt låg och till och med negativ under vissa år (fler utvandrade än invandrade) men därefter skedde en gradvis ökning innan den stora toppen 2016. Därefter minskade invandringen tydligt, men låg på relativt höga nivåer fram till 2019. På senare år syns effekterna av en tydligt stramare immigrationspolitik, då allt färre invandrar till Vansbro. Under 2023 var det utrikes flyttnettot blott `r flytt_df %>% filter(år==max(år), variabel == "Invandringsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer, det lägsta nettot sedan 2001. Intressant att notera är att det positiva nettot i praktiken enbart består av män. Generellt invandrar ungefär lika många kvinnor och män, även om det har varit en viss övervikt för de sistnämnda efter flyktingkrisen. 
 
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
@@ -68,8 +90,8 @@ Som vi berörde i föregående avsnitt var flyttnettot i Vansbro kraftigt positi
 gg_flytt$Invandringsöverskott_Vansbro_ar_2000_2023
 ```
 
-### Inrikes flyttar
-Utvecklingen för det inrikes flyttnettot i Vansbro är egentligen det omvända mot det utrikes, under de allra flesta år flyttar fler personer från Vansbro till andra delar av Sverige än de som flyttar till Vansbro. Det största inrikes flyttningsöverskottet var under 2016, vilket med all sannolikhet har att göra med flyktingkrisen. Åren efter ser man en kraftig utflyttning från Vansbro, vilket sannolikt i mångt och mycket är personer som invandrat till kommunen och sedan valt att flytta till andra delar av Sverige, för att exempelvis söka arbete. Denna trend höll sedan i sig under ett par år. 2022 var det inrikes flyttnettot positivt för första gången sedan 2016, 2023 gick effekten dock åt motsatt håll när närmare 50 personer netto, en majoritet kvinnor, flyttade från Vansbro. Detta är en viktig förklarande faktor till varför befolkningen i Vansbro ökade under 2022 men istället minskade under 2023. 
+## Inrikes flyttnetto
+Utvecklingen för det inrikes flyttnettot i Vansbro är egentligen det omvända mot det utrikes, under de allra flesta år flyttar fler personer från Vansbro till andra delar av Sverige än de som flyttar till Vansbro. Det största inrikes flyttningsöverskottet var under 2016,`r flytt_df %>% filter(år == "2016", variabel == "Inrikes flyttningsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer, vilket med all sannolikhet har att göra med flyktingkrisen. Åren efter ser man en kraftig utflyttning från Vansbro, vilket sannolikt i mångt och mycket är personer som invandrat till kommunen och sedan valt att flytta till andra delar av Sverige, för att exempelvis söka arbete. Denna trend höll sedan i sig under ett par år. 2022 var det inrikes flyttnettot positivt för första gången sedan 2016, då `r flytt_df %>% filter(år == "2022", variabel == "Inrikes flyttningsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer flyttade till Vansbro, men `r max(flytt_df$år)` gick effekten dock åt motsatt håll när närmare `r abs(flytt_df %>% filter(år == max(år), variabel == "Inrikes flyttningsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde)` personer netto, en majoritet kvinnor, flyttade från Vansbro. Detta är en viktig förklarande faktor till varför befolkningen i Vansbro ökade under 2022 men istället minskade under 2023. 
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt$`Inrikes flyttningsöverskott_Vansbro_ar_2000_2023`
@@ -77,14 +99,16 @@ gg_flytt$`Inrikes flyttningsöverskott_Vansbro_ar_2000_2023`
 
 För att ytterligare undersöka flyttmönster, delar vi upp de som flyttar in och ut efter åldersgrupp. Normalt är personer mest rörlig mellan 20 och ungefär 40 år, innan flyttandet avtar avsevärt. I Vansbro, vars viktigaste privata arbetsgivare år 2021 var Lyko och Orkla, borde rimligtvis en inflyttning av personer i de yngre åldersspannen vara viktig, då dessa företag med stor sannolikhet anställer yngre i stor uträckning.
 
-### Inrikes flyttar uppdelat på ålder
-Om de inrikes flyttarna delas upp i olika åldersgrupper framträder ett visst mönster. Tydligt är att unga vuxna tenderar att flytta till Vansbro i större uträckning än att de flyttar dit, exempelvis för att söka jobb eller studera på annan ort. Inom andra åldersgrupper är tendenserna mer otydliga, då antalet in och utflyttare (netto) varierar relativt mycket mellan åren. Med tanke på att Vansbro är en liten kommun är det även fullt möjligt att ingen inom en viss åldersgrupp flyttar till kommunen under specifika år.
+## Uppdelat på ålder
+Om de inrikes flyttarna delas upp i olika åldersgrupper framträder ett visst mönster. Tydligt är att unga vuxna tenderar att flytta från Vansbro i större uträckning än att de flyttar dit, exempelvis för att söka jobb eller studera på annan ort. Inom andra åldersgrupper är tendenserna mer otydliga, då antalet in och utflyttare (netto) varierar relativt mycket mellan åren. Med tanke på att Vansbro är en liten kommun är det även fullt möjligt att ingen inom en viss åldersgrupp flyttar till kommunen under specifika år.
+
+En annan tydlig observation är att väldigt många mellan 20 och 29 år flyttade från Vansbro 2023. I denna grupp, tillsammans med de som är upp till 19 år, minskade befolkningen med nästan 60 personer på grund av inrikes flyttar under 2023.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt_alder$Flyttnetto_alder_Vansbro_ar_2021_2023
 ```
 
-En annan tydlig observation är att väldigt många mellan 20 och 29 år flyttade från Vansbro 2023. I denna grupp, tillsammans med de som är upp till 19 år minskade befolkningen med nästan 60 personer på grund av inrikes flyttar. Om vi enbart fokuserar på den förstnämnda åldersgrupper blir det ännu tydligare att 2023 är ett undantagsår. Historiskt varierar utflyttningen i ålder gruppen en del mellan åren, men ligger i normala fall i ett spann mellan ungefär 15 och 30 nettoutflyttade per år. De 40 personerna i åldersgruppen 20-29 år som nettoutflyttade 2023 är det största antalet på hela 2000-talet. Exakt vad det beror på är svårt att säga, men det är definitivt en bidragande orsak till att befolkningen minskade så pass mycket i Vansbro 2023. Med tanke på att Vansbro har en av Dalarnas lägsta arbetslöshetsnivåer, samt flera expansiva arbetsgivare, är förklaringen sannolikt inte brist på jobb i alla fall.
+Om vi enbart fokuserar på åldersgruppen 20-29 år blir det ännu tydligare att 2023 var ett undantagsår. Historiskt varierar utflyttningen i åldersgruppen en del mellan åren, men ligger i normala fall i ett spann mellan ungefär 15 och 30 nettoutflyttade per år. De 40 personerna i åldersgruppen 20-29 år som nettoutflyttade 2023 är det största antalet på hela 2000-talet. Exakt vad det beror på är svårt att säga, men det är definitivt en bidragande orsak till att befolkningen minskade så pass mycket i Vansbro 2023. Med tanke på att Vansbro har en av Dalarnas lägsta arbetslöshetsnivåer, samt flera expansiva arbetsgivare, är förklaringen sannolikt inte brist på jobb i alla fall.
 Även Dalarna som helhet har en nettoutflyttning i åldersgruppen, men utflyttningen 2023 är på ungefär samma nivå som den 2022.
 
 
@@ -92,4 +116,18 @@ En annan tydlig observation är att väldigt många mellan 20 och 29 år flyttad
 gg_flytt_alder$`Inrikes flyttnetto_alder_Vansbro_ar_1997_2023`
 
 ```
+
+
+## Uppdelat på bakgrund
+För att ytterligare förtydliga de flyttmönster som diskuterats ovan delar vi upp flyttarna i inrikes och utrikes födda. Tydligt är att många av de som invandrade till Vansbro i samband med flyktingkrisen 2015-2016 flyttade därifrån under åren efter krisen, då framförallt 2017, 2018 och 2019. Sammantaget flyttade mer än 250 utrikes födda (netto) från Vansbro till andra delar av Sverige under den perioden.  Ett annat tydligt mönster på senare år, med undantag för 2023, är att färre inrikes födda flyttar från Vansbro jämfört med åren mellan 2003 och 2013. Undantaget är som sagt 2023, då det inrikes flyttnettot i Vansbro var negativt och mestadels bestod av födda i Sverige. 
+
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_flytt_bakgrund$inflytt_utflytt2021
+```
+
+# Sammanfattning
+Syftet med den här korta analysen var att undersöka befolkningsutvecklingen i Vansbro, med särskilt fokus på befolkningsminskningen 2023. För att göra det har vi undersökt utvecklingen under 2000-talet för de olika komponenter som styr förändringar i befolkning. 
+Sammanfattningsvis kan sägas att nedgången i befolkningen beror på svagare utveckling inom mer eller mindre alla komponenter som förklarar befolkningsutvecklingen. 
+Jämfört med året innan, föddes klart färre barn i Vansbro år 2023. Detta är i linje med en större trend i samhället, där födelsetalen i Sverige är de lägsta sedan mitten på 1700-talet. Till det kommer en långsiktig trend där en allt stramare migrationspolitik gör att färre invandrar till Sverige än tidigare, vilket även påverkar inflyttningen till Vansbro. Tydligt är även att många, framförallt inrikes födda unga vuxna flyttade från Vansbro till andra delar av Sverige under 2023. Att många flyttar från kommunen inrikes är normalt, men 2023 sticker ut som ett av de sämsta åren på 2000-talet på den punkten. Exakt vad denna utveckling beror på är svårt att sia om utan att ha mer ingående kunskap om de som flyttat ut.
 

@@ -8,8 +8,8 @@ diagram_inrikes_flytt <- function(region_vekt = "20", # Val av kommuner
                                      spara_figur = TRUE, # Sparar figuren till output_mapp_figur
                                      diag_flyttnetto = TRUE, # Skapa diagram för flyttnetto
                                      diag_uppdelat = TRUE, # Skapa diagram för flyttnetto uppdelat
-                                     returnera_figur = TRUE # Om man vill att figuren skall returneras från funktionen
-                                     #returnera_data = FALSE, # True om användaren vill returnera data från funktionen
+                                     returnera_figur = TRUE, # Om man vill att figuren skall returneras från funktionen
+                                     returnera_data = FALSE # True om användaren vill returnera data från funktionen
                                      #diag_totalt = TRUE, # Skriver ut diagram för kön totalt
                                      #diag_kon = TRUE # Skriver ut diagram uppdelat på kön
 ){
@@ -37,6 +37,10 @@ diagram_inrikes_flytt <- function(region_vekt = "20", # Val av kommuner
                                                          cont_klartext = c("Inrikes flyttningsöverskott", "Invandringsöverskott"),
                                                          kon_klartext = c("Kvinnor", "Män"),
                                                          tid_koder = tid)
+  
+  if(returnera_data == TRUE){
+    assign("flytt_df", flytt_df, envir = .GlobalEnv)
+  }
   
   
   if(diag_flyttnetto == TRUE){
