@@ -153,22 +153,8 @@ top: 5px;
      color: #fff
      border-color: #000000;
 }
-     
-/*Bannern längst upp. Är kopplad till ett htm dokument som heter here_image. Kort fungerar så att ett objekt
-i HTML läses in i Headern (i sektionen längst upp i R-markdowndokumentet). Detta heter hero_image.html. Koden Nedan
-stilsätter det i CSS*/     
-.hero-image{
-    position: relative;
-    margin-bottom: 2em;
-    /* liner gradient tints the image darker for readability*/
-    background-image: url(Dalastrategin.jpg); 
-    height: 150px;
-    max-width: 1200px;
-    margin: 0 auto;
-    background-size: cover;
-    background-color: #141c25f2;
-    background-position: center center;
-}
+
+
 
 /*Rubriken*/
 
