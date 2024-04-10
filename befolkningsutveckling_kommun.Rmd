@@ -107,7 +107,7 @@ Utvecklingen för det inrikes flyttnettot är i mångt och mycket en spegelbild 
 gg_flytt$`Inrikes flyttningsöverskott_Vansbro_ar_2000_2023`
 ```
 
-För att få en bättre förståelse för vilka som flyttar till och från Vansbro inrikes delar vi härnäst upp de som flyttar efter ålder. Normalt är personer mest benägna att flytta när de är mellan 20 år och ungefär 40 år, innan flyttandet avtar avsevärt. I Vansbro, vars största privata arbetsgivare år 2021 var Lyko och Orkla, borde rimligtvis en inflyttning av personer i de yngre åldersspannen vara viktig, då dessa företag med stor sannolikhet anställer yngre i stor utsträckning.
+För att få en bättre förståelse för vilka som flyttar till och från Vansbro inrikes delar vi härnäst upp de som flyttar efter ålder. Normalt är personer mest benägna att flytta till en annan kommun eller län när de är i 20-års åldern, innan flyttandet gradvis avtar. I Vansbro, vars största privata arbetsgivare år 2021 var Lyko och Orkla, borde rimligtvis en inflyttning av personer i de yngre åldersspannen vara viktig, då dessa företag med stor sannolikhet anställer yngre i stor utsträckning.
 
 ### Uppdelat på ålder
 Ett tydligt mönster är att de unga vuxna som flyttar från Vansbro är fler än de unga vuxna som flyttar dit, dvs. kommunen förlorar invånare i den åldersgruppen på grund av inrikes flyttar. Inom andra åldersgrupper är tendenserna mer otydliga, då antalet in- och utflyttare (netto) varierar relativt mycket mellan åren. Med tanke på att Vansbro är en liten kommun är det även fullt möjligt att ingen inom en viss åldersgrupp flyttar till kommunen under ett specifikt år.

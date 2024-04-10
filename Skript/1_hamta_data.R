@@ -36,7 +36,7 @@ source(here("Skript","diagram_inr_flyttnetto_bakgrund.R"), encoding="UTF-8")
 gg_flytt_bakgrund <- diag_inr_flyttnetto_inr_utr_fodda(region_vekt = vald_region,
                                                        skriv_diagram = FALSE,
                                                        output_mapp =  "G:/skript/jon/Figurer/",
-                                                       farg_vekt = diagramfarger("rus_sex"))
+                                                       farg_vekt = diagramfarger("rus_sex")[2:1])
 
 
 rmarkdown::render(
