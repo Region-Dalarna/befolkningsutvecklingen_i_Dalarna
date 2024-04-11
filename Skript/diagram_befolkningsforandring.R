@@ -6,6 +6,7 @@ diagram_befolkning <- function(region_vekt = "20", # Val av kommuner
                                   vald_farg = diagramfarger("rus_sex"), # Vilken färgvektor vill man ha. Blir alltid "kon" när man väljer det diagrammet
                                   spara_figur = TRUE, # Sparar figuren till output_mapp_figur
                                   diag_folkmangd = TRUE, # Skapa diagram för flyttnetto
+                                  etiketter_xaxel = 4, # Intervall för etiketter på x-axeln
                                   diag_forandring = TRUE, # Skapa diagram för flyttnetto uppdelat
                                   returnera_figur = TRUE, # Om man vill att figuren skall returneras från funktionen
                                   returnera_data = TRUE # True om användaren vill returnera data från funktionen
@@ -26,17 +27,15 @@ diagram_befolkning <- function(region_vekt = "20", # Val av kommuner
   source("https://raw.githubusercontent.com/Region-Dalarna/funktioner/main/func_SkapaDiagram.R")
   source("https://raw.githubusercontent.com/Region-Dalarna/funktioner/main/func_API.R")
   
-  #source("https://raw.githubusercontent.com/Region-Dalarna/hamta_data/main/hamta_bef_flyttningar_region_alder_kon_scb.R")
-  source("https://raw.githubusercontent.com/Region-Dalarna/hamta_data/main/hamta_bef_forandringar_region_period_kon_scb.R")
+  source("https://raw.githubusercontent.com/Region-Dalarna/hamta_data/main/hamta_bef_folkmangd_alder_kon_ar_scb.R")
   diagram_capt <- "Källa: SCB:s öppna statistikdatabas, bearbetning av Samhällsanalys, Region Dalarna."
   
   gg_list <- list()
   objektnamn <- c()
   
-  befolkning_df <- hamta_bef_forandringar_region_alder_kon_scb(region_vekt = region_vekt,
+  befolkning_df <- hamta_bef_folkmangd_alder_kon_ar_scb(region_vekt = region_vekt,
                                                                kon_klartext = NA,
-                                                               forandringar_klartext = c("folkmängd", "folkökning"),
-                                                               period_klartext = "hela året")
+                                                               cont_klartext = c("folkmängd", "folkökning"))
   
   if(returnera_data == TRUE){
     assign("befolkning_df", befolkning_df, envir = .GlobalEnv)
@@ -52,12 +51,13 @@ diagram_befolkning <- function(region_vekt = "20", # Val av kommuner
     objektnamn <- c(objektnamn,diagramfil %>% str_remove(".png"))
     
     gg_obj <- SkapaStapelDiagram(skickad_df = befolkning_df %>% 
-                                   filter(förändringar == "folkmängd"), 
+                                   filter(variabel == "Folkmängd"), 
                                  skickad_x_var = "år", 
-                                 skickad_y_var = "personer",
+                                 skickad_y_var = "varde",
                                  diagram_titel = diagram_titel,
                                  diagram_capt = diagram_capt,
                                  #x_axis_storlek = 8,
+                                 x_axis_visa_var_xe_etikett = etiketter_xaxel,
                                  stodlinjer_avrunda_fem = TRUE,
                                  manual_x_axis_text_vjust = 1,
                                  manual_x_axis_text_hjust = 1,
@@ -75,10 +75,10 @@ diagram_befolkning <- function(region_vekt = "20", # Val av kommuner
 
   
   if(diag_forandring == TRUE){
-    # Skapa ny variabel för befolkningsförändring
-    befolkning_df_forandring <- befolkning_df %>% 
-      filter(förändringar == "folkökning") %>%
-      mutate(kategori = ifelse(personer>0,"Ökad befolkning","Minskad befolkning"))
+    # # Skapa ny variabel för befolkningsförändring
+    # befolkning_df_forandring <- befolkning_df %>% 
+    #   filter(förändringar == "folkökning") %>%
+    #   mutate(kategori = ifelse(personer>0,"Ökad befolkning","Minskad befolkning"))
     
     reg_txt <- befolkning_df$region %>% unique() %>% skapa_kortnamn_lan(T)
     
@@ -87,14 +87,15 @@ diagram_befolkning <- function(region_vekt = "20", # Val av kommuner
     objektnamn <- c(objektnamn,diagramfil %>% str_remove(".png"))
     
     gg_obj <- SkapaStapelDiagram(skickad_df = befolkning_df %>% 
-                                   filter(förändringar == "folkökning") %>%
-                                   mutate(kategori = ifelse(personer>0,"Ökad befolkning","Minskad befolkning")), 
+                                   filter(variabel == "Folkökning",år>min(år)) %>%
+                                   mutate(kategori = ifelse(varde>=0,"Ökad befolkning","Minskad befolkning")), 
                                  skickad_x_var = "år", 
-                                 skickad_y_var = "personer",
+                                 skickad_y_var = "varde",
                                  skickad_x_grupp = "kategori",
                                  diagram_titel = diagram_titel,
                                  diagram_capt = diagram_capt,
                                  #x_axis_storlek = 8,
+                                 x_axis_visa_var_xe_etikett = etiketter_xaxel,
                                  stodlinjer_avrunda_fem = TRUE,
                                  manual_x_axis_text_vjust = 1,
                                  manual_x_axis_text_hjust = 1,
