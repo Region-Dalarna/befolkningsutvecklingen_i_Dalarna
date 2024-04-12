@@ -1,5 +1,5 @@
 
-#test = diag_inr_flyttnetto_inr_utr_fodda(output_mapp =  "G:/skript/jon/Figurer/",farg_vekt = diagramfarger("rus_sex"))
+#test = diag_inr_flyttnetto_inr_utr_fodda(output_mapp =  "G:/skript/jon/Figurer/",farg_vekt = diagramfarger("rus_sex"),region_vekt = "2021")
 
 diag_inr_flyttnetto_inr_utr_fodda <- function(
     region_vekt = "20",

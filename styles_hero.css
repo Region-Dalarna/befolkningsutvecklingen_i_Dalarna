@@ -13,7 +13,7 @@ html {
 
 /* Det som gäller för dokumentet generellt, typografi m.m.*/
 body {
-  border-top: 5px solid #158daf;
+  border-top: 5px solid rgba(22,141,175);
   margin: 0;
   font-family:'Poppins', sans-serif;
   font-size: 1rem;
@@ -85,7 +85,7 @@ li{
 
 /*Ytan som rymmer "Mer info om statistiken*/
 details{
-  background-color: #f1f1f1;
+  background-color: #cff4fc;
   font-size: 0.9rem;
   padding: 10px 10px;
   border-radius: 3px 3px 3px 3px;

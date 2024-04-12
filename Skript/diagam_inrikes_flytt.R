@@ -107,13 +107,14 @@ diagram_inrikes_flytt <- function(region_vekt = "20", # Val av kommuner
   
   if(diag_uppdelat == TRUE){
     i = 1
+    diag_namn = c("Utrikes flyttnetto","Inrikes flyttnetto")
     while(i <= length(unique(flytt_df$variabel))){
       vald_variabel <- unique(flytt_df$variabel)[i]
       
       reg_txt <- ar_alla_kommuner_i_ett_lan(flytt_df$regionkod %>% unique(), returnera_text = TRUE)
       if (reg_txt == FALSE) reg_txt <- flytt_df$region %>% unique() %>% skapa_kortnamn_lan(T) %>% paste0(collapse = ", ")
       
-      diagram_titel <- paste0(vald_variabel, " i ", reg_txt)
+      diagram_titel <- paste0(diag_namn[i], " i ", reg_txt)
       diagramfil <- paste0(vald_variabel, "_", reg_txt, "_ar_", min(flytt_df$år), "_", max(flytt_df$år), ".png")
       objektnamn <- c(objektnamn,diagramfil %>% str_remove(".png"))
       

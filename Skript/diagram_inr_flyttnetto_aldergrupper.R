@@ -1,4 +1,4 @@
-#test = diagram_inrikes_flytt_alder(spara_figur=FALSE,region_vekt = "20")
+#test = diagram_inrikes_flytt_alder(spara_figur=FALSE,region_vekt = "2080")
 diagram_inrikes_flytt_alder <- function(region_vekt = "20", # Val av kommuner
                                   output_mapp_figur= "G:/skript/jon/Figurer/", # Vart hamnar figur om den skall sparas
                                   #output_mapp_data = NA, # Vart hamnar data om den skall sparas. NA medför att data inte sparas
