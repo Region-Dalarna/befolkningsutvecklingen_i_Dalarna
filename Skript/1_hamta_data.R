@@ -6,23 +6,22 @@ Output_mapp = here("Data","/")
 vald_region = "2021"
 
 # Diagram  befolkningsförändring
-source(here("Skript","diagram_befolkningsforandring.R"), encoding="UTF-8")
-gg_befolkning = diagram_befolkning(region_vekt = vald_region,
-                          spara_figur=FALSE,
-                          diag_folkmangd = FALSE,
-                          returnera_data = TRUE)
+source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_befolkningsforandring_region_kon_ar_SCB.R", encoding="UTF-8")
+gg_befolkning = diagram_befolkningsforandring_ar(region_vekt = vald_region,
+                                                spara_figur=FALSE,
+                                                diag_folkmangd = FALSE,
+                                                returnera_data = TRUE)
 
 # Diagram födda och döda
-source(here("Skript","diagram_fodda_doda.R"), encoding="UTF-8")
-gg_fodda_doda = diagram_fodda_doda(region_vekt = vald_region,
-                          spara_figur=FALSE,
-                          diag_fodda = TRUE,
-                          tid = "*",
-                          returnera_data = TRUE)
+source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_fodelsenetto_region_SCB.R")
+gg_fodda_doda = diagram_fodelsenetto(region_vekt = vald_region,
+                                     spara_figur = FALSE,
+                                     tid = "*",
+                                     returnera_data = TRUE)
 
 # Diagram  flyttnetto
-source(here("Skript","diagam_inrikes_flytt.R"), encoding="UTF-8")
-gg_flytt <- diagram_inrikes_flytt(region_vekt = vald_region,
+source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_flytt_inrikes_utrikes_netto_SCB.R", encoding="UTF-8")
+gg_flytt <- diagram_inr_utr_flytt(region_vekt = vald_region,
                                   spara_figur=FALSE,
                                   #tid = c(2000:9999),
                                   returnera_data = TRUE)
