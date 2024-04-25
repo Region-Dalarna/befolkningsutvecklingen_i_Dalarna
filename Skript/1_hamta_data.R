@@ -33,7 +33,7 @@ gg_flytt_alder <- diagram_inrikes_flytt_alder(region_vekt = vald_region,
                                               spara_figur = FALSE)
 
 # Diagram flyttnetto födelseregion
-source(here("Skript","diagram_inr_flyttnetto_bakgrund.R"), encoding="UTF-8")
+source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_flytt_inrikes_bakgrund_SCB.R", encoding="UTF-8")
 gg_flytt_bakgrund <- diag_inr_flyttnetto_inr_utr_fodda(region_vekt = vald_region,
                                                        skriv_diagram = FALSE,
                                                        output_mapp =  "G:/skript/jon/Figurer/",
