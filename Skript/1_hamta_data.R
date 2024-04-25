@@ -27,7 +27,7 @@ gg_flytt <- diagram_inr_utr_flytt(region_vekt = vald_region,
                                   returnera_data = TRUE)
 
 # Diagram flyttnetto åldersgrupper
-source(here("Skript","diagram_inr_flyttnetto_aldergrupper.R"), encoding="UTF-8")
+source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_flytt_inrikes_aldersgrupper_SCB.R", encoding="UTF-8")
 gg_flytt_alder <- diagram_inrikes_flytt_alder(region_vekt = vald_region,
                                               #tid = c(2000:9999),
                                               spara_figur = FALSE)
