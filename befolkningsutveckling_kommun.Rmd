@@ -5,7 +5,7 @@ date: ""
 output: 
   html_document:
     includes:
-      in_header: hero_image.html
+      in_header: hero_image_kommun.html
     toc: yes
     toc_float: yes
     toc_depth: 6

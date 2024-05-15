@@ -18,28 +18,52 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # Introduktion {-}
+I denna rapport presenteras befolkningsutvecklingen i Dalarnas län. Fokus ligger på att beskriva hur befolkningen har förändrats över tid, samt att ge en översikt av befolkningsutvecklingen i de olika kommunerna i länet.
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+För mer info om statistiken, klicka på rutan nedan:
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+<details>
+<summary>Mer information om statistiken</summary>
 
-```{r cars}
-summary(cars)
-```
+<div title="Källa: SCB">I folkmängden som SCB publicerar ingår personer som är folkbokförda i landet. För att den som flyttar till Sverige ska bli folkbokförd ska personen ha för avsikt och rätt att stanna i Sverige i minst ett år. För personer som inte är medborgare i ett EU-land innebär det att det krävs ett uppehållstillstånd som gäller minst 12 månader för att bli folkbokförd. Till följd av Rysslands invasion av Ukraina den 24 februari 2022 har Europeiska unionen (EU) beslutat att aktivera massflyktsdirektivet, vilket innebär att personer från Ukraina utan individuell prövning ska erbjudas tidsbegränsat uppehålls- och arbetstillstånd inom EU. Personer som får uppehållstillstånd enligt massflyktsdirektivet ska i regel inte bli folkbokförda och ingå i den officiella befolkningsstatistiken. Läs mer [här](https://www.scb.se/hitta-statistik/statistik-efter-amne/befolkning/befolkningens-sammansattning/befolkningsstatistik/produktrelaterat/Fordjupad-information/statistik-om-invandring---fragor-och-svar/){target="_blank"}.
+
+Under 2023 inledde Skatteverket ett arbete med att avregistrera flera tusen folkbokförda personer som vid en granskning visat sig inte längre bo i Sverige. I folkbokföringen har dessa registrerats som utvandrade till okänt utvandringsland. EFFEKTER PÅ DALARNA? VART HITTAR MAN INFO OM DET? Läs mer [här](https://www.scb.se/pressmeddelande/sverige-gar-mot-lagsta-befolkningsokningen-pa-manga-ar/){target="_blank"}.
+
+För en större genomgång av hur folk och bostadsräkningar går till i Sverige, se SCBs genomgång [här](https://www.scb.se/hitta-statistik/statistik-efter-amne/befolkning/befolkningens-storlek-och-forandringar/registerbaserad-folk--och-bostadsrakning-census/produktrelaterat/Fordjupad-information/fragor-och-svar-om-folk--och-bostadsrakningar-census-med-mera/){target="_blank"}.
+
+</div>
+</details>
 
 # Sammanfattning {-}
 
-You can also embed plots, for example:
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
 # Befolkningsutveckling
 
-adfadfadf
+I Sverige har folkmängden mätts sedan mitten av 1700-talet. Då präglades Sverige, som då hade ungefär 2 miljoner invånare, i första hand av en agrar ekonomi, där befolkningen var beroende av jordbruket för sin försörjning. Under 1800-talet skedde en snabb urbanisering, där befolkningen flyttade från landsbygden till städerna. Detta möjliggjordes av den industriella revolutionen, som ledde till en ökad efterfrågan på arbetskraft i städerna.I mitten av 1800-talet hade Sveriges befolknings nästintill fördubblats till 3,9 miljoner invånare. Under 1900-talet fortsatte befolkningen att växa och 2017 passerade vi 10 miljoner invånare och idag har Sverige drygt 10.5 miljoner invånare.
+
+På länsnivå finns data över befolkningen från slutet av 1960-talet. I kartan nedan illustreras utvecklingen av befolkningen i Sveriges län mellan 1968 och 2023 och ett tydligt mönster framgår. Sveriges befolkning har i första hand ökat i de sydliga länen och då framförallt storstadsregioner. Uppsala län har haft den snabbaste befolkningsutvecklingen, med en ökning på drygt 50 procent sedan 1968. Detta hänger sannolikt samman med den relativt närheten till Stockholm kombinerat med ett av Sveriges främsta lärosäten. Även Halland, Stockholm och Skånes län har haft en befolkningsökning på över 30 procent under samma tidsperiod. I de nordligare delarna av landet är bilden relativt annorlunda. Med undantag för Västerbottens län, där befolknings ökat med ca 16 procent sedan 1968, har befolkningen minskat i de norra länen. Störst minskning har skett i Västernorrlands län, där befolkningen minskat med ca 11 procent sedan 1968. I Dalarna har befolkningen ökat med ungefär 3 procent sedan 60-talet, vilket är bättre än näraliggande län som Värmland och Gävleborg men sämre än exempelvis Örebro och Västmanland. Bidragande orsaker till detta är sannolikt avsaknad av större lärosäten och det relativt långa avståndet till storstadsregioner såsom Stockholm.
+
+KARTA 1
+
+På kommunnivå i Dalarna framträder ett liknande mönster, men i mindre skala. Befolkningen har ökat mest i Dalarnas största stad Falun, där den ökat med närmare 24 procent sedan 1968. Även i Borlänge och näraliggande pendlingsorter som Säter och Gagnef har befolknignen ökat tydligt. I de nordligare delarna av länet har befolkningen ökat mest i Leksand och Mora. Dessa ökningar har skett på bekostnad av framförallt mindre kommuner i norra Dalarna, där exempelvis Älvdalen och Vansbro har haft en befolkningsminskning på närmare 40 procent sedan 1968. I de södra delarna av länet är det framförallt tidigare bruksorter som Avesta och Ludvika som haft en kraftig befolkningsminskning (mellan 25 och 30 procent).
+
+KARTA 2
+
+I fortsättningen av denna rapport delas Dalarnas befolkningsutveckling upp i dess komponenter, födelsenetto, dvs. nettot av födda och döda, och flyttnetto, dvs. nettot av inrikes och utrikes flyttar. Vi börjar med födelsenettot.
+
+# Födelsenetto
+## Födda barn
+Antalet födda barn per kvinna i Sverige, den så kallade fruktsamheten, var under 2023 den lägsta som uppmätts (SCB har data sedan mitten av 1700-talet), vilket är i linje med en trend i hela västvärlden. Som synes i diagrammet nedan tenderar dock fruktsamheten att variera relativt mycket över tid. Detta kan förklaras med en blandning av faktorer, såsom ekonomiska förhållanden, politiska beslut och kulturella normer. Under 1970-talet sjönk fruktsamheten i Sverige till följd av bland annat en ökad användning av preventivmedel och en ökad andel kvinnor som studerade och arbetade. Under 1980-talet togs diverse politiska beslut kopplade till att förbättra fruktsamheten (exempelvis generös föräldraförsäkring) vilket fick en positivt effekt, innan en djup ekonomisk kris under 1990-talet hade en negativ effekt. Under delar av 2000-talet har fruktsamheten varit relativt hög, vilket kan hänga ihop med att den utrikes födda andelen av Sveriges befolkning då ökade kraftigt (invandrare har generellt högre födelsetal). Sedan toppen runt 2016 har dock fruktsamheten i Sverige sjunkit stadigt. Fruktsamheten i Dalarna följer i praktiken samma mönster som fruktsamheten i Sverige, men är något högre.
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_fruktsamhet$summerad_fruktsamhet_Riket_facet__ar_1968_2023
+
+```
+## Antalet döda
+
+## Nettot mellan födda och döda
+
 
 # Kommunfördjupningar {.tabset .tabset-fade .tabset-pills}
 

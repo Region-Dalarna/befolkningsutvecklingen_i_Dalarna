@@ -13,7 +13,7 @@ html {
 
 /* Det som gäller för dokumentet generellt, typografi m.m.*/
 body {
-  border-top: 5px solid #158daf;
+  border-top: 5px solid rgba(22,141,175);
   margin: 0;
   font-family:'Poppins', sans-serif;
   font-size: 1rem;
@@ -85,7 +85,7 @@ li{
 
 /*Ytan som rymmer "Mer info om statistiken*/
 details{
-  background-color: #f1f1f1;
+  background-color: #cff4fc;
   font-size: 0.9rem;
   padding: 10px 10px;
   border-radius: 3px 3px 3px 3px;
@@ -149,26 +149,12 @@ top: 5px;
 }
 
 .nav-pills>li>a:hover, .nav-pills>li>a:focus, .nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus{
-     background-color: #db3747;
+     background-color: rgba(22,141,175);
      color: #fff
      border-color: #000000;
 }
-     
-/*Bannern längst upp. Är kopplad till ett htm dokument som heter here_image. Kort fungerar så att ett objekt
-i HTML läses in i Headern (i sektionen längst upp i R-markdowndokumentet). Detta heter hero_image.html. Koden Nedan
-stilsätter det i CSS*/     
-.hero-image{
-    position: relative;
-    margin-bottom: 2em;
-    /* liner gradient tints the image darker for readability*/
-    background-image: url(Dalastrategin.jpg); 
-    height: 150px;
-    max-width: 1200px;
-    margin: 0 auto;
-    background-size: cover;
-    background-color: #141c25f2;
-    background-position: center center;
-}
+
+
 
 /*Rubriken*/
 
