@@ -42,6 +42,11 @@ valt_lan = "20"
 #                                                        output_mapp =  "G:/skript/jon/Figurer/",
 #                                                        farg_vekt = diagramfarger("rus_sex")[2:1])
 
+# Kartor över befolkningsutvecklingen
+source(here("Skript","kartor.R"), encoding="UTF-8")
+gg_kartor <- kartor_befolkning(karta_kommun = TRUE,
+                               karta_lan = TRUE,
+                               returnera_data = TRUE)
 
 # Diagram fruk
 source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_fruktsamhet_SCB.R", encoding="UTF-8")
