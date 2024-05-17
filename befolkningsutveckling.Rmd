@@ -56,9 +56,19 @@ gg_kartor$karta_kommun
 
 ```
 
+Om vi fokuserar på utvecklingen i Dalarnas län på årsbasis, är det tydligt att befolkningsförändringarna följer ett visst mönster, där perioder av tydliga befolkningsökningar följs av perioder av befolkningsminskningar. Exakt vad alla svängningar beror på kan vara svårt att veta, men uppenbart är i alla fall att den tydliga minskningen under 1990-talet hänger samman med den djupa ekonomiska kris som då drabbade Sverige och Dalarna. Mer än 10 000 personer netto lämnade länet under den andra hälften av 1990-talet. Sedan millennieskiftet har befolkningsutvecklingen varit mer stabil, med en ökning på ungefär `r plyr::round_any(befolkning_df %>% filter(år>"1999",variabel == "Folkökning") %>% .$varde %>% sum(),100)` personer sedan 2000. En viktig anledning till denna ökning är flyktingkrisen 2016, när Dalarnas län tog emot många flyktingar. Under `r max(befolkning_df$år)` minskade befolkningen i Dalarna med närmare `r abs(plyr::round_any(befolkning_df %>% filter(år == max(år),variabel == "Folkökning") %>% .$varde,100))` personer, vilket är den största minskningen sedan 1990-talet. 
+
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_befolkning$Befolkningsutveckling_Dalarna_ar_1968_2023
+```
+
+
+
 I fortsättningen av denna rapport delas Dalarnas befolkningsutveckling upp i dess komponenter, födelsenetto, dvs. nettot av födda och döda, och flyttnetto, dvs. nettot av inrikes och utrikes flyttar. Vi börjar med födelsenettot.
 
 # Födelsenetto
+
 ## Födda barn
 Antalet födda barn per kvinna i Sverige, den så kallade fruktsamheten, var under 2023 den lägsta som uppmätts (SCB har data sedan mitten av 1700-talet), vilket är i linje med en trend i hela västvärlden. Som synes i diagrammet nedan tenderar dock fruktsamheten att variera relativt mycket över tid. Detta kan förklaras med en blandning av faktorer, såsom ekonomiska förhållanden, politiska beslut och kulturella normer. Under 1970-talet sjönk fruktsamheten i Sverige till följd av bland annat en ökad användning av preventivmedel och en ökad andel kvinnor som studerade och arbetade. Under 1980-talet togs diverse politiska beslut kopplade till att förbättra fruktsamheten (exempelvis generös föräldraförsäkring) vilket fick en positivt effekt, innan en djup ekonomisk kris under 1990-talet hade en negativ effekt. Under delar av 2000-talet har fruktsamheten varit relativt hög, vilket kan hänga ihop med att den utrikes födda andelen av Sveriges befolkning då ökade kraftigt (invandrare har generellt högre födelsetal). Sedan toppen runt 2016 har dock fruktsamheten i Sverige sjunkit stadigt. Fruktsamheten i Dalarna följer i praktiken samma mönster som fruktsamheten i Sverige, men är något högre.
 

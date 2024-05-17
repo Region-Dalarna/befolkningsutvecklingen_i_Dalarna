@@ -9,11 +9,11 @@ vald_region = "20"
 valt_lan = "20"
 # 
 # # Diagram  befolkningsförändring
-# source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_befolkningsforandring_region_kon_ar_SCB.R", encoding="UTF-8")
-# gg_befolkning = diagram_befolkningsforandring_ar(region_vekt = vald_region,
-#                                                 spara_figur=FALSE,
-#                                                 diag_folkmangd = FALSE,
-#                                                 returnera_data = TRUE)
+source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_befolkningsforandring_region_kon_ar_SCB.R", encoding="UTF-8")
+gg_befolkning = diagram_befolkningsforandring_ar(region_vekt = vald_region,
+                                                spara_figur=FALSE,
+                                                diag_folkmangd = FALSE,
+                                                returnera_data = TRUE)
 # 
 # # Diagram födda och döda
 # source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_fodelsenetto_region_SCB.R")

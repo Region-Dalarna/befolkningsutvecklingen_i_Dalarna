@@ -114,7 +114,8 @@ kartor_befolkning = function(karta_kommun = TRUE, # Karta över Dalarnas kommune
              förändring = ifelse(is.na(förändring),Folkmängd, förändring),
              förändring = ifelse(år == "2000",0, förändring)) %>% 
       filter(år == max(år)) %>% 
-      mutate(regionkod = as.character(regionkod))
+      mutate(regionkod = as.character(regionkod),
+             region = skapa_kortnamn_lan(region))
     
     if(returnera_data == TRUE){
       assign("befolkning_forandring_lan", lan_df, envir = .GlobalEnv)
@@ -133,7 +134,7 @@ kartor_befolkning = function(karta_kommun = TRUE, # Karta över Dalarnas kommune
     
     karta_lan_ej_girafe <- ggplot(befutveckling_karta_lan,
                     aes(fill = förändring,
-                        label = LNNAMN,tooltip=paste("Kommun:",LNNAMN,"<br>","Befolkningsutveckling",förändring,"%"))) +
+                        label = LNNAMN,tooltip=paste("Län:",region,"<br>","Befolkningsutveckling",förändring,"%"))) +
       geom_sf_interactive() +
       scale_fill_gradient(low = "#93cec1", high = "#0e5a4c") +
       theme(axis.text.x = element_blank(),
