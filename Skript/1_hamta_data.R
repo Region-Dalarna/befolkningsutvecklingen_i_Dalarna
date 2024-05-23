@@ -15,32 +15,32 @@ gg_befolkning = diagram_befolkningsforandring_ar(region_vekt = vald_region,
                                                 diag_folkmangd = FALSE,
                                                 returnera_data = TRUE)
 # 
-# # Diagram födda och döda
-# source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_fodelsenetto_region_SCB.R")
-# gg_fodda_doda = diagram_fodelsenetto(region_vekt = vald_region,
-#                                      spara_figur = FALSE,
-#                                      tid = "*",
-#                                      returnera_data = TRUE)
+# Diagram födda och döda
+source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_fodelsenetto_region_SCB.R")
+gg_fodda_doda = diagram_fodelsenetto(region_vekt = vald_region,
+                                     spara_figur = FALSE,
+                                     tid = "*",
+                                     returnera_data = TRUE)
 # 
 # # Diagram  flyttnetto
-# source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_flytt_inrikes_utrikes_netto_SCB.R", encoding="UTF-8")
-# gg_flytt <- diagram_inr_utr_flytt(region_vekt = vald_region,
-#                                   spara_figur=FALSE,
-#                                   #tid = c(2000:9999),
-#                                   returnera_data = TRUE)
-# 
+source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_flytt_inrikes_utrikes_netto_SCB.R", encoding="UTF-8")
+gg_flytt <- diagram_inr_utr_flytt(region_vekt = vald_region,
+                                  spara_figur=FALSE,
+                                  #tid = c(2000:9999),
+                                  returnera_data = TRUE)
+
 # # Diagram flyttnetto åldersgrupper
-# source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_flytt_inrikes_aldersgrupper_SCB.R", encoding="UTF-8")
-# gg_flytt_alder <- diagram_inrikes_flytt_alder(region_vekt = vald_region,
-#                                               #tid = c(2000:9999),
-#                                               spara_figur = FALSE)
-# 
+source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_flytt_inrikes_aldersgrupper_SCB.R", encoding="UTF-8")
+gg_flytt_alder <- diagram_inrikes_flytt_alder(region_vekt = vald_region,
+                                              #tid = c(2000:9999),
+                                              spara_figur = FALSE)
+
 # # Diagram flyttnetto födelseregion
-# source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_flytt_inrikes_bakgrund_SCB.R", encoding="UTF-8")
-# gg_flytt_bakgrund <- diag_inr_flyttnetto_inr_utr_fodda(region_vekt = vald_region,
-#                                                        skriv_diagram = FALSE,
-#                                                        output_mapp =  "G:/skript/jon/Figurer/",
-#                                                        farg_vekt = diagramfarger("rus_sex")[2:1])
+source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_flytt_inrikes_bakgrund_SCB.R", encoding="UTF-8")
+gg_flytt_bakgrund <- diag_inr_flyttnetto_inr_utr_fodda(region_vekt = vald_region,
+                                                       skriv_diagram = FALSE,
+                                                       output_mapp =  "G:/skript/jon/Figurer/",
+                                                       farg_vekt = diagramfarger("rus_sex")[2:1])
 
 # Kartor över befolkningsutvecklingen
 source(here("Skript","kartor.R"), encoding="UTF-8")

@@ -50,7 +50,7 @@ kartor_befolkning = function(karta_kommun = TRUE, # Karta över Dalarnas kommune
     # Calculate change between 2000 and latest year
     befolkning_df <- befolkning_df %>% 
       mutate(Folkmängd = as.numeric(Folkmängd),
-             förändring = round(((Folkmängd - lag(Folkmängd))/Folkmängd)*100,1),
+             förändring = round(((Folkmängd - lag(Folkmängd))/lag(Folkmängd))*100,1),
              förändring = ifelse(is.na(förändring),Folkmängd, förändring),
              förändring = ifelse(år == "2000",0, förändring)) %>% 
         filter(år == max(år)) %>% 
@@ -110,7 +110,7 @@ kartor_befolkning = function(karta_kommun = TRUE, # Karta över Dalarnas kommune
     # Calculate change between 2000 and latest year
     lan_df <- lan_df %>% 
       mutate(Folkmängd = as.numeric(Folkmängd),
-             förändring = round(((Folkmängd - lag(Folkmängd))/Folkmängd)*100,1),
+             förändring = round(((Folkmängd - lag(Folkmängd))/lag(Folkmängd))*100,1),
              förändring = ifelse(is.na(förändring),Folkmängd, förändring),
              förändring = ifelse(år == "2000",0, förändring)) %>% 
       filter(år == max(år)) %>% 
