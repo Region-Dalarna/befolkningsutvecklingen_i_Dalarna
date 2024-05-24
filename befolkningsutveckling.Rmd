@@ -20,6 +20,8 @@ knitr::opts_chunk$set(echo = TRUE)
 # Introduktion {-}
 I denna rapport presenteras befolkningsutvecklingen i Dalarnas län. Fokus ligger på att beskriva hur befolkningen har förändrats över tid, samt att ge en översikt av befolkningsutvecklingen i de olika kommunerna i länet.
 
+dfdf
+
 För mer info om statistiken, klicka på rutan nedan:
 
 <details>
