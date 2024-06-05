@@ -70,9 +70,9 @@ kartor_befolkning = function(karta_kommun = TRUE, # Karta över Dalarnas kommune
     
     # lägg ihop kommunpolygonerna med brp per kommun-statistiken
     befutveckling_karta <- left_join(kommuner_sv, befolkning_df, by = c("KOMMUNKOD" = "regionkod"))
+
     
-    
-    karta_ej_girafe <- ggplot(befutveckling_karta,
+    karta_girafe <- ggplot(befutveckling_karta,
                     aes(fill = förändring,
                         label = KOMMUNNAMN,tooltip=paste("Kommun:",KOMMUNNAMN,"<br>","Befolkningsutveckling",förändring,"%","<br>","Folkmängd" ,år," : ",Folkmängd))) +
       geom_sf_interactive() +
@@ -90,7 +90,7 @@ kartor_befolkning = function(karta_kommun = TRUE, # Karta över Dalarnas kommune
            fill = "Förändring (%)",
            caption = "Källa: SCB:s öppna statistikdatabas\nBearbetning: Samhällsanalys, Region Dalarna") 
     
-    karta_kommun <- girafe(ggobj=karta_ej_girafe)
+    karta_kommun <- girafe(ggobj=karta_girafe)
     
     karta_kommun <-girafe_options(karta_kommun,opts_tooltip(opacity = 1,css = "padding:4pt;font-size:0.7rem;color:black;background-color:rgba(255,255,255,0.7);border-radius:5pt;font-weight: 600",
                                               offx = 50))
@@ -132,7 +132,7 @@ kartor_befolkning = function(karta_kommun = TRUE, # Karta över Dalarnas kommune
     # lägg ihop kommunpolygonerna med brp per kommun-statistiken
     befutveckling_karta_lan <- left_join(lan_sv, lan_df, by = c("LNKOD" = "regionkod"))
     
-    karta_lan_ej_girafe <- ggplot(befutveckling_karta_lan,
+    karta_lan_girafe <- ggplot(befutveckling_karta_lan,
                     aes(fill = förändring,
                         label = LNNAMN,tooltip=paste("Län:",region,"<br>","Befolkningsutveckling",förändring,"%"))) +
       geom_sf_interactive() +
@@ -151,7 +151,7 @@ kartor_befolkning = function(karta_kommun = TRUE, # Karta över Dalarnas kommune
            caption = "Källa: SCB:s öppna statistikdatabas\nBearbetning: Samhällsanalys, Region Dalarna") 
     
     
-    karta_lan <- girafe(ggobj=karta_lan_ej_girafe)
+    karta_lan <- girafe(ggobj=karta_lan_girafe)
     
     karta_lan <-girafe_options(karta_lan,opts_tooltip(opacity = 1,css = "padding:4pt;font-size:0.7rem;color:black;background-color:rgba(255,255,255,0.7);border-radius:5pt;font-weight: 600",
                                               offx = 25,

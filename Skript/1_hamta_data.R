@@ -22,6 +22,12 @@ gg_fodda_doda = diagram_fodelsenetto(region_vekt = vald_region,
                                      tid = "*",
                                      returnera_data = TRUE)
 # 
+
+# Diagram flyttnetto län
+source("C:/Users/frkjon/Projekt/befolkningsutvecklingen_i_Dalarna/Skript/diagram_flyttningar_overskott.R")
+gg_flytt_lan <- diagram_inflytt(spara_figur=FALSE,
+                                returnera_data = TRUE)
+
 # # Diagram  flyttnetto
 source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_flytt_inrikes_utrikes_netto_SCB.R", encoding="UTF-8")
 gg_flytt <- diagram_inr_utr_flytt(region_vekt = vald_region,

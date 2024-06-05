@@ -128,17 +128,43 @@ gg_fodda_doda$Födelsenetto_Dalarna_ar_1968_2023
 
 ## Flyttningar
 
-En kort introduktion. Förklara att flyttningar är centrala för att Dalarna skall växa. Hur ser det ut? Hur har utvecklingen varit?
+Som vi såg i avsnittet ovan, bidrar nettot mellan födda och döda i praktiken alltid negativt till Dalarnas befolkningsutveckling. Eftersom andelen av befolkningen som inte är i barnafödande ålder med all sannolikhet kommer att öka i framtiden, är det svårt att se hur den utvecklingen skall kunna förändras framöver. Om tanken är att Dalarnas befolkning skall växa i framtiden blir det därför helt centralt att fler flyttar till länet än de som flyttar därifrån. Flyttarna till och från Dalarna kan delas upp i två delar:
+
+* **Inrikes flyttar**, dvs. de som flyttar till och från länet från andra delar av Sverige.
+* **Utrikes flyttar**, dvs de som flyttar till och från länet från andra delar av Sverige.
+
 
 ### Inrikes flyttningar
 
+Inledning där man visar utvecklingen i Sverige på en karta? Intressant att betona att det gått bra för Skellefteå
 I praktiken alltid negativt, vilket bör betonas här.
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_flytt_lan$inrikes_flyttningsoverskott
+```
+
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_flytt$`Inrikes flyttningsöverskott_Dalarna_ar_1997_2023`
+```
+
 
 ### Utrikes flyttningar
 
 Det som styr i mångt och mycket. 
 
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_flytt$Invandringsöverskott_Dalarna_ar_1997_2023
+
+```
+
+
 ### Nettot mellan de båda
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_flytt$Flyttnetto_Dalarna_ar_1997_2023
+
+```
 
 
 # Kommunfördjupningar {.tabset .tabset-fade .tabset-pills}
