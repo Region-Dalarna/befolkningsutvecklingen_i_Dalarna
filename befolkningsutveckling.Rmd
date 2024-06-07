@@ -15,6 +15,9 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+if (!require("pacman")) install.packages("pacman")
+p_load(tidyverse)
+
 ```
 
 # Introduktion {-}
@@ -44,7 +47,7 @@ För en större genomgång av hur folk och bostadsräkningar går till i Sverige
 
 ## Folkmängd
 
-För att beskriva befolkningsutvecklingen över längre tid används ofta den så kallade demografiska transitionsmodellen. Denna modell beskriver hur befolkningstillväxt och demografiska mönster förändras över tid när ett land utvecklas från ett förindustriellt till ett postindustriellt samhälle. Modellen är vanligtvis indelad i fyra eller fem faser, vilka beskrivs i informationsrutan nedan:
+För att beskriva befolkningsutvecklingen över längre tidshorisonter används ofta den så kallade demografiska transitionsmodellen. Denna modell beskriver hur befolkningstillväxt och demografiska mönster förändras över tid när ett land utvecklas från ett förindustriellt till ett postindustriellt samhälle. Modellen är vanligtvis indelad i fyra eller fem faser, vilka beskrivs i informationsrutan nedan:
 
 <details>
 <summary>Den demografiska transitionsmodellen</summary>
@@ -64,16 +67,16 @@ För en djupare genomgång, se exempelvis [Our World in Data](https://ourworldin
 
 </details>
 
-I Sverige har folkmängden mätts sedan mitten av 1700-talet. Då präglades Sverige, som då hade ungefär 2 miljoner invånare, i första hand av en agrar ekonomi, där befolkningen var beroende av jordbruket för sin försörjning. Under 1800-talet skedde en snabb urbanisering, där befolkningen flyttade från landsbygden till städerna. Detta möjliggjordes av den industriella revolutionen, som ledde till en ökad efterfrågan på arbetskraft i städerna.I mitten av 1800-talet hade Sveriges befolknings nästintill fördubblats till 3,9 miljoner invånare. Under 1900-talet fortsatte befolkningen att växa och 2017 passerade vi 10 miljoner invånare och idag har Sverige drygt 10.5 miljoner invånare.
+I Sverige har folkmängden mätts sedan mitten av 1700-talet. Då befann sig Sverige, som hade ungefär 2 miljoner invånare, i ett förindustriellt stadium och präglades första hand av en agrar ekonomi, där befolkningen var beroende av jordbruket för sin försörjning. Under 1800-talet skedde en snabb urbanisering, där befolkningen flyttade från landsbygden till städerna. Detta möjliggjordes av den industriella revolutionen, som ledde till en ökad efterfrågan på arbetskraft i städerna.I mitten av 1800-talet hade Sveriges befolknings nästintill fördubblats till 3,9 miljoner invånare. Denna utveckling är typisk för det stadium som brukar benämnas tidig industrialisering. Under 1900-talet fortsatte befolkningen att växa och 2017 passerade vi 10 miljoner invånare och idag har Sverige drygt 10.5 miljoner invånare. Sverige kan sägas befinna sig i ett postindustriellt stadium, där befolkningstillväxten är relativt låg och befolkningen åldras.
 
-På länsnivå finns data över befolkningen från slutet av 1960-talet. I kartan nedan illustreras utvecklingen av befolkningen i Sveriges län mellan 1968 och `r unique(befolkning_forandring_lan$år)` och ett tydligt mönster framgår. Sveriges befolkning har i första hand ökat i de sydliga länen och då framförallt storstadsregioner. `r befolkning_forandring_lan %>% filter(förändring == max(.$förändring)) %>% .$region` har haft den snabbaste befolkningsutvecklingen, med en ökning på ungefär `r round(befolkning_forandring_lan %>% filter(förändring == max(.$förändring)) %>% .$förändring,0)` procent sedan 1968. Detta hänger sannolikt samman med den relativt närheten till Stockholm kombinerat med ett av Sveriges främsta lärosäten. Även Halland och Stockholms län har haft befolkningsökningar på över 70 procent under samma tidsperiod. I de nordligare delarna av landet är bilden relativt annorlunda. Med undantag för Västerbottens län, där befolknings ökat med ca `r round(befolkning_forandring_lan %>% filter(region == "Västerbottens län") %>% .$förändring,0)` procent sedan 1968, har befolkningen minskat i de norra länen. Störst minskning har skett i `r befolkning_forandring_lan %>% filter(förändring == min(.$förändring)) %>% .$region`, där befolkningen minskat med ca `r round(abs(befolkning_forandring_lan %>% filter(förändring == min(.$förändring)) %>% .$förändring),0)` procent sedan 1968. I Dalarna har befolkningen ökat med ungefär `r round(befolkning_forandring_lan %>% filter(region == "Dalarnas län") %>% .$förändring,0)` procent sedan 60-talet, vilket är bättre än näraliggande län som Värmland och Gävleborg men sämre än exempelvis Örebro och Västmanland. Bidragande orsaker till detta är sannolikt avsaknad av större lärosäten och det relativt långa avståndet till storstadsregioner såsom Stockholm.
+På länsnivå finns data över befolkningen från slutet av 1960-talet. I kartan nedan illustreras utvecklingen av befolkningen i Sveriges län mellan 1968 och `r unique(befolkning_forandring_lan$år)` och ett tydligt mönster framgår. Sveriges befolkning har i första hand ökat i de sydliga länen och då framförallt storstadsregioner. `r befolkning_forandring_lan %>% filter(förändring == max(.$förändring)) %>% .$region` har haft den snabbaste befolkningsutvecklingen, med en ökning på ungefär `r round(befolkning_forandring_lan %>% filter(förändring == max(.$förändring)) %>% .$förändring,0)` procent sedan 1968. Detta hänger sannolikt samman med den relativt närheten till Stockholm kombinerat med ett av Sveriges främsta lärosäten. Även Halland och Stockholms län har haft befolkningsökningar på över 70 procent under samma tidsperiod. I de nordligare delarna av landet är bilden relativt annorlunda. Med undantag för Västerbottens län, där befolknings ökat med ca `r round(befolkning_forandring_lan %>% filter(region == "Västerbotten") %>% .$förändring,0)` procent sedan 1968, har befolkningen minskat i de norra länen. Störst minskning har skett i `r befolkning_forandring_lan %>% filter(förändring == min(.$förändring)) %>% .$region`, där befolkningen minskat med ca `r round(abs(befolkning_forandring_lan %>% filter(förändring == min(.$förändring)) %>% .$förändring),0)` procent sedan 1968. I Dalarna har befolkningen ökat med ungefär `r round(befolkning_forandring_lan %>% filter(region == "Dalarna") %>% .$förändring,0)` procent sedan 60-talet, vilket är bättre än näraliggande län som Värmland och Gävleborg men sämre än exempelvis Örebro och Västmanland. Bidragande orsaker till detta är sannolikt avsaknad av större lärosäten och det relativt långa avståndet till storstadsregioner såsom Stockholm.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_kartor$karta_lan
 
 ```
 
-På kommunnivå i Dalarna framträder ett liknande mönster, men i mindre skala. Befolkningen har ökat mest i `r befolkning_forandring_kommun %>% filter(förändring == max(.$förändring)) %>% .$region`, där den ökat med ungefär `r round(befolkning_forandring_kommun %>% filter(förändring == max(.$förändring)) %>% .$förändring,0)` procent sedan 1968. Även i Borlänge och näraliggande pendlingsorter som Säter och Gagnef har befolknignen ökat tydligt. I de nordligare delarna av länet har befolkningen ökat mest i Leksand och Mora. Dessa ökningar har skett på bekostnad av framförallt mindre kommuner i norra Dalarna, där exempelvis Älvdalen och Vansbro har haft en befolkningsminskning på närmare 30 procent sedan 1968. I de södra delarna av länet är det framförallt tidigare bruksorter som Avesta och Ludvika som haft en kraftig befolkningsminskning (strax över 20 procent).
+På kommunnivå i Dalarna framträder ett liknande mönster, men i mindre skala. Befolkningen har ökat mest i `r befolkning_forandring_kommun %>% filter(förändring == max(.$förändring)) %>% .$region`, där den ökat med ungefär `r round(befolkning_forandring_kommun %>% filter(förändring == max(.$förändring)) %>% .$förändring,0)` procent sedan 1968. Även i Borlänge och näraliggande pendlingsorter som Säter och Gagnef har befolkningen ökat tydligt. I de nordligare delarna av länet har befolkningen ökat mest i Leksand och Mora. Dessa ökningar har skett på bekostnad av framförallt mindre kommuner i norra Dalarna, där exempelvis Älvdalen och Vansbro har haft en befolkningsminskning på närmare 30 procent sedan 1968. I de södra delarna av länet är det framförallt tidigare bruksorter som Avesta och Ludvika som haft en kraftig befolkningsminskning (strax över 20 procent).
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_kartor$karta_kommun
@@ -89,7 +92,16 @@ gg_befolkning$Befolkningsutveckling_Dalarna_ar_1968_2023
 
 ## Åldersstruktur
 
-Befolkningspyramid där 1968 jämförs med senaste år. Sannolikt under skript/diagram/något med pyramid
+Även om folkmängden i Dalarna är ungefär lika stor som den var i slutet av 60-talet, är dess sammansättning idag väsentligt annorlunda, framförallt när det kommer till åldersfördelningen. Från slutet av andra Världskriget fram till mitten av 1960-talets föddes många barn i Sverige, vilka brukar sägas tillhöra generationen "baby-boomers". Detta syns tydligt i diagrammet nedan, då andelen av befolkningen som var under 30 år var klart högre 1968 än idag. I början av 1990-talet fick många i den stora 1960-tals generationen barn, vilka idag är runt 30 år gamla. Till följd av detta är personer i den åldersgruppen klart fler idag än de var på 1960-talet. I diagrammet framgår även att andelen av befolkningen som är 65 år eller äldre har ökat kraftigt sedan 1968. Detta hänger samman med att den stora 1960-tals generationen börjar nå pensionsåldern, samtidigt som den förväntade livslängden ökat. 
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+
+# include png file
+knitr::include_graphics("Figurer/Befpyramid Dalarnas län 2023_jmfr_ar_1968.png")
+
+```
+
+
 
 I fortsättningen av denna rapport delas Dalarnas befolkningsutveckling upp i dess komponenter, födelsenetto, dvs. nettot av födda och döda, och flyttnetto, dvs. nettot av inrikes och utrikes flyttar. Vi börjar med födelsenettot.
 

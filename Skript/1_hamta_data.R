@@ -5,6 +5,7 @@ p_load(here)
 source("https://raw.githubusercontent.com/Region-Dalarna/funktioner/main/func_API.R", encoding = "utf-8", echo = FALSE)
 
 Output_mapp = here("Data","/")
+Output_mapp_figur = here("Figurer","/")
 vald_region = "20"
 valt_lan = "20"
 # 
@@ -65,6 +66,11 @@ gg_fruktsamhet <- diagram_fruktsamhet(region_vekt = c("00",valt_lan),
                                       facet_skala = "fixed",
                                       returnera_data = TRUE)
 
+source("G:/skript/diagram/diag_befpyramid.R")
+gg_befpyramid <- diag_befpyramid(geo_vekt = vald_region,
+                                 jmfr_linje = "ar",
+                                 jmfr_ar = "1968",
+                                 output_mapp = Output_mapp_figur)
 
 
 
