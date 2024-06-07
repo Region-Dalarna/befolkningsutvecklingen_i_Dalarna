@@ -55,7 +55,8 @@ gg_kartor <- kartor_befolkning(karta_kommun = TRUE,
                                karta_lan = TRUE,
                                returnera_data = TRUE)
 
-# Diagram fruk
+# Diagram fruktsamhet
+# Jmf Sverige och Dalarna
 source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_fruktsamhet_SCB.R", encoding="UTF-8")
 gg_fruktsamhet <- diagram_fruktsamhet(region_vekt = c("00",valt_lan),
                                       diag_facet = TRUE, # diag_fokus_tid som facet-diagram istället för ett per region
@@ -64,6 +65,14 @@ gg_fruktsamhet <- diagram_fruktsamhet(region_vekt = c("00",valt_lan),
                                       spara_figur=FALSE,
                                       vald_period = "*",
                                       facet_skala = "fixed",
+                                      returnera_data = TRUE)
+# Jmf Dalarnas kommuner
+gg_fruktsamhet_kommun <- diagram_fruktsamhet(region_vekt = hamtakommuner(valt_lan),
+                                      diag_facet = FALSE, # diag_fokus_tid som facet-diagram istället för ett per region
+                                      diag_jmf_lan = TRUE, # Skapa diagram för jämförelse mellan valda regioner
+                                      diag_forandring = FALSE, # Skapa diagram för förändringar över tid
+                                      spara_figur=FALSE,
+                                      vald_period = "*",
                                       returnera_data = TRUE)
 
 source("G:/skript/diagram/diag_befpyramid.R")

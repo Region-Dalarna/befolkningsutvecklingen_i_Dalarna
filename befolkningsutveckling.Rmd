@@ -101,23 +101,37 @@ knitr::include_graphics("Figurer/Befpyramid Dalarnas län 2023_jmfr_ar_1968.png"
 
 ```
 
-
-
 I fortsättningen av denna rapport delas Dalarnas befolkningsutveckling upp i dess komponenter, födelsenetto, dvs. nettot av födda och döda, och flyttnetto, dvs. nettot av inrikes och utrikes flyttar. Vi börjar med födelsenettot.
 
 # Födelsenetto
 
+Här behövs en kort introduktion
+
 ## Fruktsamhet
-Antalet födda barn per kvinna i Sverige, den så kallade fruktsamheten, var under 2023 den lägsta som uppmätts (SCB har data sedan mitten av 1700-talet), vilket är i linje med en trend i hela västvärlden. Som synes i diagrammet nedan tenderar dock fruktsamheten att variera relativt mycket över tid. Detta kan förklaras med en blandning av faktorer, såsom ekonomiska förhållanden, politiska beslut och kulturella normer. Under 1970-talet sjönk fruktsamheten i Sverige till följd av bland annat en ökad användning av preventivmedel och en ökad andel kvinnor som studerade och arbetade. Under 1980-talet togs diverse politiska beslut kopplade till att förbättra fruktsamheten (exempelvis generös föräldraförsäkring) vilket fick en positivt effekt, innan en djup ekonomisk kris under 1990-talet hade en negativ effekt. Under delar av 2000-talet har fruktsamheten varit relativt hög, vilket kan hänga ihop med att den utrikes födda andelen av Sveriges befolkning då ökade kraftigt (invandrare har generellt högre födelsetal). Sedan toppen runt 2016 har dock fruktsamheten i Sverige sjunkit stadigt. Fruktsamheten i Dalarna följer i praktiken samma mönster som fruktsamheten i Sverige, men är något högre.
+Antalet födda barn per kvinna i Sverige, den så kallade fruktsamheten, var under 2023 den lägsta som uppmätts (SCB har data sedan mitten av 1700-talet), vilket är i linje med utvecklingen i stora delar av västvärlden. Som synes i diagrammet nedan tenderar dock fruktsamheten att variera relativt mycket över tid. Detta kan förklaras med en blandning av faktorer, såsom ekonomiska förhållanden, politiska beslut och kulturella normer. Under 1970-talet sjönk fruktsamheten i Sverige till följd av bland annat en ökad användning av preventivmedel och en ökad andel kvinnor som studerade och arbetade. Under 1980-talet togs diverse politiska beslut kopplade till att förbättra fruktsamheten (exempelvis generös föräldraförsäkring), vilket fick en positivt effekt fram till början av 1990-talet, innan en ekonomisk kris fick en tydligt negativ effekt. Under delar av 2000-talet har fruktsamheten varit relativt hög, vilket sannolikt hänger ihop med att den utrikes födda andelen av Sveriges befolkning då ökade kraftigt (invandrare har generellt högre födelsetal). Sedan toppen runt 2016 har dock fruktsamheten i Sverige sjunkit stadigt. Fruktsamheten i Dalarna följer i praktiken samma mönster som fruktsamheten i Sverige, men är något högre.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_fruktsamhet$summerad_fruktsamhet_Riket_facet__ar_1968_2023
 
 ```
 
+Bland Dalarnas kommuner hade `r fruktsamhet_df %>% filter(år ==max(år)) %>% filter(sum_frukts_ar == max(sum_frukts_ar)) %>% .$region` år `r max(fruktsamhet_df$år)` den högsta fruktsamheten (`r sub("\\.",",",fruktsamhet_df %>% filter(år ==max(år)) %>% filter(sum_frukts_ar == max(sum_frukts_ar)) %>% .$sum_frukts_ar)`), medan `r fruktsamhet_df %>% filter(år ==max(år)) %>% filter(sum_frukts_ar == min(sum_frukts_ar)) %>% .$region` hade den lägsta (`r gsub("\\.",",",fruktsamhet_df %>% filter(år ==max(år)) %>% filter(sum_frukts_ar == min(sum_frukts_ar)) %>% .$sum_frukts_ar)`). Det är dock viktigt att notera att fruktsamheten på kommun-nivå kan variera relativt mycket över tid (se avsnittet kommunfördjupningar).
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+
+gg_fruktsamhet_kommun$jmf_summerad_fruktsamhet_ar_2023_Dalarna_ar
+
+```
+
+
 SKULLE VARA INTRESSANT MED FRUKTSAMHET UPPDELAT PÅ ÅLDERSGRUPPER. Går sannolikt att modifiera skriptet för att ta hänsyn till det.
 
-Skall nästa rubrik vara antalet döda och sedan kikar man på nettot? Känns rimligt
+## Avlidna
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+
+```
+
 
 Döda bör kopplat till åldersstrukturen, dvs. att trots att befolkningen idag är såväl större som har en annan ålderstruktur, så dog lika många 1968.
 
