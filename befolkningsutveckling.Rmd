@@ -213,6 +213,14 @@ gg_flytt_alder$`Inrikes flyttnetto_alder_Dalarna_ar_1997_2023`
 gg_flytt_bakgrund$Flyttnetto_bakgrundDalarna_ar2002_2023
 ```
 
+## Prognos
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_befprognos$befolkningsforandring_Dalarna_2023_2040
+```
+
+
+
 
 # Kommunfördjupningar {.tabset .tabset-fade .tabset-pills}
 

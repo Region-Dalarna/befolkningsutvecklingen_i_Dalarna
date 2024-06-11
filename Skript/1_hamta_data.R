@@ -75,12 +75,26 @@ gg_fruktsamhet_kommun <- diagram_fruktsamhet(region_vekt = hamtakommuner(valt_la
                                       vald_period = "*",
                                       returnera_data = TRUE)
 
+## Befolkningspyramid
 source("G:/skript/diagram/diag_befpyramid.R")
 gg_befpyramid <- diag_befpyramid(geo_vekt = vald_region,
                                  jmfr_linje = "ar",
                                  jmfr_ar = "1968",
                                  output_mapp = Output_mapp_figur)
 
+## Befolkningsprognos
+source("C:/Users/frkjon/Projekt/befolkningsutvecklingen_i_Dalarna/Skript/befprognos.R")
+
+gg_befprognos <- diagram_befprognos(region_vekt = vald_region,
+                                    diag_aldergrupp = TRUE, 
+                                    diag_jmf_region = FALSE,
+                                    output_mapp_figur = Output_mapp_figur)
+
+gg_befprognos_kommun <- diagram_befprognos(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE,tamedlan=FALSE),
+                                           diag_aldergrupp = TRUE, 
+                                           diag_jmf_region = TRUE,
+                                           diag_alla = TRUE,
+                                           output_mapp_figur = Output_mapp_figur)
 
 
 
