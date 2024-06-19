@@ -83,7 +83,7 @@ gg_kartor$karta_kommun
 
 ```
 
-Om vi fokuserar på utvecklingen i Dalarnas län på årsbasis, är det tydligt att befolkningsförändringarna följer ett visst mönster, där perioder av tydliga befolkningsökningar följs av perioder av befolkningsminskningar. Exakt vad alla svängningar beror på kan vara svårt att veta, men uppenbart är i alla fall att den tydliga minskningen under 1990-talet hänger samman med den djupa ekonomiska kris som då drabbade Sverige och Dalarna. Mer än 10 000 personer netto lämnade länet under den andra hälften av 1990-talet. Sedan millennieskiftet har befolkningsutvecklingen varit mer stabil, med en ökning på ungefär `r plyr::round_any(befolkning_df %>% filter(år>"1999",variabel == "Folkökning") %>% .$varde %>% sum(),100)` personer sedan 2000. En viktig anledning till denna ökning är flyktingkrisen 2016, när Dalarnas län tog emot många flyktingar. Under `r max(befolkning_df$år)` minskade befolkningen i Dalarna med närmare `r abs(plyr::round_any(befolkning_df %>% filter(år == max(år),variabel == "Folkökning") %>% .$varde,100))` personer, vilket är den största minskningen sedan 1990-talet. 
+Om vi fokuserar på utvecklingen i Dalarnas län på årsbasis, är det tydligt att befolkningsförändringarna följer ett visst mönster, där perioder av tydliga befolkningsökningar följs av perioder av befolkningsminskningar. Exakt vad alla svängningar beror på kan vara svårt att veta, men uppenbart är i alla fall att den tydliga minskningen under 1990-talet hänger samman med den djupa ekonomiska kris som då drabbade Sverige och Dalarna. Mer än 10 000 personer netto lämnade länet under den andra hälften av 1990-talet. Sedan millennieskiftet har befolkningsutvecklingen varit mer stabil, med en ökning på ungefär `r plyr::round_any(befolkning_df %>% filter(år>"1999",variabel == "Folkökning") %>% .$varde %>% sum(),100)` personer sedan 2000. En viktig anledning till denna ökning är flyktingkrisen 2016, när Dalarnas län tog emot många flyktingar. Under `r max(befolkning_df$år)` minskade befolkningen i Dalarna med närmare `r abs(plyr::round_any(befolkning_df %>% filter(år == max(år),variabel == "Folkökning",region == "Dalarnas län") %>% .$varde,100))` personer, vilket är den största minskningen sedan 1990-talet. 
 
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
@@ -230,7 +230,51 @@ gg_befprognos$befolkningsforandring_Dalarna_2023_2040
 
 ## Avesta {-}
 
-adfadfadf
+I likhet med de flesta kommuner i Dalarna har Avestas befolkning minskat under en lång period, från ca `r format(plyr::round_any(befolkning_df %>% filter(år == min(år),region == "Avesta" ,variabel == "Folkmängd") %>% .$varde,100),big.mark=" ") ` invånare  år `r min(befolkning_df$år)` till ungefär `r format(plyr::round_any(befolkning_df %>% filter(år == max(år),region == "Avesta", variabel == "Folkmängd") %>% .$varde,100),big.mark=" ") ` invånare år `r max(befolkning_df$år)`.
+
+Befolkningen minskar under en överväldigande majoritet av åren, vilket syns tydligt i diagrammet nedan. Det stora undantaget var i samband med flyktingkrisen 2015-2016, när Avestas befolkning ökade med mer än 1100 personer. Därefter minskade befolkningen under några år, vilket till stor del kan förklaras med att personer som flyttade till Avesta i samband med flyktingkrisen lämnade för andra delar av Sverige. Under 2022 ökade Avestas befolkning något (`r befolkning_df %>% filter(år == "2022",region == "Avesta", variabel == "Folkökning") %>% .$varde ` personer), men denna ökning följdes av en en betydligt större minskning 2023 (`r befolkning_df %>% filter(år == "2023",region == "Avesta", variabel == "Folkökning") %>% .$varde ` personer).
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_befolkning$Befolkningsutveckling_Avesta_ar_1968_2023
+```
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_fruktsamhet_kommun$summerad_fruktsamhet_Avesta_facet__ar_1968_2023
+```
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_fodda_doda$Födelsenetto_Avesta_ar_1968_2023
+```
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+knitr::include_graphics("Figurer/Befpyramid Avesta 2023_jmfr_ar_1968.png")
+```
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_flytt$Flyttnetto_Avesta_ar_1997_2023
+
+```
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_flytt$`Inrikes flyttningsöverskott_Avesta_ar_1997_2023`
+```
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_flytt$Invandringsöverskott_Avesta_ar_1997_2023
+```
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_flytt_alder$Inrikes_flyttnetto_alder_Avesta_ar_2021_2023
+```
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_flytt_alder$`Inrikes flyttnetto_alder_Avesta_ar_1997_2023`
+```
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_flytt_bakgrund$Flyttnetto_bakgrundAvesta_ar2002_2023
+
+```
 
 ## Borlänge {-}
 
