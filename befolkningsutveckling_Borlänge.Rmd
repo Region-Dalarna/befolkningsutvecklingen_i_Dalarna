@@ -1,0 +1,148 @@
+---
+title: "Befolkningsutvecklingen i Borlänge"
+author: ""
+date: ""
+output: 
+  html_document:
+    includes:
+      in_header: hero_image_kommun.html
+    toc: yes
+    toc_float: yes
+    toc_depth: 6
+    css: "styles_hero.css"
+    number_sections: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+<p style="font-weight: 600;font-size: 1.5rem;line-height:1;padding-top:15px">Befolkningsutvecklingen i Borlänge<br> <span style="font-weight: 400;font-size: 1.2rem">- en kort analys</span></p>
+
+<style>
+h1 { /* Header 1 */
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: #000000;
+  margin-top: 2rem;
+}
+h2 { /* Header 2 */
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: #000000;
+  margin-top: 1.5rem;
+}
+h3 { /* Header 3 */
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: #000000;
+}
+</style>
+
+<p style = "font-size:12px">
+<i>Rapporten är skapad av Samhällsanalys, Region Dalarna<br>
+Senast uppdaterad: `r Sys.Date()`</i>
+</p>
+
+# Sammanfattning { - }
+Syftet med den här korta analysen är att undersöka Borlänges befolkningsutveckling. Ett antal viktiga slutsatser sammanfattas här:
+
+* Nedgången i Borlänges folkmängd år 2023, jämfört med åren innan, beror på en svagare utveckling inom mer eller mindre alla komponenter som förklarar befolkningsutvecklingen.
+* Det föddes klart färre barn i Vanbsbro 2023, jämfört med 2022. Detta är i linje med en större trend i samhället, då barnafödandet per kvinna i Sverige 2023 var det lägsta som har uppmätts.
+* En allt stramare migrationspolitik gör att färre invandrar till Sverige än tidigare, vilket även påverkar inflyttningen till Borlänge.
+* Många, framförallt unga vuxna födda i Sverige, flyttade från Borlänge till andra delar av Sverige under 2023. Att många flyttar från kommunen inrikes är normalt, men 2023 sticker ut som ett av de sämsta åren på 2000-talet på den punkten.
+
+För mer info om statistiken, klicka på rutan nedan:
+
+<details>
+<summary>Mer information om statistiken</summary>
+
+<div title="Källa: SCB">I folkmängden som SCB publicerar ingår personer som är folkbokförda i landet. För att den som flyttar till Sverige ska bli folkbokförd ska personen ha för avsikt och rätt att stanna i Sverige i minst ett år. För personer som inte är medborgare i ett EU-land innebär det att det krävs ett uppehållstillstånd som gäller minst 12 månader för att bli folkbokförd. Till följd av Rysslands invasion av Ukraina den 24 februari 2022 har Europeiska unionen (EU) beslutat att aktivera massflyktsdirektivet, vilket innebär att personer från Ukraina utan individuell prövning ska erbjudas tidsbegränsat uppehålls- och arbetstillstånd inom EU. Personer som får uppehållstillstånd enligt massflyktsdirektivet ska i regel inte bli folkbokförda och ingå i den officiella befolkningsstatistiken. Läs mer [här](https://www.scb.se/hitta-statistik/statistik-efter-amne/befolkning/befolkningens-sammansattning/befolkningsstatistik/produktrelaterat/Fordjupad-information/statistik-om-invandring---fragor-och-svar/){target="_blank"}.
+
+Under 2023 inledde Skatteverket ett arbete med att avregistrera flera tusen folkbokförda personer som vid en granskning visat sig inte längre bo i Sverige. I folkbokföringen har dessa registrerats som utvandrade till okänt utvandringsland. Antal utvandrade från Borlänge var år 2023 tio personer, vilket är en person fler än under 2021 och 2022. Det är därför osannolikt att avregistreringarna har haft någon större påverkan på befolkningsutvecklingen i Borlänge under 2023. Läs mer [här](https://www.scb.se/pressmeddelande/sverige-gar-mot-lagsta-befolkningsokningen-pa-manga-ar/){target="_blank"}.
+</div>
+</details>
+
+# Hur har befolkningen förändrats?
+
+I likhet med de flesta kommuner i Dalarna har Borlänges befolkning minskat under en lång period, från ca `r format(plyr::round_any(befolkning_df %>% filter(år == min(år),region == "Borlänge" ,variabel == "Folkmängd") %>% .$varde,100),big.mark=" ") ` invånare  år `r min(befolkning_df$år)` till ungefär `r format(plyr::round_any(befolkning_df %>% filter(år == max(år),region == "Borlänge", variabel == "Folkmängd") %>% .$varde,100),big.mark=" ") ` invånare år `r max(befolkning_df$år)`.
+
+Befolkningen minskar under en överväldigande majoritet av åren, vilket syns tydligt i diagrammet nedan. Det stora undantaget var i samband med flyktingkrisen 2015-2016, när Borlänges befolkning ökade med mer än 1100 personer. Därefter minskade befolkningen under några år, vilket till stor del kan förklaras med att personer som flyttade till Borlänge i samband med flyktingkrisen lämnade för andra delar av Sverige. Under 2022 ökade Borlänges befolkning något (`r befolkning_df %>% filter(år == "2022",region == "Borlänge", variabel == "Folkökning") %>% .$varde ` personer), men denna ökning följdes av en en betydligt större minskning 2023 (`r befolkning_df %>% filter(år == "2023",region == "Borlänge", variabel == "Folkökning") %>% .$varde ` personer).
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_befolkning$Befolkningsutveckling_Borlänge_ar_1968_2023
+```
+
+I fortsättningen av denna korta analys delas Borlänges befolkningsutveckling upp i dess komponenter, födelsenetto, dvs. nettot av födda och döda, och flyttnetto, dvs. nettot av inrikes och utrikes flyttar. Vi börjar med födelsenettot.
+
+# Födelsenetto
+
+En tydlig trend är att det dör färre personer i Borlänge idag än det gjorde längre tillbaka i tiden. Med undantag för Corona-pandemin, 2020 och 2021, dör idag mellan 80 och 90 personer under ett normalt år i Borlänge. Detta kan jämföras med närmare 120 personer per år i början av 2000-talet och ibland över 150 personer per år på 1980-talet. Denna utveckling härrör sannolikt till utveckling inom det medicinska området. Befolkningens medelålder ökar över tid och har gjort så länge.
+
+Även när det gäller antalet födslar är trenden negativ. Under enstaka år på 1960- och 1980-talen föddes över 100 barn i Borlänge, men även en bit in på 2000-talet föddes relativt ofta över 70 barn i kommunen under ett år, något som inte har hänt sedan 2010. År `r max(fodda_doda_df$år)` föddes `r fodda_doda_df %>% filter(år == max(år),region == "Borlänge",variabel == "födda") %>% .$varde` barn, vilket är färre än året innan men samtidigt fler än 2021 (och 2018). Det finns dock vissa indikationer på att de låga födelsetalen `r max(fodda_doda_df$år)` är en del av en större trend. Enligt SCB var barnafödandet per kvinna i Sverige år 2023 det lägsta som har uppmätts, en trend som verkar hålla i sig under början av 2024 ([SCB](https://www.scb.se/pressmeddelande/historiskt-lagt-barnafodande-och-lagsta-folkokningen-pa-22-ar/){target="_blank"}).
+
+Sammantaget har nettot mellan födda och döda, se de svarta linjerna i diagrammet nedan, varit negativt i Borlänge under varje år sedan åtminstone slutet av 1960-talet. Hur många invånare som kommunen tappar på grund av det varierar relativt mycket mellan åren, men om vi jämför 2023 med året innan minskade befolkningen med `r abs(fodda_doda_df %>% filter(år == max(år),region == "Borlänge",variabel == "netto") %>% .$varde -  fodda_doda_df %>% filter(år == "2022",region == "Borlänge",variabel == "netto") %>% .$varde)` personer till följd av ett större negativt födelsenetto.
+
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_fodda_doda$Födelsenetto_Borlänge_ar_1968_2023
+```
+
+# Flyttnetto
+Den andra komponenten som styr befolkningsutvecklingen är det så kallade flyttnettot. Detta kan i sin tur delas upp i två komponenter, inrikes och utrikes flyttar. I det här avsnittet undersöker vi först flyttnettot, för att därefter titta på de två komponenterna.
+
+Nettot mellan antalet personer som flyttar till och från Borlänge varierar relativt mycket mellan åren, men ligger normalt mellan +/- 50 personer. Undantaget var flyktingkrisen, när drygt 270 personer netto flyttade till kommunen under 2015 och 2016. På senare år har Borlänge haft ett positivt flyttnetto under flera år, men under `r max(flytt_df$år)` var flyttnettot återigen negativt (`r flytt_df %>% filter(år==max(år),region == "Borlänge") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer),  det största negativa nettot sedan 2006. Intressant att notera är även att det positiva flyttnettot mestadels bestod av män under 2019 och 2020, för att därefter i praktiken bara bestå av kvinnor. Det negativa flyttnettot 2023 bestod även det av en överväldigande majoritet kvinnor. 
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_flytt$Flyttnetto_Borlänge_ar_1997_2023
+
+```
+
+## Utrikes flyttnetto
+Som vi berörde i föregående avsnitt flyttade många till Borlänge under framförallt 2016, vilket till stor del kan förklaras av att invandringen då var stor. Runt millenieskiftet var invandringen ofta väldigt låg och till och med negativ under vissa år (fler utvandrade än invandrade), men därefter skedde en gradvis ökning innan den stora toppen 2016. Därefter minskade invandringen tydligt, men låg på relativt höga nivåer fram till 2019. På senare år syns effekterna av en tydligt stramare nationell migrationspolitik, då allt färre invandrar till Borlänge. Under 2023 var det utrikes flyttnettot blott `r flytt_df %>% filter(år==max(år),region == "Borlänge", variabel == "Invandringsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer, det lägsta nettot sedan 2001. 
+
+Generellt invandrar ungefär lika många kvinnor och män, även om det har varit en viss övervikt för de sistnämnda efter flyktingkrisen. År `r max(flytt_df$år)` var det  mestadels män som invandrade till Borlänge (netto).
+
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_flytt$Invandringsöverskott_Borlänge_ar_1997_2023
+```
+
+## Inrikes flyttnetto
+Utvecklingen för det inrikes flyttnettot är i mångt och mycket det omvända mot det utrikes, under de allra flesta åren sedan slutet på 1990-talet flyttade fler personer från Borlänge till andra delar av Sverige än de som flyttade till Borlänge. År 2016 var det inrikes flyttnettot positivt och ovanligt stort, `r flytt_df %>% filter(år == "2016",region == "Borlänge", variabel == "Inrikes flyttningsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer, vilket med all sannolikhet har att göra med flyktingkrisen. Från 2017 och några år framåt var utflyttningen stor från Borlänge, då personer som invandrat till kommunen valde att flytta till andra delar av Sverige av olika anledningar. År 2022 var det inrikes flyttnettot (`r flytt_df %>% filter(år == "2022",region == "Borlänge", variabel == "Inrikes flyttningsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer) positivt för första gången sedan 2016, men `r max(flytt_df$år)` gick effekten åt motsatt håll när närmare `r abs(flytt_df %>% filter(år == max(år),region == "Borlänge", variabel == "Inrikes flyttningsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde)` personer netto flyttade från kommunen. Detta är en viktig förklarande faktor till varför befolkningen i Borlänge ökade under 2022, men istället minskade under 2023. 
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_flytt$`Inrikes flyttningsöverskott_Borlänge_ar_1997_2023`
+```
+
+För att få en bättre förståelse för vilka som flyttar till och från Borlänge inrikes delar vi härnäst upp de som flyttar efter ålder. Normalt är personer mest benägna att flytta till en annan ort när de är i 20-års åldern, innan flyttandet gradvis avtar. 
+
+### Uppdelat på ålder
+Ett tydligt mönster är att de unga vuxna som flyttar från Borlänge är fler än de unga vuxna som flyttar dit, dvs. kommunen förlorar invånare i den åldersgruppen på grund av inrikes flyttar. Inom andra åldersgrupper är tendenserna mer otydliga, då antalet in- och utflyttare (netto) varierar relativt mycket mellan åren. Med tanke på att Borlänge är en liten kommun är det även fullt möjligt att ingen inom en viss åldersgrupp flyttar till kommunen under ett specifikt år.
+
+Bland de åldersgrupper som redovisas i diagrammet nedan skedde den största utflyttningen år 2023 i gruppen som är mellan 20 år och 29 år. I denna grupp, tillsammans med de som är under 20 år, var antalet uflyttare från Borlänge ungefär 60 fler än antalet inflyttare, vilket är en större skillnad än åren innan, när skillnaden mellan ut- och inflyttare låg på mellan 15 och 20 personer. 
+
+Den största inflyttningen, netto, skedde i åldersgruppen 30-39 år, i vilken det flyttade 14 personer fler till än från Borlänge inrikes år 2023. Jämfört med åren innan var detta en tydlig ökning.
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_flytt_alder$Inrikes_flyttnetto_alder_Borlänge_ar_2021_2023
+```
+
+Om vi enbart fokuserar på åldersgruppen 20-29 år, blir det tydlligt att 2023 var ett undantagsår. Historiskt varierar det inrikes flyttnettot i åldersgruppen mellan åren, men ligger i normala fall i ett spann mellan ungefär 15 och 30 utflyttade (netto) per år. År 2023 flyttade 41 personer fler i åldersgruppen 20-29 år från än till Borlänge inrikes, det största antalet på hela 2000-talet. Exakt vad det beror på är svårt att säga, men det är en bidragande orsak till att folkmängden minskade i Borlänge 2023. Värt att notera är att Borlänge har en av Dalarnas lägsta arbetslöshetsnivåer samt flera expansiva arbetsgivare.
+
+Även i Dalarna som helhet flyttade fler i åldersgruppen ut än in under 2023, men underskottet är på ungefär samma nivå som det var 2022.
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_flytt_alder$`Inrikes flyttnetto_alder_Borlänge_ar_1997_2023`
+```
+
+### Uppdelat på bakgrund
+För att ytterligare förtydliga vilka som flyttar till och från Borlänge inrikes, delas de i detta avsnitt upp efter sin bakgrund, inrikes eller utrikes födda. 
+
+Tydligt är att många av de som invandrade till Borlänge i samband med flyktingkrisen 2015-2016 flyttade därifrån under åren efter krisen, då framförallt mellan 2017 och 2019. Sammantaget flyttade mer än 250 utrikes födda (netto) från Borlänge till andra delar av Sverige under den perioden.  Med undantag för 2023, är det även tydligt att färre inrikes födda flyttar från Borlänge på senare år jämfört med åren mellan 2003 och 2013. En bidragande orsak till detta är sannolikt ett flertal expansiva arbetsgivare, något som medför att möjligheten att få jobb i kommunen idag är större än den var för 15 år sedan. Undantaget är som sagt 2023, då det inrikes flyttnettot i Borlänge var negativt och mestadels bestod av personer födda i Sverige.
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_flytt_bakgrund$Flyttnetto_bakgrundBorlänge_ar2002_2023
+
+```

@@ -223,9 +223,6 @@ gg_flytt_bakgrund$Flyttnetto_bakgrundDalarna_ar2002_2023
 gg_befprognos$befolkningsforandring_Dalarna_2023_2040
 ```
 
-
-
-
 # Kommunfördjupningar {.tabset .tabset-fade .tabset-pills}
 
 ## Avesta {-}
@@ -237,6 +234,7 @@ Befolkningen minskar under en överväldigande majoritet av åren, vilket syns t
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_befolkning$Befolkningsutveckling_Avesta_ar_1968_2023
 ```
+
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_fruktsamhet_kommun$summerad_fruktsamhet_Avesta_facet__ar_1968_2023
@@ -278,59 +276,32 @@ gg_flytt_bakgrund$Flyttnetto_bakgrundAvesta_ar2002_2023
 
 ## Borlänge {-}
 
-adfadfadf
-
 ## Falun {-}
-
-adfadfadf
 
 ## Gagnef {-}
 
-adfadfadf
-
 ## Hedemora {-}
-
-adfadfadf
 
 ## Leksand {-}
 
-adfadfadf
-
 ## Ludvika {-}
-
-adfadfadf
 
 ## Malung-Sälen {-}
 
-adfadfadf
-
 ## Mora {-}
-
-adfadfadf
 
 ## Orsa {-}
 
-adfadfadf
-
 ## Rättvik {-}
-
-adfadfadf
 
 ## Smedjebacken {-}
 
-adfadfadf
-
 ## Säter {-}
-
-adfadfadf
 
 ## Vansbro {-}
 
-adfadfadf
-
 ## Älvdalen {-}
 
-adfadfadf
 
 
 
