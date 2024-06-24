@@ -1,3 +1,9 @@
+# source("https://raw.githubusercontent.com/Region-Dalarna/funktioner/main/func_API.R")
+# skapa_hamta_data_skript_pxweb(skickad_url_pxweb = "https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0101__BE0101J/InOmflytt/table/tableViewLayout1/",
+#                               output_mapp = "C:/Users/frkjon/Projekt/befolkningsutvecklingen_i_Dalarna/Skript/",
+#                               tabell_namn = "")
+
+
 # Uppdaterar data som används i rapporten "Läget i Dalarna"
 if (!require("pacman")) install.packages("pacman")
 p_load(here)
@@ -47,6 +53,7 @@ source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_fl
 gg_flytt_bakgrund <- diag_inr_flyttnetto_inr_utr_fodda(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE),
                                                        skriv_diagram = FALSE,
                                                        output_mapp =  "G:/skript/jon/Figurer/",
+                                                       returnera_data = TRUE,
                                                        farg_vekt = diagramfarger("rus_sex")[2:1])
 
 # Kartor över befolkningsutvecklingen
