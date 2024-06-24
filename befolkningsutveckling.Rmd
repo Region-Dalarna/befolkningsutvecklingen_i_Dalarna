@@ -150,16 +150,17 @@ https://www.scb.se/hitta-statistik/statistik-efter-amne/befolkning/befolkningsfr
 
 # Flyttnetto
 
-Som vi såg i avsnittet ovan, bidrar nettot mellan födda och döda i praktiken alltid negativt till Dalarnas befolkningsutveckling. Eftersom andelen av befolkningen som inte är i barnafödande ålder med all sannolikhet kommer att öka i framtiden, är det svårt att se hur den utvecklingen skall kunna förändras framöver. Om tanken är att Dalarnas befolkning skall växa blir det därför helt centralt att fler flyttar till länet än de som flyttar därifrån. Flyttarna till och från Dalarna kan delas upp i två delar:
+Som vi såg i föregående avsnitt, bidrar nettot mellan födda och döda i praktiken alltid negativt till Dalarnas befolkningsutveckling. Eftersom andelen av befolkningen som inte är i barnafödande ålder med all sannolikhet kommer att öka i framtiden, är det svårt att se hur den utvecklingen skall kunna förändras framöver. Om tanken är att Dalarnas befolkning skall växa blir det därför helt centralt att fler flyttar till länet än de som flyttar därifrån. Flyttarna till och från Dalarna kan delas upp i två delar:
 
 * **Inrikes flyttar**, dvs. de som flyttar till och från länet från andra delar av Sverige.
 * **Utrikes flyttar**, dvs de som flyttar till och från länet från andra delar av världen (in- och utvandring).
 
 
-### Inrikes flyttningar
+## Inrikes flyttningar
 
-Generellt flyttar personer inrikes i första hand till större städer och universitetsorter. Detta hänger sannolikt samman med att dessa orter har en stor arbetsmarknad och goda utbildningsmöjligheter. I förhållande till sin befolkningsstorlek sticker Västerbotten, som har ungefär lika många invånare som Dalarna, ut. Den stora inflyttningen till länet är i första hand kopplat till Skellefteå, där befolkningen ökade med mer än 2000 personer under 2023, vilket i första hand beror på en stor industrisatsning (etablering av en batterifabrik). Anmärkningsvärt är även att den det inrikes flyttnettot till Stockholms län var negativt under 2023, vilket är i linje med en trend de senaste åren. En viktig förklaring till det är sannolikt att den stora gruppen födda i början av 1990-talet börjar komma upp i 30-årsåldern och då väljer att flytta från Stockholm till mindre städer. I Dalarna var det inrikes flyttnettot negativt och ungefär i linje med flera andra regioner med liknande befolkningsstorlek.
+Generellt flyttar personer inrikes i första hand till större städer och universitetsorter. Detta hänger sannolikt samman med att dessa orter har en stor arbetsmarknad och goda utbildningsmöjligheter. 
 
+Bland Sveriges län sticker Uppsala ut. Trots en betydligt mindre befolkning, var den inrikes inflyttningen till Uppsala klart högre än exempelvis Västra Götalands län. Även Västerbottens län, med en befolkning som är något mindre Dalarnas, har relativt hög inrikes inflyttning. Detta hänger i första hand samman med en stor industrisatsning i Skellefteå, där befolkningen ökade med mer än 2000 personer under 2023. Anmärkningsvärt är även att det inrikes flyttnettot till Stockholms län var negativt under 2023, vilket är i linje med en trend de senaste åren. En viktig förklaring till det är sannolikt att den stora gruppen födda i början av 1990-talet börjar komma upp i 30-årsåldern och då väljer att flytta från Stockholm till mindre städer. I Dalarna var det inrikes flyttnettot negativt och ungefär i linje med flera andra regioner med liknande befolkningsstorlek.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt_lan$inrikes_flyttningsoverskott
@@ -174,7 +175,7 @@ gg_flytt$`Inrikes flyttningsöverskott_Dalarna_ar_1997_2023`
 SKALL LÄGGA IN TVÅ DIAGRAM MED FLYTTNINGAR TILL RESPEKTIVE FRÅN DALARNA
 https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0101__BE0101J/InOmflytt/table/tableViewLayout1/
 
-### Utrikes flyttningar
+## Utrikes flyttningar
 
 Trots att såväl det inrikes flyttnettot som födelsenettot i normala fall är negativa i Dalarna, har befolkningen i länet ökat med runt `r format(plyr::round_any(befolkning_df %>% filter(region == "Dalarnas län",år>"1999",variabel == "Folkökning") %>% .$varde %>% sum(),100),big.mark = " ")` personer sedan millennieskiftet. Detta beror på att den sista komponenten som styr befolkningsutvecklingen, det utrikes flyttnettot, har varit positivt.  Framförallt invandrade många till Dalarna i samband med flyktingkrisen 2016, då mer än 4000 personer netto flyttade till länet från utlandet. Sedan dessa har invandringen dock minskat avsevärt och under 2023 var det utrikes flyttnettot i Dalarna blott `r flytt_overskott %>% filter(år=="2023", region=="Dalarnas län",variabel == "Invandringsöverskott") %>% .$varde` personer. Det anmärkningsvärt låga nettot kan delvis förklaras av att Skatteverket under 2023 inledde ett arbete med att avregistrera tusentals folkbokförda personer som vid en granskning visat sig inte längre bo i Sverige. I Dalarna ökade utvandringen under 2023 med ungefär 600 personer jämfört med åren innan, vilket sannolikt går att härröra till avregistreringar. Den främsta anledningen till det låga invandringsöverskottet på senare år är dock en striktare immigrationspolitik. Mellan 2020 och 2023 invandrade mellan 1400 och 1600 personer till Dalarna årligen, att jämföra med mellan 2000 och 3000 personer årligen åren dessförinnan. 
 
@@ -184,7 +185,7 @@ gg_flytt$Invandringsöverskott_Dalarna_ar_1997_2023
 ```
 
 
-### Flytnetto
+## Flytnetto
 
 Sammantaget har Dalarnas län haft ett positivt flyttnetto under de flesta åren sedan millennieskiftet, vilket förklarar varför befolkningen ökat. Under 2023 var dock flyttnettot i Dalarna tydligt negativt (den största minskningen sedan 2000). Det negativa flyttnettot hänger samman med att det inrikes flyttnettot var negativt och att det utrikes flyttnettot minskade, vilket diskuterades i föregående avsnitt. 
 
@@ -195,7 +196,7 @@ gg_flytt$Flyttnetto_Dalarna_ar_1997_2023
 
 För att fördjupa förståelsen kring vilka som flyttar till och från Dalarna delar vi i nästkommande avsnitt upp dessa utefter ålder och bakgrund (inrikes och utrikes födda).
 
-### Åldersfördelning
+## Åldersfördelning
 
 Normalt är personer mest benägna att flytta till en annan ort när de är i 20-års åldern, innan flyttandet gradvis avtar. Detta hänger samman med att det i första hand är unga personer som flyttar för att studera och arbeta. I Dalarna är det framförallt unga personer som flyttar från länet (netto), vilket hänger samman med att länets arbetsmarknad är liten i jämförelse med många större regioner och att Högskolan Dalarna har relativt få studenter. Totalt minskade befolkningen i Dalarna med `r sum(flytt_aldersgrupper_df %>% filter(variabel == "Inrikes flyttningsöverskott",år == max(år),region == "Dalarnas län",alder_grupper %in% c("-19 år","20-29 år")) %>% .$varde) ` personer under `r max(flytt_aldersgrupper_df$år)` till följd av att personer under 30 flyttade till andra län (netto). Detta var en tydlig ökning jämfört med åren dessförinnan.
 
@@ -213,7 +214,7 @@ gg_flytt_alder$`Inrikes flyttnetto_alder_Dalarna_ar_1997_2023`
 
 ```
 
-### Bakgrund
+## Bakgrund
 
 För att ytterligare förtydliga vilka som flyttar till och från Dalarna inrikes, delas de i detta avsnitt upp efter sin bakgrund, inrikes eller utrikes födda. 
 
