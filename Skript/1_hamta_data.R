@@ -1,7 +1,7 @@
-# source("https://raw.githubusercontent.com/Region-Dalarna/funktioner/main/func_API.R")
-# skapa_hamta_data_skript_pxweb(skickad_url_pxweb = "https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0101__BE0101J/InOmflytt/table/tableViewLayout1/",
-#                               output_mapp = "C:/Users/frkjon/Projekt/befolkningsutvecklingen_i_Dalarna/Skript/",
-#                               tabell_namn = "")
+source("https://raw.githubusercontent.com/Region-Dalarna/funktioner/main/func_API.R")
+skapa_hamta_data_skript_pxweb(skickad_url_pxweb = "https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0101__BE0101J/InOmflytt/table/tableViewLayout1/",
+                              output_mapp = "C:/Users/frkjon/Projekt/befolkningsutvecklingen_i_Dalarna/Skript/",
+                              tabell_namn = "")
 
 
 # Uppdaterar data som används i rapporten "Läget i Dalarna"
@@ -95,6 +95,7 @@ source("C:/Users/frkjon/Projekt/befolkningsutvecklingen_i_Dalarna/Skript/befprog
 gg_befprognos <- diagram_befprognos(region_vekt = vald_region,
                                     diag_aldergrupp = TRUE, 
                                     diag_jmf_region = FALSE,
+                                    returnera_data = TRUE,
                                     output_mapp_figur = Output_mapp_figur)
 
 gg_befprognos_kommun <- diagram_befprognos(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE,tamedlan=FALSE),
