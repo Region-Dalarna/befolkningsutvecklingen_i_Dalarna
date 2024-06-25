@@ -172,8 +172,17 @@ Att det inrikes flyttnettot i Dalarna var negativt under 2023 är inget unikt. S
 gg_flytt$`Inrikes flyttningsöverskott_Dalarna_ar_1997_2023`
 ```
 
-SKALL LÄGGA IN TVÅ DIAGRAM MED FLYTTNINGAR TILL RESPEKTIVE FRÅN DALARNA
-https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0101__BE0101J/InOmflytt/table/tableViewLayout1/
+Flyttar från Dalarna inrikes sker i första hand till större län och näraliggande län. Flest flyttar skedde till Stockholm, följt av Uppsala och Västmanland. Få flyttar till små län långt bort, såsom Blekinge och Gotland.
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_utflytt_lan$Flytt_fran_Dalarna
+```
+
+Mönstret för inrikes flyttningar till Dalarna är i stort sett det omvända. Flest flyttar till Dalarna från Stockholm, Västmanland och Uppsala. Generellt går något fler flyttar från än till Dalarna, vilket är i linje med att länet har ett negativt flyttnetto inrikes. Ett undantag är Stockholm, då antalet flyttar från Dalarna till Stockholm var färre än antalet flyttar till Dalarna från Stockholm. 
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_inflytt_lan$Flytt_till_Dalarna
+```
 
 ## Utrikes flyttningar
 

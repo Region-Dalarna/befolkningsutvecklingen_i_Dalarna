@@ -35,8 +35,19 @@ source("C:/Users/frkjon/Projekt/befolkningsutvecklingen_i_Dalarna/Skript/diagram
 gg_flytt_lan <- diagram_inflytt(spara_figur=FALSE,
                                 returnera_data = TRUE)
 
-# Diagram ut/inflyttning - lan
+# Diagram ut/inflyttning till län
+source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_inflyttlan_utflyttlan_SCB.R")
+gg_utflytt_lan <- diagram_inflyttlan_utflyttlan(inflyttningsl_klartext = "*",
+                                                utflyttningsl_klartext = " Dalarnas län (Utflyttningslän)",
+                                                tid = "9999",
+                                                spara_figur = FALSE,
+                                                returnera_data = TRUE)
 
+gg_inflytt_lan <- diagram_inflyttlan_utflyttlan(inflyttningsl_klartext = " Dalarnas län (Inflyttningslän)",
+                                                utflyttningsl_klartext = "*",
+                                                tid = "9999",
+                                                spara_figur = FALSE,
+                                                returnera_data = TRUE)
 
 # # Diagram  flyttnetto
 source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_flytt_inrikes_utrikes_netto_SCB.R", encoding="UTF-8")
@@ -115,22 +126,22 @@ rmarkdown::render(
   envir = parent.frame()
 )
 
-rmarkdown::render(
-  input = 'befolkningsutveckling_Avesta.Rmd',
-  output_file = paste0("befolkningsutveckling_Avesta.html"),
-  envir = parent.frame()
-)
-
-rmarkdown::render(
-  input = 'befolkningsutveckling_Borlänge.Rmd',
-  output_file = paste0("befolkningsutveckling_Borlänge.html"),
-  envir = parent.frame()
-)
-
-rmarkdown::render(
-  input = 'befolkningsutveckling_Falun.Rmd',
-  output_file = paste0("befolkningsutveckling_Falun.html"),
-  envir = parent.frame()
-)
+# rmarkdown::render(
+#   input = 'befolkningsutveckling_Avesta.Rmd',
+#   output_file = paste0("befolkningsutveckling_Avesta.html"),
+#   envir = parent.frame()
+# )
+# 
+# rmarkdown::render(
+#   input = 'befolkningsutveckling_Borlänge.Rmd',
+#   output_file = paste0("befolkningsutveckling_Borlänge.html"),
+#   envir = parent.frame()
+# )
+# 
+# rmarkdown::render(
+#   input = 'befolkningsutveckling_Falun.Rmd',
+#   output_file = paste0("befolkningsutveckling_Falun.html"),
+#   envir = parent.frame()
+# )
 
 
