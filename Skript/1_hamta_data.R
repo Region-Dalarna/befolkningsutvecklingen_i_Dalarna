@@ -1,7 +1,7 @@
-source("https://raw.githubusercontent.com/Region-Dalarna/funktioner/main/func_API.R")
-skapa_hamta_data_skript_pxweb(skickad_url_pxweb = "https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0101__BE0101J/InOmflytt/table/tableViewLayout1/",
-                              output_mapp = "C:/Users/frkjon/Projekt/befolkningsutvecklingen_i_Dalarna/Skript/",
-                              tabell_namn = "")
+# source("https://raw.githubusercontent.com/Region-Dalarna/funktioner/main/func_API.R")
+# skapa_hamta_data_skript_pxweb(skickad_url_pxweb = "https://api.scb.se/OV0104/v1/doris/sv/ssd/START/BE/BE0101/BE0101J/InOmflytt",
+#                               output_mapp = "C:/Users/frkjon/Projekt/befolkningsutvecklingen_i_Dalarna/Skript/",
+#                               tabell_namn = "")
 
 
 # Uppdaterar data som används i rapporten "Läget i Dalarna"
@@ -34,6 +34,9 @@ gg_fodda_doda = diagram_fodelsenetto(region_vekt = hamtakommuner(vald_region,tam
 source("C:/Users/frkjon/Projekt/befolkningsutvecklingen_i_Dalarna/Skript/diagram_flyttningar_overskott.R")
 gg_flytt_lan <- diagram_inflytt(spara_figur=FALSE,
                                 returnera_data = TRUE)
+
+# Diagram ut/inflyttning - lan
+
 
 # # Diagram  flyttnetto
 source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_flytt_inrikes_utrikes_netto_SCB.R", encoding="UTF-8")
