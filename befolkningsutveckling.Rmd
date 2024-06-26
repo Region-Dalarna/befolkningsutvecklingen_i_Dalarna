@@ -106,7 +106,7 @@ I fortsättningen av denna rapport delas Dalarnas befolkningsutveckling upp i de
 # Födelsenetto
 
 ## Fruktsamhet
-Antalet födda barn per kvinna i Sverige, den så kallade fruktsamheten, var under 2023 den lägsta som uppmätts (SCB har data sedan mitten av 1700-talet), vilket är i linje med utvecklingen i stora delar av västvärlden ([SCB](https://www.scb.se/pressmeddelande/historiskt-lagt-barnafodande-och-lagsta-folkokningen-pa-22-ar/){target="_blank"}). Som synes i diagrammen nedan tenderar dock fruktsamheten att variera relativt mycket över tid. Detta kan förklaras med en blandning av faktorer, såsom ekonomiska förhållanden, politiska beslut och kulturella normer. Under 1970-talet sjönk fruktsamheten i Sverige till följd av bland annat en ökad användning av preventivmedel och en ökad andel kvinnor som studerade och arbetade. Under 1980-talet togs diverse politiska beslut kopplade till att förbättra fruktsamheten (exempelvis en utökning av antalet dagar i föräldraförsäkringen, se [Försäkringskassan](https://www.forsakringskassan.se/download/18.55c9e2a718ec99c311a46/1713244153025/en-historisk-oversikt-av-foraldrapenning-korta-analyser-2024-2.pdf){target="_blank"}), vilket fick en positivt effekt fram till början av 1990-talet, innan en ekonomisk kris fick en tydligt negativ effekt. Under delar av 2000-talet har fruktsamheten varit relativt hög, vilket sannolikt hänger ihop med att den utrikes födda andelen av Sveriges befolkning då ökade kraftigt (utrikes födda kvinnor har högre fruktsamhet, se [SCB](https://www.scb.se/hitta-statistik/statistik-efter-amne/befolkning/befolkningsframskrivningar/demografisk-analys/pong/statistiknyhet/demografisk-analys-barnafodande-i-coronatider/){target="_blank"}). 
+Antalet födda barn per kvinna i Sverige, den så kallade fruktsamheten, var under 2023 den lägsta som uppmätts (SCB har data sedan mitten av 1700-talet), vilket är i linje med utvecklingen i stora delar av västvärlden ([SCB](https://www.scb.se/pressmeddelande/historiskt-lagt-barnafodande-och-lagsta-folkokningen-pa-22-ar/){target="_blank"}). Som synes i diagrammen nedan tenderar dock fruktsamheten att variera relativt mycket över tid. Detta kan förklaras med en blandning av faktorer, såsom ekonomiska förhållanden, politiska beslut och kulturella normer. Under 1970-talet sjönk fruktsamheten i Sverige till följd av bland annat en ökad användning av preventivmedel och en ökad andel kvinnor som studerade och arbetade. Under 1980-talet togs diverse politiska beslut kopplade till att förbättra fruktsamheten (exempelvis en utökning av antalet dagar i föräldraförsäkringen, se [Försäkringskassan](https://www.forsakringskassan.se/download/18.55c9e2a718ec99c311a46/1713244153025/en-historisk-oversikt-av-foraldrapenning-korta-analyser-2024-2.pdf){target="_blank"}), vilket fick en positivt effekt fram till början av 1990-talet, innan en ekonomisk kris fick en tydligt negativ effekt. Under delar av 2000-talet har fruktsamheten varit relativt hög, vilket sannolikt hänger ihop med att den utrikes födda andelen av Sveriges befolkning då ökade (utrikes födda kvinnor har högre fruktsamhet än inrikes födda kvinnors, se [SCB](https://www.scb.se/hitta-statistik/statistik-efter-amne/befolkning/befolkningsframskrivningar/demografisk-analys/pong/statistiknyhet/demografisk-analys-barnafodande-i-coronatider/){target="_blank"}). 
 
 Fruktsamheten i Dalarna följer i praktiken samma mönster som fruktsamheten i Sverige, men är något högre.
 
@@ -135,18 +135,6 @@ Sammantaget har nettot mellan födda och döda, se de svarta linjerna i diagramm
 gg_fodda_doda$Födelsenetto_Dalarna_ar_1968_2023
 
 ```
-
-Finns inget diagram för detta för tillfället.
-
-
-Döda bör kopplat till åldersstrukturen, dvs. att trots att befolkningen idag är såväl större som har en annan ålderstruktur, så dog lika många 1968.
-
-https://www.scb.se/hitta-statistik/statistik-efter-amne/befolkning/befolkningsframskrivningar/demografisk-analys/pong/statistiknyhet/kohortdodligheten-i-sverige.-dodlighetsutvecklingen-fram-till-2019
-
-https://www.scb.se/contentassets/c77fa5ab928d4397b7d0a649c3f415db/be0701_1861i19_br_be51br2004.pdf
-
-https://www.scb.se/hitta-statistik/statistik-efter-amne/befolkning/befolkningsframskrivningar/demografisk-analys/pong/statistiknyhet/aterstaende-medellivslangd-efter-utbildningsniva3/
-
 
 # Flyttnetto
 
