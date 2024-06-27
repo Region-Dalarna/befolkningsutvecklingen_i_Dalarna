@@ -82,7 +82,7 @@ diagram_befprognos <- function(region_vekt = "20", # Val av kommun/län att foku
 
   if(diag_jmf_region == TRUE){
     diagram_titel <- paste0("Befolkningsförändring ",min(tot$år),"-",max(tot$år))
-    diagramfil <- paste0("befolkningsforandring_jmf_region_", min(tot$år), "_", max(tot$år), ".png")
+    diagramfil <- paste0("befolkningsforandring_jmf_region_", max(tot$år), ".png")
     objektnamn <- c(objektnamn,diagramfil %>% str_remove(".png"))
     
     gg_obj <- SkapaStapelDiagram(skickad_df = diag_df %>% 
@@ -127,7 +127,7 @@ diagram_befprognos <- function(region_vekt = "20", # Val av kommun/län att foku
       }else{
         diagram_titel <- paste0("Befolkningsförändring i ",vald_region," ",min(tot$år),"-",max(tot$år))
       }
-      diagramfil <- paste0("befolkningsforandring_",vald_region,"_", min(tot$år), "_", max(tot$år), ".png")
+      diagramfil <- paste0("befolkningsforandring_",vald_region,"_", max(tot$år), ".png")
       objektnamn_map <- c(objektnamn_map,diagramfil %>% str_remove(".png"))
       
       gg_obj <- SkapaStapelDiagram(skickad_df = data %>% 

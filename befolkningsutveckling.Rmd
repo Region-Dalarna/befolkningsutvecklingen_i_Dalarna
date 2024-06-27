@@ -83,11 +83,11 @@ gg_kartor$karta_kommun
 
 ```
 
-Om vi fokuserar på utvecklingen i Dalarnas län på årsbasis, är det tydligt att befolkningsförändringarna följer ett visst mönster, där perioder av tydliga befolkningsökningar följs av perioder av befolkningsminskningar. Exakt vad alla svängningar beror på kan vara svårt att veta, men uppenbart är i alla fall att den tydliga minskningen under 1990-talet hänger samman med den djupa ekonomiska kris som då drabbade Sverige och Dalarna. Mer än 10 000 personer netto lämnade länet under den andra hälften av 1990-talet. Sedan millennieskiftet har befolkningsutvecklingen varit mer stabil, med en ökning på ungefär `r format(plyr::round_any(befolkning_df %>% filter(region == "Dalarnas län",år>"1999",variabel == "Folkökning") %>% .$varde %>% sum(),100),big.mark = " ")` personer under 2000-talet. En viktig anledning till denna ökning är flyktingkrisen 2016, när Dalarnas län tog emot många flyktingar. Under `r max(befolkning_df$år)` minskade befolkningen i Dalarna med närmare `r abs(plyr::round_any(befolkning_df %>% filter(år == max(år),variabel == "Folkökning",region == "Dalarnas län") %>% .$varde,100))` personer, vilket är den största minskningen sedan 2001. 
+<span class="kommentar">Om vi fokuserar på utvecklingen i Dalarnas län på årsbasis</span>, är det tydligt att befolkningsförändringarna följer ett visst mönster, där perioder av tydliga befolkningsökningar följs av perioder av befolkningsminskningar. Exakt vad alla svängningar beror på kan vara svårt att veta, men uppenbart är i alla fall att den tydliga minskningen under 1990-talet hänger samman med den djupa ekonomiska kris som då drabbade Sverige och Dalarna. Mer än 10 000 personer netto lämnade länet under den andra hälften av 1990-talet. Sedan millennieskiftet har befolkningsutvecklingen varit mer stabil, med en ökning på ungefär `r format(plyr::round_any(befolkning_df %>% filter(region == "Dalarnas län",år>"1999",variabel == "Folkökning") %>% .$varde %>% sum(),100),big.mark = " ")` personer under 2000-talet. En viktig anledning till denna ökning är flyktingkrisen 2016, när Dalarnas län tog emot många flyktingar. Under `r max(befolkning_df$år)` minskade befolkningen i Dalarna med närmare `r abs(plyr::round_any(befolkning_df %>% filter(år == max(år),variabel == "Folkökning",region == "Dalarnas län") %>% .$varde,100))` personer, vilket är den största minskningen sedan 2001. 
 
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_befolkning$Befolkningsutveckling_Dalarna_ar_1968_2023
+gg_befolkning$Befolkningsutveckling_Dalarna
 ```
 
 ## Åldersstruktur
@@ -111,7 +111,7 @@ Antalet födda barn per kvinna i Sverige, den så kallade fruktsamheten, var und
 Fruktsamheten i Dalarna följer i praktiken samma mönster som fruktsamheten i Sverige, men är något högre.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_fruktsamhet$summerad_fruktsamhet_Riket_facet__ar_1968_2023
+gg_fruktsamhet$summerad_fruktsamhet_Riket_facet
 
 ```
 
@@ -119,7 +119,7 @@ Bland Dalarnas kommuner hade `r fruktsamhet_df %>% filter(år ==max(år)) %>% fi
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 
-gg_fruktsamhet_kommun$jmf_summerad_fruktsamhet_ar_2023_Dalarna_ar
+gg_fruktsamhet_kommun$jmf_summerad_fruktsamhet_Dalarna
 
 ```
 
@@ -132,7 +132,7 @@ Under `r max(fodda_doda_df$år)` avled `r format(fodda_doda_df %>% filter(år ==
 Sammantaget har nettot mellan födda och döda, se de svarta linjerna i diagrammet nedan, varit negativt i Dalarna under varje år sedan början av 1990-talet. Hur många invånare som länet tappar på grund av det varierar relativt mycket mellan åren, men under 2023 minskade befolkningen med `r abs(fodda_doda_df %>% filter(år == max(år),variabel == "netto",region == "Dalarnas län") %>% .$varde)` personer till följd av ett negativt födelsenetto.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_fodda_doda$Födelsenetto_Dalarna_ar_1968_2023
+gg_fodda_doda$Födelsenetto_Dalarna
 
 ```
 
@@ -157,7 +157,7 @@ gg_flytt_lan$inrikes_flyttningsoverskott
 Att det inrikes flyttnettot i Dalarna var negativt under 2023 är inget unikt. Sedan slutet av 1990-talet har har det inrikes flyttnettot varit negativt i Dalarna i en överväldigande majoritet av åren. En viktig förklaring till detta är sannolikt att befolkningen i Sverige blir mer urbaniserad, vilket innebär att allt fler flyttar från mindre län till storstadsregioner. I Dalarna är det framförallt unga personer som flyttar, vilket hänger samman med att det är i första hand unga personer som flyttar för att studera och arbeta. Mer om detta senare.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_flytt$`Inrikes flyttningsöverskott_Dalarna_ar_1997_2023`
+gg_flytt$`Inrikes flyttningsöverskott_Dalarna`
 ```
 
 Flyttar från Dalarna inrikes sker i första hand till  antingen större eller näraliggande län. Flest flyttar skedde till Stockholm, följt av Uppsala och Västmanland. Få flyttar till små län långt bort, såsom Blekinge och Gotland.
@@ -177,7 +177,7 @@ gg_inflytt_lan$Flytt_till_Dalarna
 Trots att såväl det inrikes flyttnettot som födelsenettot i normala fall är negativa i Dalarna, har befolkningen i länet ökat med runt `r format(plyr::round_any(befolkning_df %>% filter(region == "Dalarnas län",år>"1999",variabel == "Folkökning") %>% .$varde %>% sum(),100),big.mark = " ")` personer sedan millennieskiftet. Detta beror på att den sista komponenten som styr befolkningsutvecklingen, det utrikes flyttnettot, har varit positivt.  Framförallt invandrade många till Dalarna i samband med flyktingkrisen 2016, då mer än 4000 personer netto flyttade till länet från utlandet. Sedan dessa har invandringen dock minskat avsevärt och under 2023 var det utrikes flyttnettot i Dalarna blott `r flytt_overskott %>% filter(år=="2023", region=="Dalarnas län",variabel == "Invandringsöverskott") %>% .$varde` personer. Det anmärkningsvärt låga nettot kan delvis förklaras av att Skatteverket under 2023 inledde ett arbete med att avregistrera tusentals folkbokförda personer som vid en granskning visat sig inte längre bo i Sverige. I Dalarna ökade utvandringen under 2023 med ungefär 600 personer jämfört med åren innan, vilket sannolikt går att härröra till avregistreringar. Den främsta anledningen till det låga invandringsöverskottet på senare år är dock en striktare immigrationspolitik. Mellan 2020 och 2023 invandrade mellan 1400 och 1600 personer till Dalarna årligen, att jämföra med mellan 2000 och 3000 personer årligen åren dessförinnan. 
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_flytt$Invandringsöverskott_Dalarna_ar_1997_2023
+gg_flytt$Invandringsöverskott_Dalarna
 
 ```
 
@@ -187,8 +187,7 @@ gg_flytt$Invandringsöverskott_Dalarna_ar_1997_2023
 Sammantaget har Dalarnas län haft ett positivt flyttnetto under de flesta åren sedan millennieskiftet, vilket förklarar varför befolkningen ökat. Under 2023 var dock flyttnettot i Dalarna tydligt negativt (den största minskningen sedan 2000). Det negativa flyttnettot hänger samman med att det inrikes flyttnettot var negativt och att det utrikes flyttnettot minskade, vilket diskuterades i föregående avsnitt. 
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_flytt$Flyttnetto_Dalarna_ar_1997_2023
-
+gg_flytt$Flyttnetto_Dalarna
 ```
 
 För att fördjupa förståelsen kring vilka som flyttar till och från Dalarna delar vi i nästkommande avsnitt upp dessa utefter ålder och bakgrund (inrikes och utrikes födda).
@@ -200,14 +199,14 @@ Normalt är personer mest benägna att flytta till en annan ort när de är i 20
 I samtliga andra åldergrupper i diagrammet nedan var nettoflyttningen inrikes positiv under `r max(flytt_aldersgrupper_df$år)`. Den största inflyttningen skedde i åldergruppen `r flytt_aldersgrupper_df %>% filter(variabel == "Inrikes flyttningsöverskott",år == max(år),region == "Dalarnas län") %>% filter(varde == max(varde)) %>% .$alder_grupper`, inom vilken `r flytt_aldersgrupper_df %>% filter(variabel == "Inrikes flyttningsöverskott",år == max(år),region == "Dalarnas län") %>% filter(varde == max(varde)) %>% .$varde` personer flyttade till Dalarna netto. Grovhugget kan Dalarna därför sägas vara ett län som unga flyttar ifrån för att söka jobb eller börja studera på annan ort, innan vissa i 30 årsåldern återvänder till länet när det blivit dags att bilda familj.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_flytt_alder$Inrikes_flyttnetto_alder_Dalarna_ar_2021_2023
+gg_flytt_alder$Inrikes_flyttnetto_alder_Dalarna
 
 ```
 
 Att unga flyttar från Dalarna är inget unikt för senare år. I åldersgruppen 20-29 år har det inrikes flyttnettot varit negativt i Dalarna under samtliga år sedan åtminstone 1997.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_flytt_alder$`Inrikes flyttnetto_alder_Dalarna_ar_1997_2023`
+gg_flytt_alder$`Inrikes flyttnetto_alder_20-29 år_Dalarna`
 
 ```
 
@@ -218,7 +217,7 @@ För att ytterligare förtydliga vilka som flyttar till och från Dalarna inrike
 Tydligt är att många av de som invandrade till länet i samband med flyktingkrisen 2015-2016 har flyttat därifrån sedan dess. Totalt har `r format(abs(sum(flytt_bakgrund_df %>% filter(region == "Dalarna",år>2016,födelseregion == "Utrikes född") %>% .$Inrikes_flyttnetto)),big.mark = " ")` utrikes födda flyttat från Dalarna till andra län sedan 2017. För inrikes födda är bilden annorlunda. Under samma tidsperiod flyttade `r sum(flytt_bakgrund_df %>% filter(region == "Dalarna",år>2016,födelseregion == "Född i Sverige") %>% .$Inrikes_flyttnetto)` personer födda i Sverige till Dalarna. Inflyttningen skedde dock framförallt under 2020-2022, vilket kan vara en effekt av Corona-pandemin. Under `r max(flytt_bakgrund_df$år)` flyttade `r abs(flytt_bakgrund_df %>% filter(region == "Dalarna",år == max(år),födelseregion == "Född i Sverige") %>% .$Inrikes_flyttnetto)` personer födda i Sverige från Dalarna till andra län netto, vilket är den lägsta siffran sedan 2015.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_flytt_bakgrund$Flyttnetto_bakgrundDalarna_ar2002_2023
+gg_flytt_bakgrund$Flyttnetto_bakgrundDalarna
 ```
 
 <br>
@@ -255,7 +254,7 @@ I diagrammet nedan visas befolkningsutvecklingen i Dalarna fram till 2040 enligt
 * Antalet i åldersgrupp som brukar benämnas arbetsför ålder, 20-64 år, förväntas minska tydligt fram till 2040. 
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_befprognos$befolkningsforandring_Dalarna_2023_2040
+gg_befprognos$befolkningsforandring_Dalarna_2040
 ```
 
 Sammantaget ger SCB:s prognos en föraning om stora utmaningar för Dalarna framöver. Befolkningen blir äldre och minskar i antal, vilket sätter press på såväl välfärden som arbetsmarknaden. Hur Dalarna möter dessa utmaningar blir en avgörande faktor för länets framtida utveckling.
@@ -263,53 +262,6 @@ Sammantaget ger SCB:s prognos en föraning om stora utmaningar för Dalarna fram
 # Kommunfördjupningar {.tabset .tabset-fade .tabset-pills}
 
 ## Avesta {-}
-
-I likhet med de flesta kommuner i Dalarna har Avestas befolkning minskat under en lång period, från ca `r format(plyr::round_any(befolkning_df %>% filter(år == min(år),region == "Avesta" ,variabel == "Folkmängd") %>% .$varde,100),big.mark=" ") ` invånare  år `r min(befolkning_df$år)` till ungefär `r format(plyr::round_any(befolkning_df %>% filter(år == max(år),region == "Avesta", variabel == "Folkmängd") %>% .$varde,100),big.mark=" ") ` invånare år `r max(befolkning_df$år)`.
-
-Befolkningen minskar under en överväldigande majoritet av åren, vilket syns tydligt i diagrammet nedan. Det stora undantaget var i samband med flyktingkrisen 2015-2016, när Avestas befolkning ökade med mer än 1100 personer. Därefter minskade befolkningen under några år, vilket till stor del kan förklaras med att personer som flyttade till Avesta i samband med flyktingkrisen lämnade för andra delar av Sverige. Under 2022 ökade Avestas befolkning något (`r befolkning_df %>% filter(år == "2022",region == "Avesta", variabel == "Folkökning") %>% .$varde ` personer), men denna ökning följdes av en en betydligt större minskning 2023 (`r befolkning_df %>% filter(år == "2023",region == "Avesta", variabel == "Folkökning") %>% .$varde ` personer).
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_befolkning$Befolkningsutveckling_Avesta_ar_1968_2023
-```
-
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_fruktsamhet_kommun$summerad_fruktsamhet_Avesta_facet__ar_1968_2023
-```
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_fodda_doda$Födelsenetto_Avesta_ar_1968_2023
-```
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-knitr::include_graphics("Figurer/Befpyramid Avesta 2023_jmfr_ar_1968.png")
-```
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_flytt$Flyttnetto_Avesta_ar_1997_2023
-
-```
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_flytt$`Inrikes flyttningsöverskott_Avesta_ar_1997_2023`
-```
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_flytt$Invandringsöverskott_Avesta_ar_1997_2023
-```
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_flytt_alder$Inrikes_flyttnetto_alder_Avesta_ar_2021_2023
-```
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_flytt_alder$`Inrikes flyttnetto_alder_Avesta_ar_1997_2023`
-```
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_flytt_bakgrund$Flyttnetto_bakgrundAvesta_ar2002_2023
-
-```
 
 ## Borlänge {-}
 

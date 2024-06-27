@@ -32,6 +32,10 @@ body {
   margin-top: 0;
   z-index:1;
 }  
+
+.kommentar{
+  background-color: #FFFF00;
+}
  
 /*Segment med p - ta eventuellt bort*/
 /*p{

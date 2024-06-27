@@ -31,7 +31,7 @@ gg_fodda_doda = diagram_fodelsenetto(region_vekt = hamtakommuner(vald_region,tam
 # 
 
 # Diagram flyttnetto län
-source("C:/Users/frkjon/Projekt/befolkningsutvecklingen_i_Dalarna/Skript/diagram_flyttningar_overskott.R")
+source(here("Skript","diagram_flyttningar_overskott.R"), encoding="UTF-8")
 gg_flytt_lan <- diagram_inflytt(spara_figur=FALSE,
                                 returnera_data = TRUE)
 
@@ -62,7 +62,7 @@ gg_flytt_alder <- diagram_inrikes_flytt_alder(region_vekt = hamtakommuner(vald_r
                                               #tid = c(2000:9999),
                                               spara_figur = FALSE)
 
-# # Diagram flyttnetto födelseregion
+# Diagram flyttnetto födelseregion
 source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_flytt_inrikes_bakgrund_SCB.R", encoding="UTF-8")
 gg_flytt_bakgrund <- diag_inr_flyttnetto_inr_utr_fodda(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE),
                                                        skriv_diagram = FALSE,
@@ -104,15 +104,15 @@ gg_befpyramid <- diag_befpyramid(geo_vekt = c(vald_region),
                                  output_mapp = Output_mapp_figur)
 
 ## Befolkningsprognos
-source("C:/Users/frkjon/Projekt/befolkningsutvecklingen_i_Dalarna/Skript/befprognos.R")
+source(here("Skript","befprognos.R"), encoding="UTF-8")
 
-gg_befprognos <- diagram_befprognos(region_vekt = vald_region,
-                                    diag_aldergrupp = TRUE, 
-                                    diag_jmf_region = FALSE,
-                                    returnera_data = TRUE,
-                                    output_mapp_figur = Output_mapp_figur)
+# gg_befprognos <- diagram_befprognos(region_vekt = vald_region,
+#                                     diag_aldergrupp = TRUE, 
+#                                     diag_jmf_region = FALSE,
+#                                     returnera_data = TRUE,
+#                                     output_mapp_figur = Output_mapp_figur)
 
-gg_befprognos_kommun <- diagram_befprognos(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE,tamedlan=FALSE),
+gg_befprognos_kommun <- diagram_befprognos(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE,tamedlan=TRUE),
                                            diag_aldergrupp = TRUE, 
                                            diag_jmf_region = TRUE,
                                            diag_alla = TRUE,
@@ -126,11 +126,11 @@ rmarkdown::render(
   envir = parent.frame()
 )
 
-# rmarkdown::render(
-#   input = 'befolkningsutveckling_Avesta.Rmd',
-#   output_file = paste0("befolkningsutveckling_Avesta.html"),
-#   envir = parent.frame()
-# )
+rmarkdown::render(
+  input = 'befolkningsutveckling_Avesta.Rmd',
+  output_file = paste0("befolkningsutveckling_Avesta.html"),
+  envir = parent.frame()
+)
 # 
 # rmarkdown::render(
 #   input = 'befolkningsutveckling_Borlänge.Rmd',
