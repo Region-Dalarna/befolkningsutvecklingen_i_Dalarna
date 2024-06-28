@@ -107,16 +107,25 @@ gg_befpyramid <- diag_befpyramid(geo_vekt = c(vald_region),
 source(here("Skript","befprognos.R"), encoding="UTF-8")
 
 # gg_befprognos <- diagram_befprognos(region_vekt = vald_region,
-#                                     diag_aldergrupp = TRUE, 
+#                                     diag_aldergrupp = TRUE,
 #                                     diag_jmf_region = FALSE,
-#                                     returnera_data = TRUE,
 #                                     output_mapp_figur = Output_mapp_figur)
 
-gg_befprognos_kommun <- diagram_befprognos(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE,tamedlan=TRUE),
-                                           diag_aldergrupp = TRUE, 
-                                           diag_jmf_region = TRUE,
-                                           diag_alla = TRUE,
-                                           output_mapp_figur = Output_mapp_figur)
+gg_befprognos <- diagram_befprognos(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE,tamedlan=TRUE),
+                                     diag_aldergrupp = TRUE, 
+                                     diag_jmf_region = FALSE,
+                                     diag_alla = TRUE,
+                                     jmf_procent = FALSE,
+                                     returnera_data = TRUE,
+                                     output_mapp_figur = Output_mapp_figur)
+
+gg_befprognos_procent <- diagram_befprognos(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE,tamedlan=TRUE),
+                                            diag_aldergrupp = FALSE, 
+                                            diag_jmf_region = TRUE,
+                                            diag_alla = FALSE,
+                                            jmf_procent = TRUE,
+                                            returnera_data = FALSE,
+                                            output_mapp_figur = Output_mapp_figur)
 
 
 
@@ -131,6 +140,13 @@ rmarkdown::render(
   output_file = paste0("befolkningsutveckling_Avesta.html"),
   envir = parent.frame()
 )
+
+rmarkdown::render(
+  input = 'befolkningsutveckling_Hedemora.Rmd',
+  output_file = paste0("befolkningsutveckling_Hedemora.html"),
+  envir = parent.frame()
+)
+
 # 
 # rmarkdown::render(
 #   input = 'befolkningsutveckling_Borlänge.Rmd',

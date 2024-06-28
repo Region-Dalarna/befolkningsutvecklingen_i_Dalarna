@@ -7,9 +7,10 @@ diagram_befprognos <- function(region_vekt = "20", # Val av kommun/län att foku
                                prognos_ar = "2040", # Vilket år skall prognosen fokusera på
                                spara_figur = FALSE, # Sparar figuren till output_mapp_figur
                                diag_aldergrupp = TRUE, # Skapa diagram för alla valda år i valt län
-                               diag_jmf_region = TRUE, # Skapa diagram för alla valda år i valt län
+                               diag_jmf_region = TRUE, # Skapar ett diagram där total befolkningsförändring jämförs mellan valda regioner (region_vekt)
                                diag_facet = FALSE, # Skapa ett facetdiagram där alla valda regioner visas
                                diag_alla = TRUE, # Ett diagram skapas för alla regioner. Om FALSE skapas ett diagram för region_fokus
+                               jmf_procent = FALSE, # Skapa diagram för förändring i procent
                                returnera_figur = TRUE, # Om man vill att figuren skall returneras från funktionen
                                returnera_data = FALSE){ # True om användaren vill returnera data från funktionen
   
@@ -56,40 +57,50 @@ diagram_befprognos <- function(region_vekt = "20", # Val av kommun/län att foku
   
   tot <- rbind(bef_df, prognos_df) 
   
-  ut <- tot %>%
+  total_forandring <- tot %>% 
+    group_by(år,regionkod,region) %>% 
+    summarise(Folkmängd = sum(Folkmängd)) %>% 
+    mutate(alder_grupp = "Totalt") 
+  
+  diag_df <- rbind(tot, total_forandring) %>% 
+    mutate(region = skapa_kortnamn_lan(region))
+  
+  ut <- diag_df %>%
     filter(år%in%c(min(tot$år),max(tot$år))) %>% 
       mutate(ar = ifelse(år==min(år),"forsta_ar","sista_ar")) %>% 
         select(-år) %>% 
       pivot_wider(names_from = ar, values_from = Folkmängd) %>% 
-        mutate(forandring = (sista_ar - forsta_ar)) %>% 
+        mutate(forandring = (sista_ar - forsta_ar),
+               forandring_procent = ((sista_ar - forsta_ar)/forsta_ar)*100) %>% 
           pivot_longer(cols = c(forandring), names_to = "variabel", values_to = "Folkmängd") %>% 
             select(-c(forsta_ar,sista_ar))
   
-  total_forandring <- ut %>% 
-    group_by(regionkod,region,variabel) %>% 
-      summarise(Folkmängd = sum(Folkmängd)) %>% 
-        mutate(alder_grupp = "Totalt") 
+  # total_forandring <- ut %>% 
+  #   group_by(regionkod,region,variabel) %>% 
+  #     summarise(Folkmängd = sum(Folkmängd)) %>% 
+  #       mutate(alder_grupp = "Totalt") 
   
-  diag_df <- rbind(ut, total_forandring) %>% 
-    mutate(region = skapa_kortnamn_lan(region))
+  # diag_df <- rbind(ut, total_forandring) %>% 
+  #   mutate(region = skapa_kortnamn_lan(region))
   
   #diag_capt <- "Källa: SCB:s öppna statistikdatabas\nBearbetning av Samhällsanalys, Region Dalarna\nDiagramförklaring:I prognoserna tas ingen hänsyn till planerat bostadsbyggande,\netableringar av företag eller andra framtida mål och förutsättningar."
 
 
   if(returnera_data == TRUE){
-    assign("befprognos_df", diag_df, envir = .GlobalEnv)
+    assign("befprognos_df", ut, envir = .GlobalEnv)
   }
 
   if(diag_jmf_region == TRUE){
     diagram_titel <- paste0("Befolkningsförändring ",min(tot$år),"-",max(tot$år))
-    diagramfil <- paste0("befolkningsforandring_jmf_region_", max(tot$år), ".png")
+    diagramfil <- ifelse(jmf_procent==TRUE,paste0("befolkningsforandring_jmf_region_procent_", max(tot$år), ".png"),paste0("befolkningsforandring_jmf_region_", max(tot$år), ".png"))
+    #diagramfil <- paste0("befolkningsforandring_jmf_region_", max(tot$år), ".png")
     objektnamn <- c(objektnamn,diagramfil %>% str_remove(".png"))
     
-    gg_obj <- SkapaStapelDiagram(skickad_df = diag_df %>% 
+    gg_obj <- SkapaStapelDiagram(skickad_df = ut %>% 
                                    filter(alder_grupp == "Totalt") %>% 
                                     mutate(fokus = ifelse(regionkod == region_fokus, "1", "0")), 
                                  skickad_x_var = "region", 
-                                 skickad_y_var = "Folkmängd",
+                                 skickad_y_var = ifelse(jmf_procent==TRUE,"forandring_procent","Folkmängd"),
                                  diagram_titel = diagram_titel,
                                  diagram_capt = diag_capt,
                                  x_axis_sort_value = TRUE,
@@ -97,7 +108,7 @@ diagram_befprognos <- function(region_vekt = "20", # Val av kommun/län att foku
                                  stodlinjer_avrunda_fem = FALSE,
                                  manual_x_axis_text_vjust = 1,
                                  manual_x_axis_text_hjust = 1,
-                                 manual_y_axis_title = "Förändring",
+                                 manual_y_axis_title = ifelse(jmf_procent==TRUE,"procent","Antal"),
                                  skriv_till_diagramfil = spara_figur,
                                  manual_color = diagramfarger("rus_tva_fokus"),
                                  output_mapp = output_mapp_figur,
@@ -108,12 +119,11 @@ diagram_befprognos <- function(region_vekt = "20", # Val av kommun/län att foku
     names(gg_list) <- objektnamn
   }
   
-  if(diag_alla == FALSE & diag_facet == FALSE){
-    diag_df <- diag_df %>%
+  if(diag_alla == FALSE && diag_facet == FALSE){
+    ut <- ut %>%
       filter(regionkod %in% region_fokus)
     }
 
-  # diagram med bara fokusregionen över tid
   if(diag_aldergrupp == TRUE){
     
     skapa_diagram <- function(data,vald_region){
@@ -127,13 +137,14 @@ diagram_befprognos <- function(region_vekt = "20", # Val av kommun/län att foku
       }else{
         diagram_titel <- paste0("Befolkningsförändring i ",vald_region," ",min(tot$år),"-",max(tot$år))
       }
-      diagramfil <- paste0("befolkningsforandring_",vald_region,"_", max(tot$år), ".png")
+      diagramfil <- ifelse(jmf_procent==TRUE,paste0("befolkningsforandring_procent_",vald_region,"_", max(tot$år), ".png"),paste0("befolkningsforandring_",vald_region,"_", max(tot$år), ".png"))
+      #diagramfil <- paste0("befolkningsforandring_",vald_region,"_", max(tot$år), ".png")
       objektnamn_map <- c(objektnamn_map,diagramfil %>% str_remove(".png"))
       
       gg_obj <- SkapaStapelDiagram(skickad_df = data %>% 
                                     mutate(alder_grupp = factor(alder_grupp, levels = c("Totalt","0-19 år","20-64 år","65-79 år","80+ år"))), 
                                    skickad_x_var = "alder_grupp", 
-                                   skickad_y_var = "Folkmängd",
+                                   skickad_y_var = ifelse(jmf_procent==TRUE,"forandring_procent","Folkmängd"),
                                    diagram_titel = diagram_titel,
                                    diagram_capt = diag_capt,
                                    stodlinjer_avrunda_fem = TRUE,
@@ -141,7 +152,7 @@ diagram_befprognos <- function(region_vekt = "20", # Val av kommun/län att foku
                                    manual_x_axis_text_hjust = 1,
                                    diagram_facet = length(unique(data$region)) > 1,
                                    facet_grp = "region",
-                                   manual_y_axis_title = "Förändring",
+                                   manual_y_axis_title = ifelse(jmf_procent==TRUE,"procent","Antal"),
                                    skriv_till_diagramfil = spara_figur,
                                    manual_color = diagramfarger("rus_sex")[1],
                                    output_mapp = output_mapp_figur,
@@ -154,10 +165,10 @@ diagram_befprognos <- function(region_vekt = "20", # Val av kommun/län att foku
     }
     
     if (diag_facet) {
-      diag <- skapa_diagram(diag_df,unique(diag_df$region))
+      diag <- skapa_diagram(ut,unique(ut$region))
       
     } else {
-      diag <- map(unique(diag_df$region), ~ skapa_diagram(diag_df, .x)) %>% flatten()
+      diag <- map(unique(ut$region), ~ skapa_diagram(ut, .x)) %>% flatten()
       
     }
     
