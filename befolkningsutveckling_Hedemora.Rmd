@@ -47,7 +47,7 @@ Senast uppdaterad: `r Sys.Date()`</i>
 </p>
 
 # Sammanfattning { - }
-Syftet med den här korta analysen är att undersöka Hedemoras befolkningsutveckling. Ett antal viktiga slutsatser sammanfattas här:
+Syftet med den här korta analysen är att undersöka `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s befolkningsutveckling. Ett antal viktiga slutsatser sammanfattas här:
 
 * Nedgången i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd år 2023, jämfört med åren innan, beror på en svagare utveckling inom mer eller mindre alla komponenter som förklarar befolkningsutvecklingen.
 * Det föddes klart färre barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` 2023, jämfört med 2022. Detta är i linje med en större trend i samhället, då barnafödandet per kvinna i Sverige 2023 var det lägsta som har uppmätts.
