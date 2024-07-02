@@ -1,5 +1,5 @@
 ---
-title: "Befolkningsutvecklingen i Säter"
+title: "Befolkningsutvecklingen i Gagnef"
 author: ""
 date: ""
 output: 
@@ -15,11 +15,11 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-region_val = "Säter"
+region_val = "Gagnef"
 ```
 
 
-<p style="font-weight: 600;font-size: 1.5rem;line-height:1;padding-top:15px">Befolkningsutvecklingen i Säter<br> <span style="font-weight: 400;font-size: 1.2rem">- en kort analys</span></p>
+<p style="font-weight: 600;font-size: 1.5rem;line-height:1;padding-top:15px">Befolkningsutvecklingen i Gagnef<br> <span style="font-weight: 400;font-size: 1.2rem">- en kort analys</span></p>
 
 <style>
 h1 { /* Header 1 */
@@ -69,10 +69,10 @@ För mer info om statistiken, klicka på rutan nedan:
 
 I `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` har folkmängden ökat sedan slutet på 1960-talet, från ca `r format(plyr::round_any(befolkning_df %>% filter(år == min(år),region == region_val ,variabel == "Folkmängd") %>% .$varde,100),big.mark=" ") ` invånare  år `r min(befolkning_df$år)` till ungefär `r format(plyr::round_any(befolkning_df %>% filter(år == max(år),region == region_val, variabel == "Folkmängd") %>% .$varde,100),big.mark=" ") ` invånare år `r max(befolkning_df$år)`. Den största ökningen skedde under 1970- och 1980-talen, då befolkningen ökade mer eller mindre varje år. Därefter skedde en minskning efter finanskrisen på 1990-talet, innan befolkningstillväxten återigen tog fart i samband med flyktingkrisen (åren runt 2016). Under 2023 minskade befolkningen med (`r abs(befolkning_df %>% filter(år == "2023",region == region_val, variabel == "Folkökning") %>% .$varde) ` personer).
 
-En viktig orsak till Säter positiva befolkningstillväxt är troligtvis närheten till större städer som Borlänge och Falun. Arbetsmarknaden för personer boende i Säter blir därför större än vad den annars skulle vara, vilket gör kommunen mer attraktiv att bo i. 
+En viktig orsak till Gagnef positiva befolkningstillväxt är troligtvis närheten till större städer som Borlänge och Falun. Arbetsmarknaden för personer boende i Gagnef blir därför större än vad den annars skulle vara, vilket gör kommunen mer attraktiv att bo i. 
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_befolkning$Befolkningsutveckling_Säter
+gg_befolkning$Befolkningsutveckling_Gagnef
 ```
 
 I fortsättningen av denna korta analys delas befolkningsutveckling upp i dess komponenter, födelsenetto, dvs. nettot av födda och döda, och flyttnetto, dvs. nettot av inrikes och utrikes flyttar. Vi börjar med födelsenettot.
@@ -86,7 +86,7 @@ När det gäller antalet födslar är trenden negativ om man jämför med framf�
 Nettot mellan födda och döda, se de svarta linjerna i diagrammet nedan, varit relativt mycket mellan åren. Under 2000-talet har nettot varit positivt under enstaka år, men är för det mesta negativt. På senare år går det att skönja en viss förbättring, då nettot är mindre negativt än det var åren innan och under Corona-pandemin 2020. År `r max(fodda_doda_df$år)` minskade befolkningen med `r abs(fodda_doda_df %>% filter(år == max(år),region == region_val,variabel == "netto") %>% .$varde)` personer till följd av ett negativt födelsenetto, vilket är i linje med åren innan.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_fodda_doda$Födelsenetto_Säter
+gg_fodda_doda$Födelsenetto_Gagnef
 ```
 
 # Flyttnetto
@@ -95,24 +95,24 @@ Den andra komponenten som styr befolkningsutvecklingen är det så kallade flytt
 Nettot mellan antalet personer som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` varierar relativt mycket mellan åren, har varit positivt under stora delar av 2010-talet. Många flyttade till kommunen under åren runt flyktingkrisen (2016), men även under 2020 och 2021 var inflyttningen stor (netto). Under `r max(flytt_df$år)` var flyttnettot återigen negativt (`r flytt_df %>% filter(år==max(år),region == region_val) %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer).
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_flytt$Flyttnetto_Säter
+gg_flytt$Flyttnetto_Gagnef
 
 ```
 
 ## Utrikes flyttnetto
-Som vi berörde i föregående avsnitt flyttade många till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` under åren innan flyktingkrisen 2016, vilket till stor del kan förklaras av att invandringen då var stor. Det som skiljer `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` från många andra kommuner i Dalarna är att invandringen var som högst redan 2013, för att därefter gradvis minska. Även under 2021 skedde en relativt stor invandring till kommunen. Trenden är dock att invandringen idag är betydligt lägre än under åren runt flyktingkrisen, vilket i första hand har att göra med en tydligt stramare nationell migrationspolitik. Under 2023 var det utrikes flyttnettot `r flytt_df %>% filter(år==max(år),region == region_val, variabel == "Invandringsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer, det lägsta nettot sedan 2004. Detta kan sannolikt delvis förklaras av de avregistreringar av utvandrade som Skattemyndigheten genomförde under 2023 (se informationsruta ovan), men den främsta anledningen är en stramare migrationspolitik.
+Som vi berörde i föregående avsnitt flyttade många till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` under åren runt flyktingkrisen, vilket till stor del kan förklaras av att invandringen då var stor. I slutet av 1990-talet var invandringen ofta väldigt låg och till och med negativ under vissa år (fler utvandrade än invandrade), men därefter skedde en gradvis ökning innan den stora toppen 2016. Därefter minskade invandringen tydligt, men låg på relativt höga nivåer fram till 2019. På senare år syns effekterna av en tydligt stramare nationell migrationspolitik, då allt färre invandrar till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`. Under 2023 var det utrikes flyttnettot `r flytt_df %>% filter(år==max(år),region == region_val, variabel == "Invandringsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer, det lägsta nettot sedan 1997. Detta kan sannolikt delvis förklaras av de avregistreringar av utvandrade som Skattemyndigheten genomförde under 2023 (se informationsruta ovan), men den främsta anledningen är en stramare migrationspolitik.
 
-Generellt invandrar ungefär lika många kvinnor och män till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`, även om det var något fler män under 2023.
+Generellt invandrar ungefär lika många kvinnor och män till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_flytt$Invandringsöverskott_Säter
+gg_flytt$Invandringsöverskott_Gagnef
 ```
 
 ## Inrikes flyttnetto
-Till skillnad från många andra kommuner i Dalarna har `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` relativt ofta haft ett positivt inrikes flyttnetto på senare år. Visserligen var nettot tydligt negativt under något år efter flyktingkrisen, men samtidigt flyttade många till kommunen från andra delar av Sverige under Corona-pandemin och året därefter. Under 2022 och framförallt 2023 skedde en tydlig minskning av det inrikes flyttnettot, vilket förklarar varför befolkningstillväxten då var betydligt lägre än åren innan. År `r max(befolkning_df$år)` flyttade `r abs(flytt_df %>% filter(år == max(år),region == region_val, variabel == "Inrikes flyttningsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde)` personer netto från kommunen inrikes.
+Utvecklingen för det inrikes flyttnettot är i mångt och mycket det omvända mot det utrikes, under en majoritet av åren sedan slutet på 1990-talet flyttade fler personer från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` till andra delar av Sverige än de som flyttade till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`. Från 2016 och några år framåt var utflyttningen extra stor från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`, då personer som invandrat till kommunen valde att flytta till andra delar av Sverige av olika anledningar. År 2021 var det inrikes flyttnettot (`r flytt_df %>% filter(år == "2021",region == region_val, variabel == "Inrikes flyttningsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer) positivt för första gången sedan 2013, men `r max(flytt_df$år)` därefter gick effekten åt motsatt håll. År `r max(befolkning_df$år)` flyttade `r abs(flytt_df %>% filter(år == max(år),region == region_val, variabel == "Inrikes flyttningsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde)` personer netto från kommunen inrikes.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_flytt$`Inrikes flyttningsöverskott_Säter`
+gg_flytt$`Inrikes flyttningsöverskott_Gagnef`
 ```
 
 För att få en bättre förståelse för vilka som flyttar till och från kommunen inrikes delar vi härnäst upp de som flyttar efter ålder. Normalt är personer mest benägna att flytta till en annan ort när de är i 20-års åldern, innan flyttandet gradvis avtar. 
@@ -125,7 +125,7 @@ Bland de åldersgrupper som redovisas i diagrammet nedan skedde den största utf
 Den största inflyttningen, netto, skedde i åldersgruppen `r flytt_aldersgrupper_df %>% filter(år == max(år),variabel == "Inrikes flyttningsöverskott",region == region_val) %>% filter(varde==max(varde)) %>% .$alder_grupper`, i vilken det flyttade `r flytt_aldersgrupper_df %>% filter(år == max(år),variabel == "Inrikes flyttningsöverskott",region == region_val) %>% filter(varde==max(varde)) %>% .$varde` personer fler till än från kommunen inrikes år `r max(flytt_aldersgrupper_df$år)`. Detta var ungefär i linje med åren innan.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_flytt_alder$Inrikes_flyttnetto_alder_Säter
+gg_flytt_alder$Inrikes_flyttnetto_alder_Gagnef
 ```
 
 Om vi enbart fokuserar på åldersgruppen 20-29 år, blir det tydligt att det alltid flyttar fler unga vuxna från än till kommunen inrikes. Historiskt varierar det inrikes flyttnettot i åldersgruppen mellan åren, vilket exempelvis kan bero på att olika årskullar av barn är olika stora. År 2023 flyttade 41 personer fler i åldersgruppen 20-29 år från än till kommunen inrikes.
@@ -133,7 +133,7 @@ Om vi enbart fokuserar på åldersgruppen 20-29 år, blir det tydligt att det al
 Även i Dalarna som helhet flyttade fler i åldersgruppen ut än in under 2023.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_flytt_alder$`Inrikes flyttnetto_alder_20-29 år_Säter`
+gg_flytt_alder$`Inrikes flyttnetto_alder_20-29 år_Gagnef`
 ```
 
 ### Uppdelat på bakgrund
@@ -142,11 +142,11 @@ För att ytterligare förtydliga vilka som flyttar till och från `r unique(befo
 Tydligt är att många av de som invandrade till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` i samband med flyktingkrisen 2015-2016 flyttade därifrån under åren efter krisen, då framförallt mellan 2016 och 2018. Sammantaget flyttade närmare 600 utrikes födda (netto) från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` till andra delar av Sverige under den perioden.  En annan trend är att relativt många inrikes födda valt att flytta till kommunen på senare år, jämfört med tidigare. Exakt vad detta beror på är svårt att säga, men det verkar vara en övervikt av personer från äldre åldersgrupper (se föregående avsnitt).
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_flytt_bakgrund$Flyttnetto_bakgrundSäter
+gg_flytt_bakgrund$Flyttnetto_bakgrundGagnef
 
 ```
 
-Sammanfattningsvis minskade `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` folkmängd under `r max(befolkning_df$år)` med `r abs(befolkning_df %>% filter(år == max(år),region == "Säter",variabel == "Folkökning") %>% .$varde)` personer, vilket är den största minskningen sedan 2017. Detta hänger samman med att mer eller mindre alla komponenter som förklar befolkningsutvecklingen försämrades jämfört med åren innan.
+Sammanfattningsvis minskade `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` folkmängd under `r max(befolkning_df$år)` med `r abs(befolkning_df %>% filter(år == max(år),region == "Gagnef",variabel == "Folkökning") %>% .$varde)` personer, vilket är den största minskningen sedan 2017. Detta hänger samman med att mer eller mindre alla komponenter som förklar befolkningsutvecklingen försämrades jämfört med åren innan.
 
 I nästa avsnitt blickar vi istället framåt. Hur kommer `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd att utvecklas fram till 2040?
 
@@ -165,7 +165,7 @@ I diagrammet nedan visas befolkningsutvecklingen i `r unique(befolkning_df %>% f
 * Även i åldersgruppen 0-19 år sker en relativt stor minskning av befolkningen, ungefär `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "0-19 år",region==region_val) %>% .$Folkmängd,100)),big.mark=" ")` personer.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_befprognos$befolkningsforandring_Säter_2040
+gg_befprognos$befolkningsforandring_Gagnef_2040
 ```
 
 Sammantaget ger SCB:s prognos en föraning om stora utmaningar för `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` framöver. Befolkningen blir äldre och minskar i antal, vilket sätter press på såväl välfärden som arbetsmarknaden. Hur kommunen möter dessa utmaningar blir en avgörande faktor för dess framtida utveckling.

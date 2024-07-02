@@ -160,6 +160,12 @@ rmarkdown::render(
   envir = parent.frame()
 )
 
+rmarkdown::render(
+  input = 'befolkningsutveckling_Gagnef.Rmd',
+  output_file = paste0("befolkningsutveckling_Gagnef.html"),
+  envir = parent.frame()
+)
+
 
 # 
 # rmarkdown::render(
