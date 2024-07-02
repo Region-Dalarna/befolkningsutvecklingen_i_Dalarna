@@ -88,11 +88,12 @@ gg_fruktsamhet <- diagram_fruktsamhet(region_vekt = c("00",valt_lan),
                                       facet_skala = "fixed",
                                       returnera_data = TRUE)
 # Jmf Dalarnas kommuner
-gg_fruktsamhet_kommun <- diagram_fruktsamhet(region_vekt = hamtakommuner(valt_lan),
-                                      diag_facet = FALSE, # diag_fokus_tid som facet-diagram istället för ett per region
+gg_fruktsamhet_kommun <- diagram_fruktsamhet(region_vekt = hamtakommuner(valt_lan,tamedriket = FALSE,tamedlan=FALSE),
+                                      diag_facet = TRUE, # diag_fokus_tid som facet-diagram istället för ett per region
                                       diag_jmf_lan = TRUE, # Skapa diagram för jämförelse mellan valda regioner
                                       diag_forandring = FALSE, # Skapa diagram för förändringar över tid
                                       spara_figur=FALSE,
+                                      facet_skala = "fixed",
                                       vald_period = "*",
                                       returnera_data = TRUE)
 
@@ -152,6 +153,13 @@ rmarkdown::render(
   output_file = paste0("befolkningsutveckling_Ludvika.html"),
   envir = parent.frame()
 )
+
+rmarkdown::render(
+  input = 'befolkningsutveckling_Säter.Rmd',
+  output_file = paste0("befolkningsutveckling_Säter.html"),
+  envir = parent.frame()
+)
+
 
 # 
 # rmarkdown::render(

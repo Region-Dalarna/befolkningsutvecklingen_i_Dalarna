@@ -117,13 +117,20 @@ gg_fruktsamhet$summerad_fruktsamhet_Riket_facet
 
 ```
 
-Bland Dalarnas kommuner hade `r fruktsamhet_df %>% filter(år ==max(år)) %>% filter(sum_frukts_ar == max(sum_frukts_ar)) %>% .$region` år `r max(fruktsamhet_df$år)` den högsta fruktsamheten (`r sub("\\.",",",fruktsamhet_df %>% filter(år ==max(år)) %>% filter(sum_frukts_ar == max(sum_frukts_ar)) %>% .$sum_frukts_ar)`), medan `r fruktsamhet_df %>% filter(år ==max(år)) %>% filter(sum_frukts_ar == min(sum_frukts_ar)) %>% .$region` hade den lägsta (`r gsub("\\.",",",fruktsamhet_df %>% filter(år ==max(år)) %>% filter(sum_frukts_ar == min(sum_frukts_ar)) %>% .$sum_frukts_ar)`). Det är dock viktigt att notera att fruktsamheten på kommunnivå kan variera relativt mycket över tid (se avsnittet kommunfördjupningar).
+Bland Dalarnas kommuner hade `r fruktsamhet_df %>% filter(år ==max(år)) %>% filter(sum_frukts_ar == max(sum_frukts_ar)) %>% .$region` år `r max(fruktsamhet_df$år)` den högsta fruktsamheten (`r sub("\\.",",",fruktsamhet_df %>% filter(år ==max(år)) %>% filter(sum_frukts_ar == max(sum_frukts_ar)) %>% .$sum_frukts_ar)`), medan `r fruktsamhet_df %>% filter(år ==max(år)) %>% filter(sum_frukts_ar == min(sum_frukts_ar)) %>% .$region` hade den lägsta (`r gsub("\\.",",",fruktsamhet_df %>% filter(år ==max(år)) %>% filter(sum_frukts_ar == min(sum_frukts_ar)) %>% .$sum_frukts_ar)`). 
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 
 gg_fruktsamhet_kommun$jmf_summerad_fruktsamhet_Dalarna
 
 ```
+
+Det är dock viktigt att notera att fruktsamheten på kommunnivå kan variera relativt mycket över tid. I större kommuner som Falun och Borlänge påminner utvecklingen om den i Dalarna och riket, där fruktsamheten ser ut att följa en trend. I mindre kommuner, såsom Vansbro, är variationen större mellan åren och det blir svårare att utläsa en långsiktig trend. Detta beror sannolikt på att hur många barn enskilda individer föder får större konsekvenser för fruktsamheten i mindre kommuner än i större kommuner. 
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_fruktsamhet_kommun$summerad_fruktsamhet_Vansbro_facet
+```
+
 
 ## Nettot mellan födda och döda
 
