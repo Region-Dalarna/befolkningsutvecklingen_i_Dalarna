@@ -49,10 +49,10 @@ Senast uppdaterad: `r Sys.Date()`</i>
 # Sammanfattning { - }
 Syftet med den här korta analysen är att undersöka `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s befolkningsutveckling. Ett antal viktiga slutsatser sammanfattas här:
 
-* Den tydliga nedgången i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd år 2023 beror på flyttnettot minskade tydligt jämfört med föregående år, samtidigt som födelsenettot var negativt.
-* Det föddes fler barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` 2023, jämfört med åren innan. På den punkten skiljer sig kommunen från riket i stort, då barnafödandet per kvinna i Sverige 2023 var det lägsta som har uppmätts. Samtidigt ökade dock antalet avlidna i kommunen.
+* Nedgången i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd år 2023, jämfört med åren innan, beror i första hand på att flyttnettot har minskat.
+* Det föddes klart färre barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` 2023, jämfört med 2022. Detta är i linje med en större trend i samhället, då barnafödandet per kvinna i Sverige 2023 var det lägsta som har uppmätts.
 * En allt stramare migrationspolitik gör att färre invandrar till Sverige än tidigare, vilket även påverkar inflyttningen till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`.
-* Många i åldergruppen 20-29 år  flyttade från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` till andra delar av Sverige under 2023.
+* Många, framförallt unga vuxna mellan 20 och 29 år, flyttade från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` till andra delar av Sverige under 2023.
 
 För mer info om statistiken, klicka på rutan nedan:
 
@@ -106,7 +106,7 @@ gg_flytt$Invandringsöverskott_Mora
 ```
 
 ## Inrikes flyttnetto
-Det inrikes flyttnettot varierar relativt mycket mellan åren i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`, med omväxlande perioder av positivt och negativt flyttnetto. Från 2019 och framåt några år framåt var dock nettot positivt med en topp 2021, då befolkningen ökade med närmare 150 personer till följd av inrikes flyttar. Detta kan möjligtvis vara en effekt kopplad till Corona-pandemin, då nettot var avsevärt mycket lägre 2020 (människor fördröjde eventuellt sina flyttar). År `r max(befolkning_df$år)` flyttade `r abs(flytt_df %>% filter(år == max(år),region == region_val, variabel == "Inrikes flyttningsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde)` personer netto från kommunen inrikes, vilket är en klar försämring jämfört med åren innan.
+Det inrikes flyttnettot varierar relativt mycket mellan åren i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`, med omväxlande perioder av positivt och negativt flyttnetto. Från 2019 och några år framåt var dock nettot positivt med en topp 2021, då befolkningen ökade med närmare 150 personer till följd av inrikes flyttar. Detta kan möjligtvis vara en effekt kopplad till Corona-pandemin, då nettot var avsevärt mycket lägre 2020 (människor fördröjde eventuellt sina flyttar). År `r max(befolkning_df$år)` flyttade `r abs(flytt_df %>% filter(år == max(år),region == region_val, variabel == "Inrikes flyttningsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde)` personer netto från kommunen inrikes, vilket är en klar försämring jämfört med åren innan.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt$`Inrikes flyttningsöverskott_Mora`
@@ -142,7 +142,7 @@ gg_flytt_bakgrund$Flyttnetto_bakgrundMora
 
 ```
 
-Sammanfattningsvis minskade `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` folkmängd under `r max(befolkning_df$år)` med `r abs(befolkning_df %>% filter(år == max(år),region == "Mora",variabel == "Folkökning") %>% .$varde)` personer. Detta hänger med att alla komponenter som förklarar befolkningsutvecklingen, födelsenetto samt inrikes och utrikes flyttnetto, försämrades under 2023 jämfört med åren innan.
+Sammanfattningsvis minskade `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` folkmängd under `r max(befolkning_df$år)` med `r abs(befolkning_df %>% filter(år == max(år),region == "Mora",variabel == "Folkökning") %>% .$varde)` personer. Detta hänger samman med att alla komponenter som förklarar befolkningsutvecklingen, födelsenetto samt inrikes och utrikes flyttnetto, försämrades under 2023 jämfört med åren innan.
 
 I nästa avsnitt blickar vi istället framåt. Hur kommer `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd att utvecklas fram till 2040?
 
