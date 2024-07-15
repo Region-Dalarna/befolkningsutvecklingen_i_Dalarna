@@ -136,11 +136,15 @@ rmarkdown::render(
   envir = parent.frame()
 )
 
+file.copy(from = "befolkningsutveckling.html", to = "Dalarna/index.html", overwrite = TRUE)
+
 rmarkdown::render(
   input = 'befolkningsutveckling_Avesta.Rmd',
   output_file = paste0("befolkningsutveckling_Avesta.html"),
   envir = parent.frame()
 )
+
+file.copy(from = "befolkningsutveckling_Avesta.html", to = "Avesta/befolkningsutveckling_Avesta.html", overwrite = TRUE)
 
 rmarkdown::render(
   input = 'befolkningsutveckling_Hedemora.Rmd',
