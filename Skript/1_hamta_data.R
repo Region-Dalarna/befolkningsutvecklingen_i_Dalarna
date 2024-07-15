@@ -144,7 +144,7 @@ rmarkdown::render(
   envir = parent.frame()
 )
 
-file.copy(from = "befolkningsutveckling_Avesta.html", to = "Avesta/befolkningsutveckling_Avesta.html", overwrite = TRUE)
+file.copy(from = "befolkningsutveckling_Avesta.html", to = "Avesta/index.html", overwrite = TRUE)
 
 rmarkdown::render(
   input = 'befolkningsutveckling_Hedemora.Rmd',
