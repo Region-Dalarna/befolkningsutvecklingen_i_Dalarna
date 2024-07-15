@@ -139,14 +139,17 @@ gg_flytt_alder$`Inrikes flyttnetto_alder_20-29 år_Avesta`
 ### Uppdelat på bakgrund
 För att ytterligare förtydliga vilka som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` inrikes, delas de i detta avsnitt upp efter sin bakgrund, inrikes eller utrikes födda. 
 
-<span class = "kommentar">Lite oklart varför Avesta hade så hög inflyttning just 2015. Låt vara tillsvidare (hela avsnittet)</span>Tydligt är att många av de som invandrade till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` i samband med flyktingkrisen 2015-2016 flyttade därifrån under åren efter krisen, då framförallt mellan 2016 och 2019. Sammantaget flyttade runt 1000 utrikes födda (netto) från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` till andra delar av Sverige under den perioden.  Med undantag för 2023, är det även tydligt att färre inrikes födda flyttar från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` på senare år jämfört med åren mellan 2003 och 2013. En bidragande orsak till detta är sannolikt ett flertal expansiva arbetsgivare, något som medför att möjligheten att få jobb i kommunen idag är större än den var för 15 år sedan. Undantaget är som sagt 2023, då det inrikes flyttnettot i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` var negativt och mestadels bestod av personer födda i Sverige.
+Tydligt är att många av de som invandrade till `r unique(flytt_bakgrund_df %>% filter(region == region_val) %>% .$region)` i samband med flyktingkrisen 2015-2016 flyttade därifrån under åren efter krisen. Sammantaget har runt 1500 utrikes födda (netto) flyttat från `r unique(flytt_bakgrund_df %>% filter(region == region_val) %>% .$region)` till andra delar av Sverige sedan 2016.  
+
+För de som är födda i Sverige är det inrikes flyttnettot inte lika tydligt. Under åren efter flyktingkrisen lämnade även många inrikes födda `r unique(flytt_bakgrund_df %>% filter(region == region_val) %>% .$region)`, men på senare år har inflyttningen i den gruppen under vissa år varit större än utflyttningen. Framförallt flyttade många inrikes födda till kommunen under 2022. År `r max(flytt_bakgrund_df$år)` flyttade `r abs(flytt_bakgrund_df %>% filter(år == max(år),region == region_val,födelseregion == "Född i Sverige") %>% .$Inrikes_flyttnetto)` inrikes födda personer netto från kommunen till anda delar av Sverige.
+
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt_bakgrund$Flyttnetto_bakgrundAvesta
 
 ```
 
-Sammanfattningsvis minskade `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` folkmängd under `r max(befolkning_df$år)` med `r abs(befolkning_df %>% filter(år == max(år),region == "Avesta",variabel == "Folkökning") %>% .$varde)` personer, vilket är den största minskningen på mer än 20 år. Detta hänger samman med att mer eller mindre alla komponenter som förklar befolkningsutvecklingen försämrades jämfört med året innan.
+Sammanfattningsvis minskade `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` folkmängd under `r max(befolkning_df$år)` med `r abs(befolkning_df %>% filter(år == max(år),region == region_val,variabel == "Folkökning") %>% .$varde)` personer, vilket är den största minskningen sedan 2010. Detta hänger samman med att mer eller mindre alla komponenter som förklar befolkningsutvecklingen försämrades jämfört med året innan.
 
 I nästa avsnitt blickar vi istället framåt. Hur kommer `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd att utvecklas fram till 2040?
 
@@ -154,15 +157,15 @@ I nästa avsnitt blickar vi istället framåt. Hur kommer `r unique(befolkning_d
 
 För en djupare förståelse för hur SCB gör befolkningsprognoser, se motsvarande avsnitt i rapporten för hela Dalarnas län.
 
-I diagrammet nedan visas befolkningsutvecklingen i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` fram till 2040 enligt SCB:s senaste prognos, uppdelat på åldersgrupper. Ett par tydliga trender kan utläsas i diagrammet: 
+I diagrammet nedan visas befolkningsutvecklingen i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` fram till 2040 enligt SCB:s senaste prognos (juni 2024), uppdelat på åldersgrupper. Ett par tydliga trender kan utläsas i diagrammet: 
 
 * `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` befolkning prognostiseras att minska med drygt `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "Totalt",region=="Avesta") %>% .$Folkmängd,100)),big.mark=" ")` personer fram till 2040, vilket är en tydlig försämring jämfört med tidigare prognoser. I den föregående prognosen, som släpptes 2022, prognostiserades en minskning på under 700 personer (se [SCB](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0401__BE0401B/BefProgRegFakN22/table/tableViewLayout1/){target="_blank"}).
 
-* Den största minskningen sker i som brukar benämnas arbetsför ålder, 20-64 år,  som prognostiseras minska med ungefär `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "20-64 år",region=="Avesta") %>% .$Folkmängd,100)),big.mark=" ")` personer.
+* Den största minskningen sker i gruppen som brukar benämnas arbetsför ålder, 20-64 år,  som prognostiseras minska med ungefär `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "20-64 år",region=="Avesta") %>% .$Folkmängd,100)),big.mark=" ")` personer.
 
-* I åldergruppen 80+ förväntas befolkning att öka med ungefär `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "80+ år",region=="Avesta") %>% .$Folkmängd,100)),big.mark=" ")` fram till 2040. Detta hänger sannolikt samman med att den förväntade livslängden fortsätter öka och att den stora gruppen "baby-boomers" börjar komma upp i 80-års åldern.
+* I åldergruppen 80+ förväntas befolkning att öka med strax under `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "80+ år",region=="Avesta") %>% .$Folkmängd,100)),big.mark=" ")` fram till 2040. Detta hänger sannolikt samman med att den förväntade livslängden fortsätter öka och att den stora gruppen "baby-boomers" börjar komma upp i 80-års åldern.
 
-* Även i åldersgruppen 0-19 år sker en relativt stor minskning av befolkningen, ungefär `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "0-19 år",region=="Avesta") %>% .$Folkmängd,100)),big.mark=" ")` personer.
+* Även i åldersgruppen 0-19 år prognostiseras en relativt stor minskning av befolkningen, ungefär `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "0-19 år",region=="Avesta") %>% .$Folkmängd,10)),big.mark=" ")` personer.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_befprognos$befolkningsforandring_Avesta_2040
