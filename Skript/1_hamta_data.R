@@ -205,5 +205,17 @@ rmarkdown::render(
 #   output_file = paste0("befolkningsutveckling_Rättvik.html"),
 #   envir = parent.frame()
 # )
+# 
+# rmarkdown::render(
+#   input = 'befolkningsutveckling_Älvdalen.Rmd',
+#   output_file = paste0("befolkningsutveckling_Älvdalen.html"),
+#   envir = parent.frame()
+# )
+
+rmarkdown::render(
+  input = 'befolkningsutveckling_Orsa.Rmd',
+  output_file = paste0("befolkningsutveckling_Orsa.html"),
+  envir = parent.frame()
+)
 
 

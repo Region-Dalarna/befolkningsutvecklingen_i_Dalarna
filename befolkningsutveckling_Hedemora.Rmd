@@ -128,7 +128,7 @@ Den största inflyttningen, netto, skedde i åldersgruppen `r flytt_aldersgruppe
 gg_flytt_alder$Inrikes_flyttnetto_alder_Hedemora
 ```
 
-Om vi enbart fokuserar på åldersgruppen 20-29 år, blir det tydligt att det alltid flyttar fler unga vuxna från än till kommunen inrikes. Historiskt varierar det inrikes flyttnettot i åldersgruppen mellan åren, vilket exempelvis kan bero på att olika årskullar av barn är olika stora. År 2023 flyttade 41 personer fler i åldersgruppen 20-29 år från än till kommunen inrikes.
+Om vi enbart fokuserar på åldersgruppen 20-29 år, blir det tydligt att det alltid flyttar fler unga vuxna från än till kommunen inrikes. Historiskt varierar det inrikes flyttnettot i åldersgruppen mellan åren, vilket exempelvis kan bero på att olika årskullar av barn är olika stora. År 2023 flyttade `r abs(flytt_aldersgrupper_df %>% filter(år == max(år),variabel == "Inrikes flyttningsöverskott",region == region_val,alder_grupper == "20-29 år") %>% .$varde)` personer fler i åldersgruppen 20-29 år från än till kommunen inrikes.
 
 Även i Dalarna som helhet flyttade fler i åldersgruppen ut än in under 2023.
 
