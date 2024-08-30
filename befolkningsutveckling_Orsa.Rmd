@@ -49,10 +49,10 @@ Senast uppdaterad: `r Sys.Date()`</i>
 # Sammanfattning { - }
 Syftet med den här korta analysen är att undersöka `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s befolkningsutveckling. Ett antal viktiga slutsatser sammanfattas här:
 
-* Den relativt stora nedgången i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd år 2023, jämfört med åren innan, beror i första hand på att flyttnettot till kommunen varit negativt för första gången sedan 2019.
+* Den relativt stora nedgången i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd år 2023, jämfört med året innan, beror i första hand på att det utrikes flyttnettot till kommunen var negativt. Dessutom var födelsenettot mer negativt än året innan.
 * Det föddes något fler barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` 2023, jämfört med 2022. I jämförelse med tidigare år är antalet födslar dock fortfarande relativt lågt.
 * En stramare nationell migrationspolitik gör att färre invandrar till Sverige än tidigare, vilket även påverkar inflyttningen till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`.
-* Relativt många under 30 år flyttade från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` till andra delar av Sverige under 2023.
+* Den största inflyttningen till kommunen inrikes (netto) skedde i åldersgrupperna 0-19 år och 30-50 år. 
 
 För mer info om statistiken, klicka på rutan nedan:
 
@@ -100,7 +100,7 @@ gg_flytt$Flyttnetto_Orsa
 ```
 
 ## Utrikes flyttnetto
-Som vi berörde i föregående avsnitt flyttade många till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` under åren runt flyktingkrisen, vilket till viss del kan förklaras av att invandringen då var stor. I slutet av 1990-talet var invandringen låg eller till och med negativ under flera år (fler utvandrade än invandrade), men därefter skedde en gradvis ökning innan den stora toppen 2016. Därefter har invandringen minskat avsevärt. Under 2023 var det utrikes flyttnettot `r flytt_df %>% filter(år==max(år),region == region_val, variabel == "Invandringsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer, det lägsta nettot sedan åtminstone 1997. Detta kan sannolikt delvis förklaras av de avregistreringar av utvandrade som Skattemyndigheten genomförde under 2023 (se informationsruta ovan), men en viktig anledningen är naturligtvis även en stramare nationell migrationspolitik.
+Som vi berörde i föregående avsnitt flyttade många till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` under åren runt flyktingkrisen, vilket till viss del kan förklaras av att invandringen då var stor. I slutet av 1990-talet var invandringen låg eller till och med negativ under flera år (fler utvandrade än invandrade), men därefter skedde en gradvis ökning innan den stora toppen 2016. Därefter har invandringen minskat avsevärt. Under 2023 var det utrikes flyttnettot `r flytt_df %>% filter(år==max(år),region == region_val, variabel == "Invandringsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer, det lägsta nettot sedan åtminstone 1997. Detta beror sannolikt på en stramare nationell migrationspolitik.
 
 Generellt invandrar ungefär lika många kvinnor och män till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`.
 
@@ -144,8 +144,6 @@ gg_flytt_bakgrund$Flyttnetto_bakgrund_Orsa
 
 ```
 
-Sammanfattningsvis minskade `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` folkmängd under `r max(befolkning_df$år)` med `r abs(befolkning_df %>% filter(år == max(år),region == "Orsa",variabel == "Folkökning") %>% .$varde)` personer. Detta förklaras av ett negativt födelseöverskott i kombination med ett relativt lågt utrikes flyttnettot och ett negativt inrikes flyttnetto.
-
 I nästa avsnitt blickar vi istället framåt. Hur kommer `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd att utvecklas fram till 2040?
 
 # Vad händer i framtiden?
@@ -154,7 +152,7 @@ För en djupare förståelse för hur SCB gör befolkningsprognoser, se motsvara
 
 I diagrammet nedan visas befolkningsutvecklingen i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` fram till 2040 enligt SCB:s senaste prognos, uppdelat på åldersgrupper. Ett par tydliga trender kan utläsas i diagrammet: 
 
-* `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` befolkning prognostiseras att minska med drygt `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "Totalt",region==region_val) %>% .$Folkmängd,100)),big.mark=" ")` personer fram till 2040, vilket är något mer än vid föregående prognos. I den prognosen, som släpptes 2022, prognostiserades en minskning på drygt 300 personer (se [SCB](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0401__BE0401B/BefProgRegFakN22/table/tableViewLayout1/){target="_blank"}) fram till 2040.
+* `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` befolkning prognostiseras att minska med drygt `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "Totalt",region==region_val) %>% .$Folkmängd,10)),big.mark=" ")` personer fram till 2040, vilket är något färre än vid föregående prognos. I den prognosen, som släpptes 2022, prognostiserades en minskning på drygt 180 personer (se [SCB](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0401__BE0401B/BefProgRegFakN22/table/tableViewLayout1/){target="_blank"}) fram till 2040.
 
 * Den största minskningen sker i det som brukar benämnas arbetsför ålder, 20-64 år,  som prognostiseras minska med ungefär `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "20-64 år",region==region_val) %>% .$Folkmängd,10)),big.mark=" ")` personer.
 
