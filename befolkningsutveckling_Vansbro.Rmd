@@ -1,0 +1,167 @@
+---
+title: "Befolkningsutvecklingen i Vansbro"
+author: ""
+date: ""
+output: 
+  html_document:
+    includes:
+      in_header: hero_image_kommun.html
+    toc: yes
+    toc_float: yes
+    toc_depth: 6
+    css: "styles_hero_kommun.css"
+    number_sections: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+region_val = "Vansbro"
+```
+
+
+<p style="font-weight: 600;font-size: 1.5rem;line-height:1;padding-top:15px">Befolkningsutvecklingen i Vansbro<br> <span style="font-weight: 400;font-size: 1.2rem">- en kort analys</span></p>
+
+<style>
+h1 { /* Header 1 */
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: #000000;
+  margin-top: 2rem;
+}
+h2 { /* Header 2 */
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: #000000;
+  margin-top: 1.5rem;
+}
+h3 { /* Header 3 */
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: #000000;
+}
+</style>
+
+<p style = "font-size:12px">
+<i>Rapporten är skapad av Samhällsanalys, Region Dalarna<br>
+Senast uppdaterad: `r Sys.Date()`</i>
+</p>
+
+# Sammanfattning { - }
+Syftet med den här korta analysen är att undersöka `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s befolkningsutveckling. Ett antal viktiga slutsatser sammanfattas här:
+
+* Den relativt stora nedgången i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd år 2023, jämfört med året innan, beror i första hand på att det utrikes flyttnettot till kommunen var negativt. Dessutom var födelsenettot mer negativt än året innan.
+* Det föddes något fler barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` 2023, jämfört med 2022. I jämförelse med tidigare år är antalet födslar dock fortfarande relativt lågt.
+* En stramare nationell migrationspolitik gör att färre invandrar till Sverige än tidigare, vilket även påverkar inflyttningen till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`.
+* Den största inflyttningen till kommunen inrikes (netto) skedde i åldersgrupperna 0-19 år och 30-50 år. 
+
+För mer info om statistiken, klicka på rutan nedan:
+
+<details>
+<summary>Mer information om statistiken</summary>
+
+<div title="Källa: SCB">I folkmängden som SCB publicerar ingår personer som är folkbokförda i landet. För att den som flyttar till Sverige ska bli folkbokförd ska personen ha för avsikt och rätt att stanna i Sverige i minst ett år. För personer som inte är medborgare i ett EU-land innebär det att det krävs ett uppehållstillstånd som gäller minst 12 månader för att bli folkbokförd. Till följd av Rysslands invasion av Ukraina den 24 februari 2022 har Europeiska unionen (EU) beslutat att aktivera massflyktsdirektivet, vilket innebär att personer från Ukraina utan individuell prövning ska erbjudas tidsbegränsat uppehålls- och arbetstillstånd inom EU. Personer som får uppehållstillstånd enligt massflyktsdirektivet ska i regel inte bli folkbokförda och ingå i den officiella befolkningsstatistiken. Läs mer [här](https://www.scb.se/hitta-statistik/statistik-efter-amne/befolkning/befolkningens-sammansattning/befolkningsstatistik/produktrelaterat/Fordjupad-information/statistik-om-invandring---fragor-och-svar/){target="_blank"}.
+
+Under 2023 inledde Skatteverket ett arbete med att avregistrera flera tusen folkbokförda personer som vid en granskning visat sig inte längre bo i Sverige. I folkbokföringen har dessa registrerats som utvandrade till okänt utvandringsland. Antal utvandrade från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` var år 2023 86 personer, vilket är elva fler än under 2022 och runt 30 fler än 2021. Det är därför möjligt att avregistreringarna har haft en viss påverkan på befolkningsutvecklingen i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` under 2023. Läs mer [här](https://www.scb.se/pressmeddelande/sverige-gar-mot-lagsta-befolkningsokningen-pa-manga-ar/){target="_blank"}.
+</div>
+</details>
+
+# Hur har befolkningen förändrats?
+
+Till skillnad från flera andra mindre kommuner i Dalarna har befolkningen i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` minskat relativt lite sedan slutet på 1960-talet, från ca `r format(plyr::round_any(befolkning_df %>% filter(år == min(år),region == region_val ,variabel == "Folkmängd") %>% .$varde,100),big.mark=" ") ` invånare  år `r min(befolkning_df$år)` till ungefär `r format(plyr::round_any(befolkning_df %>% filter(år == max(år),region == region_val, variabel == "Folkmängd") %>% .$varde,100),big.mark=" ") ` invånare år `r max(befolkning_df$år)`. En orsak till det kan vara den relativa närheten till Moras arbetsmarknad, vilket gör att en del av de som bor i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` arbetar i Mora.
+
+Befolkningsutvecklingen tenderar att växla mellan perioder med positiv och negativ utveckling, vilket syns tydligt i diagrammet nedan. På senare år har folkmängden ökat under en majoritet av åren, men precis som för Dalarna som helhet minskade folkmängden under år `r max(befolkning_df$år)` (`r befolkning_df %>% filter(år == "2023",region == region_val, variabel == "Folkökning") %>% .$varde ` personer).
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_befolkning$Befolkningsutveckling_Vansbro
+```
+
+I fortsättningen av denna korta analys delas befolkningsutveckling upp i dess komponenter, födelsenetto, dvs. nettot av födda och döda, och flyttnetto, dvs. nettot av inrikes och utrikes flyttar. Vi börjar med födelsenettot.
+
+# Födelsenetto
+
+En trend är att det dör färre personer i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` idag än det gjorde längre tillbaka i tiden. På senare år har mellan ungefär 70 och 100 personer dött årligen i kommunen, att jämföra med ibland närmare 140 personer under 1980-talet. Detta kan i mångt och mycket förklaras av framsteg inom det medicinska området. Den förväntade livslängden har ökat över tid.
+
+Även när det gäller antalet födslar är den långsiktiga trenden negativ. Under det sena 1980-talet och det tidigt 1990-talet föddes ofta mer än 100 barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` per år, men en tydlig negativ trend inleddes i samband med finanskrisen i början på 1990-talet. Under 2000-talet har antalet födda legat på en relativt stabil nivå, även om variationen kan vara stor från år till år. `r max(fodda_doda_df$år)` föddes `r fodda_doda_df %>% filter(år == max(år),region == region_val,variabel == "födda") %>% .$varde` barn, viket är något fler än året innan.
+
+Med undantag för ett år i slutet av 1980-talet, har nettot mellan födda och döda, se de svarta linjerna i diagrammet nedan, varit negativt i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` under varje år sedan åtminstone slutet på 1960-talet. Hur många invånare som kommunen tappar på grund av det varierar relativt mycket mellan åren. År `r max(fodda_doda_df$år)` minskade befolkningen med `r abs(fodda_doda_df %>% filter(år == max(år),region == region_val,variabel == "netto") %>% .$varde)` personer till följd av ett negativt födelsenetto.
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_fodda_doda$Födelsenetto_Vansbro
+```
+
+# Flyttnetto
+Den andra komponenten som styr befolkningsutvecklingen är det så kallade flyttnettot. Detta kan i sin tur delas upp i två komponenter, inrikes och utrikes flyttar. I det här avsnittet undersöker vi först flyttnettot, för att därefter titta på de två komponenterna.
+
+Nettot mellan antalet personer som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` varierar relativt mycket mellan åren, men har på senare år varit mestadels positivt. Framförallt flyttade många till kommunen under 2016, vilket delvis är relaterat till flyktingkrisen 2015-2016. Under år `r max(flytt_df$år)` flyttade `r flytt_df %>% filter(år==max(år),region == region_val) %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer till kommunen (netto).
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_flytt$Flyttnetto_Vansbro
+
+```
+
+## Utrikes flyttnetto
+Som vi berörde i föregående avsnitt flyttade många till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` under åren runt flyktingkrisen, vilket till viss del kan förklaras av att invandringen då var stor. I slutet av 1990-talet var invandringen låg eller till och med negativ under flera år (fler utvandrade än invandrade), men därefter skedde en gradvis ökning innan den stora toppen 2016. Därefter har invandringen minskat avsevärt. Under 2023 var det utrikes flyttnettot `r flytt_df %>% filter(år==max(år),region == region_val, variabel == "Invandringsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer, det lägsta nettot sedan åtminstone 1997. Detta beror sannolikt på en stramare nationell migrationspolitik.
+
+Generellt invandrar ungefär lika många kvinnor och män till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`.
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_flytt$Invandringsöverskott_Vansbro
+```
+
+## Inrikes flyttnetto
+Det inrikes flyttnettot till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` varierar relativt mycket mellan åren, men har varit negativt under en majoritet av åren sedan slutet på 1990-talet. De senaste åren har dock fler personer flyttat till än från Vansbro inrikes, då framförallt under 2021. . År `r max(befolkning_df$år)` flyttade `r abs(flytt_df %>% filter(år == max(år),region == region_val, variabel == "Inrikes flyttningsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde)` personer netto till kommunen inrikes, vilket var ungefär i linje med året innan. 
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_flytt$`Inrikes flyttningsöverskott_Vansbro`
+```
+
+För att få en bättre förståelse för vilka som flyttar till och från kommunen inrikes delar vi härnäst upp de som flyttar efter ålder. Normalt är personer mest benägna att flytta till en annan ort när de är i 20-års åldern, innan flyttandet gradvis avtar. 
+
+### Uppdelat på ålder
+Ett tydligt mönster är att det i första hand är barn och unga under 20 år och personer mellan 30 år och 50 år som har flyttat till Vansbro på senare år (netto). En förklaring till detta kan vara att det är barnfamiljer som flyttar till kommunen. I äldre åldersgrupper tenderar det inrikes flyttnettot att växla mellan positiva och negativa år. 
+
+I åldersgruppen 20-29 år, där utflyttningen från länet generellt är stor, var det inrikes flyttnettot `r flytt_aldersgrupper_df %>% filter(år == max(år),variabel == "Inrikes flyttningsöverskott",region == region_val,alder_grupper%in%c("20-29 år")) %>% .$varde` personer år `r max(flytt_aldersgrupper_df$år)`.     
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_flytt_alder$Inrikes_flyttnetto_alder_Vansbro
+```
+
+Om vi enbart fokuserar på åldersgruppen 20-29 år, blir det dock tydligt att det i normala fall flyttar fler unga vuxna från än till kommunen inrikes. Historiskt varierar det inrikes flyttnettot i åldersgruppen mellan åren, vilket exempelvis kan bero på att olika årskullar av barn är olika stora. År 2023 flyttade som `r abs(flytt_aldersgrupper_df %>% filter(år == max(år),variabel == "Inrikes flyttningsöverskott",region == region_val,alder_grupper == "20-29 år") %>% .$varde)` personer fler i åldersgruppen 20-29 år från än till kommunen inrikes, vilket var första gången sedan 2016 som kommunen inte hade ett negativt flyttnetto i denna åldersgrupp.
+
+I Dalarna som helhet flyttade fler i åldersgruppen ut än in under 2023, vilket även gäller de flesta av länets kommuner.
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_flytt_alder$`Inrikes flyttnetto_alder_20-29 år_Vansbro`
+```
+
+### Uppdelat på bakgrund
+För att ytterligare förtydliga vilka som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` inrikes, delas de i detta avsnitt upp efter sin bakgrund, inrikes eller utrikes födda. 
+
+Tydligt är att en del av de som invandrade till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` i samband med flyktingkrisen 2015-2016 flyttade därifrån till andra delar av Sverige under åren efter krisen. Det inrikes flyttnettot för gruppen utrikes födda har varit negativt varje år sedan 2016. Bland de som är födda i Sverige är bilden annorlunda. Under slutet av 00-talet och början av 2010-talet flyttade många i den gruppen från Vansbro till andra delar av Sverige, men den trenden vände 2016. Därefter har det inrikes flyttnettot varit positivt för gruppen varje år. `r max(flytt_bakgrund_df$år)` flyttade `r abs(flytt_bakgrund_df %>% filter(år == max(år),region == region_val, födelseregion == "Född i Sverige") %>% .$Inrikes_flyttnetto)` personer födda i Sverige till kommunen inrikes (netto), vilket var fler än året innan. 
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_flytt_bakgrund$Flyttnetto_bakgrund_Vansbro
+
+```
+
+I nästa avsnitt blickar vi istället framåt. Hur kommer `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd att utvecklas fram till 2040?
+
+# Vad händer i framtiden?
+
+För en djupare förståelse för hur SCB gör befolkningsprognoser, se motsvarande avsnitt i rapporten för hela Dalarnas län.
+
+I diagrammet nedan visas befolkningsutvecklingen i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` fram till 2040 enligt SCB:s senaste prognos, uppdelat på åldersgrupper. Ett par tydliga trender kan utläsas i diagrammet: 
+
+* `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` befolkning prognostiseras att minska med drygt `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "Totalt",region==region_val) %>% .$Folkmängd,10)),big.mark=" ")` personer fram till 2040, vilket är något färre än vid föregående prognos. I den prognosen, som släpptes 2022, prognostiserades en minskning på drygt 180 personer (se [SCB](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0401__BE0401B/BefProgRegFakN22/table/tableViewLayout1/){target="_blank"}) fram till 2040.
+
+* Den största minskningen sker i det som brukar benämnas arbetsför ålder, 20-64 år,  som prognostiseras minska med ungefär `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "20-64 år",region==region_val) %>% .$Folkmängd,10)),big.mark=" ")` personer.
+
+* I åldergruppen 80+ förväntas befolkning att öka med ungefär `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "80+ år",region==region_val) %>% .$Folkmängd,10)),big.mark=" ")` personer fram till 2040. Detta hänger sannolikt samman med att den förväntade livslängden fortsätter öka och att den stora gruppen "baby-boomers" börjar komma upp i 80-års åldern.
+
+* Även i åldersgruppen 0-19 år sker en relativt stor minskning av befolkningen, ungefär `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "0-19 år",region==region_val) %>% .$Folkmängd,10)),big.mark=" ")` personer.
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
+gg_befprognos$befolkningsforandring_Vansbro_2040
+```
+
+Sammantaget ger SCB:s prognos en föraning om stora utmaningar för `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` framöver. Befolkningen blir äldre och minskar i antal, vilket sätter press på såväl välfärden som arbetsmarknaden. Hur kommunen möter dessa utmaningar blir en avgörande faktor för dess framtida utveckling.

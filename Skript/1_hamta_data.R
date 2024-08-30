@@ -212,9 +212,15 @@ rmarkdown::render(
 #   envir = parent.frame()
 # )
 
+# rmarkdown::render(
+#   input = 'befolkningsutveckling_Orsa.Rmd',
+#   output_file = paste0("befolkningsutveckling_Orsa.html"),
+#   envir = parent.frame()
+# )
+
 rmarkdown::render(
-  input = 'befolkningsutveckling_Orsa.Rmd',
-  output_file = paste0("befolkningsutveckling_Orsa.html"),
+  input = 'befolkningsutveckling_Malung_Sälen.Rmd',
+  output_file = paste0("befolkningsutveckling_Malung_Sälen.html"),
   envir = parent.frame()
 )
 
