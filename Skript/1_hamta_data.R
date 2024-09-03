@@ -224,10 +224,10 @@ gg_befprognos_procent <- diagram_befprognos(region_vekt = hamtakommuner(vald_reg
 #   envir = parent.frame()
 # )
 
-rmarkdown::render(
-  input = 'befolkningsutveckling_Vansbro.Rmd',
-  output_file = paste0("befolkningsutveckling_Vansbro.html"),
-  envir = parent.frame()
-)
+# rmarkdown::render(
+#   input = 'befolkningsutveckling_Vansbro.Rmd',
+#   output_file = paste0("befolkningsutveckling_Vansbro.html"),
+#   envir = parent.frame()
+# )
 
 
