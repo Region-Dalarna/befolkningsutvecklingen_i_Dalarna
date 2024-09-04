@@ -108,8 +108,7 @@ gg_flytt$Invandringsöverskott_Vansbro
 ```
 
 ## Inrikes flyttnetto
-KVAR!!
-Utvecklingen för det inrikes flyttnettot är i mångt och mycket det omvända mot det utrikes, under de allra flesta åren sedan slutet på 1990-talet flyttade fler personer från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` till andra delar av Sverige än de som flyttade till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` varierar relativt mycket mellan åren, men har varit negativt under en majoritet av åren sedan slutet på 1990-talet. De senaste åren har dock fler personer flyttat till än från Vansbro inrikes, då framförallt under 2021. . År `r max(befolkning_df$år)` flyttade `r abs(flytt_df %>% filter(år == max(år),region == region_val, variabel == "Inrikes flyttningsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde)` personer netto till kommunen inrikes, vilket var ungefär i linje med året innan. 
+Utvecklingen för det inrikes flyttnettot är i mångt och mycket det omvända mot det utrikes, under de allra flesta åren sedan slutet på 1990-talet flyttade fler personer från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` till andra delar av Sverige än de som flyttade till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`. Framförallt var utflyttningen stor under åren efter flyktingkrisen 2015-2016. På senare år har det inrikes flyttnettot varit såväl positivt som negativt och relativt lågt, men år `r max(befolkning_df$år)` flyttade `r abs(flytt_df %>% filter(år == max(år),region == region_val, variabel == "Inrikes flyttningsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde)` personer netto från kommunen inrikes, vilket var klart fler än åren innan. 
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt$`Inrikes flyttningsöverskott_Vansbro`

@@ -282,6 +282,7 @@ Sammantaget ger SCB:s prognos en föraning om stora utmaningar för Dalarna fram
 
 
 * [Avesta](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Avesta.html){target="_blank"}
+* [Hedemora](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Hedemora.html){target="_blank"}
 
 
 ## Borlänge {-}
@@ -291,6 +292,9 @@ Sammantaget ger SCB:s prognos en föraning om stora utmaningar för Dalarna fram
 ## Gagnef {-}
 
 ## Hedemora {-}
+
+
+
 
 ## Leksand {-}
 
