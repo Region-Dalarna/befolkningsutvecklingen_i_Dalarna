@@ -49,10 +49,9 @@ Senast uppdaterad: `r Sys.Date()`</i>
 # Sammanfattning { - }
 Syftet med den här korta analysen är att undersöka `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s befolkningsutveckling. Ett antal viktiga slutsatser sammanfattas här:
 
-* Att befolkningen minskade i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` år 2023 beror i första hand på att det föds relativt få barn.
-* Det föddes klart färre barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` 2023, jämfört med åren innan. Detta är i linje med en större trend i samhället, då barnafödandet per kvinna i Sverige 2023 var det lägsta som har uppmätts.
-* Trots en allt stramare nationell migrationspolitik, ökade invandringen till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` under 2023, vilket sannolikt har att göra med en relativt stor arbetskraftsinvandring kopplad till Hitachi.
-* Det inrikes flyttnettot till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` var negativt under 2023, men har förbättrats tydligt jämfört med åren innan.
+* Till skillnad från många andra kommuner i Dalarna ökade `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s befolkning år 2023.
+* Det föddes färre barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` år 2023, jämfört med åren innan. Detta är i linje med en större trend i samhället, då barnafödandet per kvinna i Sverige år 2023 var det lägsta som har uppmätts.
+* Såväl det inrikes som det utrikes flyttnettot till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` var positivt år 2023. Det inrikes flyttnettot ökade dessutom jämfört med året innan.
 
 För mer info om statistiken, klicka på rutan nedan:
 
@@ -69,7 +68,7 @@ För mer info om statistiken, klicka på rutan nedan:
 
 Till skillnad från många andra kommuner i Dalarna, har befolkningen i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` ökat under lång tid, från ca `r format(plyr::round_any(befolkning_df %>% filter(år == min(år),region == region_val ,variabel == "Folkmängd") %>% .$varde,100),big.mark=" ") ` invånare  år `r min(befolkning_df$år)` till nästan `r format(plyr::round_any(befolkning_df %>% filter(år == max(år),region == region_val, variabel == "Folkmängd") %>% .$varde,100),big.mark=" ") ` invånare år `r max(befolkning_df$år)`. 
 
-Med undantag för en period runt millennieskiftet, har `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd ökat under de allra flesta år sedan åtminstone slutet på 1960-talet. På senare år växte befolkningen framförallt under åren runt och efter flyktingkrisen (2015-2016), då kommunens befolkning ökade med mer än 2500 personer på ett par år. Därefter har befolkningsutvecklingen varit långsammare, eller till och med negativ, under något enstaka år. Under `r max(befolkning_df$år)` ökade folkmängden med `r abs(befolkning_df %>% filter(år == "2023",region == region_val, variabel == "Folkökning") %>% .$varde) ` personer, vilket var klart bättre året innan när folkmängden minskade något. 
+Med undantag för en period runt millennieskiftet, har `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd ökat under de allra flesta år sedan åtminstone slutet på 1960-talet. På senare år växte befolkningen framförallt under åren runt och efter flyktingkrisen (2015-2016), då kommunens befolkning ökade med mer än 2500 personer på ett par år. Därefter har befolkningsutvecklingen varit långsammare, eller till och med negativ, under något enstaka år. Under `r max(befolkning_df$år)` ökade folkmängden med `r abs(befolkning_df %>% filter(år == "2023",region == region_val, variabel == "Folkökning") %>% .$varde) ` personer. 
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_befolkning$Befolkningsutveckling_Falun
