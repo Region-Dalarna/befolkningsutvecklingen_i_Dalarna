@@ -50,7 +50,7 @@ Senast uppdaterad: `r Sys.Date()`</i>
 Syftet med den här korta analysen är att undersöka `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s befolkningsutveckling. Ett antal viktiga slutsatser sammanfattas här:
 
 * I `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` minskade folkmängden tydligt år 2023, vilket berodde på att säväl födelsenettot som flyttnettot var negativt.
-* Det föddes klart färre barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` 2023, jämfört med åren innan. Detta är i linje med en större trend i samhället, då barnafödandet per kvinna i Sverige 2023 var det lägsta som har uppmätts.
+* Det föddes klart färre barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` år 2023, jämfört med åren innan. Detta är i linje med en större trend i samhället, då barnafödandet per kvinna i Sverige 2023 var det lägsta som har uppmätts.
 * Det utrikes flyttnettot till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` var negativt under 2023. Detta är i linje med en allt stramare nationell migrationspolitik, men kan sannolikt även förklaras med att Skatteverket under 2023 inledde en avregistrering av invandrade som inte längre bedömdes bo i Sverige.
 * Det inrikes flyttnettot till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` var negativt under 2023 och försämrades jämfört med året innan.
 
@@ -69,28 +69,28 @@ För mer info om statistiken, klicka på rutan nedan:
 
 Till skillnad från många andra kommuner i Dalarna, har befolkningen i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` ökat under lång tid, från ca `r format(plyr::round_any(befolkning_df %>% filter(år == min(år),region == region_val ,variabel == "Folkmängd") %>% .$varde,100),big.mark=" ") ` invånare  år `r min(befolkning_df$år)` till nästan `r format(plyr::round_any(befolkning_df %>% filter(år == max(år),region == region_val, variabel == "Folkmängd") %>% .$varde,100),big.mark=" ") ` invånare år `r max(befolkning_df$år)`. 
 
-Befolkningsutvecklingen i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` tenderar att följa vissa cykler, med tydliga nedgångar under det tidiga 1980-talet och slutet av 1990-talet. Eftersom kommunen traditionellt haft en stark tillverkningsindustri är en möjlig förklaringar till detta ekonomiska kriser som drabbat industrin. Under 2000-talet har kommunens befolkning ökat tydligt, vilket i första hand kan förklaras med en hög invandring (mer om det nedan). På senare år har trenden dock varit negativ och under  `r max(befolkning_df$år)` minskade folkmängden med `r abs(befolkning_df %>% filter(år == "2023",region == region_val, variabel == "Folkökning") %>% .$varde) ` personer, vilket är den största minskningen sedan åtminstone slutet på 1960-talet.
+Befolkningsutvecklingen i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` tenderar att följa vissa cykler, med tydliga nedgångar under det tidiga 1980-talet och slutet av 1990-talet. Eftersom kommunen traditionellt haft en stark tillverkningsindustri är en möjlig förklaringar till detta ekonomiska kriser som drabbat industrin. Under 2000-talet har kommunens folkmängd ökat tydligt, vilket i första hand kan förklaras med en hög invandring (mer om det nedan). På senare år har trenden dock varit negativ och under  `r max(befolkning_df$år)` minskade folkmängden med `r abs(befolkning_df %>% filter(år == "2023",region == region_val, variabel == "Folkökning") %>% .$varde) ` personer, vilket är den största minskningen sedan åtminstone slutet på 1960-talet.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_befolkning$Befolkningsutveckling_Borlänge
 ```
 
-I fortsättningen av denna korta analys delas befolkningsutveckling upp i dess komponenter, födelsenetto, dvs. nettot av födda och döda, och flyttnetto, dvs. nettot av inrikes och utrikes flyttar. Vi börjar med födelsenettot.
+I fortsättningen av denna korta analys delas befolkningsutveckling upp i dess komponenter, födelsenetto, dvs. nettot av födda och döda, och flyttnetto, dvs. nettot av inrikes och utrikes flyttar.
 
 # Födelsenetto
 
-Trots att folkmängden i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` idag är betydligt större och medelåldern klar högre än den var på exempelvis 1990-talet, dör ungefär lika många personer idag som då varje år. Denna utveckling härrör sannolikt till utveckling inom det medicinska området. Befolkningens medelålder ökar över tid och har gjort så länge. 
+Trots att folkmängden i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` idag är betydligt större än den var på exempelvis 1990-talet, dör ungefär lika många personer idag som då varje år i kommunen. Denna utveckling härrör sannolikt till utveckling inom det medicinska området. Befolkningens medelålder ökar över tid och har gjort så länge. 
 
-När gäller antalet födslar är den långsiktiga trenden något negativ, det föddes barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` på slutet av 1960-talet än det gör idag. Under såväl de bästa åren i början av 1990-talet som vissa år på slutet av 10-talet, föddes dock långt många fler barn i kommunen jämfört med idag. På senare år har trenden varit tydligt negativt. År `r max(fodda_doda_df$år)` föddes blott `r fodda_doda_df %>% filter(år == max(år),region == region_val,variabel == "födda") %>% .$varde` barn, vilket är den lägsta siffran sedan början av 2000-talet (när folkmängden var klart mindre).
+När gäller antalet födslar är den långsiktiga trenden något negativ, det föddes fler barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` på slutet av 1960-talet än det gör idag. Under såväl flera år i början av 1990-talet som vissa år på slutet av 2010-talet, föddes dock avsevärt många fler barn i kommunen jämfört med idag. På senare år har trenden varit tydligt negativt. År `r max(fodda_doda_df$år)` föddes blott `r fodda_doda_df %>% filter(år == max(år),region == region_val,variabel == "födda") %>% .$varde` barn, vilket är den lägsta siffran sedan början av 2000-talet.
 
-Under stora delar av 2000-talet var nettot mellan födda och döda, se de svarta linjerna i diagrammet nedan, positivt i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`. På senare år har dock nettot tydligt försämrats och var år `r max(fodda_doda_df$år)` negativt för första gången sedan av 2000-talet (`r fodda_doda_df %>% filter(år == max(år),region == region_val,variabel == "netto") %>% .$varde` personer).
+Under stora delar av 2000-talet var nettot mellan födda och döda, se de svarta linjerna i diagrammet nedan, positivt i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`. På senare år har dock nettot tydligt minskat och var år `r max(fodda_doda_df$år)` negativt för första gången sedan början av 2000-talet (`r fodda_doda_df %>% filter(år == max(år),region == region_val,variabel == "netto") %>% .$varde` personer).
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_fodda_doda$Födelsenetto_Borlänge
 ```
 
 # Flyttnetto
-Den andra komponenten som styr befolkningsutvecklingen är det så kallade flyttnettot. Detta kan i sin tur delas upp i två komponenter, inrikes och utrikes flyttar. I det här avsnittet undersöker vi först flyttnettot, för att därefter titta på de två komponenterna.
+Den andra komponenten som styr befolkningsutvecklingen är det så kallade flyttnettot. Detta kan i sin tur delas upp i två komponenter, inrikes och utrikes flyttar. I det här avsnittet är fokus först på flyttnettot, innan de två komponenterna undersöks.
 
 Antalet personer som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` har varierat relativt mycket över tid, med omväxlande perioder av positivt och negativt flyttnetto. Under åren efter finanskrisen i början på 1990-talet flyttade många från kommunen, men under stora delar av 2000-talet var flyttnettot istället positivt. Detta hänger samman med att invandringen då var stor (mer om detta i nästa avsnitt). På senare år har flyttnettot återigen varit negativt. År `r max(flytt_df$år)` minskade befolkningen med `r flytt_df %>% filter(år==max(år),region == region_val) %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer till följd av ett negativt flyttnetto, den största minskningen sedan åtminstone 1997.
 

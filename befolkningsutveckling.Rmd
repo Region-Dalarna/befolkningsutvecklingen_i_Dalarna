@@ -87,7 +87,7 @@ gg_kartor$karta_kommun
 
 ```
 
-Om vi fokuserar på utvecklingen i Dalarnas län på årsbasis, är det tydligt att befolkningsförändringarna följer ett visst mönster, där perioder av tydliga befolkningsökningar följs av perioder av befolkningsminskningar. Exakt vad alla svängningar beror på kan vara svårt att veta, men uppenbart är i alla fall att den tydliga minskningen under 1990-talet hänger samman med den djupa ekonomiska kris som då drabbade Sverige och Dalarna. Mer än 10 000 personer netto lämnade länet under den andra hälften av 1990-talet. Sedan millennieskiftet har befolkningsutvecklingen varit mer stabil, med en ökning på ungefär `r format(plyr::round_any(befolkning_df %>% filter(region == "Dalarnas län",år>"1999",variabel == "Folkökning") %>% .$varde %>% sum(),100),big.mark = " ")` personer under 2000-talet. Sedan 2016 har en viktig anledning till ökningen varit flyktingkrisen, när Dalarnas län tog emot många flyktingar. Under `r max(befolkning_df$år)` minskade befolkningen i Dalarna med närmare `r abs(plyr::round_any(befolkning_df %>% filter(år == max(år),variabel == "Folkökning",region == "Dalarnas län") %>% .$varde,100))` personer, vilket är den största minskningen sedan 2001. 
+Om fokus läggs på utvecklingen i Dalarnas län på årsbasis, är det tydligt att befolkningsförändringarna följer ett visst mönster, där perioder av tydliga befolkningsökningar följs av perioder av befolkningsminskningar. Exakt vad alla svängningar beror på kan vara svårt att veta, men uppenbart är i alla fall att den tydliga minskningen under 1990-talet hänger samman med den djupa ekonomiska kris som då drabbade Sverige och Dalarna. Mer än 10 000 personer netto lämnade länet under den andra hälften av 1990-talet. Sedan millennieskiftet har befolkningsutvecklingen varit mer stabil, med en ökning på ungefär `r format(plyr::round_any(befolkning_df %>% filter(region == "Dalarnas län",år>"1999",variabel == "Folkökning") %>% .$varde %>% sum(),100),big.mark = " ")` personer under 2000-talet. Sedan 2016 har en viktig anledning till ökningen varit flyktingkrisen, när Dalarnas län tog emot många flyktingar. Under `r max(befolkning_df$år)` minskade befolkningen i Dalarna med närmare `r abs(plyr::round_any(befolkning_df %>% filter(år == max(år),variabel == "Folkökning",region == "Dalarnas län") %>% .$varde,100))` personer, vilket är den största minskningen sedan 2001. 
 
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
@@ -105,7 +105,7 @@ knitr::include_graphics("Figurer/Befpyramid Dalarnas län 2023_jmfr_ar_1968.png"
 
 ```
 
-I fortsättningen av denna rapport delas Dalarnas befolkningsutveckling in i de mest centrala komponenterna; födelsenetto, dvs. nettot av födda och döda, samt flyttnetto, dvs. nettot av inrikes och utrikes flyttar. Vi börjar med födelsenettot.
+I fortsättningen av denna rapport delas Dalarnas befolkningsutveckling in i de mest centrala komponenterna; födelsenetto, dvs. nettot av födda och döda, samt flyttnetto, dvs. nettot av inrikes och utrikes flyttar.
 
 # Födelsenetto
 
@@ -149,7 +149,7 @@ gg_fodda_doda$Födelsenetto_Dalarna
 
 # Flyttnetto
 
-Som vi såg i föregående avsnitt, bidrar nettot mellan födda och döda i praktiken alltid negativt till Dalarnas befolkningsutveckling. Eftersom andelen av befolkningen som inte är i barnafödande ålder med all sannolikhet kommer att öka i framtiden, är det svårt att se hur den utvecklingen skall kunna förändras framöver. Om ambitionen är att Dalarnas befolkning skall växa blir det därför helt centralt att fler flyttar till länet än de som flyttar därifrån. Flyttarna till och från Dalarna kan delas upp i två delar:
+Som föregående diagram visade, bidrar nettot mellan födda och döda i praktiken alltid negativt till Dalarnas befolkningsutveckling. Eftersom andelen av befolkningen som inte är i barnafödande ålder med all sannolikhet kommer att öka i framtiden, är det svårt att se hur den utvecklingen skall kunna förändras framöver. Om ambitionen är att Dalarnas befolkning skall växa blir det därför helt centralt att fler flyttar till länet än de som flyttar därifrån. Flyttarna till och från Dalarna kan delas upp i två delar:
 
 * **Inrikes flyttar**, dvs. de som flyttar till och från länet från andra delar av Sverige.
 * **Utrikes flyttar**, dvs de som flyttar till och från länet från andra delar av världen (in- och utvandring).
@@ -165,7 +165,7 @@ Bland Sveriges län sticker Uppsala ut. Trots en betydligt mindre befolkning, va
 gg_flytt_lan$inrikes_flyttningsoverskott
 ```
 
-Att inrikes flyttnetto i Dalarna var negativt under 2023 är inget unikt. Sedan slutet av 1990-talet har inrikes flyttnetto varit negativt i Dalarna under en överväldigande majoritet av åren. En viktig förklaring till detta är sannolikt att befolkningen i Sverige blir mer urbaniserad, vilket innebär att allt fler flyttar från mindre län till storstadsregioner. I Dalarna är det framförallt unga personer som flyttar, vilket kan förklaras med att de flyttar för att studera och arbeta. Mer om detta senare.
+Att det inrikes flyttnetto i Dalarna var negativt under 2023 är inget unikt. Sedan slutet av 1990-talet har det inrikes flyttnetto varit negativt i Dalarna under en överväldigande majoritet av åren. En viktig förklaring till detta är sannolikt att befolkningen i Sverige blir mer urbaniserad, vilket innebär att allt fler flyttar från mindre län till storstadsregioner. I Dalarna är det framförallt unga personer som flyttar, vilket kan förklaras med att de flyttar för att studera och arbeta. Mer om detta senare.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt$`Inrikes flyttningsöverskott_Dalarna`
@@ -201,7 +201,7 @@ Sammantaget har Dalarnas län haft ett positivt flyttnetto under de flesta åren
 gg_flytt$Flyttnetto_Dalarna
 ```
 
-För att fördjupa förståelsen kring vilka som flyttar till och från Dalarna delar vi i nästkommande avsnitt upp dessa efter ålder och bakgrund (inrikes och utrikes födda).
+För att fördjupa förståelsen kring vilka som flyttar till och från Dalarna delas dessa i nästkommande avsnitt upp efter ålder och bakgrund (inrikes och utrikes födda).
 
 ## Åldersfördelning
 
@@ -225,7 +225,7 @@ gg_flytt_alder$`Inrikes flyttnetto_alder_20-29 år_Dalarna`
 
 För att ytterligare förtydliga vilka som flyttar till och från Dalarna inrikes, delas de i detta avsnitt upp efter inrikes respektive utrikes födda. 
 
-Tydligt är att många av de som invandrade till länet i samband med flyktingkrisen 2015-2016 har flyttat därifrån sedan dess. Totalt har `r format(abs(sum(flytt_bakgrund_df %>% filter(region == "Dalarna",år>2016,födelseregion == "Utrikes född") %>% .$Inrikes_flyttnetto)),big.mark = " ")` utrikes födda flyttat från Dalarna till andra län sedan 2017. För inrikes födda är bilden annorlunda. Under samma tidsperiod flyttade `r sum(flytt_bakgrund_df %>% filter(region == "Dalarna",år>2016,födelseregion == "Född i Sverige") %>% .$Inrikes_flyttnetto)` personer födda i Sverige till Dalarna. Inflyttningen skedde dock framförallt mellan 2020 och 2022, vilket kan vara en effekt av Corona-pandemin. Under `r max(flytt_bakgrund_df$år)` flyttade `r abs(flytt_bakgrund_df %>% filter(region == "Dalarna",år == max(år),födelseregion == "Född i Sverige") %>% .$Inrikes_flyttnetto)` personer födda i Sverige från Dalarna till andra län netto.
+Tydligt är att många av de som invandrade till länet i samband med flyktingkrisen 2015-2016 har flyttat därifrån sedan dess. Totalt har `r format(abs(sum(flytt_bakgrund_df %>% filter(region == "Dalarna",år>2016,födelseregion == "Utrikes född") %>% .$Inrikes_flyttnetto)),big.mark = " ")` utrikes födda flyttat från Dalarna till andra län sedan 2017 (netto). För inrikes födda är bilden annorlunda. Under samma tidsperiod flyttade `r sum(flytt_bakgrund_df %>% filter(region == "Dalarna",år>2016,födelseregion == "Född i Sverige") %>% .$Inrikes_flyttnetto)` personer födda i Sverige till Dalarna (netto). Inflyttningen skedde dock framförallt mellan 2020 och 2022, vilket kan vara en effekt av Corona-pandemin. Under `r max(flytt_bakgrund_df$år)` flyttade `r abs(flytt_bakgrund_df %>% filter(region == "Dalarna",år == max(år),födelseregion == "Född i Sverige") %>% .$Inrikes_flyttnetto)` personer födda i Sverige från Dalarna till andra län netto.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt_bakgrund$Flyttnetto_bakgrund_Dalarna
@@ -234,7 +234,7 @@ gg_flytt_bakgrund$Flyttnetto_bakgrund_Dalarna
 <br>
 Sammanfattningsvis minskade Dalarnas folkmängd under `r max(befolkning_df$år)` med `r abs(befolkning_df %>% filter(år == max(år),region == "Dalarnas län",variabel == "Folkökning") %>% .$varde)` personer, vilket är den största minskningen på mer än 20 år. Minskningar ses i mer eller mindre alla komponenter som befolkningsutvecklingen mäts genom jämfört med året innan.
 
-I nästa avsnitt blickar vi istället framåt. Hur kommer Dalarnas folkmängd att utvecklas fram till år 2040?
+I nästa avsnitt är fokus istället på framtiden. Hur kommer Dalarnas folkmängd att utvecklas fram till år 2040?
 
 # Prognos
 
