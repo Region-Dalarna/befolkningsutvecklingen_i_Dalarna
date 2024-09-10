@@ -117,7 +117,7 @@ gg_flytt$Invandringsöverskott_Borlänge
 gg_flytt$`Inrikes flyttningsöverskott_Borlänge`
 ```
 
-För att bättre förstå vilka som flyttar till och från kommunen inrikes, delar de som flyttar härnäst upp efter ålder. Normalt är personer mest benägna att flytta till en annan ort när de är i 20-års åldern, innan flyttandet gradvis avtar. 
+För att bättre förstå vilka som flyttar till och från kommunen inrikes, delas de som flyttar härnäst upp efter ålder. Normalt är personer mest benägna att flytta till en annan ort när de är i 20-års åldern, innan flyttandet gradvis avtar. 
 
 ### Uppdelat på ålder
 Ett tydligt mönster på senare år är att det i första hand är personer under 40 år som lämnar `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` för andra delar av Sverige, medan flyttnetto är mer otydligt i övriga åldersgrupper .
