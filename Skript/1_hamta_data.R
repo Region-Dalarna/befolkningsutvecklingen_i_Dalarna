@@ -194,11 +194,11 @@ gg_befprognos_procent <- diagram_befprognos(region_vekt = hamtakommuner(vald_reg
 #   envir = parent.frame()
 # )
 # 
-rmarkdown::render(
-  input = 'befolkningsutveckling_Mora.Rmd',
-  output_file = paste0("befolkningsutveckling_Mora.html"),
-  envir = parent.frame()
-)
+# rmarkdown::render(
+#   input = 'befolkningsutveckling_Mora.Rmd',
+#   output_file = paste0("befolkningsutveckling_Mora.html"),
+#   envir = parent.frame()
+# )
 # 
 # rmarkdown::render(
 #   input = 'befolkningsutveckling_Rättvik.Rmd',
@@ -206,11 +206,11 @@ rmarkdown::render(
 #   envir = parent.frame()
 # )
 # 
-# rmarkdown::render(
-#   input = 'befolkningsutveckling_Älvdalen.Rmd',
-#   output_file = paste0("befolkningsutveckling_Älvdalen.html"),
-#   envir = parent.frame()
-# )
+rmarkdown::render(
+  input = 'befolkningsutveckling_Älvdalen.Rmd',
+  output_file = paste0("befolkningsutveckling_Älvdalen.html"),
+  envir = parent.frame()
+)
 
 # rmarkdown::render(
 #   input = 'befolkningsutveckling_Orsa.Rmd',
