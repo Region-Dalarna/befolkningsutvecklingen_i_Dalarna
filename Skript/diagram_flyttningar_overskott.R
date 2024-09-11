@@ -6,7 +6,7 @@ diagram_inflytt <- function(region_vekt = hamtaAllaLan(tamedriket = FALSE), # Va
                                  output_mapp_figur= "G:/Samhällsanalys/Statistik/Näringsliv/basfakta/", # Vart hamnar figur om den skall sparas
                                  filnamn_data = "flyttningar_netto.xlsx", # Filnamn för sparad data
                                  vald_farg = diagramfarger("rus_tva_fokus"), # Vilken färgvektor vill man ha. Blir alltid "kon" när man väljer det diagrammet
-                                 spara_figur = TRUE, # Sparar figuren till output_mapp_figur
+                                 spara_figur = FALSE, # Sparar figuren till output_mapp_figur
                                  returnera_figur = TRUE, # Om man vill att figuren skall returneras från funktionen
                                  returnera_data = FALSE # True om användaren vill returnera data från funktionen
 ){
@@ -16,7 +16,7 @@ diagram_inflytt <- function(region_vekt = hamtaAllaLan(tamedriket = FALSE), # Va
   # Skript som skapar diagram för andelen som arbetar inom offentlig sektor. Funkar med och utan könsuppdelning men enbart för senaste år
   # Går även att använda olika åldersspann
   # ===========================================================================================================
-  spara_figur = FALSE
+  
   if (!require("pacman")) install.packages("pacman")
   p_load(tidyverse)
   
@@ -77,7 +77,7 @@ diagram_inflytt <- function(region_vekt = hamtaAllaLan(tamedriket = FALSE), # Va
                                  manual_y_axis_title = "",
                                  manual_color = vald_farg,
                                  output_mapp = output_mapp_figur,
-                                 skriv_till_diagramfil = FALSE,
+                                 skriv_till_diagramfil = spara_figur,
                                  filnamn_diagram = diagramfilnamn)
     
     gg_list <- c(gg_list, list(gg_obj))

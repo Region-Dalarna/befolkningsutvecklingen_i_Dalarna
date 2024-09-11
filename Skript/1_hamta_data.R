@@ -14,59 +14,67 @@ Output_mapp = here("Data","/")
 Output_mapp_figur = here("Figurer","/")
 vald_region = "20"
 valt_lan = "20"
+spara_figur = FALSE
 # 
 # # Diagram  befolkningsförändring
 source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_befolkningsforandring_region_kon_ar_SCB.R", encoding="UTF-8")
 gg_befolkning = diagram_befolkningsforandring_ar(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE),
-                                                spara_figur=FALSE,
+                                                spara_figur=spara_figur,
                                                 diag_folkmangd = FALSE,
-                                                returnera_data = TRUE)
+                                                returnera_data = TRUE,
+                                                output_mapp_figur = Output_mapp_figur)
 # 
 # Diagram födda och döda
 source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_fodelsenetto_region_SCB.R")
 gg_fodda_doda = diagram_fodelsenetto(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE),
-                                     spara_figur = FALSE,
+                                     spara_figur = spara_figur,
                                      tid = "*",
-                                     returnera_data = TRUE)
+                                     returnera_data = TRUE,
+                                     output_mapp_figur = Output_mapp_figur)
 # 
 
 # Diagram flyttnetto län
 source(here("Skript","diagram_flyttningar_overskott.R"), encoding="UTF-8")
-gg_flytt_lan <- diagram_inflytt(spara_figur=FALSE,
-                                returnera_data = TRUE)
+gg_flytt_lan <- diagram_inflytt(spara_figur = spara_figur,
+                                returnera_data = TRUE,
+                                output_mapp_figur = Output_mapp_figur)
 
 # Diagram ut/inflyttning till län
 source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_inflyttlan_utflyttlan_SCB.R")
 gg_utflytt_lan <- diagram_inflyttlan_utflyttlan(inflyttningsl_klartext = "*",
                                                 utflyttningsl_klartext = " Dalarnas län (Utflyttningslän)",
                                                 tid = "9999",
-                                                spara_figur = FALSE,
+                                                spara_figur = spara_figur,
+                                                output_mapp_figur = Output_mapp_figur,
                                                 returnera_data = TRUE)
 
 gg_inflytt_lan <- diagram_inflyttlan_utflyttlan(inflyttningsl_klartext = " Dalarnas län (Inflyttningslän)",
                                                 utflyttningsl_klartext = "*",
                                                 tid = "9999",
-                                                spara_figur = FALSE,
+                                                spara_figur = spara_figur,
+                                                output_mapp_figur = Output_mapp_figur,
                                                 returnera_data = TRUE)
 
 # # Diagram  flyttnetto
 source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_flytt_inrikes_utrikes_netto_SCB.R", encoding="UTF-8")
 gg_flytt <- diagram_inr_utr_flytt(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE),
-                                  spara_figur=FALSE,
+                                  spara_figur = spara_figur,
                                   #tid = c(2000:9999),
-                                  returnera_data = TRUE)
+                                  returnera_data = TRUE,
+                                  output_mapp_figur = Output_mapp_figur)
 
 # # Diagram flyttnetto åldersgrupper
 source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_flytt_inrikes_aldersgrupper_SCB.R", encoding="UTF-8")
 gg_flytt_alder <- diagram_inrikes_flytt_alder(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE),
                                               #tid = c(2000:9999),
-                                              spara_figur = FALSE)
+                                              spara_figur = spara_figur,
+                                              output_mapp_figur = Output_mapp_figur)
 
 # Diagram flyttnetto födelseregion
 source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_flytt_inrikes_bakgrund_SCB.R", encoding="UTF-8")
 gg_flytt_bakgrund <- diag_inr_flyttnetto_inr_utr_fodda(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE),
-                                                       skriv_diagram = FALSE,
-                                                       output_mapp =  "G:/skript/jon/Figurer/",
+                                                       skriv_diagram = spara_figur,
+                                                       output_mapp =  Output_mapp_figur,
                                                        returnera_data = TRUE,
                                                        farg_vekt = diagramfarger("rus_sex")[2:1])
 
@@ -83,7 +91,8 @@ gg_fruktsamhet <- diagram_fruktsamhet(region_vekt = c("00",valt_lan),
                                       diag_facet = TRUE, # diag_fokus_tid som facet-diagram istället för ett per region
                                       diag_jmf_lan = FALSE, # Skapa diagram för jämförelse mellan valda regioner
                                       diag_forandring = FALSE, # Skapa diagram för förändringar över tid
-                                      spara_figur=FALSE,
+                                      spara_figur = spara_figur,
+                                      output_mapp_figur = Output_mapp_figur,
                                       vald_period = "*",
                                       facet_skala = "fixed",
                                       returnera_data = TRUE)
@@ -92,7 +101,8 @@ gg_fruktsamhet_kommun <- diagram_fruktsamhet(region_vekt = hamtakommuner(valt_la
                                       diag_facet = TRUE, # diag_fokus_tid som facet-diagram istället för ett per region
                                       diag_jmf_lan = TRUE, # Skapa diagram för jämförelse mellan valda regioner
                                       diag_forandring = FALSE, # Skapa diagram för förändringar över tid
-                                      spara_figur=FALSE,
+                                      spara_figur = spara_figur,
+                                      output_mapp_figur = Output_mapp_figur,
                                       facet_skala = "fixed",
                                       vald_period = "*",
                                       returnera_data = TRUE)
@@ -118,7 +128,8 @@ gg_befprognos <- diagram_befprognos(region_vekt = hamtakommuner(vald_region,tame
                                      diag_alla = TRUE,
                                      jmf_procent = FALSE,
                                      returnera_data = TRUE,
-                                     output_mapp_figur = Output_mapp_figur)
+                                     output_mapp_figur = Output_mapp_figur,
+                                     spara_figur = spara_figur)
 
 gg_befprognos_procent <- diagram_befprognos(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE,tamedlan=TRUE),
                                             diag_aldergrupp = FALSE, 
@@ -126,7 +137,8 @@ gg_befprognos_procent <- diagram_befprognos(region_vekt = hamtakommuner(vald_reg
                                             diag_alla = FALSE,
                                             jmf_procent = TRUE,
                                             returnera_data = FALSE,
-                                            output_mapp_figur = Output_mapp_figur)
+                                            output_mapp_figur = Output_mapp_figur,
+                                            spara_figur = spara_figur)
 
 
 
