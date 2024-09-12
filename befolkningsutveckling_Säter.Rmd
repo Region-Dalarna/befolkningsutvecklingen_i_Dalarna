@@ -115,7 +115,7 @@ Till skillnad från många andra kommuner i Dalarna har `r unique(befolkning_df 
 gg_flytt$`Inrikes flyttningsöverskott_Säter`
 ```
 
-För att få en bättre förståelse för vilka som flyttar till och från kommunen inrikes delar vi härnäst upp de som flyttar efter ålder. Normalt är personer mest benägna att flytta till en annan ort när de är i 20-års åldern, innan flyttandet gradvis avtar. 
+För att bättre förstå vilka som flyttar till och från kommunen inrikes, delas de som flyttar härnäst upp efter ålder. Normalt är personer mest benägna att flytta till en annan ort när de är i 20-års åldern, innan flyttandet gradvis avtar. 
 
 ### Uppdelat på ålder
 Ett mönster är att det till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` flyttar fler personer mellan 30 och 39 år än de i samma åldersgrupp som flyttar därifrån, dvs. kommunens invånarantal i den åldersgruppen ökar på grund av inrikes flyttar. Variationen är dock relativ stor mellan åren, med en topp 2022.

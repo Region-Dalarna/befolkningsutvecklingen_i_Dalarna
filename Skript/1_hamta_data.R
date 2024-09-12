@@ -142,104 +142,104 @@ gg_befprognos_procent <- diagram_befprognos(region_vekt = hamtakommuner(vald_reg
 
 
 
-# rmarkdown::render(
-#   input = 'befolkningsutveckling.Rmd',
-#   output_file = paste0("befolkningsutveckling.html"),
-#   envir = parent.frame()
-# )
+rmarkdown::render(
+  input = 'befolkningsutveckling.Rmd',
+  output_file = paste0("befolkningsutveckling.html"),
+  envir = parent.frame()
+)
 
 #file.copy(from = "befolkningsutveckling.html", to = "Dalarna/index.html", overwrite = TRUE)
 
-# rmarkdown::render(
-#   input = 'befolkningsutveckling_Avesta.Rmd',
-#   output_file = paste0("befolkningsutveckling_Avesta.html"),
-#   envir = parent.frame()
-# )
-# 
-# #file.copy(from = "befolkningsutveckling_Avesta.html", to = "Avesta/index.html", overwrite = TRUE)
-# 
-# rmarkdown::render(
-#   input = 'befolkningsutveckling_Hedemora.Rmd',
-#   output_file = paste0("befolkningsutveckling_Hedemora.html"),
-#   envir = parent.frame()
-# )
-# 
-# rmarkdown::render(
-#   input = 'befolkningsutveckling_Ludvika.Rmd',
-#   output_file = paste0("befolkningsutveckling_Ludvika.html"),
-#   envir = parent.frame()
-# )
-# 
-# rmarkdown::render(
-#   input = 'befolkningsutveckling_Säter.Rmd',
-#   output_file = paste0("befolkningsutveckling_Säter.html"),
-#   envir = parent.frame()
-# )
-# 
-# rmarkdown::render(
-#   input = 'befolkningsutveckling_Gagnef.Rmd',
-#   output_file = paste0("befolkningsutveckling_Gagnef.html"),
-#   envir = parent.frame()
-# )
-# 
-# rmarkdown::render(
-#   input = 'befolkningsutveckling_Leksand.Rmd',
-#   output_file = paste0("befolkningsutveckling_Leksand.html"),
-#   envir = parent.frame()
-# )
-# 
-# rmarkdown::render(
-#   input = 'befolkningsutveckling_Smedjebacken.Rmd',
-#   output_file = paste0("befolkningsutveckling_Smedjebacken.html"),
-#   envir = parent.frame()
-# )
-# 
-# rmarkdown::render(
-#   input = 'befolkningsutveckling_Borlänge.Rmd',
-#   output_file = paste0("befolkningsutveckling_Borlänge.html"),
-#   envir = parent.frame()
-# )
-# 
-# rmarkdown::render(
-#   input = 'befolkningsutveckling_Falun.Rmd',
-#   output_file = paste0("befolkningsutveckling_Falun.html"),
-#   envir = parent.frame()
-# )
-# 
-# rmarkdown::render(
-#   input = 'befolkningsutveckling_Mora.Rmd',
-#   output_file = paste0("befolkningsutveckling_Mora.html"),
-#   envir = parent.frame()
-# )
-# 
-# rmarkdown::render(
-#   input = 'befolkningsutveckling_Rättvik.Rmd',
-#   output_file = paste0("befolkningsutveckling_Rättvik.html"),
-#   envir = parent.frame()
-# )
-# 
+rmarkdown::render(
+  input = 'befolkningsutveckling_Avesta.Rmd',
+  output_file = paste0("befolkningsutveckling_Avesta.html"),
+  envir = parent.frame()
+)
+
+#file.copy(from = "befolkningsutveckling_Avesta.html", to = "Avesta/index.html", overwrite = TRUE)
+
+rmarkdown::render(
+  input = 'befolkningsutveckling_Hedemora.Rmd',
+  output_file = paste0("befolkningsutveckling_Hedemora.html"),
+  envir = parent.frame()
+)
+
+rmarkdown::render(
+  input = 'befolkningsutveckling_Ludvika.Rmd',
+  output_file = paste0("befolkningsutveckling_Ludvika.html"),
+  envir = parent.frame()
+)
+
+rmarkdown::render(
+  input = 'befolkningsutveckling_Säter.Rmd',
+  output_file = paste0("befolkningsutveckling_Säter.html"),
+  envir = parent.frame()
+)
+
+rmarkdown::render(
+  input = 'befolkningsutveckling_Gagnef.Rmd',
+  output_file = paste0("befolkningsutveckling_Gagnef.html"),
+  envir = parent.frame()
+)
+
+rmarkdown::render(
+  input = 'befolkningsutveckling_Leksand.Rmd',
+  output_file = paste0("befolkningsutveckling_Leksand.html"),
+  envir = parent.frame()
+)
+
+rmarkdown::render(
+  input = 'befolkningsutveckling_Smedjebacken.Rmd',
+  output_file = paste0("befolkningsutveckling_Smedjebacken.html"),
+  envir = parent.frame()
+)
+
+rmarkdown::render(
+  input = 'befolkningsutveckling_Borlänge.Rmd',
+  output_file = paste0("befolkningsutveckling_Borlänge.html"),
+  envir = parent.frame()
+)
+
+rmarkdown::render(
+  input = 'befolkningsutveckling_Falun.Rmd',
+  output_file = paste0("befolkningsutveckling_Falun.html"),
+  envir = parent.frame()
+)
+
+rmarkdown::render(
+  input = 'befolkningsutveckling_Mora.Rmd',
+  output_file = paste0("befolkningsutveckling_Mora.html"),
+  envir = parent.frame()
+)
+
+rmarkdown::render(
+  input = 'befolkningsutveckling_Rättvik.Rmd',
+  output_file = paste0("befolkningsutveckling_Rättvik.html"),
+  envir = parent.frame()
+)
+
 rmarkdown::render(
   input = 'befolkningsutveckling_Älvdalen.Rmd',
   output_file = paste0("befolkningsutveckling_Älvdalen.html"),
   envir = parent.frame()
 )
 
-# rmarkdown::render(
-#   input = 'befolkningsutveckling_Orsa.Rmd',
-#   output_file = paste0("befolkningsutveckling_Orsa.html"),
-#   envir = parent.frame()
-# )
+rmarkdown::render(
+  input = 'befolkningsutveckling_Orsa.Rmd',
+  output_file = paste0("befolkningsutveckling_Orsa.html"),
+  envir = parent.frame()
+)
 
-# rmarkdown::render(
-#   input = 'befolkningsutveckling_Malung_Sälen.Rmd',
-#   output_file = paste0("befolkningsutveckling_Malung_Sälen.html"),
-#   envir = parent.frame()
-# )
+rmarkdown::render(
+  input = 'befolkningsutveckling_Malung_Sälen.Rmd',
+  output_file = paste0("befolkningsutveckling_Malung_Sälen.html"),
+  envir = parent.frame()
+)
 
-# rmarkdown::render(
-#   input = 'befolkningsutveckling_Vansbro.Rmd',
-#   output_file = paste0("befolkningsutveckling_Vansbro.html"),
-#   envir = parent.frame()
-# )
+rmarkdown::render(
+  input = 'befolkningsutveckling_Vansbro.Rmd',
+  output_file = paste0("befolkningsutveckling_Vansbro.html"),
+  envir = parent.frame()
+)
 
 

@@ -49,7 +49,7 @@ Senast uppdaterad: `r Sys.Date()`</i>
 # Sammanfattning { - }
 Syftet med den här korta analysen är att undersöka `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s befolkningsutveckling. Ett antal viktiga slutsatser sammanfattas här:
 
-* Den relativt stora nedgången i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd år 2023, jämfört med åren innan, beror i första hand på att flyttnettot till kommunen varit negativt för första gången sedan 2019.
+* Den relativt stora nedgången i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd år 2023, jämfört med åren innan, beror i första hand på att såväl det inrikes som utrikes flyttnettot till minskat tydligt jämfört med åren innan.
 * Det föddes något fler barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` 2023, jämfört med 2022. I jämförelse med tidigare år är antalet födslar dock fortfarande relativt lågt.
 * En stramare nationell migrationspolitik gör att färre invandrar till Sverige än tidigare, vilket även påverkar inflyttningen till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`.
 * Relativt många under 30 år flyttade från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` till andra delar av Sverige under 2023.
@@ -67,21 +67,21 @@ Under 2023 inledde Skatteverket ett arbete med att avregistrera flera tusen folk
 
 # Hur har befolkningen förändrats?
 
-I likhet med flera andra mindre orter i de nordliga och västliga delarna av Dalarna har befolkningen i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` minskat under en lång period, från ca `r format(plyr::round_any(befolkning_df %>% filter(år == min(år),region == region_val ,variabel == "Folkmängd") %>% .$varde,100),big.mark=" ") ` invånare  år `r min(befolkning_df$år)` till ungefär `r format(plyr::round_any(befolkning_df %>% filter(år == max(år),region == region_val, variabel == "Folkmängd") %>% .$varde,100),big.mark=" ") ` invånare år `r max(befolkning_df$år)`. 
+I likhet med flera andra mindre kommuner i Dalarna har befolkningen i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` minskat under en lång period, från ca `r format(plyr::round_any(befolkning_df %>% filter(år == min(år),region == region_val ,variabel == "Folkmängd") %>% .$varde,100),big.mark=" ") ` invånare  år `r min(befolkning_df$år)` till ungefär `r format(plyr::round_any(befolkning_df %>% filter(år == max(år),region == region_val, variabel == "Folkmängd") %>% .$varde,100),big.mark=" ") ` invånare år `r max(befolkning_df$år)`. 
 
-Befolkningen minskar under en majoritet av åren, vilket syns tydligt i diagrammet nedan. På senare år var det stora undantaget under åren efter flyktingkrisen,  `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s befolkning ökade med sammanlagt runt 80 personer 2017 och 2018. Därefter minskade befolkningen tydligt under 2019, vilket sannolikt delvis kan förklaras med att personer som flyttade till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` i samband med flyktingkrisen lämnade för andra delar av Sverige. Under 2023 minskade befolkningen med (`r abs(befolkning_df %>% filter(år == "2023",region == region_val, variabel == "Folkökning") %>% .$varde) ` personer).
+Befolkningen minskar under en majoritet av åren, vilket syns tydligt i diagrammet nedan. På senare år var det stora undantaget under åren efter flyktingkrisen,  `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s befolkning ökade med sammanlagt runt 80 personer 2017 och 2018. Därefter minskade befolkningen tydligt under 2019, vilket sannolikt delvis kan förklaras med att personer som flyttade till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` i samband med flyktingkrisen lämnade för andra delar av Sverige. Under 2023 minskade befolkningen med `r abs(befolkning_df %>% filter(år == "2023",region == region_val, variabel == "Folkökning") %>% .$varde) ` personer.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_befolkning$Befolkningsutveckling_Älvdalen
 ```
 
-I fortsättningen av denna korta analys delas befolkningsutveckling upp i dess komponenter, födelsenetto, dvs. nettot av födda och döda, och flyttnetto, dvs. nettot av inrikes och utrikes flyttar. Vi börjar med födelsenettot.
+I fortsättningen av denna korta analys delas befolkningsutveckling upp i dess komponenter, födelsenetto, dvs. nettot av födda och döda, och flyttnetto, dvs. nettot av inrikes och utrikes flyttar.
 
 # Födelsenetto
 
-En trend är att det dör färre personer i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` idag än det gjorde längre tillbaka i tiden. På senare år har runt 80 - 100 personer dött årligen i kommunen, att jämföra med ibland runt 140 personer under 1970-talet. Detta kan delvis förklaras av att befolkningen i Älvdalen idag är mindre än på 1970-talet, men också att den förväntade livslängden har ökat över tid.
+En trend är att det dör färre personer i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` idag än det gjorde längre tillbaka i tiden. På senare år har runt 80 - 100 personer boende i kommunen dött årligen, att jämföra med ibland runt 140 personer under 1970-talet. Detta kan delvis förklaras av att befolkningen i Älvdalen idag är mindre än på 1970-talet, men framförallt av att den förväntade livslängden har ökat över tid.
 
-Även när det gäller antalet födslar är trenden negativ. Under tidigt 1990-tal föddes runt 120-130 barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` per år, men en tydlig negativ trend inleddes i samband med finanskrisen i början på 1990-talet.Under början av 2000-talet ökade födslarna igen, men de senaste dryga decenniet har trenden återigen varit negativ. År `r max(fodda_doda_df$år)` föddes `r fodda_doda_df %>% filter(år == max(år),region == region_val,variabel == "födda") %>% .$varde` barn, vilket är den näst lägsta siffran sedan sedan åtminstone slutet på 1960-talet.
+Även när det gäller antalet födslar är trenden negativ. Under tidigt 1990-tal föddes runt 120-130 barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` per år, men en tydlig negativ trend inleddes i samband med finanskrisen i början på 1990-talet. Under början av 2000-talet ökade födslarna igen, men de senaste dryga decenniet har trenden återigen varit negativ. År `r max(fodda_doda_df$år)` föddes `r fodda_doda_df %>% filter(år == max(år),region == region_val,variabel == "födda") %>% .$varde` barn, vilket är den näst lägsta siffran sedan sedan åtminstone slutet på 1960-talet.
 
 Med undantag för några år i början av 1990-talet, har nettot mellan födda och döda, se de svarta linjerna i diagrammet nedan, varit negativt i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` under varje år sedan åtminstone slutet på 1960-talet. Hur många invånare som kommunen tappar på grund av det varierar relativt mycket mellan åren. År `r max(fodda_doda_df$år)` minskade befolkningen med `r abs(fodda_doda_df %>% filter(år == max(år),region == region_val,variabel == "netto") %>% .$varde)` personer till följd av ett negativt födelsenetto.
 
@@ -90,7 +90,7 @@ gg_fodda_doda$Födelsenetto_Älvdalen
 ```
 
 # Flyttnetto
-Den andra komponenten som styr befolkningsutvecklingen är det så kallade flyttnettot. Detta kan i sin tur delas upp i två komponenter, inrikes och utrikes flyttar. I det här avsnittet undersöker vi först flyttnettot, för att därefter titta på de två komponenterna.
+Den andra komponenten som styr befolkningsutvecklingen är det så kallade flyttnettot. Detta kan i sin tur delas upp i två komponenter, inrikes och utrikes flyttar. I det här avsnittet är fokus först på flyttnettot, innan de två komponenterna undersöks.
 
 Nettot mellan antalet personer som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` varierar relativt mycket mellan åren, men har på senare år varit +/- 50 personer. Undantaget var åren runt flyktingkrisen, när mer än 200 personer netto flyttade till kommunen mellan 2015 och 2018. Efter några positiva år var flyttnettot återigen negativt under `r max(flytt_df$år)` (`r flytt_df %>% filter(år==max(år),region == region_val) %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer).
 
@@ -100,7 +100,7 @@ gg_flytt$Flyttnetto_Älvdalen
 ```
 
 ## Utrikes flyttnetto
-Som vi berörde i föregående avsnitt flyttade många till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` under åren runt flyktingkrisen, vilket till stor del kan förklaras av att invandringen då var stor. I slutet av 1990-talet var invandringen negativ under flera år (fler utvandrade än invandrade), men därefter skedde en gradvis ökning innan den stora toppen 2016. Därefter minskade invandringen tydligt under några år, innan den återigen ökade under 2021 och 2022. Under 2023 var det utrikes flyttnettot `r flytt_df %>% filter(år==max(år),region == region_val, variabel == "Invandringsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer, det lägsta nettot sedan 2003. Detta kan sannolikt delvis förklaras av de avregistreringar av utvandrade som Skattemyndigheten genomförde under 2023 (se informationsruta ovan), men en viktig anledningen är sannolikt även en stramare nationell migrationspolitik.
+Som berördes i föregående avsnitt, flyttade många till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` under åren runt flyktingkrisen, vilket till stor del kan förklaras av att invandringen då var stor. I slutet av 1990-talet var invandringen negativ under flera år (fler utvandrade än invandrade), men därefter skedde en gradvis ökning innan den stora toppen 2016. Därefter minskade invandringen tydligt under några år, innan den återigen ökade under 2021 och 2022. Under 2023 var det utrikes flyttnettot `r flytt_df %>% filter(år==max(år),region == region_val, variabel == "Invandringsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer, det lägsta nettot sedan 2003. Detta kan delvis förklaras av de avregistreringar av utvandrade som Skattemyndigheten genomförde under 2023 (se informationsruta ovan), men en viktigare anledningen är sannolikt en stramare nationell migrationspolitik.
 
 Generellt invandrar ungefär lika många kvinnor och män till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`.
 
@@ -115,20 +115,20 @@ Utvecklingen för det inrikes flyttnettot är i mångt och mycket det omvända m
 gg_flytt$`Inrikes flyttningsöverskott_Älvdalen`
 ```
 
-För att få en bättre förståelse för vilka som flyttar till och från kommunen inrikes delar vi härnäst upp de som flyttar efter ålder. Normalt är personer mest benägna att flytta till en annan ort när de är i 20-års åldern, innan flyttandet gradvis avtar. 
+För att bättre förstå vilka som flyttar till och från kommunen inrikes, delas de som flyttar härnäst upp efter ålder. Normalt är personer mest benägna att flytta till en annan ort när de är i 20-års åldern, innan flyttandet gradvis avtar. 
 
 ### Uppdelat på ålder
 Ett tydligt mönster är att de personer under 30 år som flyttar från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` är fler än de personer under 30 år som flyttar dit, dvs. kommunen förlorar invånare i den åldersgruppen på grund av inrikes flyttar. Inom andra åldersgrupper är inflyttningen ofta positiv i gruppen som är 50 år eller äldre, medan den ofta är negativ för de som är mellan 30 och 50 år.
 
-Bland de åldersgrupper som redovisas i diagrammet nedan skedde den största utflyttningen år `r max(flytt_aldersgrupper_df$år)` i gruppen som är under 20-29 år. I denna grupp, tillsammans med de som är under 20 år, var antalet uflyttare `r abs(sum(flytt_aldersgrupper_df %>% filter(år == max(år),variabel == "Inrikes flyttningsöverskott",region == region_val,alder_grupper%in%c("-19 år","20-29 år")) %>% .$varde))` fler än antalet inflyttare, vilket är en klart större skillnad än åren innan.
+Bland de åldersgrupper som redovisas i diagrammet nedan skedde den största utflyttningen år `r max(flytt_aldersgrupper_df$år)` i gruppen som är under 20-29 år. I denna grupp, tillsammans med de som är under 20 år, var antalet uflyttare `r abs(sum(flytt_aldersgrupper_df %>% filter(år == max(år),variabel == "Inrikes flyttningsöverskott",region == region_val,alder_grupper%in%c("-19 år","20-29 år")) %>% .$varde))` fler än antalet inflyttare.
 
-Den största inflyttningen, netto, skedde i åldersgruppen `r flytt_aldersgrupper_df %>% filter(år == max(år),variabel == "Inrikes flyttningsöverskott",region == region_val) %>% filter(varde==max(varde)) %>% .$alder_grupper`, i vilken det flyttade `r flytt_aldersgrupper_df %>% filter(år == max(år),variabel == "Inrikes flyttningsöverskott",region == region_val) %>% filter(varde==max(varde)) %>% .$varde` personer fler till än från kommunen inrikes år `r max(flytt_aldersgrupper_df$år)`. Detta var fler än åren innan.
+Den största inflyttningen, netto, skedde i åldersgruppen `r flytt_aldersgrupper_df %>% filter(år == max(år),variabel == "Inrikes flyttningsöverskott",region == region_val) %>% filter(varde==max(varde)) %>% .$alder_grupper`, i vilken det flyttade `r flytt_aldersgrupper_df %>% filter(år == max(år),variabel == "Inrikes flyttningsöverskott",region == region_val) %>% filter(varde==max(varde)) %>% .$varde` personer fler till än från kommunen inrikes år `r max(flytt_aldersgrupper_df$år)`.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt_alder$Inrikes_flyttnetto_alder_Älvdalen
 ```
 
-Om vi enbart fokuserar på åldersgruppen 20-29 år, blir det tydligt att det alltid flyttar fler unga vuxna från än till kommunen inrikes. Historiskt varierar det inrikes flyttnettot i åldersgruppen mellan åren, vilket exempelvis kan bero på att olika årskullar av barn är olika stora. År 2023 flyttade `r abs(flytt_aldersgrupper_df %>% filter(år == max(år),variabel == "Inrikes flyttningsöverskott",region == region_val,alder_grupper == "20-29 år") %>% .$varde)` personer fler i åldersgruppen 20-29 år från än till kommunen inrikes.
+Om fokus enbart läggs på åldersgruppen 20-29 år, blir det tydligt att det alltid flyttar fler unga vuxna från än till kommunen inrikes. Historiskt varierar det inrikes flyttnettot i åldersgruppen mellan åren, vilket exempelvis kan bero på att olika årskullar av barn är olika stora. År 2023 flyttade `r abs(flytt_aldersgrupper_df %>% filter(år == max(år),variabel == "Inrikes flyttningsöverskott",region == region_val,alder_grupper == "20-29 år") %>% .$varde)` personer fler i åldersgruppen 20-29 år från än till kommunen inrikes.
 
 Även i Dalarna som helhet flyttade fler i åldersgruppen ut än in under 2023.
 
@@ -146,9 +146,7 @@ gg_flytt_bakgrund$Flyttnetto_bakgrund_Älvdalen
 
 ```
 
-Sammanfattningsvis minskade `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` folkmängd under `r max(befolkning_df$år)` med `r abs(befolkning_df %>% filter(år == max(år),region == "Älvdalen",variabel == "Folkökning") %>% .$varde)` personer. Detta förklaras av ett negativt födelseöverskott i kombination med ett relativt lågt utrikes flyttnettot och ett negativt inrikes flyttnetto.
-
-I nästa avsnitt blickar vi istället framåt. Hur kommer `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd att utvecklas fram till 2040?
+I nästa avsnitt är fokus istället på framtiden. Hur kommer `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd att utvecklas fram till 2040?
 
 # Vad händer i framtiden?
 
@@ -156,7 +154,7 @@ För en djupare förståelse för hur SCB gör befolkningsprognoser, se motsvara
 
 I diagrammet nedan visas befolkningsutvecklingen i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` fram till 2040 enligt SCB:s senaste prognos, uppdelat på åldersgrupper. Ett par tydliga trender kan utläsas i diagrammet: 
 
-* `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` befolkning prognostiseras att minska med drygt `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "Totalt",region==region_val) %>% .$Folkmängd,100)),big.mark=" ")` personer fram till 2040, vilket är något mer än vid föregående prognos. I den prognosen, som släpptes 2022, prognostiserades en minskning på drygt 300 personer (se [SCB](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0401__BE0401B/BefProgRegFakN22/table/tableViewLayout1/){target="_blank"}) fram till 2040.
+* `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` befolkning prognostiseras att minska med närmare `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "Totalt",region==region_val) %>% .$Folkmängd,100)),big.mark=" ")` personer fram till 2040, vilket är fler än vid föregående prognos. I den prognosen, som släpptes 2022, prognostiserades en minskning på drygt 300 personer (se [SCB](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0401__BE0401B/BefProgRegFakN22/table/tableViewLayout1/){target="_blank"}) fram till 2040.
 
 * Den största minskningen sker i det som brukar benämnas arbetsför ålder, 20-64 år,  som prognostiseras minska med ungefär `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "20-64 år",region==region_val) %>% .$Folkmängd,10)),big.mark=" ")` personer.
 
