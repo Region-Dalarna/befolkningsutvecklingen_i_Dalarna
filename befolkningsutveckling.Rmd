@@ -20,10 +20,19 @@ p_load(tidyverse)
 
 ```
 
-# Introduktion {-}
-I denna rapport presenteras befolkningsutvecklingen i Dalarnas län. Fokus ligger på att beskriva hur folkmängden och befolkningen har förändrats över tid, samt att ge en översikt av utvecklingen i de olika kommunerna i länet. <span class="kommentar">Behöver utvecklas</span>
+# Sammanfattning {-}
+* Minskningen i Dalarnas folkmängd år 2023, jämfört med åren innan, beror på en svagare utveckling inom mer eller mindre alla komponenter som förklarar befolkningsutvecklingen.
+* Det föddes klart färre barn i Dalarna 2023 jämfört med åren innan. Detta är i linje med en större trend i samhället, då barnafödandet per kvinna i Sverige 2023 var det lägsta som har uppmätts.
+* En allt stramare migrationspolitik gör att färre invandrar till Sverige än tidigare, vilket även påverkar inflyttningen till Dalarna.
+* Många, framförallt unga vuxna födda utanför Sverige, flyttade från Dalarna till andra delar av Sverige under 2023.
+* Enligt den senaste befolkningsprognosen från SCB (juni 2024) förväntas den negativa trenden i Dalarnas befolkningsutveckling fortsätta även i framtiden. Befolkningen minskar framförallt i yngre åldersgrupper, medan antalet äldre invånare förväntas öka avsevärt.
 
-För mer info om statistiken, klicka på rutan nedan:
+# Introduktion {-}
+Hur folkmängden förändras över tid är en central fråga för såväl samhällsplanering som politik. Befolkningsutvecklingen påverkar allt från bostadsmarknaden och arbetsmarknaden till skatteintäkter och välfärdssystem. Västvärlden i stort står inför en rad demografiska utmaningar, såsom en åldrande befolkning och minskande barnafödande. I Sverige var exempelvis barnafödandet per kvinna under 2023 det lägsta som uppmätts och folkökningen under första halvåret 2024 den lägsta under 2000-talet. 
+
+Med utgångspunkt i den typen av trender, analyseras i denna rapport befolkningsutvecklingen i Dalarnas län med fokus på hur folkmängden och dess demografiska sammansättning har förändrats över tid. Genom att undersöka faktorer som födelsetal, dödstal, in- och utvandring, samt flyttmönster, presenteras en bild av de demografiska trenderna i länet. Rapporten ger också en översikt av utvecklingen i länets olika kommuner.
+
+För mer information om den statistik som rapporten bygger på, klicka nedan:
 
 <details>
 <summary>Mer information om statistiken</summary>
@@ -38,14 +47,6 @@ För en större genomgång av hur folk- och bostadsräkningar går till i Sverig
 
 </div>
 </details>
-
-# Sammanfattning {-}
-
-* Minskningen i Dalarnas folkmängd år 2023, jämfört med åren innan, beror på en svagare utveckling inom mer eller mindre alla komponenter som förklarar befolkningsutvecklingen.
-* Det föddes klart färre barn i Dalarna 2023 jämfört med åren innan. Detta är i linje med en större trend i samhället, då barnafödandet per kvinna i Sverige 2023 var det lägsta som har uppmätts.
-* En allt stramare migrationspolitik gör att färre invandrar till Sverige än tidigare, vilket även påverkar inflyttningen till Dalarna.
-* Många, framförallt unga vuxna födda utanför Sverige, flyttade från Dalarna till andra delar av Sverige under 2023.
-* Enligt den senaste befolkningsprognosen från SCB (juni 2024) förväntas den negativa trenden i Dalarnas befolkningsutveckling fortsätta även i framtiden. Befolkningen minskar framförallt i yngre åldersgrupper, medan antalet äldre invånare förväntas öka avsevärt.
 
 # Befolkningsutveckling
 
@@ -149,7 +150,7 @@ gg_fodda_doda$Födelsenetto_Dalarna
 
 # Flyttnetto
 
-Som föregående diagram visade, bidrar nettot mellan födda och döda i praktiken alltid negativt till Dalarnas befolkningsutveckling. Eftersom andelen av befolkningen som inte är i barnafödande ålder med all sannolikhet kommer att öka i framtiden, är det svårt att se hur den utvecklingen skall kunna förändras framöver (<span class="kommentar">Ta bort?</span>). Om ambitionen är att Dalarnas befolkning skall växa blir det därför helt centralt att fler flyttar till länet än de som flyttar därifrån. Flyttarna till och från Dalarna kan delas upp i två delar:
+Som föregående diagram visade, bidrar nettot mellan födda och döda i praktiken alltid negativt till Dalarnas befolkningsutveckling. För att Dalarnas folkmängd skall växa blir det därför helt centralt att fler flyttar till länet än de som flyttar därifrån. Flyttarna till och från Dalarna kan delas upp i två delar:
 
 * **Inrikes flyttar**, dvs. de som flyttar till och från länet från andra delar av Sverige.
 * **Utrikes flyttar**, dvs de som flyttar till och från länet från andra delar av världen (in- och utvandring).
