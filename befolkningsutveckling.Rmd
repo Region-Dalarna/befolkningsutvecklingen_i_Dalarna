@@ -28,7 +28,7 @@ p_load(tidyverse)
 * Enligt den senaste befolkningsprognosen från SCB (juni 2024) förväntas den negativa trenden i Dalarnas befolkningsutveckling fortsätta även i framtiden. Befolkningen minskar framförallt i yngre åldersgrupper, medan antalet äldre invånare förväntas öka avsevärt.
 
 # Introduktion {-}
-Hur folkmängden förändras över tid är en central fråga för såväl samhällsplanering som politik. Befolkningsutvecklingen påverkar allt från bostadsmarknaden och arbetsmarknaden till skatteintäkter och välfärdssystem. Västvärlden i stort står inför en rad demografiska utmaningar, såsom en åldrande befolkning och minskande barnafödande. I Sverige var exempelvis barnafödandet per kvinna under 2023 det lägsta som uppmätts och folkökningen under första halvåret 2024 den lägsta under 2000-talet. 
+Hur folkmängden förändras över tid är en central fråga för såväl samhällsplanering som politik. Befolkningsutvecklingen påverkar allt från bostadsmarknaden och arbetsmarknaden till skatteintäkter och välfärdssystem. Västvärlden i stort står inför en rad demografiska utmaningar, såsom en åldrande befolkning och minskande barnafödande. I Sverige var exempelvis barnafödandet per kvinna under 2023 det lägsta som uppmätts. 
 
 Med utgångspunkt i den typen av trender, analyseras i denna rapport befolkningsutvecklingen i Dalarnas län med fokus på hur folkmängden har förändrats över tid. Genom att undersöka faktorer som födelsetal, dödstal, in- och utvandring, samt flyttmönster, presenteras en bild av de demografiska trenderna i länet. Rapporten ger också en översikt av utvecklingen i länets kommuner.
 
