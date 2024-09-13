@@ -30,7 +30,7 @@ p_load(tidyverse)
 # Introduktion {-}
 Hur folkmängden förändras över tid är en central fråga för såväl samhällsplanering som politik. Befolkningsutvecklingen påverkar allt från bostadsmarknaden och arbetsmarknaden till skatteintäkter och välfärdssystem. Västvärlden i stort står inför en rad demografiska utmaningar, såsom en åldrande befolkning och minskande barnafödande. I Sverige var exempelvis barnafödandet per kvinna under 2023 det lägsta som uppmätts och folkökningen under första halvåret 2024 den lägsta under 2000-talet. 
 
-Med utgångspunkt i den typen av trender, analyseras i denna rapport befolkningsutvecklingen i Dalarnas län med fokus på hur folkmängden och dess demografiska sammansättning har förändrats över tid. Genom att undersöka faktorer som födelsetal, dödstal, in- och utvandring, samt flyttmönster, presenteras en bild av de demografiska trenderna i länet. Rapporten ger också en översikt av utvecklingen i länets olika kommuner.
+Med utgångspunkt i den typen av trender, analyseras i denna rapport befolkningsutvecklingen i Dalarnas län med fokus på hur folkmängden har förändrats över tid. Genom att undersöka faktorer som födelsetal, dödstal, in- och utvandring, samt flyttmönster, presenteras en bild av de demografiska trenderna i länet. Rapporten ger också en översikt av utvecklingen i länets kommuner.
 
 För mer information om den statistik som rapporten bygger på, klicka nedan:
 
@@ -41,7 +41,7 @@ För mer information om den statistik som rapporten bygger på, klicka nedan:
 
 Till följd av Rysslands invasion av Ukraina den 24 februari 2022 har Europeiska unionen (EU) beslutat att aktivera massflyktsdirektivet, vilket innebär att personer från Ukraina utan individuell prövning ska erbjudas tidsbegränsat uppehålls- och arbetstillstånd inom EU. Personer som får uppehållstillstånd enligt massflyktsdirektivet ska i regel inte bli folkbokförda och ingår därmed inte i den officiella befolkningsstatistiken. Läs mer [här](https://www.scb.se/hitta-statistik/statistik-efter-amne/befolkning/befolkningens-sammansattning/befolkningsstatistik/produktrelaterat/Fordjupad-information/statistik-om-invandring---fragor-och-svar/){target="_blank"}.
 
-Under 2023 inledde Skatteverket ett arbete med att granska registret över folkbokförda. Det förde med sig att SCB avregistrerade flera tusen folkbokförda personer som visade sig inte längre bo i Sverige. I folkbokföringen har dessa registrerats som utvandrade till okänt utvandringsland. Läs mer [här](https://www.scb.se/pressmeddelande/sverige-gar-mot-lagsta-befolkningsokningen-pa-manga-ar/){target="_blank"}.
+Under 2023 inledde Skatteverket ett arbete med att granska registret över folkbokförda. Det förde med sig att SCB avregistrerade flera tusen folkbokförda personer som visade sig inte längre bo i Sverige. I folkbokföringen har dessa registrerats som utvandrade till okänt utvandringsland. Läs mer [här](https://www.scb.se/pressmeddelande/sverige-gar-mot-lagsta-befolkningsokningen-pa-manga-ar/){target="_blank"}. I Dalarna avregistrerades 192 personer under 2023.
 
 För en större genomgång av hur folk- och bostadsräkningar går till i Sverige, se SCBs genomgång [här](https://www.scb.se/hitta-statistik/statistik-efter-amne/befolkning/befolkningens-storlek-och-forandringar/registerbaserad-folk--och-bostadsrakning-census/produktrelaterat/Fordjupad-information/fragor-och-svar-om-folk--och-bostadsrakningar-census-med-mera/){target="_blank"}.
 
@@ -186,7 +186,7 @@ gg_inflytt_lan$Flytt_till_Dalarna
 
 ## Utrikes flyttningar
 
-Trots att såväl det inrikes flyttnettot som födelsenettot i normala fall är negativa i Dalarna, har befolkningen i länet ökat med runt `r format(plyr::round_any(befolkning_df %>% filter(region == "Dalarnas län",år>"1999",variabel == "Folkökning") %>% .$varde %>% sum(),100),big.mark = " ")` personer sedan millennieskiftet. Detta beror på att den sista komponenten som styr befolkningsutvecklingen, det utrikes flyttnettot, har varit positivt.  Framförallt invandrade många till Dalarna i samband med flyktingkrisen 2016, då mer än 4000 personer netto flyttade till länet från utlandet. Sedan dessa har invandringen dock minskat avsevärt och under 2023 var det utrikes flyttnettot i Dalarna blott `r flytt_overskott %>% filter(år=="2023", region=="Dalarnas län",variabel == "Invandringsöverskott") %>% .$varde` personer. Det anmärkningsvärt låga nettot kan delvis förklaras med att Skatteverket under 2023 inledde ett arbete med att avregistrera tusentals folkbokförda personer som vid en granskning visat sig inte längre bo i Sverige.  Den främsta anledningen till det låga invandringsöverskottet på senare år är dock en förändrad migrationspolitik. Mellan 2020 och 2023 invandrade mellan 1 400 och 1 600 personer till Dalarna årligen, att jämföra med mellan 2 000 och 3 000 personer årligen åren dessförinnan. 
+Trots att såväl det inrikes flyttnettot som födelsenettot i normala fall är negativa i Dalarna, har befolkningen i länet ökat med runt `r format(plyr::round_any(befolkning_df %>% filter(region == "Dalarnas län",år>"1999",variabel == "Folkökning") %>% .$varde %>% sum(),100),big.mark = " ")` personer sedan millennieskiftet. Detta beror på att den sista komponenten som styr befolkningsutvecklingen, det utrikes flyttnettot, har varit positivt.  Framförallt invandrade många till Dalarna i samband med flyktingkrisen 2016, då mer än 4000 personer netto flyttade till länet från utlandet. Sedan dessa har invandringen dock minskat avsevärt och under 2023 var det utrikes flyttnettot i Dalarna blott `r flytt_overskott %>% filter(år=="2023", region=="Dalarnas län",variabel == "Invandringsöverskott") %>% .$varde` personer. Det anmärkningsvärt låga nettot kan delvis förklaras med att Skatteverket under 2023 inledde ett arbete med att avregistrera tusentals folkbokförda personer som vid en granskning visat sig inte längre bo i Sverige (se informationsrutan under avsnittet introduktion ovan).  Den främsta anledningen till det låga invandringsöverskottet på senare år är dock en förändrad migrationspolitik. Mellan 2020 och 2023 invandrade mellan 1 400 och 1 600 personer till Dalarna årligen, att jämföra med mellan 2 000 och 3 000 personer årligen åren dessförinnan. 
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt$Invandringsöverskott_Dalarna
@@ -231,9 +231,7 @@ Tydligt är att många av de som invandrade till länet i samband med flyktingkr
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt_bakgrund$Flyttnetto_bakgrund_Dalarna
 ```
-
 <br>
-Sammanfattningsvis minskade Dalarnas folkmängd under `r max(befolkning_df$år)` med `r abs(befolkning_df %>% filter(år == max(år),region == "Dalarnas län",variabel == "Folkökning") %>% .$varde)` personer, vilket är den största minskningen på mer än 20 år. Minskningar ses i mer eller mindre alla komponenter som befolkningsutvecklingen mäts genom jämfört med året innan.
 
 I nästa avsnitt är fokus istället på framtiden. Hur kommer Dalarnas folkmängd att utvecklas fram till år 2040?
 
@@ -277,42 +275,11 @@ Som nämnts tidigare tar dock inte prognosen hänsyn till exempelvis företagset
 gg_befprognos_procent$befolkningsforandring_jmf_region_procent_2040
 ```
 
-Sammantaget ger SCB:s prognos en föraning om stora utmaningar för Dalarna framöver. Befolkningen blir äldre och minskar i antal, vilket sätter press på såväl välfärden som arbetsmarknaden. Hur Dalarna möter dessa utmaningar blir en avgörande faktor för länets framtida utveckling.
-
 # Kommunfördjupningar {.tabset .tabset-fade .tabset-pills}
 
 
 * [Avesta](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Avesta.html){target="_blank"}
 * [Hedemora](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Hedemora.html){target="_blank"}
-
-
-## Borlänge {-}
-
-## Falun {-}
-
-## Gagnef {-}
-
-## Hedemora {-}
-
-## Leksand {-}
-
-## Ludvika {-}
-
-## Malung-Sälen {-}
-
-## Mora {-}
-
-## Orsa {-}
-
-## Rättvik {-}
-
-## Smedjebacken {-}
-
-## Säter {-}
-
-## Vansbro {-}
-
-## Älvdalen {-}
 
 
 
