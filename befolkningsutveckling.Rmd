@@ -279,6 +279,7 @@ gg_befprognos_procent$befolkningsforandring_jmf_region_procent_2040
 
 
 * [Avesta](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Avesta.html){target="_blank"}
+* [Borlänge](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Borlänge.html){target="_blank"}
 * [Hedemora](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Hedemora.html){target="_blank"}
 
 
