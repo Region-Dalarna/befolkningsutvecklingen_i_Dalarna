@@ -156,6 +156,12 @@ rmarkdown::render(
 )
 
 rmarkdown::render(
+  input = 'befolkningsutveckling_Borlänge.Rmd',
+  output_file = paste0("befolkningsutveckling_Borlänge.html"),
+  envir = parent.frame()
+)
+
+rmarkdown::render(
   input = 'befolkningsutveckling_Falun.Rmd',
   output_file = paste0("befolkningsutveckling_Falun.html"),
   envir = parent.frame()
@@ -186,6 +192,12 @@ rmarkdown::render(
 )
 
 rmarkdown::render(
+  input = 'befolkningsutveckling_Mora.Rmd',
+  output_file = paste0("befolkningsutveckling_Mora.html"),
+  envir = parent.frame()
+)
+
+rmarkdown::render(
   input = 'befolkningsutveckling_Säter.Rmd',
   output_file = paste0("befolkningsutveckling_Säter.html"),
   envir = parent.frame()
@@ -194,18 +206,6 @@ rmarkdown::render(
 rmarkdown::render(
   input = 'befolkningsutveckling_Smedjebacken.Rmd',
   output_file = paste0("befolkningsutveckling_Smedjebacken.html"),
-  envir = parent.frame()
-)
-
-rmarkdown::render(
-  input = 'befolkningsutveckling_Borlänge.Rmd',
-  output_file = paste0("befolkningsutveckling_Borlänge.html"),
-  envir = parent.frame()
-)
-
-rmarkdown::render(
-  input = 'befolkningsutveckling_Mora.Rmd',
-  output_file = paste0("befolkningsutveckling_Mora.html"),
   envir = parent.frame()
 )
 
