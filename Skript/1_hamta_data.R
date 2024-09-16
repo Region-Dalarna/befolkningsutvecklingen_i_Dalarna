@@ -149,19 +149,33 @@ rmarkdown::render(
   envir = parent.frame()
 )
 
-#file.copy(from = "befolkningsutveckling.html", to = "Dalarna/index.html", overwrite = TRUE)
-
 rmarkdown::render(
   input = 'befolkningsutveckling_Avesta.Rmd',
   output_file = paste0("befolkningsutveckling_Avesta.html"),
   envir = parent.frame()
 )
 
-#file.copy(from = "befolkningsutveckling_Avesta.html", to = "Avesta/index.html", overwrite = TRUE)
+rmarkdown::render(
+  input = 'befolkningsutveckling_Falun.Rmd',
+  output_file = paste0("befolkningsutveckling_Falun.html"),
+  envir = parent.frame()
+)
+
+rmarkdown::render(
+  input = 'befolkningsutveckling_Gagnef.Rmd',
+  output_file = paste0("befolkningsutveckling_Gagnef.html"),
+  envir = parent.frame()
+)
 
 rmarkdown::render(
   input = 'befolkningsutveckling_Hedemora.Rmd',
   output_file = paste0("befolkningsutveckling_Hedemora.html"),
+  envir = parent.frame()
+)
+
+rmarkdown::render(
+  input = 'befolkningsutveckling_Leksand.Rmd',
+  output_file = paste0("befolkningsutveckling_Leksand.html"),
   envir = parent.frame()
 )
 
@@ -178,18 +192,6 @@ rmarkdown::render(
 )
 
 rmarkdown::render(
-  input = 'befolkningsutveckling_Gagnef.Rmd',
-  output_file = paste0("befolkningsutveckling_Gagnef.html"),
-  envir = parent.frame()
-)
-
-rmarkdown::render(
-  input = 'befolkningsutveckling_Leksand.Rmd',
-  output_file = paste0("befolkningsutveckling_Leksand.html"),
-  envir = parent.frame()
-)
-
-rmarkdown::render(
   input = 'befolkningsutveckling_Smedjebacken.Rmd',
   output_file = paste0("befolkningsutveckling_Smedjebacken.html"),
   envir = parent.frame()
@@ -198,12 +200,6 @@ rmarkdown::render(
 rmarkdown::render(
   input = 'befolkningsutveckling_Borlänge.Rmd',
   output_file = paste0("befolkningsutveckling_Borlänge.html"),
-  envir = parent.frame()
-)
-
-rmarkdown::render(
-  input = 'befolkningsutveckling_Falun.Rmd',
-  output_file = paste0("befolkningsutveckling_Falun.html"),
   envir = parent.frame()
 )
 
@@ -247,15 +243,14 @@ if(publicera == TRUE){
   
   file.copy(from = "befolkningsutveckling_Avesta.html", to = "docs/befolkningsutveckling_Avesta.html", overwrite = TRUE)
   file.copy(from = "befolkningsutveckling_Borlänge.html", to = "docs/befolkningsutveckling_Borlänge.html", overwrite = TRUE)
+  file.copy(from = "befolkningsutveckling_Falun.html", to = "docs/befolkningsutveckling_Falun.html", overwrite = TRUE)
   file.copy(from = "befolkningsutveckling_Gagnef.html", to = "docs/befolkningsutveckling_Gagnef.html", overwrite = TRUE)
   file.copy(from = "befolkningsutveckling_Hedemora.html", to = "docs/befolkningsutveckling_Hedemora.html", overwrite = TRUE)
-  file.copy(from = "befolkningsutveckling_Ludvika.html", to = "docs/befolkningsutveckling_Ludvika.html", overwrite = TRUE)
-  file.copy(from = "befolkningsutveckling_Säter.html", to = "docs/befolkningsutveckling_Säter.html", overwrite = TRUE)
-  file.copy(from = "befolkningsutveckling_Gagnef.html", to = "docs/befolkningsutveckling_Gagnef.html", overwrite = TRUE)
   file.copy(from = "befolkningsutveckling_Leksand.html", to = "docs/befolkningsutveckling_Leksand.html", overwrite = TRUE)
-  file.copy(from = "befolkningsutveckling_Smedjebacken.html", to = "docs/befolkningsutveckling_Smedjebacken.html", overwrite = TRUE)
-  file.copy(from = "befolkningsutveckling_Falun.html", to = "docs/befolkningsutveckling_Falun.html", overwrite = TRUE)
+  file.copy(from = "befolkningsutveckling_Ludvika.html", to = "docs/befolkningsutveckling_Ludvika.html", overwrite = TRUE)
   file.copy(from = "befolkningsutveckling_Mora.html", to = "docs/befolkningsutveckling_Mora.html", overwrite = TRUE)
+  file.copy(from = "befolkningsutveckling_Säter.html", to = "docs/befolkningsutveckling_Säter.html", overwrite = TRUE)
+  file.copy(from = "befolkningsutveckling_Smedjebacken.html", to = "docs/befolkningsutveckling_Smedjebacken.html", overwrite = TRUE)
   file.copy(from = "befolkningsutveckling_Rättvik.html", to = "docs/befolkningsutveckling_Rättvik.html", overwrite = TRUE)
   file.copy(from = "befolkningsutveckling_Älvdalen.html", to = "docs/befolkningsutveckling_Älvdalen.html", overwrite = TRUE)
   file.copy(from = "befolkningsutveckling_Orsa.html", to = "docs/befolkningsutveckling_Orsa.html", overwrite = TRUE)
