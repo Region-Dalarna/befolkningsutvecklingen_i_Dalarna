@@ -285,7 +285,7 @@ gg_befprognos_procent$befolkningsforandring_jmf_region_procent_2040
   <li>[Hedemora](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Hedemora.html){target="_blank"}</li>
   <li>[Leksand](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Leksand.html){target="_blank"}</li>
   <li>[Ludvika](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Ludvika.html){target="_blank"}</li>
-  <li>[Malung-Sälen](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Malung-Sälen.html){target="_blank"}</li>
+  <li>[Malung-Sälen](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Malung_Sälen.html){target="_blank"}</li>
   <li>[Mora](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Mora.html){target="_blank"}</li>
   <li>[Orsa](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Orsa.html){target="_blank"}</li>
 </ul>
