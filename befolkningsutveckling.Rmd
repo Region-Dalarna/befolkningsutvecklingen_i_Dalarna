@@ -282,6 +282,8 @@ gg_befprognos_procent$befolkningsforandring_jmf_region_procent_2040
 * [Borlänge](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Borlänge.html){target="_blank"}
 * [Gagnef](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Gagnef.html){target="_blank"}
 * [Hedemora](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Hedemora.html){target="_blank"}
+* [Leksand](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Leksand.html){target="_blank"}
+* [Ludvika](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Ludvika.html){target="_blank"}
 
 
 
