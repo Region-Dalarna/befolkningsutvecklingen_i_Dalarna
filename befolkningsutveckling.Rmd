@@ -277,15 +277,16 @@ gg_befprognos_procent$befolkningsforandring_jmf_region_procent_2040
 
 # Kommunfördjupningar 
 
-
-* [Avesta](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Avesta.html){target="_blank"}
-* [Borlänge](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Borlänge.html){target="_blank"}
-* [Falun](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Falun.html){target="_blank"}
-* [Gagnef](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Gagnef.html){target="_blank"}
-* [Hedemora](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Hedemora.html){target="_blank"}
-* [Leksand](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Leksand.html){target="_blank"}
-* [Ludvika](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Ludvika.html){target="_blank"}
-* [Mora](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Mora.html){target="_blank"}
-
-
+<ul style = "columns : 2">
+  <li>[Avesta](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Avesta.html){target="_blank"}</li>
+  <li>[Borlänge](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Borlänge.html){target="_blank"}</li>
+  <li>[Falun](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Falun.html){target="_blank"}</li>
+  <li>[Gagnef](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Gagnef.html){target="_blank"}</li>
+  <li>[Hedemora](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Hedemora.html){target="_blank"}</li>
+  <li>[Leksand](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Leksand.html){target="_blank"}</li>
+  <li>[Ludvika](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Ludvika.html){target="_blank"}</li>
+  <li>[Malung-Sälen](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Malung-Sälen.html){target="_blank"}</li>
+  <li>[Mora](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Mora.html){target="_blank"}</li>
+  <li>[Orsa](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Orsa.html){target="_blank"}</li>
+</ul>
 
