@@ -288,5 +288,10 @@ gg_befprognos_procent$befolkningsforandring_jmf_region_procent_2040
   <li>[Malung-Sälen](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Malung_Sälen.html){target="_blank"}</li>
   <li>[Mora](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Mora.html){target="_blank"}</li>
   <li>[Orsa](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Orsa.html){target="_blank"}</li>
+  <li>[Rättvik](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Rättvik.html){target="_blank"}</li>
+  <li>[Smedjebacken](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Smedjebacken.html){target="_blank"}</li>
+  <li>[Säter](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Säter.html){target="_blank"}</li>
+  <li>[Vansbro](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Malung_Vansbro.html){target="_blank"}</li>
+  <li>[Älvdalen](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Älvdalen.html){target="_blank"}</li>
 </ul>
 
