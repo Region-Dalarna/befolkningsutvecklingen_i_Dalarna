@@ -77,6 +77,7 @@ gg_flytt_bakgrund <- diag_inr_flyttnetto_inr_utr_fodda(region_vekt = hamtakommun
                                                        skriv_diagram = spara_figur,
                                                        output_mapp =  Output_mapp_figur,
                                                        returnera_data = TRUE,
+                                                       fixa_y_axel_varden_jamna_tal = FALSE, 
                                                        farg_vekt = diagramfarger("rus_sex")[2:1])
 
 # Kartor över befolkningsutvecklingen
