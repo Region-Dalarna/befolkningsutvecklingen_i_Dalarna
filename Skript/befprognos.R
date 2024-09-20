@@ -11,6 +11,7 @@ diagram_befprognos <- function(region_vekt = "20", # Val av kommun/län att foku
                                diag_facet = FALSE, # Skapa ett facetdiagram där alla valda regioner visas
                                diag_alla = TRUE, # Ett diagram skapas för alla regioner. Om FALSE skapas ett diagram för region_fokus
                                jmf_procent = FALSE, # Skapa diagram för förändring i procent
+                               avrunda_fem = TRUE, # Avrunda till närmaste fem på y-axeln
                                returnera_figur = TRUE, # Om man vill att figuren skall returneras från funktionen
                                returnera_data = FALSE){ # True om användaren vill returnera data från funktionen
   
@@ -105,7 +106,7 @@ diagram_befprognos <- function(region_vekt = "20", # Val av kommun/län att foku
                                  diagram_capt = diag_capt,
                                  x_axis_sort_value = TRUE,
                                  x_var_fokus = "fokus",
-                                 stodlinjer_avrunda_fem = FALSE,
+                                 stodlinjer_avrunda_fem = avrunda_fem,
                                  manual_x_axis_text_vjust = 1,
                                  manual_x_axis_text_hjust = 1,
                                  manual_y_axis_title = ifelse(jmf_procent==TRUE,"procent","Antal"),
@@ -147,7 +148,7 @@ diagram_befprognos <- function(region_vekt = "20", # Val av kommun/län att foku
                                    skickad_y_var = ifelse(jmf_procent==TRUE,"forandring_procent","Folkmängd"),
                                    diagram_titel = diagram_titel,
                                    diagram_capt = diag_capt,
-                                   stodlinjer_avrunda_fem = TRUE,
+                                   stodlinjer_avrunda_fem = avrunda_fem,
                                    manual_x_axis_text_vjust = 1,
                                    manual_x_axis_text_hjust = 1,
                                    diagram_facet = length(unique(data$region)) > 1,
