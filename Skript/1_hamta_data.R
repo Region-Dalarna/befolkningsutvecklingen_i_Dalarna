@@ -23,6 +23,7 @@ gg_befolkning = diagram_befolkningsforandring_ar(region_vekt = hamtakommuner(val
                                                 spara_figur=spara_figur,
                                                 diag_folkmangd = FALSE,
                                                 returnera_data = TRUE,
+                                                avrunda_fem = FALSE,
                                                 output_mapp_figur = Output_mapp_figur)
 # 
 # Diagram födda och döda
