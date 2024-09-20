@@ -141,6 +141,7 @@ gg_befprognos_procent <- diagram_befprognos(region_vekt = hamtakommuner(vald_reg
                                             diag_alla = FALSE,
                                             jmf_procent = TRUE,
                                             returnera_data = FALSE,
+                                            avrunda_fem = FALSE,
                                             output_mapp_figur = Output_mapp_figur,
                                             spara_figur = spara_figur)
 
