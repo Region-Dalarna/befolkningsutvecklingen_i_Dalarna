@@ -146,7 +146,7 @@ I nästa avsnitt är fokus istället på framtiden. Hur kommer `r unique(befolkn
 
 # Vad händer i framtiden?
 
-För en djupare förståelse för hur SCB gör befolkningsprognoser, se motsvarande avsnitt i rapporten för hela Dalarnas län.
+För en djupare förståelse runt hur SCB gör befolkningsprognoser, se motsvarande avsnitt i rapporten för hela Dalarnas län. Det viktigaste att ha i åtanke är att ingen hänsyn tas i prognoserna till planerat bostadsbyggande, företagsetableringar eller andra framtida mål och förutsättningar som kommunerna har i sina planer.
 
 I diagrammet nedan visas befolkningsutvecklingen i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` fram till 2040 enligt SCB:s senaste prognos (juni 2024), uppdelat på åldersgrupper. Ett par tydliga trender kan utläsas i diagrammet: 
 

@@ -148,13 +148,13 @@ I nästa avsnitt är fokus istället på framtiden. Hur kommer `r unique(befolkn
 
 # Vad händer i framtiden?
 
-För en djupare förståelse för hur SCB gör befolkningsprognoser, se motsvarande avsnitt i rapporten för hela Dalarnas län. I Ludvikas fall blir det särskilt viktigt att ha i åtanke att SCB:s befolkningsprognoser inte tar hänsyn till exempelvis den framtida utvecklingen för kommunens företag. Att Hitachi planerar att rekrytera något tusental personer de närmaste åren finns således inte med i prognosen nedan.
+För en djupare förståelse runt hur SCB gör befolkningsprognoser, se motsvarande avsnitt i rapporten för hela Dalarnas län. Det viktigaste att ha i åtanke är att ingen hänsyn tas i prognoserna till planerat bostadsbyggande, företagsetableringar eller andra framtida mål och förutsättningar som kommunerna har i sina planer. I Ludvikas fall blir det särskilt viktigt att ha i åtanke att Hitachi planerar att rekrytera något tusental personer de närmaste åren inte finns med i prognosen nedan.
 
 I diagrammet visas befolkningsutvecklingen i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` fram till 2040 enligt SCB:s senaste prognos, uppdelat på åldersgrupper. Ett par tydliga trender kan utläsas i diagrammet: 
 
 * `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` befolkning prognostiseras att minska med drygt `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "Totalt",region==region_val) %>% .$Folkmängd,100)),big.mark=" ")` personer fram till 2040, vilket är klart fler än vid föregående prognos. I den prognosen, som släpptes 2022, prognostiserades en minskning på drygt 700 personer (se [SCB](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0401__BE0401B/BefProgRegFakN22/table/tableViewLayout1/){target="_blank"}) fram till 2040.
 
-* Den största minskningen sker i vad som brukar benämnas arbetsför ålder, 20-64 år,  som prognostiseras minska med något mer än `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "20-64 år",region==region_val) %>% .$Folkmängd,100)),big.mark=" ")` personer.
+* Den största minskningen sker i vad som brukar benämnas arbetsför ålder, 20-64 år, som prognostiseras minska med något mer än `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "20-64 år",region==region_val) %>% .$Folkmängd,100)),big.mark=" ")` personer.
 
 * I åldergruppen 80+ förväntas befolkning att öka med ungefär `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "80+ år",region==region_val) %>% .$Folkmängd,10)),big.mark=" ")` personer fram till 2040. Detta hänger sannolikt samman med att den förväntade livslängden fortsätter öka och att den stora gruppen "baby-boomers" börjar komma upp i 80-års åldern.
 
