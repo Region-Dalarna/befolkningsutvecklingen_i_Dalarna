@@ -161,5 +161,3 @@ I diagrammet nedan visas befolkningsutvecklingen i `r unique(befolkning_df %>% f
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_befprognos$befolkningsforandring_Rättvik_2040
 ```
-
-Sammantaget ger SCB:s prognos en föraning om utmaningar för `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` framöver. Visserligen förväntas befolkningen att öka något i framtiden, men samtidigt förväntas andelen äldre öka medan andelen yngre minskar. Detta riskerar att sätta press på såväl välfärden som arbetsmarknaden.

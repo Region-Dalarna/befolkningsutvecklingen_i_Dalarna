@@ -159,5 +159,3 @@ I diagrammet nedan visas befolkningsutvecklingen i `r unique(befolkning_df %>% f
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_befprognos$befolkningsforandring_Mora_2040
 ```
-
-Sammantaget ger SCB:s prognos en föraning om stora utmaningar för `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` framöver. Befolkningen blir äldre och minskar i antal, vilket sätter press på såväl välfärden som arbetsmarknaden.
