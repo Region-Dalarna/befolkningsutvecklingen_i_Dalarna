@@ -69,7 +69,7 @@ Under 2023 inledde Skatteverket ett arbete med att granska registret över folkb
 
 I likhet med flera bruksorter i de södra delarna av Dalarna har befolkningen i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` minskat på lång sikt, från ca `r format(plyr::round_any(befolkning_df %>% filter(år == min(år),region == region_val ,variabel == "Folkmängd") %>% .$varde,100),big.mark=" ") ` invånare  år `r min(befolkning_df$år)` till ungefär `r format(plyr::round_any(befolkning_df %>% filter(år == max(år),region == region_val, variabel == "Folkmängd") %>% .$varde,100),big.mark=" ") ` invånare år `r max(befolkning_df$år)`. 
 
-Befolkningen minskar under en majoritet av åren, vilket syns tydligt i diagrammet nedan. Ett stort undantag var flyktingkrisen som fick sin kulmen 2016, när `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s befolkning ökade med över 1000 personer under ett par år. Därefter minskade befolkningen under några år, vilket till stor del kan förklaras med att personer som flyttade till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` i samband med flyktingkrisen lämnade för andra delar av Sverige. Under 2023 ökade befolkningen för första gången sedan 2017, med `r abs(befolkning_df %>% filter(år == "2023",region == region_val, variabel == "Folkökning") %>% .$varde) ` personer. Detta hänger troligtvis samman med att Dalarnas största privata arbetsgivare, Hitachi, med stor verksamhet i kommunen expanderar kraftigt.
+Befolkningen minskar under en majoritet av åren, vilket syns tydligt i diagrammet nedan. Ett stort undantag var flyktingkrisen (2015-2016), när `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s befolkning ökade med över 1000 personer under ett par år. Därefter minskade befolkningen under några år, vilket till stor del kan förklaras med att personer som flyttade till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` i samband med flyktingkrisen lämnade för andra delar av Sverige. Under 2023 ökade befolkningen för första gången sedan 2017, med `r abs(befolkning_df %>% filter(år == "2023",region == region_val, variabel == "Folkökning") %>% .$varde) ` personer. Detta hänger troligtvis samman med att Dalarnas största privata arbetsgivare, Hitachi, med stor verksamhet i kommunen expanderar kraftigt.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_befolkning$Befolkningsutveckling_Ludvika
@@ -128,7 +128,7 @@ Den största inflyttningen, netto, skedde i åldersgruppen `r flytt_aldersgruppe
 gg_flytt_alder$Inrikes_flyttnetto_alder_Ludvika
 ```
 
-Om fokus enbart läggs på åldersgruppen 20-29 år, blir det tydligt att det har skett en gradvis förbättring på senare år. Under framförallt åren efter flyktingkrisen 2016 flyttade många unga från kommunen, men de senaste två åren har relativt få unga flyttat. År 2023 flyttade 41 personer fler i åldersgruppen 20-29 år från än till kommunen inrikes, vilket är den lägsta utflyttningen (netto) sedan 2012.
+Om fokus enbart läggs på åldersgruppen 20-29 år, blir det tydligt att det har skett en gradvis förbättring på senare år. Under framförallt åren efter flyktingkrisen 2016 flyttade många unga från kommunen, men de senaste två åren har relativt få unga flyttat. År 2023 flyttade `r abs(flytt_aldersgrupper_df %>% filter(år == max(år),variabel == "Inrikes flyttningsöverskott",region == region_val,alder_grupper == "20-29 år") %>% .$varde)` personer fler i åldersgruppen 20-29 år från än till kommunen inrikes, vilket är den lägsta utflyttningen (netto) sedan 2012.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt_alder$`Inrikes flyttnetto_alder_20-29 år_Ludvika`
@@ -148,7 +148,7 @@ I nästa avsnitt är fokus istället på framtiden. Hur kommer `r unique(befolkn
 
 # Vad händer i framtiden?
 
-För en djupare förståelse runt hur SCB gör befolkningsprognoser, se motsvarande avsnitt i rapporten för hela Dalarnas län. Det viktigaste att ha i åtanke är att ingen hänsyn tas i prognoserna till planerat bostadsbyggande, företagsetableringar eller andra framtida mål och förutsättningar som kommunerna har i sina planer. I Ludvikas fall blir det särskilt viktigt att ha i åtanke att Hitachi planerar att rekrytera något tusental personer de närmaste åren inte finns med i prognosen nedan.
+För en djupare förståelse runt hur SCB gör befolkningsprognoser, se motsvarande avsnitt i rapporten för hela Dalarnas län. Det viktigaste att ha i åtanke är att ingen hänsyn tas i prognoserna till planerat bostadsbyggande, företagsetableringar eller andra framtida mål och förutsättningar som kommunerna har i sina planer. I Ludvikas fall blir det särskilt viktigt att ha i åtanke att Hitachi planer på att rekrytera något tusental personer de närmaste åren inte finns med i prognosen nedan.
 
 I diagrammet visas befolkningsutvecklingen i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` fram till 2040 enligt SCB:s senaste prognos, uppdelat på åldersgrupper. Ett par tydliga trender kan utläsas i diagrammet: 
 

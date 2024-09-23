@@ -114,7 +114,7 @@ Det inrikes flyttnettot varierar förhållandevis mycket mellan åren i `r uniqu
 gg_flytt$`Inrikes flyttningsöverskott_Gagnef`
 ```
 
-För att bättre förstå vilka som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` inrikes, delar de som flyttar härnäst upp efter ålder. Normalt är personer mest benägna att flytta till en annan ort när de är i 20-års åldern, innan flyttandet gradvis avtar. 
+För att bättre förstå vilka som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` inrikes, delas de som flyttar härnäst upp efter ålder. Normalt är personer mest benägna att flytta till en annan ort när de är i 20-års åldern, innan flyttandet gradvis avtar. 
 
 ### Uppdelat på ålder
 Ett mönster är att det till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` flyttar fler personer mellan 30 och 39 år än de i samma åldersgrupp som flyttar därifrån, dvs. kommunens invånarantal i den åldersgruppen ökar på grund av inrikes flyttar. Variationen är dock relativ stor mellan åren, med en topp 2021.
@@ -140,7 +140,7 @@ För att ytterligare förtydliga vilka som flyttar till och från `r unique(befo
 
 En del av de personer som invandrade till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` under framförallt 2017, verkar ha flyttat därifrån sedan dess, då det inrikes flyttnettot i gruppen utrikes födda har varit negativt under varje år sedan 2019.
 
-Bland inrikes födda är variationen mellan åren relativt stor, men tydligt är att relativt många inrikes födda flyttade till kommunen i samband med Corona-pandemin (2020-2021). De senaste åren har utvecklingen dock varit det motsatta, då fler personer födda i Sverige flyttar från än till kommunen inrikes. Det inrikes flyttnettot i gruppen var `r flytt_bakgrund_df %>% filter(år == max(år),region == region_val,födelseregion == "Född i Sverige") %>% .$Inrikes_flyttnetto` år `r max(flytt_bakgrund_df$år)`.
+Bland inrikes födda är variationen mellan åren stor, men tydligt är att relativt många inrikes födda flyttade till kommunen i samband med Corona-pandemin (2020-2021). De senaste åren har utvecklingen dock varit det motsatta, då fler personer födda i Sverige flyttar från än till kommunen inrikes. Det inrikes flyttnettot i gruppen var `r flytt_bakgrund_df %>% filter(år == max(år),region == region_val,födelseregion == "Född i Sverige") %>% .$Inrikes_flyttnetto` år `r max(flytt_bakgrund_df$år)`.
 
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}

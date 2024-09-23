@@ -28,9 +28,9 @@ p_load(tidyverse)
 * Enligt den senaste befolkningsprognosen från SCB (juni 2024) förväntas den negativa trenden i Dalarnas befolkningsutveckling fortsätta även i framtiden. Befolkningen minskar framförallt i yngre åldersgrupper, medan antalet äldre invånare förväntas öka avsevärt.
 
 # Introduktion {-}
-Hur folkmängden förändras över tid är en central fråga för såväl samhällsplanering som politik. Befolkningsutvecklingen påverkar allt från bostadsmarknaden och arbetsmarknaden till skatteintäkter och välfärdssystem. Västvärlden i stort står inför en rad demografiska utmaningar, såsom en åldrande befolkning och minskande barnafödande. I Sverige var exempelvis barnafödandet per kvinna under 2023 det lägsta som uppmätts. 
+Hur folkmängden förändras över tid är en central fråga för såväl samhällsplanering som politik. Befolkningsutvecklingen påverkar allt från bostadsmarknaden och arbetsmarknaden till skatteintäkter och välfärdssystem. Såväl Västvärlden i stort som delar av Asien står inför en rad demografiska utmaningar, såsom en åldrande befolkning och minskande barnafödande. I Sverige var exempelvis barnafödandet per kvinna under 2023 det lägsta som uppmätts. 
 
-Med utgångspunkt i den typen av trender, analyseras i denna rapport befolkningsutvecklingen i Dalarnas län med fokus på hur folkmängden har förändrats över tid. Genom att undersöka faktorer som födelsetal, dödstal, in- och utvandring, samt flyttmönster, presenteras en bild av de demografiska trenderna i länet. Rapporten ger också en översikt av utvecklingen i länets kommuner.
+Under det senaste året har befolkningsutvecklingen förändrats markant och många kommuner som har växt på sistone har nu istället en krympande befolkning. Med utgångspunkt i den typen av trender, analyseras i denna rapport befolkningsutvecklingen i Dalarnas län med fokus på hur folkmängden har förändrats över tid. Genom att undersöka faktorer som födelsetal, dödstal, in- och utvandring, samt flyttmönster, presenteras en bild av de demografiska trenderna i länet. Rapporten ger också en översikt av utvecklingen i länets kommuner.
 
 För mer information om den statistik som rapporten bygger på, klicka nedan:
 
@@ -128,7 +128,7 @@ gg_fruktsamhet_kommun$jmf_summerad_fruktsamhet_Dalarna
 
 ```
 
-Det är dock viktigt att notera att fruktsamheten på kommunnivå kan variera relativt mycket över tid. I större kommuner som Falun och Borlänge påminner utvecklingen om den i Dalarna och riket, där fruktsamheten ser ut att följa en trend. I mindre kommuner, såsom Vansbro, är variationen större mellan åren och det blir svårare att utläsa en långsiktig trend. Detta beror sannolikt på att hur många barn enskilda individer föder får större konsekvenser för fruktsamheten i mindre kommuner än i större kommuner. 
+Det är dock viktigt att notera att fruktsamheten på kommunnivå kan variera relativt mycket över tid. I större kommuner som Falun och Borlänge påminner utvecklingen om den i Dalarna och riket, där fruktsamheten ser ut att följa en trend. I mindre kommuner är variationen större mellan åren och det blir svårare att utläsa en långsiktig trend. 
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_fruktsamhet_kommun$summerad_fruktsamhet_Vansbro_facet
