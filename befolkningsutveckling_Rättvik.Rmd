@@ -51,7 +51,7 @@ Syftet med den här korta analysen är att undersöka `r unique(befolkning_df %>
 
 * Nedgången i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd på senare år beror framförallt på att såväl det inrikes som det utrikes flyttnettot minskat tydligt.
 * Det föddes något färre barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` 2023, jämfört med 2022. Antalet födda var dock i linje med åren dessförinnan.
-* En allt stramare migrationspolitik gör att färre invandrar till Sverige än tidigare, vilket även påverkar inflyttningen till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`.
+* En stramare nationell migrationspolitik gör att färre invandrar till Sverige än tidigare, vilket även påverkar inflyttningen till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`.
 * Det var framförallt personer under 30 år som  flyttade från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` till andra delar av Sverige under 2023, samtidigt som många äldre flyttade till kommunen.
 
 För mer info om statistiken, klicka på rutan nedan:
@@ -80,7 +80,7 @@ Under `r max(fodda_doda_df$år)` avled `r fodda_doda_df %>% filter(år == max(å
 
 När det gäller antalet födslar är trenden negativ om man jämför med framförallt det tidiga 1990-talet. Under 2000-talet har trenden dock varit mer stabil och antalet födslar har till och med ökat under vissa perioder. År `r max(fodda_doda_df$år)` föddes `r fodda_doda_df %>% filter(år == max(år),region == region_val,variabel == "födda") %>% .$varde` barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`, vilket är något färre än året innan.
 
-Nettot mellan födda och döda, se de svarta linjerna i diagrammet nedan, är alltid negativt i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`. Hur många invånare som kommunen tappar på grund av det varierar relativt mycket över tid. År `r max(fodda_doda_df$år)` minskade befolkningen med `r abs(fodda_doda_df %>% filter(år == max(år),region == region_val,variabel == "netto") %>% .$varde)` personer till följd av ett negativt födelsenetto.
+Nettot mellan födda och döda, se de svarta linjerna i diagrammet nedan, är alltid negativt i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`, en indikation på att kommunen har en relativt hög medelålder (Dalarnas högsta). Hur många invånare som kommunen tappar på grund av det varierar relativt mycket över tid. År `r max(fodda_doda_df$år)` minskade befolkningen med `r abs(fodda_doda_df %>% filter(år == max(år),region == region_val,variabel == "netto") %>% .$varde)` personer till följd av ett negativt födelsenetto.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_fodda_doda$Födelsenetto_Rättvik

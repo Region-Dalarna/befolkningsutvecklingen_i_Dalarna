@@ -49,7 +49,7 @@ Senast uppdaterad: `r Sys.Date()`</i>
 # Sammanfattning { - }
 Syftet med den här korta analysen är att undersöka `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s befolkningsutveckling. Ett antal viktiga slutsatser sammanfattas här:
 
-* Med undantag för år 2021, har `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s befolkning minskat något varje år på senare tid..
+* Med undantag för år 2021, har `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s befolkning minskat något varje år på senare tid.
 * Det föddes färre barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` 2023, jämfört med åren innan. Detta är i linje med en större trend i samhället, då barnafödandet per kvinna i Sverige 2023 var det lägsta som har uppmätts.
 * Under 2023 var det framförallt personer mellan 20 och 29 år som flyttade från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` inrikes.
 
@@ -78,7 +78,7 @@ I fortsättningen av denna korta analys delas befolkningsutveckling upp i dess k
 
 # Födelsenetto
 
-En trend är att det dör färre personer boende i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` idag än det gjorde längre tillbaka i tiden. Visserligen dog relativt många under Corona-pandemin och något år dessförinnan, men de senaste åren har mellan 120 och 130 personer dött årligen i kommunen, jämfört med ofta över 150 personer under exempelvis 1990-talet. Detta hör delvis samman med att folkmängden idag är lägre. men den främsta orsaken är sannolikt utveckling inom det medicinska området. Befolkningens medelålder ökar över tid och har gjort så länge.
+En trend är att det dör färre personer boende i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` idag än det gjorde längre tillbaka i tiden. Visserligen dog relativt många under Corona-pandemin och något år dessförinnan, men de senaste åren har mellan 120 och 130 personer dött årligen i kommunen, jämfört med ofta över 150 personer under exempelvis 1990-talet. Detta hör delvis samman med att folkmängden idag är lägre, men den främsta orsaken är sannolikt utveckling inom det medicinska området. Befolkningens medelålder ökar över tid och har gjort så länge.
 
 Även när det gäller antalet födslar är trenden negativ. Under tidigt 1990-tal föddes ofta över 150 barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` per år, men en tydlig negativ trend inleddes i samband med finanskrisen i början på 1990-talet, när befolkningen också minskade kraftigt. Under 2010-talet ökade födslarna igen, något som sannolikt har att göra med att `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s befolkning då ökade till följd av högre invandring. År `r max(fodda_doda_df$år)` föddes `r fodda_doda_df %>% filter(år == max(år),region == region_val,variabel == "födda") %>% .$varde` barn, vilket är den lägsta siffran sedan 2007.
 

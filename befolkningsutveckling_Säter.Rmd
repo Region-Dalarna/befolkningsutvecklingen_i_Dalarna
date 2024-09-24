@@ -51,7 +51,7 @@ Syftet med den här korta analysen är att undersöka `r unique(befolkning_df %>
 
 * Nedgången i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd år 2023, jämfört med åren innan, beror på en svagare utveckling inom framförallt de inrikes och utrikes flyttningarna.
 * Det föddes något färre barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` 2023, jämfört med 2022. Detta är i linje med en större trend i samhället, då barnafödandet per kvinna i Sverige 2023 var det lägsta som har uppmätts.
-* En allt stramare migrationspolitik gör att färre invandrar till Sverige än tidigare, vilket även påverkar inflyttningen till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`.
+* En stramare nationell migrationspolitik gör att färre invandrar till Sverige än tidigare, vilket även påverkar inflyttningen till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`.
 * Många unga under 20 år  flyttade från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` till andra delar av Sverige under 2023, jämfört med åren innan.
 
 För mer info om statistiken, klicka på rutan nedan:
@@ -92,7 +92,7 @@ gg_fodda_doda$Födelsenetto_Säter
 # Flyttnetto
 Den andra komponenten som styr befolkningsutvecklingen är det så kallade flyttnettot. Detta kan i sin tur delas upp i två komponenter, inrikes och utrikes flyttar. I det här avsnittet är fokus först på flyttnettot, innan de två komponenterna undersöks.
 
-Nettot mellan antalet personer som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` varierar relativt mycket mellan åren, men har varit positivt under stora delar av 2010-talet. Många flyttade till kommunen under åren runt flyktingkrisen (2015-2016), men även under 2020 och 2021 var inflyttningen stor (netto). Under `r max(flytt_df$år)` var flyttnettot dock negativt (`r flytt_df %>% filter(år==max(år),region == region_val) %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer).
+Nettot mellan antalet personer som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` varierar relativt mycket mellan åren, men har varit positivt under stora delar av 2010-talet. Många flyttade till kommunen under åren runt flyktingkrisen (2015-2016), men även under 2020 och 2021 var inflyttningen stor (netto). År `r max(flytt_df$år)` var flyttnettot dock negativt (`r flytt_df %>% filter(år==max(år),region == region_val) %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer).
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt$Flyttnetto_Säter
@@ -139,7 +139,7 @@ För att ytterligare förtydliga vilka som flyttar till och från `r unique(befo
 
 En del av de personer som invandrade till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` under framförallt 2013, verkar ha flyttat därifrån under 2014, då många utrikes födda flyttade till andra delar av Sverige (netto). Även under 2016, 2018 och 2023 skedde en stor utflyttning bland utrikes födda. 
 
-Bland inrikes födda är bilden delvis annorlunda. Under 00-talet flyttade ofta många inrikes födda från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` till andra delar av Sverige, en utveckling som delvis har vänt på senare år. Under såväl 2015, som 2020 och 2021 flyttade mer än 50 personer netto till kommunen inrikes. Under 2022 var utflyttningen bland inrikes födda återigen något större än utflyttningen, men under 2023 skedde istället en liten nettoinflyttning.
+Bland inrikes födda är bilden delvis annorlunda. Under 00-talet flyttade ofta många inrikes födda från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` till andra delar av Sverige, en utveckling som delvis har vänt på senare år. Under såväl 2015, som 2020 och 2021 flyttade mer än 50 personer netto till kommunen inrikes. Under 2022 var utflyttningen bland inrikes födda återigen något större än inflyttningen, men under 2023 skedde istället en liten nettoinflyttning.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt_bakgrund$Flyttnetto_bakgrund_Säter

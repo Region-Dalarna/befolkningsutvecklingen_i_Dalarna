@@ -51,7 +51,7 @@ Syftet med den här korta analysen är att undersöka `r unique(befolkning_df %>
 
 * Nedgången i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd år 2023, jämfört med åren innan, beror på en svagare utveckling inom mer eller mindre alla komponenter som förklarar befolkningsutvecklingen.
 * Det föddes färre barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` 2023, jämfört med året innan, men fler än 2021 (och 2018). Samtidigt var barnafödandet per kvinna i Sverige 2023 det lägsta som har uppmätts.
-* En allt stramare migrationspolitik gör att färre invandrar till Sverige än tidigare, vilket även påverkar inflyttningen till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`.
+* En stramare nationell migrationspolitik gör att färre invandrar till Sverige än tidigare, vilket även påverkar inflyttningen till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`.
 * Många, framförallt unga vuxna, flyttade från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` till andra delar av Sverige under 2023. Att många flyttar från kommunen inrikes är normalt, men 2023 sticker ut som ett av de sämsta åren på 2000-talet på den punkten.
 
 För mer info om statistiken, klicka på rutan nedan:
