@@ -50,6 +50,8 @@ Under 2023 inledde Skatteverket ett arbete med att granska registret över folkb
 
 För en större genomgång av hur folk- och bostadsräkningar går till i Sverige, se SCBs genomgång [här](https://www.scb.se/hitta-statistik/statistik-efter-amne/befolkning/befolkningens-storlek-och-forandringar/registerbaserad-folk--och-bostadsrakning-census/produktrelaterat/Fordjupad-information/fragor-och-svar-om-folk--och-bostadsrakningar-census-med-mera/){target="_blank"}.
 
+All data som används i rapporten är offentlig och finns under kategorin befolkning i SCB:s [Statistikdatabas](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/){target="_blank"}. Där finns även data för exempelvis befolkningsutvecklingen under 2024 på månadsbasis, något som inte behandlas i denna rapport.
+
 </div>
 </details>
 
