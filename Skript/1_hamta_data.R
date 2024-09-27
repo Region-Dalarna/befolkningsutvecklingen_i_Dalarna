@@ -261,7 +261,7 @@ if(publicera == TRUE){
   file.copy(from = "befolkningsutveckling_Rättvik.html", to = "docs/befolkningsutveckling_Rättvik.html", overwrite = TRUE)
   file.copy(from = "befolkningsutveckling_Älvdalen.html", to = "docs/befolkningsutveckling_Älvdalen.html", overwrite = TRUE)
   file.copy(from = "befolkningsutveckling_Vansbro.html", to = "docs/befolkningsutveckling_Vansbro.html", overwrite = TRUE)
-  file.copy(from = "befolkningsutveckling.html", to = "docs/befolkningsutveckling.html", overwrite = TRUE)
+  file.copy(from = "befolkningsutveckling.html", to = "docs/index.html", overwrite = TRUE)
   
 }
 

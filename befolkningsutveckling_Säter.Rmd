@@ -156,7 +156,7 @@ För en djupare förståelse runt hur SCB gör befolkningsprognoser, se motsvara
 
 I diagrammet nedan visas befolkningsutvecklingen i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` fram till 2040 enligt SCB:s senaste prognos (juni 2024), uppdelat på åldersgrupper. Ett par tydliga trender kan utläsas i diagrammet: 
 
-* `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` befolkning prognostiseras att minska med ungefär `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "Totalt",region==region_val) %>% .$Folkmängd,100)),big.mark=" ")` personer fram till 2040, vilket är klart fler än vid föregående prognos. I den prognosen, som släpptes 2022, prognostiserades en minskning på under 100 personer (se [SCB](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0401__BE0401B/BefProgRegFakN22/table/tableViewLayout1/){target="_blank"}) fram till 2040.
+* `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` befolkning prognostiseras att minska med ungefär `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "Totalt",region==region_val) %>% .$Folkmängd,100)),big.mark=" ")` personer fram till 2040, vilket är fler än vid föregående prognos. I den prognosen, som släpptes 2022, prognostiserades en minskning på runt 60 personer fram till 2040, jämfört med 2021 (se [SCB](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0401__BE0401B/BefProgRegFakN22/table/tableViewLayout1/){target="_blank"}).
 
 * Den största minskningen sker i åldergruppen 0-19 år,  som prognostiseras minska med  `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "0-19 år",region==region_val) %>% .$Folkmängd,10)),big.mark=" ")` personer.
 
