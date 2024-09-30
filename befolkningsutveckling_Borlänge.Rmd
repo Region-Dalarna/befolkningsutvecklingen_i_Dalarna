@@ -51,7 +51,7 @@ Syftet med den här korta analysen är att undersöka `r unique(befolkning_df %>
 
 * I `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` minskade folkmängden tydligt år 2023, vilket berodde på att säväl födelsenettot som flyttnettot var negativt.
 * Det föddes klart färre barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` år 2023, jämfört med åren innan. Detta är i linje med en större trend i samhället, då barnafödandet per kvinna i Sverige 2023 var det lägsta som har uppmätts.
-* Det utrikes flyttnettot till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` var negativt under 2023. Detta är i linje med en allt stramare nationell migrationspolitik, men kan även förklaras med att Skatteverket under 2023 inledde en avregistrering av invandrade som inte längre bedömdes bo i Sverige.
+* Det utrikes flyttnettot till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` var negativt under 2023. Detta är i linje med en stramare nationell migrationspolitik, men kan även förklaras med att Skatteverket under 2023 inledde en avregistrering av invandrade som inte längre bedömdes bo i Sverige.
 * Det inrikes flyttnettot till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` var negativt under 2023 och dessutom lägre jämfört med året innan.
 
 För mer info om statistiken, klicka på rutan nedan:
