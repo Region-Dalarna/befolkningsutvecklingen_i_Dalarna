@@ -15,7 +15,7 @@ Output_mapp_figur = here("Figurer","/")
 vald_region = "20"
 valt_lan = "20"
 spara_figur = FALSE
-publicera = TRUE
+publicera = FALSE
 # 
 # # Diagram  befolkningsförändring
 source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_befolkningsforandring_region_kon_ar_SCB.R", encoding="UTF-8")

@@ -242,7 +242,7 @@ gg_flytt_bakgrund$Flyttnetto_bakgrund_Dalarna
 
 I nästa avsnitt är fokus istället på framtiden. Hur kommer Dalarnas folkmängd att utvecklas fram till år 2040?
 
-# Prognos
+# Vad händer i framtiden?
 
 SCB gör vartannat eller vart tredje år prognoser för folkmängdens utveckling på såväl läns som kommunal nivå. De senaste av dessa prognoser släpptes i juni 2024 och sträcker sig ända fram till 2070. Eftersom prognoser blir osäkrare desto längre fram i tiden de sträcker sig, kommer vi i detta avsnitt enbart fokusera på prognosen fram till 2040.
 
