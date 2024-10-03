@@ -264,7 +264,7 @@ I diagrammet nedan visas befolkningsutvecklingen i Dalarna fram till 2033 enligt
 
 * Dalarnas befolkning prognostiseras att minska med drygt `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "Totalt",region=="Dalarna") %>% .$Folkmängd,100)),big.mark=" ")` personer fram till 2033, vilket är en tydlig förändring jämfört med föregående prognos. I den föregående prognosen, som släpptes 2022, prognostiserades en ökning på drygt 300 personer fram till 2033, jämfört med 2021 (se [SCB](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0401__BE0401B/BefProgRegFakN22/table/tableViewLayout1/){target="_blank"}).
 
-* Det är framförallt i åldergruppen 0-19 år som befolkningen prognostiseras att minska, med ungefär `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "0-19 år",region=="Dalarna") %>% .$Folkmängd,100)),big.mark=" ")` personer. Detta hänger sannolikt samman med att fruktsamheten minskat tydligt de senaste åren.
+* Den största minskningen sker i åldersgruppen 0-19 år, som prognostiseras att minska med ungefär `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "0-19 år",region=="Dalarna") %>% .$Folkmängd,100)),big.mark=" ")` personer. Detta kan sannolikt delvis förklaras av att fruktsamheten minskat de senaste åren.
 
 * I åldergruppen 80+ förväntas befolkning att öka med ungefär `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "80+ år",region=="Dalarna") %>% .$Folkmängd,100)),big.mark=" ")` personer fram till 2033. Detta hänger sannolikt samman med att den förväntade livslängden fortsätter öka och att den stora gruppen "baby-boomers" börjar komma upp i 80-års åldern.
 
