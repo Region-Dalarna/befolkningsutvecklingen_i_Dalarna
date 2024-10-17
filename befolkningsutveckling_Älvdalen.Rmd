@@ -71,7 +71,7 @@ All data som används i rapporten är offentlig och finns under kategorin befolk
 
 I likhet med flera andra mindre kommuner i Dalarna har befolkningen i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` minskat på lång sikt, från ca `r format(plyr::round_any(befolkning_df %>% filter(år == min(år),region == region_val ,variabel == "Folkmängd") %>% .$varde,100),big.mark=" ") ` invånare  år `r min(befolkning_df$år)` till ungefär `r format(plyr::round_any(befolkning_df %>% filter(år == max(år),region == region_val, variabel == "Folkmängd") %>% .$varde,100),big.mark=" ") ` invånare år `r max(befolkning_df$år)`. 
 
-Befolkningen minskar under en majoritet av åren, vilket syns tydligt i diagrammet nedan. På senare år var det stora undantaget under åren efter flyktingkrisen, då `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s befolkning ökade med sammanlagt runt 80 personer 2017 och 2018. Därefter minskade befolkningen tydligt under 2019, vilket sannolikt delvis kan förklaras med att personer som flyttade till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` i samband med flyktingkrisen lämnade för andra delar av Sverige. Under 2023 minskade befolkningen med `r abs(befolkning_df %>% filter(år == "2023",region == region_val, variabel == "Folkökning") %>% .$varde) ` personer.
+Befolkningen minskar under en majoritet av åren, vilket syns tydligt i diagrammet nedan. På senare år var det stora undantaget 2017 och 2018, då `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s befolkning ökade med sammanlagt runt 80 personer. Därefter minskade befolkningen tydligt under 2019. Under 2023 minskade befolkningen med `r abs(befolkning_df %>% filter(år == "2023",region == region_val, variabel == "Folkökning") %>% .$varde) ` personer.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_befolkning$Befolkningsutveckling_Älvdalen
@@ -94,7 +94,7 @@ gg_fodda_doda$Födelsenetto_Älvdalen
 # Flyttnetto
 Den andra komponenten som styr befolkningsutvecklingen är det så kallade flyttnettot. Detta kan i sin tur delas upp i två komponenter, inrikes och utrikes flyttar. I det här avsnittet är fokus först på flyttnettot, innan de två komponenterna undersöks.
 
-Nettot mellan antalet personer som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` varierar relativt mycket mellan åren, men har på senare år varit +/- 50 personer. Undantaget var åren runt flyktingkrisen, när mer än 200 personer netto flyttade till kommunen mellan 2015 och 2018. Efter några positiva år var flyttnettot återigen negativt under `r max(flytt_df$år)` (`r flytt_df %>% filter(år==max(år),region == region_val) %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer).
+Nettot mellan antalet personer som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` varierar relativt mycket mellan åren, men har på senare år varit +/- 50 personer. Undantaget var åren runt 2015-2016, när mer än 200 personer netto flyttade till kommunen mellan 2015 och 2018. Efter några positiva år var flyttnettot återigen negativt under `r max(flytt_df$år)` (`r flytt_df %>% filter(år==max(år),region == region_val) %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer).
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt$Flyttnetto_Älvdalen
@@ -102,7 +102,7 @@ gg_flytt$Flyttnetto_Älvdalen
 ```
 
 ## Utrikes flyttnetto
-Som berördes i föregående avsnitt, flyttade många till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` under åren runt flyktingkrisen, vilket till stor del kan förklaras av att invandringen då var stor. I slutet av 1990-talet var invandringen negativ under flera år (fler utvandrade än invandrade), men därefter skedde en gradvis ökning innan den stora toppen 2016. Därefter minskade invandringen tydligt under några år, innan den återigen ökade under 2021 och 2022. Under 2023 var det utrikes flyttnettot `r flytt_df %>% filter(år==max(år),region == region_val, variabel == "Invandringsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer, det lägsta nettot sedan 2003. Detta kan sannolikt förklaras av en stramare nationell migrationspolitik.
+Som berördes i föregående avsnitt, flyttade många till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` mellan 2015 och 2018, vilket till stor del kan förklaras av att invandringen då var stor. I slutet av 1990-talet var invandringen negativ under flera år (fler utvandrade än invandrade), men därefter skedde en gradvis ökning innan den stora toppen 2016. Därefter minskade invandringen tydligt under några år, innan den återigen ökade under 2021 och 2022. Under 2023 var det utrikes flyttnettot `r flytt_df %>% filter(år==max(år),region == region_val, variabel == "Invandringsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer, det lägsta nettot sedan 2003. Detta kan sannolikt förklaras av en stramare nationell migrationspolitik.
 
 Generellt invandrar ungefär lika många kvinnor och män till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`.
 
@@ -141,7 +141,7 @@ gg_flytt_alder$`Inrikes flyttnetto_alder_20-29 år_Älvdalen`
 ### Uppdelat på bakgrund
 För att ytterligare förtydliga vilka som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` inrikes, delas de i detta avsnitt upp efter sin bakgrund, inrikes eller utrikes födda. 
 
-Tydligt är att en del av de som invandrade till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` i samband med flyktingkrisen 2015-2016 flyttade därifrån till andra delar av Sverige under åren efter krisen. Det inrikes flyttnettot för gruppen utrikes födda har varit negativt varje år sedan 2016. Bland de som är födda i Sverige är bilden delvis annorlunda. Under 00-talet och början av 2010-talet flyttade många i den gruppen från Älvdalen till andra delar av Sverige, men den trenden vände delvis mellan 2016 och 2021. På senare år har dock det inrikes flyttnettot för personer födda i Sverige återigen blivit negativt.
+Tydligt är att en del av de som invandrade till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` under åren runt 2015-2016 flyttade därifrån till andra delar av Sverige därefter. Det inrikes flyttnettot för gruppen utrikes födda har varit negativt varje år sedan 2016. Bland de som är födda i Sverige är bilden delvis annorlunda. Under 00-talet och början av 2010-talet flyttade många i den gruppen från Älvdalen till andra delar av Sverige, men den trenden vände delvis mellan 2016 och 2021. På senare år har dock det inrikes flyttnettot för personer födda i Sverige återigen blivit negativt.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt_bakgrund$Flyttnetto_bakgrund_Älvdalen

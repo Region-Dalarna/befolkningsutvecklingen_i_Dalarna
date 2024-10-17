@@ -102,7 +102,7 @@ gg_flytt$Flyttnetto_Borlänge
 ```
 
 ## Utrikes flyttnetto
-Som berördes i föregående avsnitt, flyttade många till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` under såväl åren runt flyktingkrisen (2015-2016) som under en period mellan 2005 och 2010. Detta beror på att invandringen då var stor, vilket syns i diagrammet nedan. Längre tillbaka var invandringen ofta låg eller till och med negativ under vissa år. På senare år har dock invandringen minskat tydligt, vilket sannolikt hör samman med en stramare nationell migrationspolitik. 
+Som berördes i föregående avsnitt, flyttade många till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` under såväl ett par år på mitten av 2010-talet som under en period mellan 2005 och 2010. Detta beror på att invandringen då var stor, vilket syns i diagrammet nedan. Längre tillbaka var invandringen ofta låg eller till och med negativ under vissa år. På senare år har dock invandringen minskat tydligt, vilket sannolikt hör samman med en stramare nationell migrationspolitik. 
 
 År `r max(flytt_df$år)` var det utrikes flyttnettot till kommunen negativt (`r flytt_df %>% filter(år==max(år),region == region_val, variabel == "Invandringsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer). Detta kan delvis förklaras av den avregistrering av utvandrade som Skattemyndigheten påbörjade under 2023 (se informationsrutan under avsnittet introduktion ovan), men en annan viktig anledningen är som sagt en stramare nationell migrationspolitik.
 
