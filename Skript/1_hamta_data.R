@@ -154,3 +154,14 @@ gg_befprognos_procent <- diagram_befprognos(region_vekt = hamtakommuner(vald_reg
 # till skripten 2_knitta_rapport.R, 3_kopiera_till_docs_for_publicera_pa_webben.R samt 4_push_av_hela_repo_till_github.R
 
 # på så sätt kan hela processen automatiseras genom schemaläggning
+
+
+
+# 2. om man vill knitta rapporten
+#source(paste0(here("Skript","/"), "2_knitta_rapport.R"))
+
+# 3. om man vill kopiera den till docs, för publicering på webben med Github Pages
+#source(paste0(here("Skript","/"), "3_kopiera_till_docs_for_publicera_pa_webben.R"))
+
+# 4. skjut upp hela repositoryt till Github
+#source(paste0(here("Skript","/"), "4_push_av_hela_repo_till_github.R"))
