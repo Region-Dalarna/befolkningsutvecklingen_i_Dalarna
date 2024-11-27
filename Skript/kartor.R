@@ -78,7 +78,9 @@ kartor_befolkning = function(karta_kommun = TRUE, # Karta över Dalarnas kommune
     
     karta_girafe <- ggplot(befutveckling_karta,
                     aes(fill = förändring,
-                        label = knnamn,tooltip=paste("Kommun:",knnamn,"<br>","Befolkningsutveckling",förändring,"%","<br>","Folkmängd" ,år," : ",Folkmängd))) +
+                        label = knnamn,tooltip=paste("Kommun:",knnamn,"<br>",
+                                                     "Befolkningsutveckling",förändring,"%","<br>",
+                                                     "Folkmängd" ,år," : ", format(Folkmängd, big.mark = " ", scientific = FALSE)))) +
       geom_sf_interactive() +
       scale_fill_gradient2(low = "#F15060", mid = "white", high = "#0e5a4c", midpoint = 0) +
       theme(axis.text.x = element_blank(),
