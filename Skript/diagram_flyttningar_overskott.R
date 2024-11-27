@@ -86,7 +86,7 @@ diagram_inflytt <- function(region_vekt = hamtaAllaLan(tamedriket = FALSE), # Va
   }
   
   
-  diag <- map(unique(flytt_df$variabel), ~skapa_diagram(flytt_df, .x)) %>% flatten()
+  diag <- map(unique(flytt_df$variabel), ~skapa_diagram(flytt_df, .x)) %>% purrr::flatten()
   
   
   # if(!is.na(output_mapp_data) & !is.na(filnamn_data)){
