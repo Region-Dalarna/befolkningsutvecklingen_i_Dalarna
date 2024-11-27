@@ -53,30 +53,34 @@ kartor_befolkning = function(karta_kommun = TRUE, # Karta över Dalarnas kommune
              förändring = round(((Folkmängd - lag(Folkmängd))/lag(Folkmängd))*100,1),
              förändring = ifelse(is.na(förändring),Folkmängd, förändring),
              förändring = ifelse(år == "2000",0, förändring)) %>% 
-        filter(år == max(år)) %>% 
-          mutate(regionkod = as.integer(regionkod))
+        filter(år == max(år)) 
+    
+    # %>% 
+    #       mutate(regionkod = as.integer(regionkod))
     
     if(returnera_data == TRUE){
       assign("befolkning_forandring_kommun", befolkning_df, envir = .GlobalEnv)
     }
     
-    mapp_scbadmgranser <- "G:/Samhällsanalys/GIS/grundkartor/KommunerDalarna/"
-    
-    filnamn_kommuner <- "Dalarna_kommuner.shp"
-    
-    sokvag_kommuner_sv <- paste0(mapp_scbadmgranser, filnamn_kommuner)
-    
-    kommuner_sv <- st_read(sokvag_kommuner_sv,options = "ENCODING=WINDOWS-1252")
+    # mapp_scbadmgranser <- "G:/Samhällsanalys/GIS/grundkartor/KommunerDalarna/"
+    # 
+    # filnamn_kommuner <- "Dalarna_kommuner.shp"
+    # 
+    # sokvag_kommuner_sv <- paste0(mapp_scbadmgranser, filnamn_kommuner)
+    # 
+    # kommuner_sv <- st_read(sokvag_kommuner_sv,options = "ENCODING=WINDOWS-1252")
+    # 
+    kommuner_sv <- hamta_karta("kommun", regionkoder = "20")
     
     # lägg ihop kommunpolygonerna med brp per kommun-statistiken
-    befutveckling_karta <- left_join(kommuner_sv, befolkning_df, by = c("KOMMUNKOD" = "regionkod"))
+    befutveckling_karta <- left_join(kommuner_sv, befolkning_df, by = c("knkod" = "regionkod"))
 
     
     karta_girafe <- ggplot(befutveckling_karta,
                     aes(fill = förändring,
-                        label = KOMMUNNAMN,tooltip=paste("Kommun:",KOMMUNNAMN,"<br>","Befolkningsutveckling",förändring,"%","<br>","Folkmängd" ,år," : ",Folkmängd))) +
+                        label = knnamn,tooltip=paste("Kommun:",knnamn,"<br>","Befolkningsutveckling",förändring,"%","<br>","Folkmängd" ,år," : ",Folkmängd))) +
       geom_sf_interactive() +
-      scale_fill_gradient(low = "#93cec1", high = "#0e5a4c") +
+      scale_fill_gradient2(low = "#F15060", mid = "white", high = "#0e5a4c", midpoint = 0) +
       theme(axis.text.x = element_blank(),
             axis.text.y = element_blank(),
             axis.ticks.x = element_blank(),
@@ -121,22 +125,24 @@ kartor_befolkning = function(karta_kommun = TRUE, # Karta över Dalarnas kommune
       assign("befolkning_forandring_lan", lan_df, envir = .GlobalEnv)
     }
     
-    filnamn_lan <- "Länsgränser_SCB_07.shp"
+    # filnamn_lan <- "Länsgränser_SCB_07.shp"
+    # 
+    # mapp_scbadmgranser <- "G:/Samhällsanalys/GIS/grundkartor/Adm gränser med kustgränser/"
+    # 
+    # sokvag_lan_sv <- paste0(mapp_scbadmgranser, filnamn_lan)
+    # 
+    # lan_sv <- st_read(sokvag_lan_sv,options = "ENCODING=WINDOWS-1252")
     
-    mapp_scbadmgranser <- "G:/Samhällsanalys/GIS/grundkartor/Adm gränser med kustgränser/"
-    
-    sokvag_lan_sv <- paste0(mapp_scbadmgranser, filnamn_lan)
-    
-    lan_sv <- st_read(sokvag_lan_sv,options = "ENCODING=WINDOWS-1252")
+    lan_sv <- hamta_karta("lan")
     
     # lägg ihop kommunpolygonerna med brp per kommun-statistiken
-    befutveckling_karta_lan <- left_join(lan_sv, lan_df, by = c("LNKOD" = "regionkod"))
+    befutveckling_karta_lan <- left_join(lan_sv, lan_df, by = c("lnkod" = "regionkod"))
     
     karta_lan_girafe <- ggplot(befutveckling_karta_lan,
                     aes(fill = förändring,
-                        label = LNNAMN,tooltip=paste("Län:",region,"<br>","Befolkningsutveckling",förändring,"%"))) +
+                        label = lnnamn,tooltip=paste("Län:",region,"<br>","Befolkningsutveckling",förändring,"%"))) +
       geom_sf_interactive() +
-      scale_fill_gradient(low = "#93cec1", high = "#0e5a4c") +
+      scale_fill_gradient2(low = "#F15060", mid = "white", high = "#0e5a4c", midpoint = 0) +
       theme(axis.text.x = element_blank(),
             axis.text.y = element_blank(),
             axis.ticks.x = element_blank(),
