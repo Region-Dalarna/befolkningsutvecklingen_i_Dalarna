@@ -15,7 +15,7 @@ Output_mapp_figur = here("Figurer","/")
 vald_region = "20"
 valt_lan = "20"
 spara_figur = FALSE
-publicera = FALSE
+#publicera = FALSE
 # 
 # # Diagram  befolkningsförändring
 source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_befolkningsforandring_region_kon_ar_SCB.R", encoding="UTF-8")
@@ -29,10 +29,10 @@ gg_befolkning = diagram_befolkningsforandring_ar(region_vekt = hamtakommuner(val
 # Diagram födda och döda
 source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_fodelsenetto_region_SCB.R")
 gg_fodda_doda = diagram_fodelsenetto(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE),
-                                     spara_figur = spara_figur,
+                                     spara_diagrambild = spara_figur,
                                      tid = "*",
                                      returnera_data = TRUE,
-                                     output_mapp_figur = Output_mapp_figur)
+                                     output_mapp = Output_mapp_figur)
 # 
 
 # Diagram flyttnetto län
@@ -150,125 +150,7 @@ gg_befprognos_procent <- diagram_befprognos(region_vekt = hamtakommuner(vald_reg
 
 
 
-rmarkdown::render(
-  input = 'befolkningsutveckling.Rmd',
-  output_file = paste0("befolkningsutveckling.html"),
-  envir = parent.frame()
-)
+# kod för att knitta rapport, kopiera den till docs för publicering samt att commita och pusha till github är flyttad
+# till skripten 2_knitta_rapport.R, 3_kopiera_till_docs_for_publicera_pa_webben.R samt 4_push_av_hela_repo_till_github.R
 
-rmarkdown::render(
-  input = 'befolkningsutveckling_Avesta.Rmd',
-  output_file = paste0("befolkningsutveckling_Avesta.html"),
-  envir = parent.frame()
-)
-
-rmarkdown::render(
-  input = 'befolkningsutveckling_Borlänge.Rmd',
-  output_file = paste0("befolkningsutveckling_Borlänge.html"),
-  envir = parent.frame()
-)
-
-rmarkdown::render(
-  input = 'befolkningsutveckling_Falun.Rmd',
-  output_file = paste0("befolkningsutveckling_Falun.html"),
-  envir = parent.frame()
-)
-
-rmarkdown::render(
-  input = 'befolkningsutveckling_Gagnef.Rmd',
-  output_file = paste0("befolkningsutveckling_Gagnef.html"),
-  envir = parent.frame()
-)
-
-rmarkdown::render(
-  input = 'befolkningsutveckling_Hedemora.Rmd',
-  output_file = paste0("befolkningsutveckling_Hedemora.html"),
-  envir = parent.frame()
-)
-
-rmarkdown::render(
-  input = 'befolkningsutveckling_Leksand.Rmd',
-  output_file = paste0("befolkningsutveckling_Leksand.html"),
-  envir = parent.frame()
-)
-
-rmarkdown::render(
-  input = 'befolkningsutveckling_Ludvika.Rmd',
-  output_file = paste0("befolkningsutveckling_Ludvika.html"),
-  envir = parent.frame()
-)
-
-rmarkdown::render(
-  input = 'befolkningsutveckling_Mora.Rmd',
-  output_file = paste0("befolkningsutveckling_Mora.html"),
-  envir = parent.frame()
-)
-
-rmarkdown::render(
-  input = 'befolkningsutveckling_Malung_Sälen.Rmd',
-  output_file = paste0("befolkningsutveckling_Malung_Sälen.html"),
-  envir = parent.frame()
-)
-
-rmarkdown::render(
-  input = 'befolkningsutveckling_Orsa.Rmd',
-  output_file = paste0("befolkningsutveckling_Orsa.html"),
-  envir = parent.frame()
-)
-
-rmarkdown::render(
-  input = 'befolkningsutveckling_Säter.Rmd',
-  output_file = paste0("befolkningsutveckling_Säter.html"),
-  envir = parent.frame()
-)
-
-rmarkdown::render(
-  input = 'befolkningsutveckling_Smedjebacken.Rmd',
-  output_file = paste0("befolkningsutveckling_Smedjebacken.html"),
-  envir = parent.frame()
-)
-
-rmarkdown::render(
-  input = 'befolkningsutveckling_Rättvik.Rmd',
-  output_file = paste0("befolkningsutveckling_Rättvik.html"),
-  envir = parent.frame()
-)
-
-rmarkdown::render(
-  input = 'befolkningsutveckling_Älvdalen.Rmd',
-  output_file = paste0("befolkningsutveckling_Älvdalen.html"),
-  envir = parent.frame()
-)
-
-rmarkdown::render(
-  input = 'befolkningsutveckling_Vansbro.Rmd',
-  output_file = paste0("befolkningsutveckling_Vansbro.html"),
-  envir = parent.frame()
-)
-
-if(publicera == TRUE){
-  
-  file.copy(from = "befolkningsutveckling_Avesta.html", to = "docs/befolkningsutveckling_Avesta.html", overwrite = TRUE)
-  file.copy(from = "befolkningsutveckling_Borlänge.html", to = "docs/befolkningsutveckling_Borlänge.html", overwrite = TRUE)
-  file.copy(from = "befolkningsutveckling_Falun.html", to = "docs/befolkningsutveckling_Falun.html", overwrite = TRUE)
-  file.copy(from = "befolkningsutveckling_Gagnef.html", to = "docs/befolkningsutveckling_Gagnef.html", overwrite = TRUE)
-  file.copy(from = "befolkningsutveckling_Hedemora.html", to = "docs/befolkningsutveckling_Hedemora.html", overwrite = TRUE)
-  file.copy(from = "befolkningsutveckling_Leksand.html", to = "docs/befolkningsutveckling_Leksand.html", overwrite = TRUE)
-  file.copy(from = "befolkningsutveckling_Malung_Sälen.html", to = "docs/befolkningsutveckling_Malung_Sälen.html", overwrite = TRUE)
-  file.copy(from = "befolkningsutveckling_Orsa.html", to = "docs/befolkningsutveckling_Orsa.html", overwrite = TRUE)
-  file.copy(from = "befolkningsutveckling_Ludvika.html", to = "docs/befolkningsutveckling_Ludvika.html", overwrite = TRUE)
-  file.copy(from = "befolkningsutveckling_Mora.html", to = "docs/befolkningsutveckling_Mora.html", overwrite = TRUE)
-  file.copy(from = "befolkningsutveckling_Säter.html", to = "docs/befolkningsutveckling_Säter.html", overwrite = TRUE)
-  file.copy(from = "befolkningsutveckling_Smedjebacken.html", to = "docs/befolkningsutveckling_Smedjebacken.html", overwrite = TRUE)
-  file.copy(from = "befolkningsutveckling_Rättvik.html", to = "docs/befolkningsutveckling_Rättvik.html", overwrite = TRUE)
-  file.copy(from = "befolkningsutveckling_Älvdalen.html", to = "docs/befolkningsutveckling_Älvdalen.html", overwrite = TRUE)
-  file.copy(from = "befolkningsutveckling_Vansbro.html", to = "docs/befolkningsutveckling_Vansbro.html", overwrite = TRUE)
-  file.copy(from = "befolkningsutveckling.html", to = "docs/index.html", overwrite = TRUE)
-  
-}
-
-
-
-
-
-
+# på så sätt kan hela processen automatiseras genom schemaläggning
