@@ -23,6 +23,7 @@ diagram_befprognos <- function(region_vekt = "20", # Val av kommun/län att foku
   # 1. Befolkningsförändring i valda regioner
   # 2. Befolkningsförändring i valda regioner för olika åldersgrupper
   # 3. Befolkningsförändring i valda regioner för olika åldersgrupper (facet)
+  # Justering 20250109: SCB har ändrat variabelnamn från Folkmängd till Antal. Jag lägger till en mutate för att ändra tillbaka. /Jon 20250109
   # ===========================================================================================================
   
   if("00"%in%region_vekt){
@@ -44,7 +45,8 @@ diagram_befprognos <- function(region_vekt = "20", # Val av kommun/län att foku
                                                                        kon_klartext = NA,			 #  NA = tas inte med i uttaget,  Finns: "män", "kvinnor"
                                                                        alder_koder = "*",			 
                                                                        tid_koder = prognos_ar) %>% 
-    mutate(alder_grupp = skapa_aldersgrupper(ålder,c(0,20,65,80))) %>% 
+    mutate(alder_grupp = skapa_aldersgrupper(ålder,c(0,20,65,80)),
+           Folkmängd = Antal) %>% 
       group_by(år, regionkod, region, alder_grupp) %>% 
         summarise(Folkmängd = sum(Folkmängd, na.rm = TRUE), .groups = "drop")
   
