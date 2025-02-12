@@ -118,7 +118,53 @@ I fortsättningen av denna rapport delas Dalarnas befolkningsutveckling in i de 
 # Födelsenetto
 
 ## Fruktsamhet
-Fruktsamhet mäts genom antalet födda barn per kvinna i Sverige, och var under 2023 den lägsta som uppmätts (SCB har data sedan mitten av 1700-talet). Denna utveckling är densamma i stora delar av västvärlden ([SCB](https://www.scb.se/pressmeddelande/historiskt-lagt-barnafodande-och-lagsta-folkokningen-pa-22-ar/){target="_blank"}). Som synes i diagrammen nedan tenderar dock fruktsamheten att variera relativt mycket över tid. Detta kan förklaras med en blandning av faktorer, såsom ekonomiska förhållanden, politiska beslut och kulturella normer. Under 1970-talet sjönk fruktsamheten i Sverige till följd av bland annat en ökad användning av preventivmedel och en ökad andel kvinnor som studerade och arbetade. Under 1980-talet togs diverse politiska beslut med syfte att förbättra fruktsamheten (exempelvis en utökning av antalet dagar i föräldraförsäkringen, se [Försäkringskassan](https://www.forsakringskassan.se/download/18.55c9e2a718ec99c311a46/1713244153025/en-historisk-oversikt-av-foraldrapenning-korta-analyser-2024-2.pdf){target="_blank"}), vilket fick en positiv effekt fram till början av 1990-talet, innan en ekonomisk kris fick en tydligt negativ effekt. Under delar av 2000-talet har fruktsamheten varit relativt hög, vilket sannolikt hänger ihop med att den utrikes födda andelen av Sveriges befolkning då ökade (utrikes födda kvinnor har högre fruktsamhet än inrikes födda kvinnor, se [SCB](https://www.scb.se/hitta-statistik/statistik-efter-amne/befolkning/befolkningsframskrivningar/demografisk-analys/pong/statistiknyhet/demografisk-analys-barnafodande-i-coronatider/){target="_blank"}). 
+Fruktsamhet mäts genom antalet födda barn per kvinna i Sverige, och var under 2023 den lägsta som uppmätts (SCB har data sedan mitten av 1700-talet). Denna utveckling är densamma i stora delar av västvärlden ([SCB](https://www.scb.se/pressmeddelande/historiskt-lagt-barnafodande-och-lagsta-folkokningen-pa-22-ar/){target="_blank"}). För en fördjupad diskussion runt det historiskt låga barnafödandet, klicka på rutan nedan:
+
+<details>
+<summary>Ett historiskt lågt barnafödande</summary>
+
+<div>Forskare vid Stockholms universitet [(Ohlsson-Wijk & Andersson, 2022)](https://www.demographic-research.org/articles/volume/47/12){target="_blank"} har analyserat utvecklingen under 2010-talet och konstaterar att det som främst driver nedgången i antal födslar är en minskad sannolikhet att skaffa sitt första barn. Det sker en kraftig nedgång från tidigt 90-tal fram till millennieskiftet, en svag uppgång fram till finanskrisen 2008 och därefter en fortsatt nedgång från 2010 och framåt. Givet att en familj har skaffat ett första barn är däremot sannolikheten att skaffa ett andra barn inte påverkad i samma omfattning. Sannolikheten att skaffa ett tredje eller fjärde barn är i princip opåverkade från millennieskiftet och framåt, men på låga nivåer och har begränsad påverkan på födelsetalen. Det sker samtidigt en förskjutning i kvinnors ålder för födsel av det första barnet, vilket sammantaget innebär att färre skaffar barn, de som skaffar barn gör det senare och färre får flera barn (SCB, 2024). Färre födda barn ger i förlängningen även färre kvinnor i barnafödande åldrar i framtiden, vilket bidrar till den långsiktiga utmaningen.
+
+För att se om den här utvecklingen drivs av särskilda grupper i samhället studerar [(Ohlsson-Wijk & Andersson, 2022)](https://www.demographic-research.org/articles/volume/47/12){target="_blank"} nedgången i relation till individers geografiska hemvist, ursprung, arbetsmarknadsstatus samt inkomster. Det visar sig att det är en i stort sett homogen utveckling över olika samhällsgrupper. Undantaget finns i den grupp som har en svag position på arbetsmarknaden, med låg utbildning och låga inkomster. Där är den negativa utvecklingen som starkast. Det som överraskar forskarna är att nedgången under 2010-talet sker under en period av ekonomisk uppgång, vilket tidigare har varit en stark drivkraft för ökat barnafödande. Av den anledningen har efterföljande forskning riktat in sig på att identifiera andra drivkrafter till nedgången.
+
+[Neyer et al (2022)](https://su.figshare.com/articles/preprint/Fertility_Decline_Fertility_Reversal_and_Changing_Childbearing_Considerations_in_Sweden_A_turn_to_subjective_imaginations_/19698442?file=36144144){target="_blank"} studerar nedgången i barnafödande med hjälp av data från den svenska Generations and Gender Survey 2021. Det som är tydligt är att beslut om att skaffa barn eller inte, i allt mindre grad drivs av observerbara och konkreta förhållanden som påverkar individen, till exempel makroekonomiska upp- och nedgångar eller policyförändringar i välfärdssystemet. Den nuvarande trenden utmanar därmed traditionella demografiska förklaringsmodeller och utvecklingen kan observeras i ett stort antal länder i västvärlden med skilda samhälls-, arbetsmarknads- välfärds- och familjeförutsättningar.
+
+Förklaringen till den nedgång i benägenheten att skaffa barn som nu kan observeras är snarare att individer i större grad väger in en upplevd oro och osäkerhet om globala faktorer i framtiden som ligger bortom individens kontroll. Forskarna beskriver det här som en ”subjektiv vändning” kring beslutsfattandet, vilket riskerar att göra det svårare att bedöma utvecklingen av barnafödandet i framtiden.
+
+Utöver den forskning som analyserar utvecklingen under 2010-talet är det noterbart att nedgången fortsatt även början på 2020-talet, i en takt som tidigare inte observerats. År 2023 föddes drygt 100 000 barn i Sverige, vilket var det lägsta antalet på 20 år. Det summerade fruktsamhetstalet, som anger genomsnittligt antal barn per kvinna, sjönk under samma år till 1,45 – den lägsta nivån som någonsin uppmätts i landet [(SCB, 2024)](https://www.scb.se/contentassets/548afb898d0a46419ec6f01189811cc2/be0401_2024i70_br_be51br2401.pdf){target="_blank"}. Denna nedåtgående trend har fortsatt in i 2024, med färre födslar jämfört med motsvarande perioder tidigare år. Preliminära siffror för 2024 indikerar att antalet födslar understiger 2023 års nivå. Samtidigt har medelåldern för förstagångsföräldrar stigit till rekordhöga nivåer, vilket indikerar att många väljer att skaffa barn senare i livet. SCB:s bedömning av fruktsamhetstalets utveckling framöver är att det kommer att stiga till drygt 1,7 i mitten av 2030-talet, men att det är svårt att förutspå upp- och nedgångar på längre sikt.
+
+SCB visar utvecklingen över tid i den senaste befolkningsframskrivningen [(SCB, 2024)](https://www.scb.se/contentassets/548afb898d0a46419ec6f01189811cc2/be0401_2024i70_br_be51br2401.pdf){target="_blank"} genom att beräkna andelen kvinnor, födda i Sverige som fått minst ett barn efter ålder och födelseår. Diagram 4.2 visar att andelen kvinnor som förväntas ha fött minst ett barn vid 45 års ålder minskar över tid. 
+
+Av kvinnor födda på 50-, 60- och 70-talet hade cirka 85 procent minst ett barn vid 45 års ålder. Den andelen förväntas sjunka några procentenheter för kvinnor födda på mitten av 80-talet och framåt. Dessutom visar diagrammet tydligt den utveckling som sker i att allt fler skaffar barn i högre åldrar, det vill säga en senareläggning av barnafödandet. 50 procent av kvinnor födda 1960 hade minst ett barn vid 27 års ålder. För kvinnor födda 2000 antas denna ålder ha ökat till 32 år.  
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, out.width="80%", fig.align='center'}
+
+# include png file
+knitr::include_graphics("Figurer/fordjupning_figur1.png")
+
+```
+
+[(SKR (2024))](https://skr.se/skr/ekonomijuridik/ekonomi/ekonomirapporten.46417.html){target="_blank"} bedömer att det kommer att dröja en bit in på 2040-talet innan antalet 0-åringar når upp till 2020 års nivå. Den utveckling som nu pågår får stor påverkan på kommunernas förskole- och skolverksamhet de kommande decennierna. [(SCB, 2024)](https://www.scb.se/contentassets/548afb898d0a46419ec6f01189811cc2/be0401_2024i70_br_be51br2401.pdf){target="_blank"} visualiserar denna utveckling historiskt och även framåt i ett antal diagram (3.1, 3.2 och 3.4) över 0-åringar, 1-5-åringar respektive 6-15-åringar. Hösten 2022 var knappt 509 000 barn inskrivna i förskolan i Sverige. Det minskade barnafödandet de senaste åren leder till att denna siffra minskar med 85 000 barn i slutet av 2020-talet.
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, out.width="80%", fig.align='center'}
+
+# include png file
+knitr::include_graphics("Figurer/fordjupning_figur2.png")
+
+```
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, out.width="80%", fig.align='center'}
+
+# include png file
+knitr::include_graphics("Figurer/fordjupning_figur3.png")
+
+```
+
+</div>
+</details>
+
+
+Som synes i diagrammen nedan tenderar dock fruktsamheten att variera relativt mycket över tid. Detta kan förklaras med en blandning av faktorer, såsom ekonomiska förhållanden, politiska beslut och kulturella normer. Under 1970-talet sjönk fruktsamheten i Sverige till följd av bland annat en ökad användning av preventivmedel och en ökad andel kvinnor som studerade och arbetade. Under 1980-talet togs diverse politiska beslut med syfte att förbättra fruktsamheten (exempelvis en utökning av antalet dagar i föräldraförsäkringen, se [Försäkringskassan](https://www.forsakringskassan.se/download/18.55c9e2a718ec99c311a46/1713244153025/en-historisk-oversikt-av-foraldrapenning-korta-analyser-2024-2.pdf){target="_blank"}), vilket fick en positiv effekt fram till början av 1990-talet, innan en ekonomisk kris fick en tydligt negativ effekt. Under delar av 2000-talet har fruktsamheten varit relativt hög, vilket sannolikt hänger ihop med att den utrikes födda andelen av Sveriges befolkning då ökade (utrikes födda kvinnor har högre fruktsamhet än inrikes födda kvinnor, se [SCB](https://www.scb.se/hitta-statistik/statistik-efter-amne/befolkning/befolkningsframskrivningar/demografisk-analys/pong/statistiknyhet/demografisk-analys-barnafodande-i-coronatider/){target="_blank"}). 
 
 Fruktsamheten i Dalarna följer i praktiken samma mönster som fruktsamheten i Sverige, men är något högre.
 
