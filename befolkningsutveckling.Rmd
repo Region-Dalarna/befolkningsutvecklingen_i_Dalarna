@@ -144,7 +144,7 @@ knitr::include_graphics("Figurer/fordjupning_figur1.png")
 
 ```
 
-[(SKR (2024))](https://skr.se/skr/ekonomijuridik/ekonomi/ekonomirapporten.46417.html){target="_blank"} bedömer att det kommer att dröja en bit in på 2040-talet innan antalet 0-åringar når upp till 2020 års nivå. Den utveckling som nu pågår får stor påverkan på kommunernas förskole- och skolverksamhet de kommande decennierna. [(SCB, 2024)](https://www.scb.se/contentassets/548afb898d0a46419ec6f01189811cc2/be0401_2024i70_br_be51br2401.pdf){target="_blank"} visualiserar denna utveckling historiskt och även framåt i ett antal diagram (3.1, 3.2 och 3.4) över 0-åringar, 1-5-åringar respektive 6-15-åringar. Hösten 2022 var knappt 509 000 barn inskrivna i förskolan i Sverige. Det minskade barnafödandet de senaste åren leder till att denna siffra minskar med 85 000 barn i slutet av 2020-talet.
+[SKR (2024)](https://skr.se/skr/ekonomijuridik/ekonomi/ekonomirapporten.46417.html){target="_blank"} bedömer att det kommer att dröja en bit in på 2040-talet innan antalet 0-åringar når upp till 2020 års nivå. Den utveckling som nu pågår får stor påverkan på kommunernas förskole- och skolverksamhet de kommande decennierna. [(SCB, 2024)](https://www.scb.se/contentassets/548afb898d0a46419ec6f01189811cc2/be0401_2024i70_br_be51br2401.pdf){target="_blank"} visualiserar denna utveckling historiskt och även framåt i ett antal diagram (3.1, 3.2 och 3.4) över 0-åringar, 1-5-åringar respektive 6-15-åringar. Hösten 2022 var knappt 509 000 barn inskrivna i förskolan i Sverige. Det minskade barnafödandet de senaste åren leder till att denna siffra minskar med 85 000 barn i slutet av 2020-talet.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, out.width="80%", fig.align='center'}
 
