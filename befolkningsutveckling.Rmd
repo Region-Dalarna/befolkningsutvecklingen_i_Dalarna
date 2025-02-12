@@ -149,6 +149,13 @@ knitr::include_graphics("Figurer/fordjupning_figur1.png")
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, out.width="80%", fig.align='center'}
 
 # include png file
+knitr::include_graphics("Figurer/fordjupning_figur_3_1.png")
+
+```
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, out.width="80%", fig.align='center'}
+
+# include png file
 knitr::include_graphics("Figurer/fordjupning_figur2.png")
 
 ```
