@@ -59,7 +59,7 @@ För mer info om statistiken, klicka på rutan nedan:
 <details>
 <summary>Mer information om statistiken</summary>
 
-<div title="Källa: SCB">I folkmängden som SCB publicerar ingår personer som är folkbokförda i landet. För att den som flyttar till Sverige ska bli folkbokförd ska personen ha för avsikt och rätt att stanna i Sverige i minst ett år. För personer som inte är medborgare i ett EU-land innebär det att det krävs ett uppehållstillstånd som gäller minst 12 månader för att bli folkbokförd. Till följd av Rysslands invasion av Ukraina den 24 februari 2022 har Europeiska unionen (EU) beslutat att aktivera massflyktsdirektivet, vilket innebär att personer från Ukraina utan individuell prövning ska erbjudas tidsbegränsat uppehålls- och arbetstillstånd inom EU. Personer som får uppehållstillstånd enligt massflyktsdirektivet ska i regel inte bli folkbokförda och ingå i den officiella befolkningsstatistiken. Läs mer [här](https://www.scb.se/hitta-statistik/statistik-efter-amne/befolkning/befolkningens-sammansattning/befolkningsstatistik/produktrelaterat/Fordjupad-information/statistik-om-invandring---fragor-och-svar/){target="_blank"}.
+<div title="Källa: SCB">I folkmängden som SCB publicerar ingår personer som är folkbokförda i landet. För att den som flyttar till Sverige ska bli folkbokförd ska personen ha för avsikt och rätt att stanna i Sverige i minst ett år. För personer som inte är medborgare i ett EU-land innebär det att det krävs ett uppehållstillstånd som gäller minst 12 månader för att bli folkbokförd. Till följd av Rysslands invasion av Ukraina den 24 februari 2022 har Europeiska unionen (EU) beslutat att aktivera massflyktsdirektivet, vilket innebär att personer från Ukraina utan individuell prövning ska erbjudas tidsbegränsat uppehålls- och arbetstillstånd inom EU. Personer som får uppehållstillstånd enligt massflyktsdirektivet ska i regel inte bli folkbokförda och ingå i den officiella befolkningsstatistiken. Läs mer [här](https://www.scb.se/hitta-statistik/statistik-efter-amne/befolkning-och-levnadsforhallanden/befolkningens-sammansattning-och-utveckling/befolkningsstatistik/produktrelaterat/Fordjupad-information/statistik-om-invandring---fragor-och-svar/){target="_blank"}. Sedan juni 2024 har dock personer födda i Ukraina haft möjlighet att ansöka om att bli folkbokförda i Sverige [(SCB)](https://www.scb.se/hitta-statistik/statistik-efter-amne/befolkning-och-levnadsforhallanden/befolkningens-sammansattning-och-utveckling/befolkningsstatistik/pong/statistiknyhet/namnlos/){target="_blank"}.
 
 Under 2023 inledde Skatteverket ett arbete med att granska registret över folkbokförda. Det förde med sig att SCB avregistrerade flera tusen folkbokförda personer som visade sig inte längre bo i Sverige. I folkbokföringen har dessa registrerats som utvandrade till okänt utvandringsland. Läs mer [här](https://www.scb.se/pressmeddelande/sverige-gar-mot-lagsta-befolkningsokningen-pa-manga-ar/){target="_blank"}.
 
@@ -68,7 +68,7 @@ All data som används i rapporten är offentlig och finns under kategorin befolk
 
 # Hur har befolkningen förändrats?
 
-I `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` har folkmängden ökat sedan slutet på 1960-talet, från ca `r format(plyr::round_any(befolkning_df %>% filter(år == min(år),region == region_val ,variabel == "Folkmängd") %>% .$varde,100),big.mark=" ") ` invånare  år `r min(befolkning_df$år)` till ungefär `r format(plyr::round_any(befolkning_df %>% filter(år == max(år),region == region_val, variabel == "Folkmängd") %>% .$varde,100),big.mark=" ") ` invånare år `r max(befolkning_df$år)`. Den största ökningen skedde under 1970- och 1980-talen, då befolkningen ökade mer eller mindre varje år. Därefter skedde en minskning efter finanskrisen på 1990-talet, innan befolkningstillväxten återigen tog fart i mitten på 2010-talet. Under `r max(befolkning_df$år)` minskade befolkningen med `r abs(befolkning_df %>% filter(år == max(år),region == region_val, variabel == "Folkökning") %>% .$varde) ` personer, vilket är den största minskningen sedan 2012.
+I `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` har folkmängden ökat sedan slutet på 1960-talet, från ca `r format(plyr::round_any(befolkning_df %>% filter(år == min(år),region == region_val ,variabel == "Folkmängd") %>% .$varde,100),big.mark=" ") ` invånare  år `r min(befolkning_df$år)` till ungefär `r format(plyr::round_any(befolkning_df %>% filter(år == max(år),region == region_val, variabel == "Folkmängd") %>% .$varde,100),big.mark=" ") ` invånare år `r max(befolkning_df$år)`. Den största ökningen skedde under 1970- och 1980-talen, då befolkningen ökade mer eller mindre varje år. Därefter skedde en minskning efter finanskrisen på 1990-talet, innan befolkningstillväxten återigen tog fart i mitten på 2010-talet. Under `r max(befolkning_df$år)` `r ifelse(befolkning_df %>% filter(år == max(år),region == region_val, variabel == "Folkökning") %>% .$varde>0,"ökade","minskade")` befolkningen med `r abs(befolkning_df %>% filter(år == max(år),region == region_val, variabel == "Folkökning") %>% .$varde) ` personer, vilket var en tydlig förändring jämfört med året innan när folkmängden minskade.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_befolkning$Befolkningsutveckling_Leksand
@@ -85,13 +85,13 @@ När det gäller antalet födslar är trenden negativ om man jämför med framf�
 Nettot mellan födda och döda, se de svarta linjerna i diagrammet nedan, har varit negativt och relativt stabilt på senare år. År `r max(fodda_doda_df$år)` minskade befolkningen med `r abs(fodda_doda_df %>% filter(år == max(år),region == region_val,variabel == "netto") %>% .$varde)` personer till följd av ett negativt födelsenetto, vilket är det lägsta nettot sedan 2012. Värt att notera är även att födelsenettot enbart vid ett tillfälle sedan slutet av 1960-talet har varit positivt i Leksand, en indikation på att kommunen har en relativt hög medelålder.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_fodda_doda$Födelsenetto_Leksand
+gg_fodda_doda$fodelsenetto_Leksand
 ```
 
 # Flyttnetto
 Den andra komponenten som styr befolkningsutvecklingen är det så kallade flyttnettot. Detta kan i sin tur delas upp i två komponenter, inrikes och utrikes flyttar. I det här avsnittet är fokus först på flyttnettot, innan de två komponenterna undersöks.
 
-Nettot mellan antalet personer som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` varierar relativt mycket mellan åren, men har varit positivt under stora delar av 2010-talet. Många flyttade till kommunen mellan framförallt 2013 och 2017, men även under 2021 och 2022 var inflyttningen stor (netto). Under år `r max(flytt_df$år)` var dock flyttnettot negativt (`r flytt_df %>% filter(år==max(år),region == region_val) %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer).
+Nettot mellan antalet personer som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` varierar relativt mycket mellan åren, men har varit positivt under stora delar av 2010-talet. Många flyttade till kommunen mellan framförallt 2013 och 2017, men även under 2021 och 2022 var inflyttningen stor (netto). Efter att ha varit negativt under 2023, var flyttnettot återigen tydligt positivt år `r max(flytt_df$år)` (`r flytt_df %>% filter(år==max(år),region == region_val) %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer).
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt$Flyttnetto_Leksand
@@ -107,7 +107,7 @@ gg_flytt$Invandringsöverskott_Leksand
 ```
 
 ## Inrikes flyttnetto
-Det inrikes flyttnettot varierar relativt mycket mellan åren i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`, med omväxlande perioder av positivt och negativt flyttnetto. Från 2017 och framåt har dock nettot varit positivt under de flesta åren med en topp 2021, då befolkningen ökade med mer än 200 personer till följd av inrikes flyttar. Detta kan möjligtvis vara en effekt kopplad till Corona-pandemin, då nettot var avsevärt mycket lägre 2020 (människor fördröjde eventuellt sina flyttar). År `r max(befolkning_df$år)` flyttade `r abs(flytt_df %>% filter(år == max(år),region == region_val, variabel == "Inrikes flyttningsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde)` personer netto från kommunen inrikes.
+Det inrikes flyttnettot varierar relativt mycket mellan åren i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`, med omväxlande perioder av positivt och negativt flyttnetto. Från 2017 och framåt har dock nettot varit positivt under de flesta åren med en topp 2021, då befolkningen ökade med mer än 200 personer till följd av inrikes flyttar. Detta kan möjligtvis vara en effekt kopplad till Corona-pandemin, då nettot var avsevärt mycket lägre 2020 (människor fördröjde eventuellt sina flyttar). År `r max(befolkning_df$år)` flyttade `r abs(flytt_df %>% filter(år == max(år),region == region_val, variabel == "Inrikes flyttningsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde)` personer netto till kommunen inrikes, vilket var en tydlig förändring jämfört med året innan när det inrikes flyttnettot var negativt.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt$`Inrikes flyttningsöverskott_Leksand`
@@ -117,13 +117,13 @@ För att bättre förstå vilka som flyttar till och från kommunen inrikes, del
 
 ### Uppdelat på ålder
 
-I `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` är det framförallt personer i åldersgruppen 20-29 år som flyttar från kommunen till andra delar av Sverige, medan det omvända gäller för de andra åldersgrupperna i diagrammet nedan. Med undantag för personer mellan 30 och 39 år, var dock det inrikes flyttnettot lägre i alla åldersgrupper under 2023 jämfört med åren innan.
+I `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` är det framförallt personer i åldersgruppen 20-29 år som flyttar från kommunen till andra delar av Sverige, medan det omvända gäller för de andra åldersgrupperna i diagrammet nedan. Med undantag för personer mellan 30 och 39 år, var det inrikes flyttnettot dessutom högre i alla åldersgrupper under 2024 jämfört med åren innan.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt_alder$Inrikes_flyttnetto_alder_Leksand
 ```
 
-Om fokus enbart läggs på åldersgruppen 20-29 år, blir det tydligt att det sedan slutet av 1990-talet alltid flyttat fler unga vuxna från än till kommunen inrikes. Historiskt varierar det inrikes flyttnettot i åldersgruppen mellan åren, vilket exempelvis kan bero på att olika årskullar av barn är olika stora. Under `r max(flytt_aldersgrupper_df$år)` flyttade `r abs(flytt_aldersgrupper_df %>% filter(år == max(år),variabel == "Inrikes flyttningsöverskott",region == region_val,alder_grupper == "20-29 år") %>% .$varde)` personer netto från kommunen inrikes, vilket är fler än året innan.
+Om fokus enbart läggs på åldersgruppen 20-29 år, blir det tydligt att det åtminstone sedan slutet av 1990-talet alltid flyttat fler unga vuxna från än till kommunen inrikes. Historiskt varierar det inrikes flyttnettot i åldersgruppen mellan åren, vilket exempelvis kan bero på att olika årskullar av barn är olika stora. Under `r max(flytt_aldersgrupper_df$år)` flyttade `r abs(flytt_aldersgrupper_df %>% filter(år == max(år),variabel == "Inrikes flyttningsöverskott",region == region_val,alder_grupper == "20-29 år") %>% .$varde)` personer netto från kommunen inrikes, vilket var färre än året innan.
 
 Även i Dalarna som helhet flyttade fler i åldersgruppen ut än in under 2023.
 
@@ -132,6 +132,9 @@ gg_flytt_alder$`Inrikes flyttnetto_alder_20-29 år_Leksand`
 ```
 
 ### Uppdelat på bakgrund
+
+*Observera att statistik i detta avsnitt uppdateras först i slutet av mars.*
+
 För att ytterligare förtydliga vilka som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` inrikes, delas de i detta avsnitt upp efter sin bakgrund, inrikes eller utrikes födda. 
 
 En del av de personer som invandrade till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` under framförallt 2016 verkar ha flyttat därifrån sedan dess, då det inrikes flyttnettot i gruppen utrikes födda har varit negativt under varje år sedan 2019. Bland inrikes födda är variationen mellan åren relativt stor, men tydligt är att förhållandevis många inrikes födda har flyttat till kommunen på senare år (netto). Framförallt skedde en stor inflyttning under åren efter Corona-pandemin (2020/2021). År `r max(flytt_bakgrund_df$år)` flyttade `r abs(flytt_bakgrund_df %>% filter(år == max(år),region == region_val,födelseregion == "Född i Sverige") %>% .$Inrikes_flyttnetto)` inrikes födda personer till kommunen (netto), vilket är klart färre än åren innan.
