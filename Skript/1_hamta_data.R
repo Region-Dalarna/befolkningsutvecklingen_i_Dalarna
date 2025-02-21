@@ -70,6 +70,7 @@ source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_fl
 gg_flytt_alder <- diagram_inrikes_flytt_alder(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE),
                                               #tid = c(2000:9999),
                                               spara_figur = spara_figur,
+                                              valda_ar = c("2022","2023","2024"),
                                               avrunda_fem = FALSE,
                                               output_mapp_figur = Output_mapp_figur)
 
