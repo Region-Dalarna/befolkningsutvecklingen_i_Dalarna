@@ -128,7 +128,7 @@ Ett mönster är att det till `r unique(befolkning_df %>% filter(region == regio
 
 Bland de åldersgrupper som redovisas i diagrammet nedan skedde den största utflyttningen år `r max(flytt_aldersgrupper_df$år)` i gruppen som är 20-29 år. I denna grupp, tillsammans med de som är mellan 20 och 29 år, var antalet uflyttare `r abs(sum(flytt_aldersgrupper_df %>% filter(år == max(år),variabel == "Inrikes flyttningsöverskott",region == region_val,alder_grupper%in%c("-19 år","20-29 år")) %>% .$varde))` fler än antalet inflyttare, vilket är ett lägre netto än året innan.
 
-Inom övriga åldergrupper är variationen stor mellan åren och det är svårt att hitta någon större trend , även om det verkar ske en relativt stor utflyttning i gruppen som är 60 år eller äldre.
+Inom övriga åldergrupper är variationen stor mellan åren och det är svårt att hitta någon större trend, även om det verkar ske en relativt stor utflyttning i gruppen som är 60 år eller äldre.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt_alder$Inrikes_flyttnetto_alder_Säter
