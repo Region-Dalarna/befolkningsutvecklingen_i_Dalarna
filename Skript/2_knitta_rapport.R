@@ -54,11 +54,11 @@ rmarkdown::render(
 #   envir = parent.frame()
 # )
 # 
-rmarkdown::render(
-  input = 'befolkningsutveckling_Leksand.Rmd',
-  output_file = paste0("befolkningsutveckling_Leksand.html"),
-  envir = parent.frame()
-)
+# rmarkdown::render(
+#   input = 'befolkningsutveckling_Leksand.Rmd',
+#   output_file = paste0("befolkningsutveckling_Leksand.html"),
+#   envir = parent.frame()
+# )
 # 
 # rmarkdown::render(
 #   input = 'befolkningsutveckling_Ludvika.Rmd',
@@ -96,11 +96,11 @@ rmarkdown::render(
 #   envir = parent.frame()
 # )
 # 
-# rmarkdown::render(
-#   input = 'befolkningsutveckling_Rättvik.Rmd',
-#   output_file = paste0("befolkningsutveckling_Rättvik.html"),
-#   envir = parent.frame()
-# )
+rmarkdown::render(
+  input = 'befolkningsutveckling_Rättvik.Rmd',
+  output_file = paste0("befolkningsutveckling_Rättvik.html"),
+  envir = parent.frame()
+)
 # 
 # rmarkdown::render(
 #   input = 'befolkningsutveckling_Älvdalen.Rmd',
