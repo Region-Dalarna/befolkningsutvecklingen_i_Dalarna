@@ -49,10 +49,10 @@ Senast uppdaterad: `r Sys.Date()`</i>
 # Sammanfattning { - }
 Syftet med den här korta analysen är att undersöka Avestas befolkningsutveckling. Ett antal viktiga slutsatser sammanfattas här:
 
-* Nedgången i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd år 2023, jämfört med året innan, beror i första hand på att såväl det inrikes som det utrikes flyttnettot minskade jämfört med året innan.
-* Det föddes färre barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` 2023, jämfört med 2022. Detta är i linje med en större trend i samhället, då barnafödandet per kvinna i Sverige 2023 var det lägsta som har uppmätts.
+* `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd minskade under 2024, vilket beror på att säväl födelsenettot som flyttnettot var negativa.
+* Det föddes färre barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` 2024, jämfört med åren innan. Detta är i linje med en större trend i samhället, då barnafödandet per kvinna i Sverige 2024 var det lägsta som har uppmätts.
 * En allt stramare migrationspolitik gör att färre invandrar till Sverige än tidigare, vilket även påverkar inflyttningen till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`.
-* Det var framförallt personer under 30 år som flyttade från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` till andra delar av Sverige under 2023 (netto).
+* Det var framförallt personer under 30 år som flyttade från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` till andra delar av Sverige under 2024 (netto).
 
 För mer info om statistiken, klicka på rutan nedan:
 
@@ -102,7 +102,9 @@ gg_flytt$Flyttnetto_Avesta
 ```
 
 ## Utrikes flyttnetto
-Som berördes i föregående avsnitt flyttade många till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` i mitten på 2010-talet, vilket till stor del kan förklaras av att invandringen då var stor. I slutet av 1990-talet var invandringen ofta väldigt låg och till och med negativ under vissa år (fler utvandrade än invandrade), men därefter skedde en gradvis ökning innan den stora toppen 2016. Därefter minskade invandringen tydligt, men låg på relativt höga nivåer fram till 2019. På senare år syns effekterna av en tydligt stramare nationell migrationspolitik, då allt färre invandrar till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`. Under 2023 var det utrikes flyttnettot `r flytt_df %>% filter(år==max(år),region == region_val, variabel == "Invandringsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer, det lägsta nettot sedan åtminstone 1997. Detta kan delvis förklaras av de avregistreringar av utvandrade som Skattemyndigheten påbörjade under 2023 och fortsatte med under 2024 (se informationsrutan under avsnittet introduktion ovan), men den främsta anledningen är som sagt en stramare nationell migrationspolitik. 
+Som berördes i föregående avsnitt flyttade många till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` i mitten på 2010-talet, vilket till stor del kan förklaras av att invandringen då var stor. I slutet av 1990-talet var invandringen ofta väldigt låg och till och med negativ under vissa år (fler utvandrade än invandrade), men därefter skedde en gradvis ökning innan den stora toppen 2016. Därefter minskade invandringen tydligt, men låg på relativt höga nivåer fram till 2019. På senare år syns effekterna av en tydligt stramare nationell migrationspolitik, då allt färre invandrar till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`. 
+
+Under 2023 var det utrikes flyttnettot `r flytt_df %>% filter(år==max(år),region == region_val, variabel == "Invandringsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer, det lägsta nettot sedan åtminstone 1997. Detta kan delvis förklaras av de avregistreringar av utvandrade som Skattemyndigheten påbörjade under 2023 och fortsatte med under 2024 (se informationsrutan under avsnittet introduktion ovan), men den främsta anledningen är som sagt en stramare nationell migrationspolitik. 
 
 Notera även att det utrikes flyttnettot var negativt under 2024 trots att personer födda i Ukraina sedan juni 2024 haft möjlighet att ansöka om att bli folkbokförda i Sverige, vilket medförde att antalet personer födda i Ukraina ökade med ungefär 25 personer i Avesta under 2024. Läs mer i den klickbara rutan "mer information om statistiken" ovan.
 
@@ -128,7 +130,7 @@ Ett tydligt mönster är att de personer under 30 år som flyttar från `r uniqu
 
 Bland de åldersgrupper som redovisas i diagrammet nedan skedde den största utflyttningen år `r max(flytt_aldersgrupper_df$år)` i gruppen som är mellan 20 och 29 år. I denna grupp, tillsammans med de som är under 20 år, var antalet utflyttare `r abs(sum(flytt_aldersgrupper_df %>% filter(år == max(år),variabel == "Inrikes flyttningsöverskott",region == region_val,alder_grupper%in%c("-19 år","20-29 år")) %>% .$varde))` fler än antalet inflyttare, vilket är en större skillnad än året innan.
 
-Den största inflyttningen, netto, skedde i åldersgruppen `r flytt_aldersgrupper_df %>% filter(år == max(år),variabel == "Inrikes flyttningsöverskott",region == region_val) %>% filter(varde==max(varde)) %>% .$alder_grupper`, i vilken det flyttade `r flytt_aldersgrupper_df %>% filter(år == max(år),variabel == "Inrikes flyttningsöverskott",region == region_val) %>% filter(varde==max(varde)) %>% .$varde` personer fler till än från kommunen inrikes år `r max(flytt_aldersgrupper_df$år)`. Jämfört med åren innan var detta en tydlig ökning.
+Den största inflyttningen, netto, skedde i åldersgruppen `r flytt_aldersgrupper_df %>% filter(år == max(år),variabel == "Inrikes flyttningsöverskott",region == region_val) %>% filter(varde==max(varde)) %>% .$alder_grupper`, i vilken det flyttade `r flytt_aldersgrupper_df %>% filter(år == max(år),variabel == "Inrikes flyttningsöverskott",region == region_val) %>% filter(varde==max(varde)) %>% .$varde` personer fler till än från kommunen inrikes år `r max(flytt_aldersgrupper_df$år)`. Jämfört med året innan var detta en viss ökning.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt_alder$Inrikes_flyttnetto_alder_Avesta

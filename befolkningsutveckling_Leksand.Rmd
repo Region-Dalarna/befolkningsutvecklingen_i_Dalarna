@@ -49,9 +49,9 @@ Senast uppdaterad: `r Sys.Date()`</i>
 # Sammanfattning { - }
 Syftet med den här korta analysen är att undersöka `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s befolkningsutveckling. Ett antal viktiga slutsatser sammanfattas här:
 
-* Den tydliga nedgången i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd år 2023 beror på att såväl det utrikes som inrikes flyttnettot minskade tydligt jämfört med åren innan, samtidigt som födelsenettot var negativt.
-* Det föddes fler barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` 2023, jämfört med åren innan. På den punkten skiljer sig kommunen från riket i stort, då barnafödandet per kvinna i Sverige 2023 var det lägsta som har uppmätts. Samtidigt ökade dock antalet avlidna i kommunen.
-* En stramare nationell migrationspolitik gör att färre invandrar till Sverige än tidigare, vilket även påverkar inflyttningen till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`.
+* `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd ökade år 2024, vilket är en tydlig förändring jämfört med året innan när befolkningen minskade. Detta berodde i första hand på att flyttnettot var betydligt högre än året innan.
+* Det föddes färre barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` 2024, jämfört med året innan men fler jämfört med åren dessförinnan.
+* En stramare nationell migrationspolitik gör att färre invandrar till Sverige än tidigare, vilket även påverkar inflyttningen till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`. Att invandringsöverskottet ändå ökade i `r region_val` år 2024 kan sannolikt delvis förklaras med att personer födda i Ukraina sedan juni 2024 haft möjlighet att ansöka om att bli folkbokförda i Sverige.
 * Många i åldergruppen 20-29 år  flyttade från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` till andra delar av Sverige under 2023.
 
 För mer info om statistiken, klicka på rutan nedan:
