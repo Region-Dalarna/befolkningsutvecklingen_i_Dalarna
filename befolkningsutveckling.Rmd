@@ -344,8 +344,6 @@ gg_befprognos_procent$befolkningsforandring_jmf_region_procent_2033
 
 # Kommunfördjupningar 
 
-Uppdateras inom kort
-<!--
 <ul style = "columns : 2">
   <li>[Avesta](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Avesta.html){target="_blank"}</li>
   <li>[Borlänge](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Borlänge.html){target="_blank"}</li>
@@ -363,7 +361,7 @@ Uppdateras inom kort
   <li>[Vansbro](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Vansbro.html){target="_blank"}</li>
   <li>[Älvdalen](https://region-dalarna.github.io/befolkningsutvecklingen_i_Dalarna/befolkningsutveckling_Älvdalen.html){target="_blank"}</li>
 </ul>
--->
+
 
 <div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 200px;"></div>
 
