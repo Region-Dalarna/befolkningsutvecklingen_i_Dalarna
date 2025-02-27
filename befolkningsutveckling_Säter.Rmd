@@ -49,7 +49,7 @@ Senast uppdaterad: `r Sys.Date()`</i>
 # Sammanfattning { - }
 Syftet med den här korta analysen är att undersöka `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s befolkningsutveckling. Ett antal viktiga slutsatser sammanfattas här:
 
-* `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd minskade för andra året i rad, även om minskningen 2024 var något lägre jämfört med åren innan.
+* `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd minskade för andra året i rad, även om minskningen 2024 var något lägre jämfört med året innan.
 * Det föddes något färre barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` 2024, jämfört med åren innan. Detta är i linje med en större trend i samhället, då barnafödandet per kvinna i Sverige 2024 var det lägsta som har uppmätts.
 * En stramare nationell migrationspolitik gör att färre invandrar till Sverige än tidigare, vilket även påverkar inflyttningen till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`. Invandringsöverskottet ökade dock tydligt 2024, vilket sannolikt delvis kan förklaras av att personer födda i Ukraina sedan juni 2024 haft möjlighet att ansöka om att bli folkbokförda i Sverige.
 * Många mellan 20 och 29 år  flyttade från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` till andra delar av Sverige under 2024, jämfört med året innan.
@@ -63,7 +63,7 @@ För mer info om statistiken, klicka på rutan nedan:
 
 Under 2023 inledde Skatteverket ett arbete med att granska registret över folkbokförda. Det förde med sig att SCB avregistrerade flera tusen folkbokförda personer som visade sig inte längre bo i Sverige. I folkbokföringen har dessa registrerats som utvandrade till okänt utvandringsland. Detta arbete fortsatte under 2024. Läs mer [här](https://www.scb.se/pressmeddelande/sverige-gar-mot-lagsta-befolkningsokningen-pa-manga-ar/){target="_blank"}.
 
-All data som används i rapporten är offentlig och finns under kategorin befolkning i SCB:s [Statistikdatabas](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/){target="_blank"}. Där finns även data för exempelvis befolkningsutvecklingen under 2024 på månadsbasis, något som inte behandlas i denna rapport.
+All data som används i rapporten är offentlig och finns under kategorin befolkning i SCB:s [Statistikdatabas](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/){target="_blank"}. Där finns även data för exempelvis befolkningsutvecklingen under 2025 på månadsbasis som publiceras löpande, något som inte behandlas i denna rapport.
 </div>
 </details>
 
@@ -161,9 +161,9 @@ I nästa avsnitt är fokus istället på framtiden. Hur kommer `r unique(befolkn
 
 För en djupare förståelse runt hur SCB gör befolkningsprognoser, se motsvarande avsnitt i rapporten för hela Dalarnas län. Det viktigaste att ha i åtanke är att ingen hänsyn tas i prognoserna till planerat bostadsbyggande, företagsetableringar eller andra framtida mål och förutsättningar som kommunerna har i sina planer.
 
-I diagrammet nedan visas befolkningsutvecklingen i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` fram till 2033 uppdelat på åldersgrupper, enligt SCB:s prognos från juni 2024 (se [SCB](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0401__BE0401A/BefProgRegFakN/){target="_blank"}), vilket är den senaste som myndigheten publicerat offentligt på kommunal nivå. Notera att diagrammet kan skilja sig åt jämfört med motsvarande diagram i förra årets rapport. Detta eftersom befolkningen 2033 enligt SCBs prognos jämförs med den faktiska befolkningen vid slutet av 2024 i diagrammet nedan. I förra årets rapport jämfördes prognosen för 2033 med den faktiska befolkningen vid slutet av 2023.  
+I diagrammet nedan visas befolkningsutvecklingen i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` fram till 2033 uppdelat på åldersgrupper, enligt SCB:s prognos från juni 2024 (se [SCB, 2024](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0401__BE0401A/BefProgRegFakN/){target="_blank"}), vilket är den senaste som myndigheten publicerat offentligt på kommunal nivå. Notera att diagrammet kan skilja sig åt jämfört med motsvarande diagram i förra årets rapport. Detta eftersom befolkningen 2033 enligt SCBs prognos jämförs med den faktiska befolkningen vid slutet av 2024 i diagrammet nedan. I förra årets rapport jämfördes prognosen för 2033 med den faktiska befolkningen vid slutet av 2023.  
 
-* `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s befolkning prognostiseras att minska med drygt `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "Totalt",region== region_val) %>% .$Folkmängd,50)),big.mark=" ")` personer till 2033, jämfört med 2024. I SCB:s föregående prognos, som släpptes 2022, prognostiserades en ökning på runt 30 personer fram till 2033, jämfört med 2021 (se [SCB](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0401__BE0401B/BefProgRegFakN22/table/tableViewLayout1/){target="_blank"}).
+* `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s befolkning prognostiseras att minska med drygt `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "Totalt",region== region_val) %>% .$Folkmängd,50)),big.mark=" ")` personer till 2033, jämfört med 2024. I SCB:s föregående prognos, som släpptes 2022, prognostiserades en ökning på runt 30 personer fram till 2033, jämfört med 2021 (se [SCB, 2022](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0401__BE0401B/BefProgRegFakN22/table/tableViewLayout1/){target="_blank"}).
 
 * Den största minskningen sker i åldergruppen 20-64 år,  som prognostiseras minska med ungefär  `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "20-64 år",region==region_val) %>% .$Folkmängd,10)),big.mark=" ")` personer.
 
