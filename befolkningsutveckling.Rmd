@@ -304,7 +304,7 @@ I nästa avsnitt är fokus istället på framtiden. Hur kommer Dalarnas folkmän
 
 # Vad händer i framtiden?
 
-SCB gör vartannat eller vart tredje år prognoser för folkmängdens utveckling på såväl läns som kommunal nivå. De senaste av dessa prognoser släpptes i juni 2024 och sträcker sig ända fram till 2070. Eftersom prognoser blir osäkrare desto längre fram i tiden de sträcker sig, kommer vi i detta avsnitt enbart fokusera på prognosen fram till 2033.
+SCB gör vartannat eller vart tredje år prognoser för folkmängdens utveckling på såväl läns som kommunal nivå. De senaste av dessa prognoser släpptes i juni 2024 (se [SCB](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0401__BE0401A/BefProgRegFakN/){target="_blank"}) och sträcker sig ända fram till 2070. Eftersom prognoser blir osäkrare desto längre fram i tiden de sträcker sig, kommer vi i detta avsnitt enbart fokusera på prognosen fram till 2033.
 
 För en djupare förståelse för hur SCB gör sina befolkningsprognoser, se informationsrutan nedan. Det viktigaste att ha i åtanke är att ingen hänsyn tas i prognoserna till planerat bostadsbyggande, företagsetableringar eller andra framtida mål och förutsättningar som kommunerna har i sina planer.
 
