@@ -52,7 +52,7 @@ Syftet med den här korta analysen är att undersöka `r unique(befolkning_df %>
 * För första gången sedan 2018 minskade folkmängden i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` år 2024. Detta berodde i första hand på att färre flyttade till kommunen från andra delar av Sverige (netto).
 * Det föddes lika många barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` år 2024 som året innan, men fler än åren dessförinnan.
 * En stramare nationell migrationspolitik gör att färre invandrar till Sverige än tidigare, vilket även påverkar inflyttningen till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`. Att invandringsöverskottet ändå ökade i `r region_val` år 2024 kan sannolikt delvis förklaras med att personer födda i Ukraina sedan juni 2024 haft möjlighet att ansöka om att bli folkbokförda i Sverige.
-* Den största utflyttningen från kommunen inrikes (netto) skedde bland personer under 20 år. 
+* Den största utflyttningen från kommunen inrikes (netto) skedde i åldersgruppen 0-19 år. 
 
 För mer info om statistiken, klicka på rutan nedan:
 
