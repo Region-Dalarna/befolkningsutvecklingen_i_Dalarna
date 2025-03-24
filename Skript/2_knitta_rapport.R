@@ -16,7 +16,7 @@ walk(dala_kommuner, ~ {
 })
 
 
-
+# 
 # rmarkdown::render(
 #   input = 'befolkningsutveckling.Rmd',
 #   output_file = paste0("befolkningsutveckling.html"),
@@ -78,11 +78,11 @@ walk(dala_kommuner, ~ {
 #   envir = parent.frame()
 # )
 # 
-# rmarkdown::render(
-#   input = 'befolkningsutveckling_Orsa.Rmd',
-#   output_file = paste0("befolkningsutveckling_Orsa.html"),
-#   envir = parent.frame()
-# )
+rmarkdown::render(
+  input = 'befolkningsutveckling_Orsa.Rmd',
+  output_file = paste0("befolkningsutveckling_Orsa.html"),
+  envir = parent.frame()
+)
 # 
 # rmarkdown::render(
 #   input = 'befolkningsutveckling_Säter.Rmd',

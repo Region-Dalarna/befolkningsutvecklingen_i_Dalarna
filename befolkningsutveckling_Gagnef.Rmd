@@ -141,13 +141,11 @@ gg_flytt_alder$`Inrikes flyttnetto_alder_20-29 år_Gagnef`
 
 ### Uppdelat på bakgrund
 
-*Observera att statistik i detta avsnitt uppdateras först i slutet av mars.*
-
 För att ytterligare förtydliga vilka som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` inrikes, delas de i detta avsnitt upp efter sin bakgrund, inrikes eller utrikes födda. 
 
 En del av de personer som invandrade till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` under framförallt 2017, verkar ha flyttat därifrån sedan dess, då det inrikes flyttnettot i gruppen utrikes födda har varit negativt under varje år sedan 2019.
 
-Bland inrikes födda är variationen mellan åren stor, men tydligt är att relativt många inrikes födda flyttade till kommunen i samband med Corona-pandemin (2020-2021). De senaste åren har utvecklingen dock varit det motsatta, då fler personer födda i Sverige flyttar från än till kommunen inrikes. Det inrikes flyttnettot i gruppen var `r flytt_bakgrund_df %>% filter(år == max(år),region == region_val,födelseregion == "Född i Sverige") %>% .$Inrikes_flyttnetto` år `r max(flytt_bakgrund_df$år)`.
+Bland inrikes födda är variationen mellan åren stor, men tydligt är att relativt många inrikes födda flyttade till kommunen i samband med Corona-pandemin (2020-2021). De senaste åren har utvecklingen dock varit det motsatta, då fler personer födda i Sverige flyttar från än till kommunen inrikes. Det inrikes flyttnettot i gruppen var dock mindre negativt år `r max(flytt_bakgrund_df$år)`, jämfört med åren innan.
 
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}

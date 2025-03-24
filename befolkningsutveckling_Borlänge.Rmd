@@ -140,11 +140,9 @@ gg_flytt_alder$`Inrikes flyttnetto_alder_20-29 år_Borlänge`
 
 ### Uppdelat på bakgrund
 
-*Observera att statistik i detta avsnitt uppdateras först i slutet av mars.*
-
 För att ytterligare förtydliga vilka som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` inrikes, delas de i detta avsnitt upp efter sin bakgrund, inrikes eller utrikes födda. 
 
-För såväl inrikes som utrikes födda varierar det inrikes flyttnettot relativt mycket mellan åren i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`, men under en majoritet av åren är det negativt. För utrikes födda är undantaget år 2014 och något år därefter, när många flyttade till kommunen. Bland de som är födda i Sverige är det inrikes flyttnettot alltid negativt
+För såväl inrikes som utrikes födda varierar det inrikes flyttnettot relativt mycket mellan åren i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`, men under en majoritet av åren är det negativt. För utrikes födda är undantaget år 2014 och något år därefter, när många flyttade till kommunen. På senare år har dock många utrikesfödda flyttat från kommunen netto. Bland de som är födda i Sverige är det inrikes flyttnettot alltid negativt, men var mindre negativt år `r max(flytt_bakgrund_df$år)` jämfört med året innan.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt_bakgrund$Flyttnetto_bakgrund_Borlänge

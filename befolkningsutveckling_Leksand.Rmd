@@ -137,11 +137,9 @@ gg_flytt_alder$`Inrikes flyttnetto_alder_20-29 år_Leksand`
 
 ### Uppdelat på bakgrund
 
-*Observera att statistik i detta avsnitt uppdateras först i slutet av mars.*
-
 För att ytterligare förtydliga vilka som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` inrikes, delas de i detta avsnitt upp efter sin bakgrund, inrikes eller utrikes födda. 
 
-En del av de personer som invandrade till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` under framförallt 2016 verkar ha flyttat därifrån sedan dess, då det inrikes flyttnettot i gruppen utrikes födda har varit negativt under varje år sedan 2019. Bland inrikes födda är variationen mellan åren relativt stor, men tydligt är att förhållandevis många inrikes födda har flyttat till kommunen på senare år (netto). Framförallt skedde en stor inflyttning under åren efter Corona-pandemin (2020/2021). År `r max(flytt_bakgrund_df$år)` flyttade `r abs(flytt_bakgrund_df %>% filter(år == max(år),region == region_val,födelseregion == "Född i Sverige") %>% .$Inrikes_flyttnetto)` inrikes födda personer till kommunen (netto), vilket är klart färre än åren innan.
+En del av de personer som invandrade till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` under framförallt 2016 verkar ha flyttat därifrån sedan dess, då det inrikes flyttnettot i gruppen utrikes födda var negativt under varje år mellan 2019 och 2023 (det var dock svagt positivt år 2024). Bland inrikes födda är variationen mellan åren relativt stor, men tydligt är att förhållandevis många inrikes födda har flyttat till kommunen på senare år (netto). Framförallt skedde en stor inflyttning under åren efter Corona-pandemin (2020/2021), men även år `r max(flytt_bakgrund_df$år)` var inflyttningen stor då `r abs(flytt_bakgrund_df %>% filter(år == max(år),region == region_val,födelseregion == "Född i Sverige") %>% .$Inrikes_flyttnetto)` inrikes födda personer flyttade till kommunen (netto), vilket var klart fler än året innan.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt_bakgrund$Flyttnetto_bakgrund_Leksand

@@ -138,8 +138,6 @@ gg_flytt_alder$`Inrikes flyttnetto_alder_20-29 år_Älvdalen`
 
 ### Uppdelat på bakgrund
 
-*Observera att statistik i detta avsnitt uppdateras först i slutet av mars.*
-
 För att ytterligare förtydliga vilka som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` inrikes, delas de i detta avsnitt upp efter sin bakgrund, inrikes eller utrikes födda. 
 
 Tydligt är att en del av de som invandrade till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` under åren runt 2015-2016 flyttade därifrån till andra delar av Sverige därefter. Det inrikes flyttnettot för gruppen utrikes födda har varit negativt varje år sedan 2016. Bland de som är födda i Sverige är bilden delvis annorlunda. Under 00-talet och början av 2010-talet flyttade många i den gruppen från Älvdalen till andra delar av Sverige, men den trenden vände delvis mellan 2016 och 2021. På senare år har dock det inrikes flyttnettot för personer födda i Sverige återigen blivit negativt.

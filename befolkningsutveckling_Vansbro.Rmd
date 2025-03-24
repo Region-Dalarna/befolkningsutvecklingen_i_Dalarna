@@ -143,8 +143,6 @@ gg_flytt_alder$`Inrikes flyttnetto_alder_20-29 år_Vansbro`
 
 ### Uppdelat på bakgrund
 
-*Observera att statistik i detta avsnitt uppdateras först i slutet av mars.*
-
 För att ytterligare förtydliga vilka som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` inrikes, delas de i detta avsnitt upp efter sin bakgrund, inrikes eller utrikes födda. 
 
 Tydligt är att många av de som invandrade till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` under framförallt 2015 och 2016 flyttade därifrån under åren därefter, då framförallt mellan 2017 och 2019. Sammantaget flyttade mer än 250 utrikes födda (netto) från Vansbro till andra delar av Sverige under den perioden. Med undantag för 2023, är det även tydligt att färre inrikes födda flyttar från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` på senare år jämfört med åren mellan 2003 och 2013. En bidragande orsak till detta är sannolikt ett flertal expansiva arbetsgivare, något som medför att möjligheten att få jobb i kommunen idag är större än den var för 15 år sedan. Undantaget är som sagt 2023, då det inrikes flyttnettot i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` var negativt och mestadels bestod av personer födda i Sverige.

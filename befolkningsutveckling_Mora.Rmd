@@ -136,13 +136,11 @@ gg_flytt_alder$`Inrikes flyttnetto_alder_20-29 år_Mora`
 
 ### Uppdelat på bakgrund
 
-*Observera att statistik i detta avsnitt uppdateras först i slutet av mars.*
-
 För att ytterligare förtydliga vilka som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` inrikes, delas de i detta avsnitt upp efter sin bakgrund, inrikes eller utrikes födda. 
 
 En del av de personer som invandrade till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` under framförallt 2016, verkar ha flyttat därifrån sedan dess, då det inrikes flyttnettot i gruppen utrikes födda har varit negativt under varje år sedan 2017.
 
-Bland inrikes födda är variationen mellan åren relativt stor, men tydligt är att förhållandevis många inrikes födda har flyttat till kommunen på senare år. Framförallt skedde en stor inflyttning under 2021. År `r max(flytt_bakgrund_df$år)` flyttade `r abs(flytt_bakgrund_df %>% filter(år == max(år),region == region_val,födelseregion == "Född i Sverige") %>% .$Inrikes_flyttnetto)` inrikes födda personer netto från kommunen, vilket är det första negativa nettot sedan 2018.
+Bland inrikes födda är variationen mellan åren relativt stor, men tydligt är att förhållandevis många inrikes födda har flyttat till kommunen på senare år. Framförallt skedde en stor inflyttning under 2021. År `r max(flytt_bakgrund_df$år)` flyttade `r abs(flytt_bakgrund_df %>% filter(år == max(år),region == region_val,födelseregion == "Född i Sverige") %>% .$Inrikes_flyttnetto)` inrikes födda personer netto till kommunen, vilket var en tydlig förändring jämfört med året innan när nettot i gruppen var negativt.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt_bakgrund$Flyttnetto_bakgrund_Mora

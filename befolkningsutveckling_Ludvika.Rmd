@@ -140,11 +140,9 @@ gg_flytt_alder$`Inrikes flyttnetto_alder_20-29 år_Ludvika`
 
 ### Uppdelat på bakgrund
 
-*Observera att statistik i detta avsnitt uppdateras först i slutet av mars.*
-
 För att ytterligare förtydliga vilka som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` inrikes, delas de i detta avsnitt upp efter sin bakgrund, inrikes eller utrikes födda. 
 
-Tydligt är att många av de som invandrade till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` under några år i mitten på 2010-talet flyttade därifrån under åren därefter. Även bland inrikes födda har utflyttningen inrikes varit stor (netto) historiskt, men för såväl inrikes som utrikes födda minskade nettot betydligt under år `r max(befolkning_df$år)`. 
+Tydligt är att många av de som invandrade till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` under några år i mitten på 2010-talet flyttade därifrån under åren därefter. På senare år har dock det inrikes flyttnettot i gruppen blivit tydligt mer positivt och år `r max(befolkning_df$år)` flyttade fler utrikes födda personer till än från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` inrikes.  Även bland inrikes födda har utflyttningen inrikes varit stor (netto) historiskt, men minskat på senare år. 
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt_bakgrund$Flyttnetto_bakgrund_Ludvika

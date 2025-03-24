@@ -146,13 +146,11 @@ gg_flytt_alder$`Inrikes flyttnetto_alder_20-29 år_Avesta`
 
 ### Uppdelat på bakgrund
 
-*Observera att statistik i detta avsnitt uppdateras först i slutet av mars.*
-
 För att ytterligare förtydliga vilka som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` inrikes, delas de i detta avsnitt upp efter sin bakgrund, inrikes eller utrikes födda. 
 
-Tydligt är att många av de som invandrade till `r unique(flytt_bakgrund_df %>% filter(region == region_val) %>% .$region)` i samband med flyktingkrisen 2015-2016 flyttade därifrån under åren efter krisen. Sammantaget har runt 1500 utrikes födda (netto) flyttat från `r unique(flytt_bakgrund_df %>% filter(region == region_val) %>% .$region)` till andra delar av Sverige sedan 2016.  
+Tydligt är att många av de som invandrade till `r unique(flytt_bakgrund_df %>% filter(region == region_val) %>% .$region)` i samband med flyktingkrisen 2015-2016 flyttade därifrån under åren efter krisen. Sammantaget har drygt `r format(plyr::round_any(abs(sum(flytt_bakgrund_df %>% filter(region == region_val,år>2015,födelseregion == "Utrikes född") %>% .$Inrikes_flyttnetto)),100),big.mark = " ")` utrikes födda (netto) flyttat från `r unique(flytt_bakgrund_df %>% filter(region == region_val) %>% .$region)` till andra delar av Sverige sedan 2016.  
 
-För de som är födda i Sverige är det inrikes flyttnettot inte lika tydligt. Under åren efter flyktingkrisen lämnade även många inrikes födda `r unique(flytt_bakgrund_df %>% filter(region == region_val) %>% .$region)`, men på senare år har inflyttningen i den gruppen under vissa år varit större än utflyttningen. Framförallt flyttade många inrikes födda till kommunen under 2022. År `r max(flytt_bakgrund_df$år)` flyttade `r abs(flytt_bakgrund_df %>% filter(år == max(år),region == region_val,födelseregion == "Född i Sverige") %>% .$Inrikes_flyttnetto)` inrikes födda personer netto från kommunen till anda delar av Sverige.
+För de som är födda i Sverige är det inrikes flyttnettot inte lika tydligt. Under åren efter flyktingkrisen lämnade även många inrikes födda `r unique(flytt_bakgrund_df %>% filter(region == region_val) %>% .$region)`, men under vissa år på sistone har inflyttningen i den gruppen varit större än utflyttningen. Framförallt flyttade många inrikes födda till kommunen under 2022. År `r max(flytt_bakgrund_df$år)` flyttade dock `r abs(flytt_bakgrund_df %>% filter(år == max(år),region == region_val,födelseregion == "Född i Sverige") %>% .$Inrikes_flyttnetto)` inrikes födda personer netto från kommunen till anda delar av Sverige, den största utflyttningen i gruppen sedan 2019.
 
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}

@@ -138,8 +138,6 @@ gg_flytt_alder$`Inrikes flyttnetto_alder_20-29 år_Falun`
 
 ### Uppdelat på bakgrund
 
-*Observera att statistik i detta avsnitt uppdateras först i slutet av mars.*
-
 För att ytterligare förtydliga vilka som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` inrikes, delas de i detta avsnitt upp efter sin bakgrund, inrikes eller utrikes födda. 
 
 För såväl inrikes som utrikes födda varierar det inrikes flyttnettot relativt mycket mellan åren i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`, men en trend är att det på senare år flyttat förhållandevis många utrikes födda från kommunen, medan det inrikes flyttnettot för de som är födda i Sverige varit positivt. Att många utrikes födda flyttat från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` kan hänga samman med att en del av de som invandrat till kommunen mellan framförallt 2016 och 2019 valt att flytta till andra delar av Sverige av olika anledningar.

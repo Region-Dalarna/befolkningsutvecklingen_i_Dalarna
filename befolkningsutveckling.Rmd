@@ -231,15 +231,13 @@ Att det inrikes flyttnetto i Dalarna var negativt under `r max(flytt_overskott$�
 gg_flytt$`Inrikes flyttningsöverskott_Dalarna`
 ```
 
-*Observera att statistik i de två nästkommande diagrammen uppdateras först i slutet av mars.*
-
-Flyttar från Dalarna inrikes sker i första hand till antingen större eller näraliggande län. Flest flyttar skedde till Stockholm, följt av Uppsala och Västmanland. Få flyttar till små län långt bort, såsom Blekinge och Gotland.
+Flyttar från Dalarna inrikes sker i första hand till antingen större eller näraliggande län. Flest flyttar skedde till Stockholm, följt av Västmanland och Uppsala. Få flyttar till små län långt bort, såsom Gotland och Blekinge.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_utflytt_lan$Flytt_fran_Dalarna
 ```
 
-Inrikes flyttningar till Dalarna följer ett liknande mönster. Flest flyttar till Dalarna från Stockholm, Västmanland och Uppsala. Generellt går något fler flyttar från än till Dalarna, vilket är i linje med att länet har ett negativt flyttnetto inrikes. Ett undantag är Stockholm, då antalet flyttar från Dalarna till Stockholm var färre än antalet flyttar till Dalarna från Stockholm år 2023. 
+Inrikes flyttningar till Dalarna följer ett liknande mönster. Flest flyttar till Dalarna från Stockholm, Uppsala och Västmanland. Generellt går något fler flyttar från än till Dalarna, vilket är i linje med att länet har ett negativt flyttnetto inrikes. Ett undantag är Stockholm, då antalet flyttar från Dalarna till Stockholm var färre än antalet flyttar till Dalarna från Stockholm år 2024. 
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_inflytt_lan$Flytt_till_Dalarna
@@ -289,11 +287,9 @@ gg_flytt_alder$`Inrikes flyttnetto_alder_20-29 år_Dalarna`
 
 ## Bakgrund
 
-*Observera att statistik i detta avsnitt uppdateras först i slutet av mars.*
-
 För att ytterligare förtydliga vilka som flyttar till och från Dalarna inrikes, delas de i detta avsnitt upp efter inrikes respektive utrikes födda. 
 
-Tydligt är att många av de som invandrade till länet i under åren runt 2015-2016 har flyttat därifrån sedan dess. Totalt har `r format(abs(sum(flytt_bakgrund_df %>% filter(region == "Dalarna",år>2016,födelseregion == "Utrikes född") %>% .$Inrikes_flyttnetto)),big.mark = " ")` utrikes födda flyttat från Dalarna till andra län sedan 2017 (netto). För inrikes födda är bilden annorlunda. Under samma tidsperiod flyttade `r sum(flytt_bakgrund_df %>% filter(region == "Dalarna",år>2016,födelseregion == "Född i Sverige") %>% .$Inrikes_flyttnetto)` personer födda i Sverige till Dalarna (netto). Inflyttningen skedde dock framförallt mellan 2020 och 2022, vilket kan vara en effekt av Corona-pandemin. Under `r max(flytt_bakgrund_df$år)` flyttade `r abs(flytt_bakgrund_df %>% filter(region == "Dalarna",år == max(år),födelseregion == "Född i Sverige") %>% .$Inrikes_flyttnetto)` personer födda i Sverige från Dalarna till andra län netto.
+Tydligt är att många av de som invandrade till länet i under åren runt 2015-2016 har flyttat därifrån sedan dess. Totalt har `r format(abs(sum(flytt_bakgrund_df %>% filter(region == "Dalarna",år>2016,födelseregion == "Utrikes född") %>% .$Inrikes_flyttnetto)),big.mark = " ")` utrikes födda flyttat från Dalarna till andra län sedan 2017 (netto). För inrikes födda är bilden annorlunda. Under samma tidsperiod flyttade `r sum(flytt_bakgrund_df %>% filter(region == "Dalarna",år>2016,födelseregion == "Född i Sverige") %>% .$Inrikes_flyttnetto)` personer födda i Sverige till Dalarna (netto). Inflyttningen skedde dock framförallt mellan 2020 och 2022, vilket kan vara en effekt av Corona-pandemin. Under `r max(flytt_bakgrund_df$år)` flyttade `r flytt_bakgrund_df %>% filter(region == "Dalarna",år == max(år),födelseregion == "Född i Sverige") %>% .$Inrikes_flyttnetto` person född i Sverige till Dalarna från andra län netto.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt_bakgrund$Flyttnetto_bakgrund_Dalarna

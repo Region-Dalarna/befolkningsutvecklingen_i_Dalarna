@@ -142,11 +142,9 @@ gg_flytt_alder$`Inrikes flyttnetto_alder_20-29 år_Hedemora`
 
 ### Uppdelat på bakgrund
 
-*Observera att statistik i detta avsnitt uppdateras först i slutet av mars.*
-
 För att ytterligare förtydliga vilka som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` inrikes, delas de i detta avsnitt upp efter sin bakgrund, inrikes eller utrikes födda. 
 
-Tydligt är att många av de som invandrade till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` i mitten på 2010-talet flyttade därifrån under åren därefter, då framförallt mellan 2016 och 2018. Sammantaget flyttade närmare 600 utrikes födda (netto) från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` till andra delar av Sverige under den perioden. En annan trend är att relativt många inrikes födda valt att flytta till kommunen på senare år, jämfört med tidigare. Exakt vad detta beror på är svårt att säga, men det verkar vara en övervikt av personer från äldre åldersgrupper (se föregående avsnitt).
+Tydligt är att många av de som invandrade till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` i mitten på 2010-talet flyttade därifrån under åren därefter, då framförallt mellan 2016 och 2018. Sammantaget flyttade närmare 600 utrikes födda (netto) från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` till andra delar av Sverige under den perioden. En annan trend är att relativt många inrikes födda valt att flytta till kommunen på senare år, jämfört med tidigare.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt_bakgrund$Flyttnetto_bakgrund_Hedemora
