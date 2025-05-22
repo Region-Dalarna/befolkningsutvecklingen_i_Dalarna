@@ -8,6 +8,7 @@ diagram_befprognos <- function(region_vekt = "20", # Val av kommun/län att foku
                                spara_figur = FALSE, # Sparar figuren till output_mapp_figur
                                diag_aldergrupp = TRUE, # Skapa diagram för alla valda år i valt län
                                diag_jmf_region = TRUE, # Skapar ett diagram där total befolkningsförändring jämförs mellan valda regioner (region_vekt)
+                               engelsk_titel = NA, # Går att ändra om man vill ha en engelsk titel (funkar för tillfället bara för det tredje diagrammet (diag_jmf_region))
                                diag_facet = FALSE, # Skapa ett facetdiagram där alla valda regioner visas
                                diag_alla = TRUE, # Ett diagram skapas för alla regioner. Om FALSE skapas ett diagram för region_fokus
                                jmf_procent = FALSE, # Skapa diagram för förändring i procent
@@ -95,6 +96,7 @@ diagram_befprognos <- function(region_vekt = "20", # Val av kommun/län att foku
 
   if(diag_jmf_region == TRUE){
     diagram_titel <- paste0("Befolkningsförändring ",min(tot$år),"-",max(tot$år))
+    if(!(is.na(engelsk_titel))) diagram_titel = engelsk_titel
     diagramfil <- ifelse(jmf_procent==TRUE,paste0("befolkningsforandring_jmf_region_procent_", max(tot$år), ".png"),paste0("befolkningsforandring_jmf_region_", max(tot$år), ".png"))
     #diagramfil <- paste0("befolkningsforandring_jmf_region_", max(tot$år), ".png")
     objektnamn <- c(objektnamn,diagramfil %>% str_remove(".png"))
