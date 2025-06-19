@@ -341,21 +341,21 @@ gg_befprognos_procent$befolkningsforandring_jmf_region_procent_2033
 # Kommunfördjupningar 
 
 <ul style = "columns : 2">
-  <li>[Avesta](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_Avesta){target="_blank"}</li>
-  <li>[Borlänge](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_Borlänge.html){target="_blank"}</li>
-  <li>[Falun](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_Falun.html){target="_blank"}</li>
-  <li>[Gagnef](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_Gagnef.html){target="_blank"}</li>
-  <li>[Hedemora](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_Hedemora.html){target="_blank"}</li>
-  <li>[Leksand](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_Leksand.html){target="_blank"}</li>
-  <li>[Ludvika](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_Ludvika.html){target="_blank"}</li>
-  <li>[Malung-Sälen](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_Malung_Sälen.html){target="_blank"}</li>
-  <li>[Mora](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_Mora.html){target="_blank"}</li>
-  <li>[Orsa](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_Orsa.html){target="_blank"}</li>
-  <li>[Rättvik](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_Rättvik.html){target="_blank"}</li>
-  <li>[Smedjebacken](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_Smedjebacken.html){target="_blank"}</li>
-  <li>[Säter](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_Säter.html){target="_blank"}</li>
-  <li>[Vansbro](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_Vansbro.html){target="_blank"}</li>
-  <li>[Älvdalen](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_Älvdalen.html){target="_blank"}</li>
+  <li>[Avesta](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_avesta){target="_blank"}</li>
+  <li>[Borlänge](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_borlange.html){target="_blank"}</li>
+  <li>[Falun](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_falun.html){target="_blank"}</li>
+  <li>[Gagnef](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_gagnef.html){target="_blank"}</li>
+  <li>[Hedemora](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_hedemora.html){target="_blank"}</li>
+  <li>[Leksand](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_leksand.html){target="_blank"}</li>
+  <li>[Ludvika](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_ludvika.html){target="_blank"}</li>
+  <li>[Malung-Sälen](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_malung_salen.html){target="_blank"}</li>
+  <li>[Mora](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_mora.html){target="_blank"}</li>
+  <li>[Orsa](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_orsa.html){target="_blank"}</li>
+  <li>[Rättvik](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_rattvik.html){target="_blank"}</li>
+  <li>[Smedjebacken](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_smedjebacken.html){target="_blank"}</li>
+  <li>[Säter](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_sater.html){target="_blank"}</li>
+  <li>[Vansbro](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_vansbro.html){target="_blank"}</li>
+  <li>[Älvdalen](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_alvdalen.html){target="_blank"}</li>
 </ul>
 
 

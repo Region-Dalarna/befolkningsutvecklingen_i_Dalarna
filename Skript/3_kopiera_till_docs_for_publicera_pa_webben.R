@@ -5,6 +5,7 @@ p_load(here,
 source("https://raw.githubusercontent.com/Region-Dalarna/funktioner/main/func_API.R", encoding = "utf-8", echo = FALSE)
 
 dala_kommuner <- hamtaregion_kod_namn(regionkod = hamtakommuner(lan = "20", F, F))$region %>% str_replace("-", "_") %>% paste0("_", .) %>% c("", .)
+dala_kommuner <- tolower(svenska_tecken_byt_ut(dala_kommuner))
 
 walk(dala_kommuner, ~ {
   if (.x == "") {
