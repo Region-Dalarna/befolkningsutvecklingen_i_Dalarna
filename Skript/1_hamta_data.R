@@ -90,12 +90,7 @@ if(uppdatera_data == TRUE){
                                                          returnera_data = TRUE,
                                                          fixa_y_axel_varden_jamna_tal = FALSE, 
                                                          farg_vekt = diagramfarger("rus_sex")[2:1])
-  
-  # Kartor över befolkningsutvecklingen
-  source(here("Skript","kartor.R"), encoding="UTF-8")
-  gg_kartor <- kartor_befolkning(karta_kommun = TRUE,
-                                 karta_lan = TRUE,
-                                 returnera_data = TRUE)
+
   
   # Diagram fruktsamhet
   # Jmf Sverige och Dalarna
@@ -187,3 +182,9 @@ if(uppdatera_data == TRUE){
 }else{
   load("G:/skript/projekt/environments/befolkningsutvecklingen.RData")
 }
+
+# Kartor över befolkningsutvecklingen. Går inte att hämta från en sparad environment, varför de alltid skapas
+source(here("Skript","kartor.R"), encoding="UTF-8")
+gg_kartor <- kartor_befolkning(karta_kommun = TRUE,
+                               karta_lan = TRUE,
+                               returnera_data = TRUE)
