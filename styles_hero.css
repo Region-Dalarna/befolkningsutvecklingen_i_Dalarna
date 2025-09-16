@@ -38,10 +38,10 @@ body {
 }
  
 /*Segment med p - ta eventuellt bort*/
-/*p{
+/* p{
   font-family:'Poppins', sans-serif;
   font-size: 1rem;
-}
+} */
 
 /* Rubriker mm följer nedan */
 h1,h2,h3{
@@ -129,7 +129,7 @@ top: 5px;
   content: "";
   display: block;
   height: 40px;
-  background: rgba(22,141,175);
+  background: rgba(22,141,175,1);
   /*background: #db3747;*/
   background-image: url(logga_korrekt.png);
   background-size: contain;
@@ -154,7 +154,7 @@ top: 5px;
 
 .nav-pills>li>a:hover, .nav-pills>li>a:focus, .nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus{
      background-color: #db3747;
-     color: #fff
+     color: #fff;
      border-color: #000000;
 }
      
@@ -270,6 +270,24 @@ blockquote {
  .header-logo_right {
    display:none;
   
+}
+}
+
+@media(min-width: 767px){
+html[data-scroll="top"] .tocify {
+  top: 150px;
+}
+
+html[data-scroll="scrolled"] .tocify {
+  top: 5px;
+}
+
+.tocify {
+  position: fixed;
+  top: 150px;
+  transition: top 0.4s ease;
+  z-index: 10;
+}
 }
 
 
