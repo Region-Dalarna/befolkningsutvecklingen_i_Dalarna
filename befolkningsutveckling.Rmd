@@ -51,7 +51,7 @@ Under 2023 inledde Skatteverket ett arbete med att granska registret över folkb
 
 För en större genomgång av hur folk- och bostadsräkningar går till i Sverige, se SCBs genomgång [här](https://www.scb.se/hitta-statistik/statistik-efter-amne/befolkning-och-levnadsforhallanden/befolkningens-sammansattning-och-utveckling/registerbaserad-folk--och-bostadsrakning-census/produktrelaterat/Fordjupad-information/fragor-och-svar-om-folk--och-bostadsrakningar-census-med-mera/){target="_blank"}.
 
-All data som används i rapporten är offentlig och finns under kategorin befolkning i SCB:s [Statistikdatabas](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/){target="_blank"}. Där finns även data för exempelvis befolkningsutvecklingen under 2025 på månadsbasis som publiceras löpande, något som inte behandlas i denna rapport.
+All data som används i rapporten, förutom befolkningsprognoserna, är offentlig och finns under kategorin befolkning i SCB:s [Statistikdatabas](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/){target="_blank"}. Där finns även data för exempelvis befolkningsutvecklingen under 2025 på månadsbasis som publiceras löpande, något som inte behandlas i denna rapport.
 
 </div>
 </details>
@@ -319,7 +319,7 @@ Både små och stora strukturförändringar i samhället påverkar den framtida 
 
 </details>
 
-I diagrammet nedan visas befolkningsutvecklingen i Dalarna fram till 2034 uppdelat på åldersgrupper.
+I diagrammet nedan visas befolkningsutvecklingen i Dalarna fram till `r prognos_ar` uppdelat på åldersgrupper.
 
 * Dalarnas befolkning prognostiseras att minska till `r befprognos_dalarna_totalt` personer år `r prognos_ar`, en minskning med ungefär `r befprognos_dalarna_totalt_forandring` personer jämfört med `r prognos_forsta_ar`. Även i SCB:s senaste prognos (juni 2024), prognostiserades en befolkning på ungefär 280 000 personer i Dalarna år `r prognos_ar` (se [SCB, 2024](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0401__BE0401A/BefProgRegFakN/){target="_blank"}).
 
@@ -327,7 +327,7 @@ I diagrammet nedan visas befolkningsutvecklingen i Dalarna fram till 2034 uppdel
 
 * I åldergruppen 80+ förväntas befolkning att öka med ungefär `r befprognos_dalarna_80plus_forandring` personer fram till `r prognos_ar`. Detta hänger sannolikt samman med att den förväntade livslängden fortsätter öka och att den stora gruppen "baby-boomers" börjar komma upp i 80-års åldern.
 
-* Även antalet personer i åldersgrupp som brukar benämnas arbetsför ålder, 20-64 år, förväntas minska tydligt fram till `r prognos_ar`. 
+* Även antalet personer i åldersgrupp som brukar benämnas arbetsför ålder, 20-65 år, förväntas minska tydligt fram till `r prognos_ar`. 
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_befprognos$befprogn_Dalarna_2025_10ars_sikt_antal

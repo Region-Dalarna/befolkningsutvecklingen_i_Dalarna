@@ -160,6 +160,18 @@ if(uppdatera_data == TRUE){
   befprognos_dalarna_0_19_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Dalarnas län",aldergrp == "0-19 år") %>% .$antal),100),big.mark= " ")
   befprognos_dalarna_80plus_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Dalarnas län",aldergrp == "80+ år") %>% .$antal),100),big.mark= " ")
   
+  befprognos_Avesta_totalt_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Avesta",aldergrp == "totalt") %>% .$antal),10),big.mark= " ")
+  befprognos_Avesta_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Avesta",aldergrp == "totalt") %>% .$`2034`),100),big.mark= " ")
+  befprognos_Avesta_0_19_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Avesta",aldergrp == "0-19 år") %>% .$antal),100),big.mark= " ")
+  befprognos_Avesta_80plus_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Avesta",aldergrp == "80+ år") %>% .$antal),100),big.mark= " ")
+  befprognos_Avesta_20_65_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Avesta",aldergrp == "20-65 år") %>% .$antal),100),big.mark= " ")
+  
+  befprognos_Borlange_totalt_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Borlänge",aldergrp == "totalt") %>% .$antal),10),big.mark= " ")
+  befprognos_Borlange_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Borlänge",aldergrp == "totalt") %>% .$`2034`),100),big.mark= " ")
+  befprognos_Borlange_0_19_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Borlänge",aldergrp == "0-19 år") %>% .$antal),100),big.mark= " ")
+  befprognos_Borlange_80plus_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Borlänge",aldergrp == "80+ år") %>% .$antal),100),big.mark= " ")
+  befprognos_Borlange_20_65_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Borlänge",aldergrp == "20-65 år") %>% .$antal),100),big.mark= " ")
+  
   
   source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diag_befprognos_diff_tot_per_kommun.R")
   gg_befprognos_procent <- diag_befprognos_diff_tot_per_region_scb(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE,tamedlan=TRUE),
