@@ -31,7 +31,7 @@ Senast uppdaterad: `r Sys.Date()`</i>
 * Den lägre minskningen i Dalarnas folkmängd år 2024, jämfört med året innan, beror på att invandringen var klart högre. Detta beror sannolikt delvis på att personer födda i Ukraina har haft möjlighet att ansöka om att bli folkbokförda i Sverige sedan i juni 2024 [(SCB)](https://www.scb.se/hitta-statistik/statistik-efter-amne/befolkning-och-levnadsforhallanden/befolkningens-sammansattning-och-utveckling/befolkningsstatistik/pong/statistiknyhet/befolkningsstatistik-helaret-20242/){target="_blank"}. Totalt bodde `r format(befolkning_df %>% filter(region == "Dalarnas län",år == max(år),variabel == "Folkmängd") %>% .$varde,big.mark = " ") ` personer i länet vid utgången av år `r max(befolkning_df$år)`, att jämföra med `r format(befolkning_df %>% filter(region == "Dalarnas län",år == max(as.integer(år))-1,variabel == "Folkmängd") %>% .$varde,big.mark = " ") ` personer vid utgången av året innan.
 * Det föddes något färre barn i Dalarna 2024 jämfört med åren innan. Detta är i linje med en större trend i samhället, då antalet barn födda i Sverige under 2024 var det lägsta sedan 2002.
 * Många unga vuxna flyttade från Dalarna till andra delar av Sverige under 2024, även om nettot i åldersgruppen har förbättrats jämfört med åren innan.
-* Enligt den senaste befolkningsprognosen från Region Dalarna (våren 2025) förväntas den negativa trenden i Dalarnas befolkningsutveckling fortsätta även i framtiden. Befolkningen minskar framförallt i yngre åldersgrupper, medan antalet äldre invånare förväntas öka avsevärt.
+* Enligt den senaste befolkningsprognosen från SCB (juni 2024) förväntas den negativa trenden i Dalarnas befolkningsutveckling fortsätta även i framtiden. Befolkningen minskar framförallt i yngre åldersgrupper, medan antalet äldre invånare förväntas öka avsevärt.
 
 # Introduktion {-}
 Hur folkmängden förändras över tid är en central fråga för såväl samhällsplanering som politik. Befolkningsutvecklingen påverkar allt från bostadsmarknaden och arbetsmarknaden till skatteintäkter och välfärdssystem. Såväl Västvärlden i stort som delar av Asien står inför en rad demografiska utmaningar, såsom en åldrande befolkning och minskande barnafödande. I Sverige var exempelvis barnafödandet per kvinna under 2024 det lägsta som uppmätts. 
@@ -303,9 +303,9 @@ I nästa avsnitt är fokus istället på framtiden. Hur kommer Dalarnas folkmän
 
 # Vad händer i framtiden?
 
-Till följd av att SCB bara gör befolkningsprognoser vart tredje år på läns- och kommunal nivå, har Region Dalarna, med hjälp av ett skript i R som Region Halland skapat, valt att ta fram egna befolkningsprognoser. Eftersom prognoser blir osäkrare desto längre fram i tiden de sträcker sig, är fokus i detta avsnitt enbart på prognosen 10 år framåt i tiden, dvs. fram till 2034. För SCB:s senaste befolkningsprognos för Dalarna, se [SCB, 2024](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0401__BE0401A/BefProgRegFakN/){target="_blank"}.
+SCB gör vartannat eller vart tredje år prognoser för folkmängdens utveckling på såväl läns som kommunal nivå. De senaste av dessa prognoser släpptes i juni 2024 (se [SCB, 2024](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0401__BE0401A/BefProgRegFakN/){target="_blank"}) och sträcker sig ända fram till 2070. Eftersom prognoser blir osäkrare desto längre fram i tiden de sträcker sig, kommer vi i detta avsnitt enbart fokusera på prognosen fram till 2033.
 
-För en djupare förståelse för hur Region Dalarna gör sina befolkningsprognoser, se informationsrutan nedan. Till skillnad från de prognoser som SCB gör, har Region Dalarna valt att ta hänsyn till Ludvikas expansion kopplat till Hitachi i sina befolkningsprognoser. Detta påverkar även prognos för hela Dalarna. För övriga kommuner, tas ingen hänsyn i prognoserna till planerat bostadsbyggande, företagsetableringar eller andra framtida mål och förutsättningar som kommunerna har i sina planer. 
+För en djupare förståelse för hur SCB gör sina befolkningsprognoser, se informationsrutan nedan. Det viktigaste att ha i åtanke är att ingen hänsyn tas i prognoserna till planerat bostadsbyggande, företagsetableringar eller andra framtida mål och förutsättningar som kommunerna har i sina planer.
 
 <details>
 <summary>SCB:s Befolkningsprognoser</summary>
@@ -319,24 +319,26 @@ Både små och stora strukturförändringar i samhället påverkar den framtida 
 
 </details>
 
-I diagrammet nedan visas befolkningsutvecklingen i Dalarna fram till 2034 uppdelat på åldersgrupper.
+I diagrammet nedan visas befolkningsutvecklingen i Dalarna fram till 2033 uppdelat på åldersgrupper, enligt SCB:s prognos från juni 2024, vilket är den senaste som myndigheten publicerat offentligt på regional nivå. Notera att diagrammet, och det efterföljande diagrammet där Dalarnas kommuner jämförs, kan skilja sig åt jämfört med motsvarande diagram i förra årets rapport. Detta eftersom befolkningen 2033 enligt SCBs prognos jämförs med den faktiska befolkningen vid slutet av 2024 i diagrammen nedan. I förra årets rapport jämfördes prognosen för 2033 med den faktiska befolkningen vid slutet av 2023. 
 
-* Dalarnas befolkning prognostiseras att minska till `r befprognos_dalarna_totalt` personer år `r prognos_ar`, en minskning med ungefär `r befprognos_dalarna_totalt_forandring` personer jämfört med `r prognos_forsta_ar`. Även i SCB:s senaste prognos (juni 2024), prognostiserades en befolkning på ungefär 280 000 personer i Dalarna år `r prognos_ar` (se [SCB, 2024](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0401__BE0401A/BefProgRegFakN/){target="_blank"}).
+* Dalarnas befolkning prognostiseras att minska med drygt `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "Totalt",region=="Dalarna") %>% .$Folkmängd,100)),big.mark=" ")` personer personer till 2033, jämfört med 2024. I SCB:s föregående prognos, som släpptes 2022, prognostiserades en ökning på drygt 300 personer fram till 2033, jämfört med 2021 (se [SCB, 2022](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0401__BE0401B/BefProgRegFakN22/table/tableViewLayout1/){target="_blank"}).
 
-* Den största minskningen sker i åldersgruppen 0-19 år, som prognostiseras att minska med knappt `r befprognos_dalarna_0_19_forandring` personer. Detta kan sannolikt delvis förklaras av att fruktsamheten minskat de senaste åren.
+* Den största minskningen sker i åldersgruppen 0-19 år, som prognostiseras att minska med drygt `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "0-19 år",region=="Dalarna") %>% .$Folkmängd,100)),big.mark=" ")` personer. Detta kan sannolikt delvis förklaras av att fruktsamheten minskat de senaste åren.
 
-* I åldergruppen 80+ förväntas befolkning att öka med ungefär `r befprognos_dalarna_80plus_forandring` personer fram till `r prognos_ar`. Detta hänger sannolikt samman med att den förväntade livslängden fortsätter öka och att den stora gruppen "baby-boomers" börjar komma upp i 80-års åldern.
+* I åldergruppen 80+ förväntas befolkning att öka med knappt `r format(abs(plyr::round_any(befprognos_df %>% filter(alder_grupp == "80+ år",region=="Dalarna") %>% .$Folkmängd,100)),big.mark=" ")` personer fram till 2033. Detta hänger sannolikt samman med att den förväntade livslängden fortsätter öka och att den stora gruppen "baby-boomers" börjar komma upp i 80-års åldern.
 
-* Även antalet personer i åldersgrupp som brukar benämnas arbetsför ålder, 20-64 år, förväntas minska tydligt fram till `r prognos_ar`. 
+* Antalet personer i åldersgrupp som brukar benämnas arbetsför ålder, 20-64 år, förväntas minska tydligt fram till 2033. 
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_befprognos$befprogn_Dalarna_2025_10ars_sikt_antal
+gg_befprognos$befolkningsforandring_Dalarna_2033
 ```
 
-Bland Dalarnas kommuner är det två, Ludvika och Leksand, vars befolkning prognostiseras öka mellan `r prognos_forsta_ar` och `r prognos_ar`. I Ludvika förväntas befolkningen öka med drygt 9 procent, medan befolkningen i Leksand prognostiseras att öka med ungefär 1 procent. I övriga kommuner förväntas befolkningen minska, med Avesta och Älvdalen som de kommuner där befolkningen prognostiseras minska mest (procentuellt). I Avesta förväntas befolkningen minska med knappt 8 procent, medan befolkningen i Älvdalen förväntas minska med mer än 11 procent. Som nämnts tidigare i detta avsnitt, är det dock viktigt att ha i åtanke att Ludvika är den enda kommun för vilken prognosen tar hänsyn till en företagsetablering (Hitachi) och dess effekter på befolkningen. Prognosen för Ludvika kommun baseras på ett scenario som i allt väsentligt liknar den som Ludvika kommun själv tagit fram i deras scenario med medelstark tillväxt.
+Bland Dalarnas kommuner är det tre, Rättvik, Leksand och Falun, vars befolkning prognostiseras öka mellan 2024 och 2033. I Rättvik förväntas befolkningen öka med ungefär `r gsub("\\.",",",round(befprognos_df %>% filter(region == "Rättvik",alder_grupp == "Totalt") %>% .$forandring_procent,1))` procent, medan befolkningen i Leksand prognostiseras öka med ungefär `r gsub("\\.",",",round(befprognos_df %>% filter(region == "Leksand",alder_grupp == "Totalt") %>% .$forandring_procent,1))` procent och den i Falun med `r gsub("\\.",",",round(befprognos_df %>% filter(region == "Falun",alder_grupp == "Totalt") %>% .$forandring_procent,1))` procent. I övriga kommuner förväntas befolkningen minska, med Vansbro och Ludvika som de kommuner där befolkningen prognostiseras minska mest (procentuellt). I Vansbro förväntas befolkningen minska med ungefär `r gsub("\\.",",",abs(round(befprognos_df %>% filter(region == "Vansbro",alder_grupp == "Totalt") %>% .$forandring_procent,1)))` procent, medan befolkningen i Ludvika förväntas minska med ungefär `r gsub("\\.",",",abs(round(befprognos_df %>% filter(region == "Ludvika",alder_grupp == "Totalt") %>% .$forandring_procent,1)))` procent. 
+
+Som nämnts tidigare tar dock inte prognosen hänsyn till exempelvis företagsetableringar, vilket kan påverka befolkningsutvecklingen i kommunerna. Dalarnas kanske mest expansiva arbetsgivare, Hitachi, finns exempelvis i Ludvika och planerar stora investeringar och tusentals rekryteringar de närmaste åren. Notera även att prognoserna är från juni 2024.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_befprognos_procent$`befprogn_dalarnas kommuner_andel_alla_tot`
+gg_befprognos_procent$befolkningsforandring_jmf_region_procent_2033
 ```
 
 # Kommunfördjupningar 

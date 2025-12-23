@@ -136,27 +136,47 @@ if(uppdatera_data == TRUE){
   #                                     diag_jmf_region = FALSE,
   #                                     output_mapp_figur = Output_mapp_figur)
   
-  gg_befprognos <- diagram_befprognos(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE,tamedlan=TRUE),
-                                       diag_aldergrupp = TRUE, 
-                                       diag_jmf_region = FALSE,
-                                       diag_alla = TRUE,
-                                       prognos_ar = "2033",
-                                       jmf_procent = FALSE,
-                                       returnera_data = TRUE,
-                                       avrunda_fem = FALSE,
-                                       output_mapp_figur = Output_mapp_figur,
-                                       spara_figur = spara_figur)
+  # gg_befprognos <- diagram_befprognos(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE,tamedlan=TRUE),
+  #                                      diag_aldergrupp = TRUE, 
+  #                                      diag_jmf_region = FALSE,
+  #                                      diag_alla = TRUE,
+  #                                      prognos_ar = "2033",
+  #                                      jmf_procent = FALSE,
+  #                                      returnera_data = TRUE,
+  #                                      avrunda_fem = FALSE,
+  #                                      output_mapp_figur = Output_mapp_figur,
+  #                                      spara_figur = spara_figur)
   
-  gg_befprognos_procent <- diagram_befprognos(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE,tamedlan=TRUE),
-                                              diag_aldergrupp = FALSE, 
-                                              diag_jmf_region = TRUE,
-                                              diag_alla = FALSE,
-                                              jmf_procent = TRUE,
-                                              prognos_ar = "2033",
-                                              returnera_data = FALSE,
-                                              avrunda_fem = FALSE,
-                                              output_mapp_figur = Output_mapp_figur,
-                                              spara_figur = spara_figur)
+  source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diag_befolkningsprognos_scb_api_profet.R")
+  gg_befprognos <- SkapaBefPrognosDiagram(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE,tamedlan=TRUE),
+                                          output_fold = Output_mapp_figur,
+                                          skapa_fil = spara_figur,
+                                          spara_dataframe_till_global_environment = TRUE)
+  
+  prognos_ar <- bef_progn_nms_df$slut_ar %>% unique()
+  prognos_forsta_ar <- bef_progn_nms_df$start_ar %>% unique()
+  befprognos_dalarna_totalt_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Dalarnas län",aldergrp == "totalt") %>% .$antal),10),big.mark= " ")
+  befprognos_dalarna_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Dalarnas län",aldergrp == "totalt") %>% .$`2034`),100),big.mark= " ")
+  befprognos_dalarna_0_19_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Dalarnas län",aldergrp == "0-19 år") %>% .$antal),100),big.mark= " ")
+  befprognos_dalarna_80plus_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Dalarnas län",aldergrp == "80+ år") %>% .$antal),100),big.mark= " ")
+  
+  
+  source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diag_befprognos_diff_tot_per_kommun.R")
+  gg_befprognos_procent <- diag_befprognos_diff_tot_per_region_scb(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE,tamedlan=TRUE),
+                                                                   output_fold = Output_mapp_figur,
+                                                                   skapa_fil = spara_figur,
+                                                                   andel_istallet_for_antal = TRUE)
+  
+  # gg_befprognos_procent <- diagram_befprognos(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE,tamedlan=TRUE),
+  #                                             diag_aldergrupp = FALSE, 
+  #                                             diag_jmf_region = TRUE,
+  #                                             diag_alla = FALSE,
+  #                                             jmf_procent = TRUE,
+  #                                             prognos_ar = "2033",
+  #                                             returnera_data = FALSE,
+  #                                             avrunda_fem = FALSE,
+  #                                             output_mapp_figur = Output_mapp_figur,
+  #                                             spara_figur = spara_figur)
   
   
   
