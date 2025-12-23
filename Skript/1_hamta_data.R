@@ -172,6 +172,18 @@ if(uppdatera_data == TRUE){
   befprognos_Borlange_80plus_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Borlänge",aldergrp == "80+ år") %>% .$antal),100),big.mark= " ")
   befprognos_Borlange_20_65_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Borlänge",aldergrp == "20-65 år") %>% .$antal),100),big.mark= " ")
   
+  befprognos_Falun_totalt_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Falun",aldergrp == "totalt") %>% .$antal),10),big.mark= " ")
+  befprognos_Falun_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Falun",aldergrp == "totalt") %>% .$`2034`),100),big.mark= " ")
+  befprognos_Falun_0_19_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Falun",aldergrp == "0-19 år") %>% .$antal),100),big.mark= " ")
+  befprognos_Falun_80plus_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Falun",aldergrp == "80+ år") %>% .$antal),100),big.mark= " ")
+  befprognos_Falun_20_65_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Falun",aldergrp == "20-65 år") %>% .$antal),100),big.mark= " ")
+  
+  befprognos_Gagnef_totalt_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Gagnef",aldergrp == "totalt") %>% .$antal),10),big.mark= " ")
+  befprognos_Gagnef_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Gagnef",aldergrp == "totalt") %>% .$`2034`),10),big.mark= " ")
+  befprognos_Gagnef_0_19_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Gagnef",aldergrp == "0-19 år") %>% .$antal),10),big.mark= " ")
+  befprognos_Gagnef_80plus_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Gagnef",aldergrp == "80+ år") %>% .$antal),10),big.mark= " ")
+  befprognos_Gagnef_20_65_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Gagnef",aldergrp == "20-65 år") %>% .$antal),10),big.mark= " ")
+  
   
   source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diag_befprognos_diff_tot_per_kommun.R")
   gg_befprognos_procent <- diag_befprognos_diff_tot_per_region_scb(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE,tamedlan=TRUE),
