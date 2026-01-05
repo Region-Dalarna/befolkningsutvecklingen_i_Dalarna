@@ -159,7 +159,7 @@ För en djupare förståelse runt hur Region Dalarna gör befolkningsprognoser, 
 
 I diagrammet nedan visas befolkningsutvecklingen i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` fram till `r prognos_ar` uppdelat på åldersgrupper, enligt Region Dalarnas prognos från våren 2025.
 
-* `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s befolkning prognostiseras att minska till `r befprognos_Orsa_totalt` personer år `r prognos_ar`, en minskning med ungefär `r befprognos_Orsa_totalt_forandring` personer jämfört med `r prognos_forsta_ar`. I SCB:s senaste prognos (juni 2024), prognostiserades en befolkning på drygt 6 760 personer i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` år `r prognos_ar` (se [SCB, 2024](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0401__BE0401A/BefProgRegFakN/){target="_blank"}).  
+* Folkmängden i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` prognostiseras att minska till `r befprognos_Orsa_totalt` personer år `r prognos_ar`, en minskning med ungefär `r befprognos_Orsa_totalt_forandring` personer jämfört med `r prognos_forsta_ar`. I SCB:s senaste prognos (juni 2024), prognostiserades en befolkning på drygt 6 760 personer i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` år `r prognos_ar` (se [SCB, 2024](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0401__BE0401A/BefProgRegFakN/){target="_blank"}).  
 
 * Den största minskningen sker i den åldersgrupp som brukar benämnas arbetsför ålder, 20-65 år, som prognostiseras minska med ungefär `r befprognos_Orsa_20_65_forandring` personer.
 

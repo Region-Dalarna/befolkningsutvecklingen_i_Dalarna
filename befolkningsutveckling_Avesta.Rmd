@@ -168,7 +168,7 @@ I diagrammet nedan visas befolkningsutvecklingen i `r unique(befolkning_df %>% f
 
 Ett par tydliga trender kan utläsas i diagrammet: 
 
-* `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` befolkning prognostiseras att minska till `r befprognos_Avesta_totalt` personer år `r prognos_ar`, en minskning med ungefär `r befprognos_Avesta_totalt_forandring` personer jämfört med `r prognos_forsta_ar`. I SCB:s senaste prognos (juni 2024), prognostiserades en befolkning på ungefär 21 600 personer i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` år `r prognos_ar` (se [SCB, 2024](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0401__BE0401A/BefProgRegFakN/){target="_blank"}).
+* Folkmängden i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` prognostiseras att minska till `r befprognos_Avesta_totalt` personer år `r prognos_ar`, en minskning med ungefär `r befprognos_Avesta_totalt_forandring` personer jämfört med `r prognos_forsta_ar`. I SCB:s senaste prognos (juni 2024), prognostiserades en befolkning på ungefär 21 600 personer i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` år `r prognos_ar` (se [SCB, 2024](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0401__BE0401A/BefProgRegFakN/){target="_blank"}).
 
 * Den största minskningen sker i gruppen som brukar benämnas arbetsför ålder, 20-65 år,  som prognostiseras minska med ungefär `r befprognos_Avesta_20_65_forandring` personer.
 

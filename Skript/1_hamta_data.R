@@ -12,7 +12,8 @@
 # Tar längre tid (ett par minuter) och medför en risk att text inte längre är aktuell då figurer har ändrats.
 
 if (!require("pacman")) install.packages("pacman")
-p_load(here)
+p_load(here,
+       tidyverse)
 
 # Skall data uppdateras? Annars läses data in från en sparad global environment-fil.
 uppdatera_data = FALSE

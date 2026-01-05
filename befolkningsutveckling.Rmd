@@ -321,7 +321,7 @@ Både små och stora strukturförändringar i samhället påverkar den framtida 
 
 I diagrammet nedan visas befolkningsutvecklingen i Dalarna fram till `r prognos_ar` uppdelat på åldersgrupper.
 
-* Dalarnas befolkning prognostiseras att minska till `r befprognos_dalarna_totalt` personer år `r prognos_ar`, en minskning med ungefär `r befprognos_dalarna_totalt_forandring` personer jämfört med `r prognos_forsta_ar`. Även i SCB:s senaste prognos (juni 2024), prognostiserades en befolkning på ungefär 280 000 personer i Dalarna år `r prognos_ar` (se [SCB, 2024](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0401__BE0401A/BefProgRegFakN/){target="_blank"}).
+* Folkmängden i Dalarna prognostiseras att minska till `r befprognos_dalarna_totalt` personer år `r prognos_ar`, en minskning med ungefär `r befprognos_dalarna_totalt_forandring` personer jämfört med `r prognos_forsta_ar`. Även i SCB:s senaste prognos (juni 2024), prognostiserades en befolkning på ungefär 280 000 personer i Dalarna år `r prognos_ar` (se [SCB, 2024](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0401__BE0401A/BefProgRegFakN/){target="_blank"}).
 
 * Den största minskningen sker i åldersgruppen 0-19 år, som prognostiseras att minska med knappt `r befprognos_dalarna_0_19_forandring` personer. Detta kan sannolikt delvis förklaras av att fruktsamheten minskat de senaste åren.
 

@@ -159,7 +159,7 @@ I diagrammet nedan visas befolkningsutvecklingen i `r unique(befolkning_df %>% f
 
 Ett par tydliga trender kan utläsas i diagrammet:   
 
-* `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` befolkning prognostiseras att minska till `r befprognos_Borlange_totalt` personer år `r prognos_ar`, en minskning med ungefär `r befprognos_Borlange_totalt_forandring` personer jämfört med `r prognos_forsta_ar`. Även i SCB:s senaste prognos (juni 2024), prognostiserades en befolkning på drygt 49 200 personer i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` år `r prognos_ar` (se [SCB, 2024](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0401__BE0401A/BefProgRegFakN/){target="_blank"}).
+* Folkmängden i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` prognostiseras att minska till `r befprognos_Borlange_totalt` personer år `r prognos_ar`, en minskning med ungefär `r befprognos_Borlange_totalt_forandring` personer jämfört med `r prognos_forsta_ar`. Även i SCB:s senaste prognos (juni 2024), prognostiserades en befolkning på drygt 49 200 personer i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` år `r prognos_ar` (se [SCB, 2024](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0401__BE0401A/BefProgRegFakN/){target="_blank"}).
 
 * Den största minskningen sker bland barn och unga, 0-19 år,  som prognostiseras minska med ungefär `r befprognos_Borlange_0_19_forandring` personer fram till `r prognos_ar`.
 
