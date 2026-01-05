@@ -150,7 +150,7 @@ I nästa avsnitt är fokus istället på framtiden. Hur kommer `r unique(befolkn
 
 # Vad händer i framtiden?
 
-För en djupare förståelse runt hur Region Dalarna gör befolkningsprognoser, se motsvarande avsnitt i rapporten för hela Dalarnas län. Det viktigaste att ha i åtanke är att ingen hänsyn tas i prognoserna till planerat bostadsbyggande, företagsetableringar eller andra framtida mål och förutsättningar som kommunerna har i sina planer i prognosen nedan.
+För en djupare förståelse runt hur Region Dalarna gör befolkningsprognoser, se motsvarande avsnitt i rapporten för hela Dalarnas län. Det viktigaste att ha i åtanke är att ingen hänsyn tas i prognoserna till planerat bostadsbyggande, företagsetableringar eller andra framtida mål och förutsättningar som kommunerna har i sina planer.
 
 I diagrammet nedan visas befolkningsutvecklingen i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` fram till `r prognos_ar` uppdelat på åldersgrupper, enligt Region Dalarnas prognos från våren 2025.
 
