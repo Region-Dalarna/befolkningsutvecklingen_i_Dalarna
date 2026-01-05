@@ -161,7 +161,7 @@ I diagrammet nedan visas befolkningsutvecklingen i `r unique(befolkning_df %>% f
 
 * Folkmängden i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` prognostiseras att minska till `r befprognos_Rattvik_totalt` personer år `r prognos_ar`, en minskning med ungefär `r befprognos_Rattvik_totalt_forandring` personer jämfört med `r prognos_forsta_ar`. I SCB:s senaste prognos (juni 2024), prognostiserades en befolkning på drygt 11 100 personer i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` år `r prognos_ar` (se [SCB, 2024](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0401__BE0401A/BefProgRegFakN/){target="_blank"}).
 
-* Den största ökningen prognostiseras i åldergruppen 80+, där befolkningen förväntas öka med ungefär `r befprognos_Rattvik_80plus_forandring` personer fram till 2033. Detta hänger sannolikt samman med att den förväntade livslängden fortsätter öka och att den stora gruppen "baby-boomers" börjar komma upp i 80-års åldern.
+* Den största ökningen prognostiseras i åldergruppen 80+, där befolkningen förväntas öka med ungefär `r befprognos_Rattvik_80plus_forandring` personer fram till `r prognos_ar`. Detta hänger sannolikt samman med att den förväntade livslängden fortsätter öka och att den stora gruppen "baby-boomers" börjar komma upp i 80-års åldern.
 
 * Bland yngre förväntas istället en minskning. Befolkningen i åldersgruppen 0-19 år prognostiseras att minska med ungefär `r befprognos_Rattvik_0_19_forandring` personer under samma tidsperiod.
 

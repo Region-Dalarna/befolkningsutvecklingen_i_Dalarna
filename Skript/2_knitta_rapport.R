@@ -24,7 +24,7 @@ walk(dala_kommuner, ~ {
 #   envir = parent.frame()
 # )
 
-# 
+
 # rmarkdown::render(
 #   input = 'befolkningsutveckling_Avesta.Rmd',
 #   output_file = paste0("befolkningsutveckling_Avesta.html"),
@@ -36,7 +36,7 @@ walk(dala_kommuner, ~ {
 #   output_file = paste0("befolkningsutveckling_Borlänge.html"),
 #   envir = parent.frame()
 # )
-#
+# 
 # rmarkdown::render(
 #   input = 'befolkningsutveckling_Falun.Rmd',
 #   output_file = paste0("befolkningsutveckling_Falun.html"),
@@ -102,7 +102,7 @@ walk(dala_kommuner, ~ {
 #   output_file = paste0("befolkningsutveckling_Rättvik.html"),
 #   envir = parent.frame()
 # )
-
+# 
 # rmarkdown::render(
 #   input = 'befolkningsutveckling_Älvdalen.Rmd',
 #   output_file = paste0("befolkningsutveckling_Älvdalen.html"),
