@@ -61,11 +61,11 @@ walk(dala_kommuner, ~ {
 #   envir = parent.frame()
 # )
 # 
-# rmarkdown::render(
-#   input = 'befolkningsutveckling_Ludvika.Rmd',
-#   output_file = paste0("befolkningsutveckling_Ludvika.html"),
-#   envir = parent.frame()
-# )
+rmarkdown::render(
+  input = 'befolkningsutveckling_Ludvika.Rmd',
+  output_file = paste0("befolkningsutveckling_Ludvika.html"),
+  envir = parent.frame()
+)
 # 
 # rmarkdown::render(
 #   input = 'befolkningsutveckling_Mora.Rmd',
@@ -108,7 +108,7 @@ walk(dala_kommuner, ~ {
 #   output_file = paste0("befolkningsutveckling_Älvdalen.html"),
 #   envir = parent.frame()
 # )
-# 
+
 # rmarkdown::render(
 #   input = 'befolkningsutveckling_Vansbro.Rmd',
 #   output_file = paste0("befolkningsutveckling_Vansbro.html"),
