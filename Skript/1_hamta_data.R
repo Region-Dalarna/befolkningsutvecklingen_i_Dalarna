@@ -46,6 +46,8 @@ if(uppdatera_data == TRUE){
   gg_fodda_doda = diagram_fodelsenetto(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE),
                                        spara_diagrambild = spara_figur,
                                        tid = "*",
+                                       svarta_streck_tjocklek = 0.004,
+                                       stodlinjer_avrunda_fem = FALSE,
                                        returnera_data = TRUE,
                                        output_mapp = Output_mapp_figur)
   # 
@@ -85,7 +87,7 @@ if(uppdatera_data == TRUE){
   gg_flytt_alder <- diagram_inrikes_flytt_alder(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE),
                                                 #tid = c(2000:9999),
                                                 spara_figur = spara_figur,
-                                                valda_ar = c("2022","2023","2024"),
+                                                valda_ar = c("2023","2024","2025"),
                                                 avrunda_fem = FALSE,
                                                 output_mapp_figur = Output_mapp_figur)
   
@@ -107,6 +109,7 @@ if(uppdatera_data == TRUE){
                                         diag_jmf_lan = FALSE, # Skapa diagram för jämförelse mellan valda regioner
                                         diag_forandring = FALSE, # Skapa diagram för förändringar över tid
                                         spara_figur = spara_figur,
+                                        ta_bort_nast_sista = TRUE,
                                         output_mapp_figur = Output_mapp_figur,
                                         vald_period = "*",
                                         facet_skala = "fixed",
@@ -116,6 +119,7 @@ if(uppdatera_data == TRUE){
                                         diag_facet = TRUE, # diag_fokus_tid som facet-diagram istället för ett per region
                                         diag_jmf_lan = TRUE, # Skapa diagram för jämförelse mellan valda regioner
                                         diag_forandring = FALSE, # Skapa diagram för förändringar över tid
+                                        ta_bort_nast_sista = TRUE,
                                         spara_figur = spara_figur,
                                         output_mapp_figur = Output_mapp_figur,
                                         facet_skala = "fixed",

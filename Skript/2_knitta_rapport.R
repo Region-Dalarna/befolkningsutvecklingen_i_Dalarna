@@ -17,12 +17,12 @@ walk(dala_kommuner, ~ {
 })
 
 
-#
-# rmarkdown::render(
-#   input = 'befolkningsutveckling.Rmd',
-#   output_file = paste0("befolkningsutveckling.html"),
-#   envir = parent.frame()
-# )
+
+rmarkdown::render(
+  input = 'befolkningsutveckling.Rmd',
+  output_file = paste0("befolkningsutveckling.html"),
+  envir = parent.frame()
+)
 
 
 # rmarkdown::render(

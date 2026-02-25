@@ -28,13 +28,13 @@ Senast uppdaterad: `r Sys.Date()`</i>
 </p>
 
 # Sammanfattning {-}
-* Dalarnas befolkning minskade med ungefär 500 personer under 2025, en befolkningsminskning som var mindre än året innan. Att befolkningsminskningen har dämpats något år 2025 beror framförallt på att färre personer flyttade från länet än tidigare. Totalt bodde det drygt 286.000 personer i Dalarna vid utgången av år 2025.
-* År 2025 uppvisar det lägsta antalet födda barn i Dalarna sen mätningarna började år 1968. Sjunkande födelsetal är en nationell trend men också en trend i de flesta av världens utvecklade länder. De sjunkande födelsetalen planar ut något nationellt men inte i Dalarna. 
-* Det är fler unga som flyttar från Dalarna till andra delar av Sverige än omvänt under år 2025, men i en mindre omfattning än året innan. 
+* Den lägre minskningen i Dalarnas folkmängd år 2024, jämfört med året innan, beror på att invandringen var klart högre. Detta beror sannolikt delvis på att personer födda i Ukraina har haft möjlighet att ansöka om att bli folkbokförda i Sverige sedan i juni 2024 [(SCB)](https://www.scb.se/hitta-statistik/statistik-efter-amne/befolkning-och-levnadsforhallanden/befolkningens-sammansattning-och-utveckling/befolkningsstatistik/pong/statistiknyhet/befolkningsstatistik-helaret-20242/){target="_blank"}. Totalt bodde `r format(befolkning_df %>% filter(region == "Dalarnas län",år == max(år),variabel == "Folkmängd") %>% .$varde,big.mark = " ") ` personer i länet vid utgången av år `r max(befolkning_df$år)`, att jämföra med `r format(befolkning_df %>% filter(region == "Dalarnas län",år == max(as.integer(år))-1,variabel == "Folkmängd") %>% .$varde,big.mark = " ") ` personer vid utgången av året innan.
+* Det föddes något färre barn i Dalarna 2024 jämfört med åren innan. Detta är i linje med en större trend i samhället, då antalet barn födda i Sverige under 2024 var det lägsta sedan 2002.
+* Många unga vuxna flyttade från Dalarna till andra delar av Sverige under 2024, även om nettot i åldersgruppen har förbättrats jämfört med åren innan.
 * Enligt den senaste befolkningsprognosen från Region Dalarna (våren 2025) förväntas den negativa trenden i Dalarnas befolkningsutveckling fortsätta även i framtiden. Befolkningen minskar framförallt i yngre åldersgrupper, medan antalet äldre invånare förväntas öka avsevärt.
 
 # Introduktion {-}
-Hur folkmängden förändras över tid är en central fråga för såväl samhällsplanering som politik. Befolkningsutvecklingen påverkar allt från bostadsmarknaden och arbetsmarknaden till skatteintäkter och välfärdssystem. Såväl Västvärlden i stort som delar av Asien står inför en rad demografiska utmaningar, såsom en åldrande befolkning och minskande barnafödande. I Sverige var exempelvis barnafödandet per kvinna under 2025 det lägsta som uppmätts. 
+Hur folkmängden förändras över tid är en central fråga för såväl samhällsplanering som politik. Befolkningsutvecklingen påverkar allt från bostadsmarknaden och arbetsmarknaden till skatteintäkter och välfärdssystem. Såväl Västvärlden i stort som delar av Asien står inför en rad demografiska utmaningar, såsom en åldrande befolkning och minskande barnafödande. I Sverige var exempelvis barnafödandet per kvinna under 2024 det lägsta som uppmätts. 
 
 Under det senaste året har befolkningsutvecklingen förändrats markant och många kommuner som har växt på sistone har nu istället en krympande befolkning. Med utgångspunkt i den typen av trender, analyseras i denna rapport befolkningsutvecklingen i Dalarnas län med fokus på hur folkmängden har förändrats över tid. Genom att undersöka faktorer som födelsetal, dödstal, in- och utvandring, samt flyttmönster, presenteras en bild av de demografiska trenderna i länet. Rapporten ger också en översikt av utvecklingen i länets kommuner.
 
@@ -52,15 +52,6 @@ Under 2023 inledde Skatteverket ett arbete med att granska registret över folkb
 För en större genomgång av hur folk- och bostadsräkningar går till i Sverige, se SCBs genomgång [här](https://www.scb.se/hitta-statistik/statistik-efter-amne/befolkning-och-levnadsforhallanden/befolkningens-sammansattning-och-utveckling/registerbaserad-folk--och-bostadsrakning-census/produktrelaterat/Fordjupad-information/fragor-och-svar-om-folk--och-bostadsrakningar-census-med-mera/){target="_blank"}.
 
 All data som används i rapporten, förutom befolkningsprognoserna, är offentlig och finns under kategorin befolkning i SCB:s [Statistikdatabas](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/){target="_blank"}. Där finns även data för exempelvis befolkningsutvecklingen under 2025 på månadsbasis som publiceras löpande, något som inte behandlas i denna rapport.
-
-Från och med referensåret 2025 och framåt är en liten kontrollerad slumpmässig osäkerhet införd i samtliga redovisade uppgifter. Osäkerheten har tillförts för att skydda enskilda personer så att ingen riskerar att röjas i statistiken. Till följd av detta så är inte alltid de redovisade totalerna lika med summan av deras redovisade delar.
-
-Om redovisade statistikvärden adderas för att skapa en ny total, så adderas även osäkerheten. Det finns därför risk för att den nya totalen innehåller större osäkerhet än vad som, enligt metoden, skulle ha tillförts ett enskilt statistikvärde.
-
-Metoden som används för röjandekontroll heter Cell Key Method (CKM). Du kan läsa mer om metoden här: [Skyddsmetoder för röjandekontroll](https://www.scb.se/dokumentation/statistiska-metoder/skyddsmetoder-for-rojandekontroll/){target="_blank"} och här: [utveckling av röjandeskyddet](https://www.scb.se/dokumentation/statistikomraden-under-forandring/utveckling-av-rojandeskyddet/){target="_blank"}, samt i befolkningsstatistikens dokumentation (kvalitetsdeklarationen, avsnitt 2.2.6).
-
-FAQ om CKM-metoden hittar du här: [Frågor och svar om röjandeskydd i befolkningsstatistiken](https://www.scb.se/FAQ-CKM){target="_blank"}
-
 
 </div>
 </details>
@@ -105,7 +96,7 @@ gg_kartor$karta_kommun
 
 ```
 
-Om fokus läggs på utvecklingen i Dalarnas län på årsbasis, är det tydligt att befolkningsförändringarna följer ett visst mönster, där perioder av tydliga befolkningsökningar följs av perioder av befolkningsminskningar. Exakt vad alla svängningar beror på kan vara svårt att veta, men uppenbart är i alla fall att den tydliga minskningen under 1990-talet hänger samman med den djupa ekonomiska kris som då drabbade Sverige och Dalarna. Folkmängden i länet minskade med mer än 14 000 personer mellan 1994 och 2001. Sedan millennieskiftet har befolkningsutvecklingen varit mer stabil, med en ökning på ungefär `r format(plyr::round_any(befolkning_df %>% filter(region == "Dalarnas län",år>"1999",variabel == "Folkökning") %>% .$varde %>% sum(),100),big.mark = " ")` personer under 2000-talet. Sedan mitten av 2010-talet har en viktig anledning till ökningen varit åren runt 2015-2016, när många invandrade till Dalarna. Under `r max(befolkning_df$år)` minskade befolkningen i länet med drygt `r abs(plyr::round_any(befolkning_df %>% filter(år == max(år),variabel == "Folkökning",region == "Dalarnas län") %>% .$varde,100))` personer, vilket är en lägre minskning än åren innan. 
+Om fokus läggs på utvecklingen i Dalarnas län på årsbasis, är det tydligt att befolkningsförändringarna följer ett visst mönster, där perioder av tydliga befolkningsökningar följs av perioder av befolkningsminskningar. Exakt vad alla svängningar beror på kan vara svårt att veta, men uppenbart är i alla fall att den tydliga minskningen under 1990-talet hänger samman med den djupa ekonomiska kris som då drabbade Sverige och Dalarna. Folkmängden i länet minskade med mer än 14 000 personer mellan 1994 och 2001. Sedan millennieskiftet har befolkningsutvecklingen varit mer stabil, med en ökning på ungefär `r format(plyr::round_any(befolkning_df %>% filter(region == "Dalarnas län",år>"1999",variabel == "Folkökning") %>% .$varde %>% sum(),100),big.mark = " ")` personer under 2000-talet. Sedan mitten av 2010-talet har en viktig anledning till ökningen varit åren runt 2015-2016, när många invandrade till Dalarna. Under `r max(befolkning_df$år)` minskade befolkningen i länet med drygt `r abs(plyr::round_any(befolkning_df %>% filter(år == max(år),variabel == "Folkökning",region == "Dalarnas län") %>% .$varde,100))` personer, vilket är en lägre minskning än året innan men den näst största minskningen sedan tidigt på 2000-talet. 
 
 Sammantaget har Dalarnas befolkning ökat från `r format(befolkning_df %>% filter(region == "Dalarnas län",år == min(år),variabel == "Folkmängd") %>% .$varde,big.mark = " ") ` personer år `r min(befolkning_df$år)` till `r format(befolkning_df %>% filter(region == "Dalarnas län",år == max(år),variabel == "Folkmängd") %>% .$varde,big.mark = " ") ` personer år `r max(befolkning_df$år)`. Som störst var befolkningen i Dalarna 1994, då den uppgick till `r format(befolkning_df %>% filter(region == "Dalarnas län",år == "1994",variabel == "Folkmängd") %>% .$varde,big.mark = " ") ` personer.
 
@@ -114,8 +105,6 @@ gg_befolkning$Befolkningsutveckling_Dalarna
 ```
 
 ## Åldersstruktur
-
-*Notera att diagrammet nedan inte har uppdaterats med ny data. Detta sker eventuellt vid ett senare tillfälle.*
 
 Även om folkmängden i Dalarna idag är ungefär lika stor som den var i slutet av 1960-talet, är dess sammansättning väsentligt annorlunda, framförallt när det kommer till åldersfördelningen. Från slutet av andra världskriget fram till mitten av 1960-talet föddes många barn i Sverige, vilka brukar sägas tillhöra generationen "baby-boomers". Detta syns tydligt i diagrammet nedan, där andelen av befolkningen som var under 30 år 1968 var klart högre än idag. I början av 1990-talet fick många "baby-boomers" barn. Dessa är idag är runt 30 år gamla. Till följd av detta är personer i den åldersgruppen klart fler idag än de var på 1960-talet. I diagrammet framgår även att andelen av befolkningen som är 65 år eller äldre har ökat kraftigt sedan 1968. Detta hänger samman med att "baby-boomers" börjar nå pensionsåldern, samtidigt som den förväntade livslängden i samhället stadigt ökat över tid. 
 
@@ -131,7 +120,7 @@ I fortsättningen av denna rapport delas Dalarnas befolkningsutveckling in i de 
 # Födelsenetto
 
 ## Fruktsamhet
-Summerad fruktsamhet per kvinna är ett mått på hur många barn som en kvinna i genomsnitt skulle föda under sin fruktsamma period utifrån, den vid tidpunkten för beräkningen, gällande fruktsamheten. I relation till befolkningen var barnafödandet i Sverige år 2025 det lägsta som uppmätts (SCB har data sedan mitten av 1700-talet), en utveckling som är densamma i stora delar av västvärlden ([SCB](https://www.scb.se/hitta-statistik/statistik-efter-amne/befolkning-och-levnadsforhallanden/befolkningens-sammansattning-och-utveckling/befolkningsstatistik/pong/statistiknyhet/befolkningsstatistik-ar-2025-omgang-1/){target="_blank"}). Skillnaden jämfört med 2024 var dock liten. En viktig förklaring till att barnafödandet har minskat i Sverige under 2010-talet är att sannolikheten att skaffa sitt första barn har minskat. För en fördjupad diskussion runt det låga barnafödandet i Sverige, se informationsrutan nedan.
+Summerad fruktsamhet per kvinna är ett mått på hur många barn som en kvinna i genomsnitt skulle föda under sin fruktsamma period utifrån, den vid tidpunkten för beräkningen, gällande fruktsamheten. I relation till befolkningen var barnafödandet i Sverige år 2024 det lägsta som uppmätts (SCB har data sedan mitten av 1700-talet), en utveckling som är densamma i stora delar av västvärlden ([SCB](https://www.scb.se/hitta-statistik/statistik-efter-amne/befolkning-och-levnadsforhallanden/befolkningens-sammansattning-och-utveckling/befolkningsstatistik/pong/statistiknyhet/befolkningsstatistik-helaret-2024/){target="_blank"}). En viktig förklaring till att barnafödandet har minskat i Sverige under 2010-talet är att sannolikheten att skaffa sitt första barn har minskat. För en fördjupad diskussion runt det låga barnafödandet i Sverige, se informationsrutan nedan.
 
 <details>
 <summary>Ett historiskt lågt barnafödande</summary>
@@ -201,7 +190,7 @@ gg_fruktsamhet_kommun$jmf_summerad_fruktsamhet_Dalarna
 
 ```
 
-Det är dock viktigt att notera att fruktsamheten på kommunnivå kan variera relativt mycket över tid. I större kommuner som Falun och Borlänge påminner utvecklingen om den i Dalarna och riket, där fruktsamheten ser ut att följa en trend. I mindre kommuner är variationen större mellan åren och det blir svårare att utläsa en långsiktig trend. Ett tydligt exempel på det är Gagnef som 2023 hade den högsta fruktsamheten bland länets kommuner, men året efter hade den lägsta. År 2025 var fruktsamheten i Gagnef återigen högst bland länets kommuner.
+Det är dock viktigt att notera att fruktsamheten på kommunnivå kan variera relativt mycket över tid. I större kommuner som Falun och Borlänge påminner utvecklingen om den i Dalarna och riket, där fruktsamheten ser ut att följa en trend. I mindre kommuner är variationen större mellan åren och det blir svårare att utläsa en långsiktig trend. Ett tydligt exempel på det är Gagnef som 2023 hade den högsta fruktsamheten bland länets kommuner, men 2024 hade den lägsta.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_fruktsamhet_kommun$summerad_fruktsamhet_Vansbro_facet
@@ -210,9 +199,9 @@ gg_fruktsamhet_kommun$summerad_fruktsamhet_Vansbro_facet
 
 ## Nettot mellan födda och döda
 
-Under `r max(fodda_doda_df$år)` avled `r format(fodda_doda_df %>% filter(år == max(år)) %>% filter(region == "Dalarnas län",variabel == "Döda") %>% .$varde,big.mark = " ")` personer boende i Dalarna, vilket var något färre än året innan. Generellt går utvecklingen i länet mot att människor lever allt längre. I slutet av 1960-talet dog runt 3 300 personer i Dalarna, vilket är fler än idag, trots att befolkningen då hade en annan ålderstruktur med en betydligt större andel unga (se avsnittet om åldersstruktur ovan). En viktig förklaring till detta är att den förväntade livslängden ökat kraftigt över tid, från 72 år för män och 77 år för kvinnor år 1970 till ungefär 82 år för män och 85 år för kvinnor idag ([SCB](https://www.scb.se/hitta-statistik/sverige-i-siffror/manniskorna-i-sverige/medellivslangd-i-sverige/#Medellivslangd_over_tid){target="_blank"}). För en diskussion runt varför medellivslängden i Sverige har ökat över tid, se exempelvis [KI](https://ki.se/forskning/popularvetenskap-och-dialog/popularvetenskapliga-teman/tema-halsosamt-aldrande/nyfiken-pa-livslangd){target="_blank"} eller [SCB](https://www.scb.se/hitta-statistik/sverige-i-siffror/manniskorna-i-sverige/medellivslangd-i-sverige){target="_blank"}.
+Under `r max(fodda_doda_df$år)` avled `r format(fodda_doda_df %>% filter(år == max(år)) %>% filter(region == "Dalarnas län",variabel == "Döda") %>% .$varde,big.mark = " ")` personer boende i Dalarna, vilket var något färre än året innan. Generellt går utvecklingen i länet mot att människor lever allt längre. I slutet av 1960-talet dog runt 3 300 personer i Dalarna, vilket är ungefär lika många som idag, trots att befolkningen då hade en annan ålderstruktur med en betydligt större andel unga (se avsnittet om åldersstruktur ovan). En viktig förklaring till detta är att den förväntade livslängden ökat kraftigt över tid, från 72 år för män och 77 år för kvinnor år 1970 till ungefär 82 år för män och 85 år för kvinnor idag ([SCB](https://www.scb.se/hitta-statistik/sverige-i-siffror/manniskorna-i-sverige/medellivslangd-i-sverige/#Medellivslangd_over_tid){target="_blank"}). För en diskussion runt varför medellivslängden i Sverige har ökat över tid, se exempelvis [KI](https://ki.se/forskning/popularvetenskap-och-dialog/popularvetenskapliga-teman/tema-halsosamt-aldrande/nyfiken-pa-livslangd){target="_blank"} eller [SCB](https://www.scb.se/hitta-statistik/sverige-i-siffror/manniskorna-i-sverige/medellivslangd-i-sverige){target="_blank"}.
 
-Även när det gäller antalet födslar är trenden negativ. Under vissa år i början av 1990-talet föddes över 4 000 barn i Dalarna, men därefter skedde en dramatisk nedgång, vilket sannolikt hör samman med 1990-talskrisen (se även avsnittet om fruktsamhet ovan). Under 2000-talet skedde en gradvis ökning av antalet födda fram till åren runt 2016 när många invandrade till Dalarna. Därefter har födslarna återigen börjat minska och år `r max(fodda_doda_df$år)` föddes `r format(fodda_doda_df %>% filter(år == max(år)) %>% filter(region == "Dalarnas län",variabel == "födda") %>% .$varde,big.mark = " ")` barn i Dalarna, den lägsta siffran sedan åtminstone 1968.
+Även när det gäller antalet födslar är trenden negativ. Under vissa år i början av 1990-talet föddes över 4 000 barn i Dalarna, men därefter skedde en dramatisk nedgång, vilket sannolikt hör samman med 1990-talskrisen (se även avsnittet om fruktsamhet ovan). Under 2000-talet skedde en gradvis ökning av antalet födda fram till åren runt 2016 när många invandrade till Dalarna. Därefter har födslarna återigen börjat minska och år `r max(fodda_doda_df$år)` föddes `r format(fodda_doda_df %>% filter(år == max(år)) %>% filter(region == "Dalarnas län",variabel == "födda") %>% .$varde,big.mark = " ")` barn i Dalarna, den lägsta siffran sedan 2001.
 
 Sammantaget har nettot mellan födda och döda, se de svarta linjerna i diagrammet nedan, varit negativt i Dalarna under varje år sedan början av 1990-talet. Hur många invånare som länet tappar på grund av det varierar relativt mycket mellan åren, men under `r max(fodda_doda_df$år)` minskade befolkningen med `r abs(fodda_doda_df %>% filter(år == max(år),variabel == "netto",region == "Dalarnas län") %>% .$varde)` personer till följd av ett negativt födelsenetto.
 
@@ -233,23 +222,17 @@ Som föregående diagram visade, bidrar nettot mellan födda och döda i praktik
 
 Generellt flyttar personer inrikes i första hand till större städer och universitetsorter. Detta hänger sannolikt samman med att dessa orter har en stor arbetsmarknad och goda utbildningsmöjligheter. 
 
-Bland Sveriges län sticker Skåne ut, med mer än dubbelt så stort inrikes flyttnetto som något annat län. Även Uppsala sticker ut, med stort flyttnetto relativt sin befolkning. Anmärkningsvärt är även att inrikes flyttnettot till Stockholms län var negativt under 2025, vilket är i linje med en trend de senaste åren. En viktig förklaring till det är sannolikt att den stora gruppen födda i början av 1990-talet börjar komma upp i 30-årsåldern och då väljer att flytta från Stockholm till mindre städer. Störst negativt inrikes flyttnetto hade Västerbottens län, vilket hänger samman med konkursen för batteritillverkaren Northvolt i Skellefteå, något som lett till en stor utflyttning. 
-
-I Dalarna var det inrikes flyttnettot under `r max(flytt_overskott$år)` negativt och 6:e lägst bland Sveriges län.
+Bland Sveriges län sticker Skåne ut, med mer än dubbelt så stort inrikes flyttnetto som något annat län. Även Uppsala och Västerbotten sticker ut, med stora flyttnetton relativt sin befolkning. I Västerbottens fall hänger detta samman med en stor industrisatsning i Skellefteå, där befolkningen ökade med mer än 1500 personer under 2024. Värt att notera är dock att ökningen i Skellefteå är koncentrerad till första halvåret 2024, innan batteritillverkaren i fråga fick ekonomiska bekymmer och nu befinner sig i rekonstruktion. Anmärkningsvärt är även att inrikes flyttnettot till Stockholms län var negativt under 2024, vilket är i linje med en trend de senaste åren. En viktig förklaring till det är sannolikt att den stora gruppen födda i början av 1990-talet börjar komma upp i 30-årsåldern och då väljer att flytta från Stockholm till mindre städer. I Dalarna var det inrikes flyttnettot under 2024 negativt och 3:e lägst bland Sveriges län.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt_lan$inrikes_flyttningsoverskott
 ```
 
-Att det inrikes flyttnetto i Dalarna var negativt under `r max(flytt_overskott$år)` är inget unikt. Sedan slutet av 1990-talet har det varit negativt i Dalarna under en överväldigande majoritet av åren. En viktig förklaring till detta är sannolikt att befolkningen i Sverige blir mer urbaniserad, vilket innebär att allt fler flyttar från mindre län till storstadsregioner. I Dalarna är det framförallt unga personer som flyttar, vilket kan förklaras med att de flyttar för att studera och arbeta. Mer om detta senare. 
-
-Intressant att notera är dock att det inrikes flyttnettot i Dalarna under `r max(flytt_overskott$år)` var tydligt mindre negativt, jämfört med åren innan.
+Att det inrikes flyttnetto i Dalarna var negativt under `r max(flytt_overskott$år)` är inget unikt. Sedan slutet av 1990-talet har det varit negativt i Dalarna under en överväldigande majoritet av åren. En viktig förklaring till detta är sannolikt att befolkningen i Sverige blir mer urbaniserad, vilket innebär att allt fler flyttar från mindre län till storstadsregioner. I Dalarna är det framförallt unga personer som flyttar, vilket kan förklaras med att de flyttar för att studera och arbeta. Mer om detta senare.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt$`Inrikes flyttningsöverskott_Dalarna`
 ```
-
-*Notera att de två diagrammen nedan inte har uppdaterats med ny data. Detta sker vid ett senare tillfälle.*
 
 Flyttar från Dalarna inrikes sker i första hand till antingen större eller näraliggande län. Flest flyttar skedde till Stockholm, följt av Västmanland och Uppsala. Få flyttar till små län långt bort, såsom Gotland och Blekinge.
 
@@ -265,11 +248,11 @@ gg_inflytt_lan$Flytt_till_Dalarna
 
 ## Utrikes flyttningar
 
-Trots att såväl det inrikes flyttnettot som födelsenettot i normala fall är negativa i Dalarna, har befolkningen i länet ökat med runt `r format(plyr::round_any(befolkning_df %>% filter(region == "Dalarnas län",år>"1999",variabel == "Folkökning") %>% .$varde %>% sum(),100),big.mark = " ")` personer sedan millennieskiftet. Detta beror på att den sista komponenten som styr befolkningsutvecklingen, det utrikes flyttnettot, har varit positivt.  Framförallt invandrade många till Dalarna under åren runt 2015-2016, då mer än 7000 personer netto flyttade till länet från utlandet under ett par år. Sedan dess har invandringen dock minskat avsevärt och under `r unique(flytt_overskott$år)` var det utrikes flyttnettot i Dalarna `r flytt_overskott %>% filter(region=="Dalarnas län",variabel == "Invandringsöverskott") %>% .$varde` personer. Detta är i linje med perioden 2019-2022 samt 2024, men klart högre än 2023. Den tydliga ökningen `r unique(flytt_overskott$år)` och 2024, jämfört med 2023, beror sannolikt delvis på att personer födda i Ukraina, som tidigare haft ett uppehållstillstånd med tillfälligt skydd enligt massflyktdirektivet, har haft möjlighet att ansöka om att bli folkbokförda i Sverige sedan i juni 2024 [(SCB)](https://www.scb.se/hitta-statistik/statistik-efter-amne/befolkning-och-levnadsforhallanden/befolkningens-sammansattning-och-utveckling/befolkningsstatistik/pong/statistiknyhet/befolkningsstatistik-helaret-20242/){target="_blank"}. Antalet folkbokförda i Dalarna födda i Ukraina har ökat från drygt 200 personer 2023 till 750 personer 2025 [(SCB)](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0101__BE0101E/FolkmRegFlandKCKM/table/tableViewLayout1/){target="_blank"}. 
+Trots att såväl det inrikes flyttnettot som födelsenettot i normala fall är negativa i Dalarna, har befolkningen i länet ökat med runt `r format(plyr::round_any(befolkning_df %>% filter(region == "Dalarnas län",år>"1999",variabel == "Folkökning") %>% .$varde %>% sum(),100),big.mark = " ")` personer sedan millennieskiftet. Detta beror på att den sista komponenten som styr befolkningsutvecklingen, det utrikes flyttnettot, har varit positivt.  Framförallt invandrade många till Dalarna under åren runt 2015-2016, då mer än 7000 personer netto flyttade till länet från utlandet under ett par år. Sedan dess har invandringen dock minskat avsevärt och under `r unique(flytt_overskott$år)` var det utrikes flyttnettot i Dalarna `r flytt_overskott %>% filter(region=="Dalarnas län",variabel == "Invandringsöverskott") %>% .$varde` personer. Detta är i linje med perioden 2019-2022, men klart högre än 2023. Den tydliga ökningen 2024 jämfört med 2023, beror sannolikt delvis på att personer födda i Ukraina, som tidigare haft ett uppehållstillstånd med tillfälligt skydd enligt massflyktdirektivet, har haft möjlighet att ansöka om att bli folkbokförda i Sverige sedan i juni 2024 [(SCB)](https://www.scb.se/hitta-statistik/statistik-efter-amne/befolkning-och-levnadsforhallanden/befolkningens-sammansattning-och-utveckling/befolkningsstatistik/pong/statistiknyhet/befolkningsstatistik-helaret-20242/){target="_blank"}. Antalet folkbokförda i Dalarna födda i Ukraina ökade från drygt 200 personer 2023 till 667 personer 2024 [(SCB)](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0101__BE0101E/FolkmRegFlandK/table/tableViewLayout1/){target="_blank"}. 
 
 Viktigt att notera är även att det anmärkningsvärt låga nettot 2023, jämfört med åren innan, delvis kan förklaras med att Skatteverket under 2023 inledde ett arbete med att avregistrera tusentals folkbokförda personer som vid en granskning visat sig inte längre bo i Sverige (se informationsrutan under avsnittet introduktion ovan). Totalt avskrevs drygt 190 personer i Dalarna som utvandrade 2023 och 260 personer 2024.
 
-Den främsta anledningen till det låga invandringsöverskottet på senare år är dock sannolikt en förändrad migrationspolitik. Med undantag för 2024, invandrade mellan 1 400 och 1 800 personer till Dalarna årligen under perioden 2020-2023 samt 2025, att jämföra med mellan 2 000 och 3 000 personer årligen åren dessförinnan. 
+Den främsta anledningen till det låga invandringsöverskottet på senare år är dock sannolikt en förändrad migrationspolitik. Med undantag för 2024, invandrade mellan 1 400 och 1 600 personer till Dalarna årligen under perioden 2020-2023, att jämföra med mellan 2 000 och 3 000 personer årligen åren dessförinnan. 
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt$Invandringsöverskott_Dalarna
@@ -279,7 +262,7 @@ gg_flytt$Invandringsöverskott_Dalarna
 
 ## Flyttnetto
 
-Sammantaget har Dalarnas län haft ett positivt flyttnetto under de flesta åren sedan millennieskiftet, vilket förklarar varför befolkningen har ökat. Efter att ha ökat marginellt under 2024, var flyttnettot till Dalarna tydligt mer positivt `r unique(flytt_overskott$år)`. Att flyttnettot blev mer positivt under `r unique(flytt_overskott$år)` beror på att det inrikes flyttnettot var mindre negativt, vilket diskuterades i avsnittet "inrikes flyttningar" ovan. 
+Sammantaget har Dalarnas län haft ett positivt flyttnetto under de flesta åren sedan millennieskiftet, vilket förklarar varför befolkningen har ökat. Efter att ha varit tydligt negativt under 2023, var flyttnettot till Dalarna positivt `r unique(flytt_overskott$år)`. Att flyttnettot blev positivt under `r unique(flytt_overskott$år)` beror på att invandringsöverskottet ökade, vilket diskuterades i föregående avsnitt. 
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt$Flyttnetto_Dalarna
@@ -289,9 +272,9 @@ För att fördjupa förståelsen kring vilka som flyttar till och från Dalarna 
 
 ## Åldersfördelning
 
-Normalt är personer mest benägna att flytta till en annan ort när de är i 20-års åldern, därefter avtar flyttandet gradvis med åldern ([SCB](https://www.scb.se/hitta-statistik/sverige-i-siffror/manniskorna-i-sverige/flyttar-inom-sverige/){target="_blank"}). Unga personer flyttar bland annat för att studera och arbeta. Även i Dalarna är det framförallt unga personer som flyttar från länet (netto), vilket hänger samman med att länets arbetsmarknad är liten i jämförelse med många större regioner och att Högskolan Dalarna har relativt få studenter. Totalt minskade befolkningen i Dalarna med `r abs(sum(flytt_aldersgrupper_df %>% filter(variabel == "Inrikes flyttningsöverskott",år == max(år),region == "Dalarnas län",alder_grupper %in% c("0-19 år","20-29 år")) %>% .$varde)) ` personer under `r max(flytt_aldersgrupper_df$år)` till följd av att personer under 30 flyttade till andra län (netto). Av dessa var `r abs(flytt_aldersgrupper_df %>% filter(variabel == "Inrikes flyttningsöverskott",år == max(år),region == "Dalarnas län",alder_grupper %in% c("20-29 år")) %>% .$varde)` personer i åldern 20-29 år och kan därmed anses ha flyttat på eget initiativ. Värt att notera är att utflyttningen i åldersgruppern 0-19 år minskade tydligt (netto) år `r max(flytt_aldersgrupper_df$år)`, jämfört med åren innan.
+Normalt är personer mest benägna att flytta till en annan ort när de är i 20-års åldern, därefter avtar flyttandet gradvis med åldern ([SCB](https://www.scb.se/hitta-statistik/sverige-i-siffror/manniskorna-i-sverige/flyttar-inom-sverige/){target="_blank"}). Unga personer flyttar bland annat för att studera och arbeta. Även i Dalarna är det framförallt unga personer som flyttar från länet (netto), vilket hänger samman med att länets arbetsmarknad är liten i jämförelse med många större regioner och att Högskolan Dalarna har relativt få studenter. Totalt minskade befolkningen i Dalarna med `r abs(sum(flytt_aldersgrupper_df %>% filter(variabel == "Inrikes flyttningsöverskott",år == max(år),region == "Dalarnas län",alder_grupper %in% c("-19 år","20-29 år")) %>% .$varde)) ` personer under `r max(flytt_aldersgrupper_df$år)` till följd av att personer under 30 flyttade till andra län (netto). Av dessa var `r abs(flytt_aldersgrupper_df %>% filter(variabel == "Inrikes flyttningsöverskott",år == max(år),region == "Dalarnas län",alder_grupper %in% c("20-29 år")) %>% .$varde)` personer i åldern 20-29 år och kan därmed anses ha flyttat på eget initiativ. Nettot i åldersgruppen var dock klart mindre negativt än åren innan.
 
-Bland övriga åldersgrupper i diagrammet nedan var nettoflyttningen till Dalarna (inrikes) under `r max(flytt_aldersgrupper_df$år)` positiv i flera åldergrupper. Störst var inflyttningen i åldersgruppen `r flytt_aldersgrupper_df %>% filter(variabel == "Inrikes flyttningsöverskott",år == max(år),region == "Dalarnas län") %>% filter(varde == max(varde)) %>% .$alder_grupper`, inom vilken `r flytt_aldersgrupper_df %>% filter(variabel == "Inrikes flyttningsöverskott",år == max(år),region == "Dalarnas län") %>% filter(varde == max(varde)) %>% .$varde` personer flyttade till Dalarna netto. Detta var tydligt fler än året innan. Grovhugget kan Dalarna därför sägas vara ett län som unga lämnar för att söka jobb eller börja studera på annan ort, innan vissa i 30-års åldern återvänder till länet när det blivit dags att bilda familj.
+Bland övriga åldersgrupper i diagrammet nedan var nettoflyttningen till Dalarna (inrikes) under `r max(flytt_aldersgrupper_df$år)` bara positiv i åldergruppen `r flytt_aldersgrupper_df %>% filter(variabel == "Inrikes flyttningsöverskott",år == max(år),region == "Dalarnas län") %>% filter(varde == max(varde)) %>% .$alder_grupper`, inom vilken `r flytt_aldersgrupper_df %>% filter(variabel == "Inrikes flyttningsöverskott",år == max(år),region == "Dalarnas län") %>% filter(varde == max(varde)) %>% .$varde` personer flyttade till Dalarna netto. Grovhugget kan Dalarna därför sägas vara ett län som unga lämnar för att söka jobb eller börja studera på annan ort, innan vissa i 30-års åldern återvänder till länet när det blivit dags att bilda familj.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt_alder$Inrikes_flyttnetto_alder_Dalarna
@@ -307,35 +290,31 @@ gg_flytt_alder$`Inrikes flyttnetto_alder_20-29 år_Dalarna`
 
 ## Bakgrund
 
-*Notera att diagrammet nedan inte har uppdaterats med ny data. Detta sker vid ett senare tillfälle.*
-
 För att ytterligare förtydliga vilka som flyttar till och från Dalarna inrikes, delas de i detta avsnitt upp efter inrikes respektive utrikes födda. 
 
-Tydligt är att många av de som invandrade till länet i under åren runt 2015-2016 har flyttat därifrån sedan dess. Totalt har `r format(abs(sum(flytt_bakgrund_df %>% filter(region == "Dalarna",år>2016,födelseregion == "utrikes född") %>% .$Inrikes_flyttnetto)),big.mark = " ")` utrikes födda flyttat från Dalarna till andra län sedan 2017 (netto). För inrikes födda är bilden annorlunda. Under samma tidsperiod flyttade `r sum(flytt_bakgrund_df %>% filter(region == "Dalarna",år>2016,födelseregion == "född i Sverige") %>% .$Inrikes_flyttnetto)` personer födda i Sverige till Dalarna (netto). Inflyttningen skedde dock framförallt mellan 2020 och 2022, vilket kan vara en effekt av Corona-pandemin. Under `r max(flytt_bakgrund_df$år)` flyttade `r flytt_bakgrund_df %>% filter(region == "Dalarna",år == max(år),födelseregion == "född i Sverige") %>% .$Inrikes_flyttnetto` person född i Sverige till Dalarna från andra län netto.
+Tydligt är att många av de som invandrade till länet i under åren runt 2015-2016 har flyttat därifrån sedan dess. Totalt har `r format(abs(sum(flytt_bakgrund_df %>% filter(region == "Dalarna",år>2016,födelseregion == "Utrikes född") %>% .$Inrikes_flyttnetto)),big.mark = " ")` utrikes födda flyttat från Dalarna till andra län sedan 2017 (netto). För inrikes födda är bilden annorlunda. Under samma tidsperiod flyttade `r sum(flytt_bakgrund_df %>% filter(region == "Dalarna",år>2016,födelseregion == "Född i Sverige") %>% .$Inrikes_flyttnetto)` personer födda i Sverige till Dalarna (netto). Inflyttningen skedde dock framförallt mellan 2020 och 2022, vilket kan vara en effekt av Corona-pandemin. Under `r max(flytt_bakgrund_df$år)` flyttade `r flytt_bakgrund_df %>% filter(region == "Dalarna",år == max(år),födelseregion == "Född i Sverige") %>% .$Inrikes_flyttnetto` person född i Sverige till Dalarna från andra län netto.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt_bakgrund$Flyttnetto_bakgrund_Dalarna
 ```
 <br>
 
-I nästa avsnitt är fokus istället på framtiden. Hur kommer Dalarnas folkmängd att utvecklas fram till år 2034?
+I nästa avsnitt är fokus istället på framtiden. Hur kommer Dalarnas folkmängd att utvecklas fram till år 2033?
 
 # Vad händer i framtiden?
 
-*Notera att prognosen nedan gjordes våren 2025. Avsnittet kommer därför att uppdateras med en ny prognos under våren 2026.*
-
 Till följd av att SCB bara gör befolkningsprognoser vart tredje år på läns- och kommunal nivå, har Region Dalarna, med hjälp av ett skript i R som Region Halland skapat, valt att ta fram egna befolkningsprognoser. Eftersom prognoser blir osäkrare desto längre fram i tiden de sträcker sig, är fokus i detta avsnitt enbart på prognosen 10 år framåt i tiden, dvs. fram till 2034. För SCB:s senaste befolkningsprognos för Dalarna, se [SCB, 2024](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0401__BE0401A/BefProgRegFakN/){target="_blank"}.
 
-För en djupare förståelse för hur Region Dalarna gör sina befolkningsprognoser, se informationsrutan nedan. Till skillnad från de prognoser som SCB gör, har Region Dalarna valt att ta hänsyn till Ludvikas expansion kopplat till Hitachi i sina befolkningsprognoser. Detta påverkar även prognos för hela Dalarna. För övriga kommuner, tas ingen hänsyn i prognoserna till exempelvis företagsetableringar eller andra framtida mål och förutsättningar som kommunerna har i sina planer. Metoden är i övrigt till stora delar densamma som SCB använder.
+För en djupare förståelse för hur Region Dalarna gör sina befolkningsprognoser, se informationsrutan nedan. Till skillnad från de prognoser som SCB gör, har Region Dalarna valt att ta hänsyn till Ludvikas expansion kopplat till Hitachi i sina befolkningsprognoser. Detta påverkar även prognos för hela Dalarna. För övriga kommuner, tas ingen hänsyn i prognoserna till planerat bostadsbyggande, företagsetableringar eller andra framtida mål och förutsättningar som kommunerna har i sina planer. 
 
 <details>
-<summary>Region Dalarnas Befolkningsprognoser</summary>
+<summary>SCB:s Befolkningsprognoser</summary>
 
-<div title="Källa: Region Dalarna">Den framtida befolkningens storlek och sammansättning bestäms av antaganden om den framtida utvecklingen av fruktsamhet, dödlighet och flyttningsmönster. Beräkningarna bygger på vad som observerats under de senaste åren och ett antagande om att den utvecklingen fortsätter. I beräkningarna tas ingen hänsyn till exempelvis företagsetableringar eller andra framtida mål och förutsättningar i kommunerna.
+<div title="Källa: SCB">Den framtida befolkningens storlek och sammansättning bestäms av antaganden om den framtida utvecklingen av fruktsamhet, dödlighet och flyttningsmönster. Beräkningarna bygger på vad som observerats under de senaste nio åren och ett antagande om att den utvecklingen fortsätter. I beräkningarna tas ingen hänsyn till planerat bostadsbyggande, företagsetableringar eller andra framtida mål och förutsättningar i kommunerna.
+
+De regionala befolkningsframskrivningarna överensstämmer med framskrivningen för riket.
 
 Både små och stora strukturförändringar i samhället påverkar den framtida befolkningsutvecklingen, vilket innebär att det finns en osäkerhet förenad med framskrivningen. Notera att befolkningsframskrivningen endast ger en uppskattning av hur en framtida befolkning kan komma att se ut. Generellt gäller att osäkerheten i framskrivningen ökar med åren.
-
-Befolkningsprognoser visar hur utvecklingen kommer att bli om den fortsätter ungefär som nu, alltså att fruktsamhet, dödlighet, flyttar samt invandring/utvandring fortsätter som tidigare i varje 1-årsgrupp per kön. 
 </div>
 
 </details>
@@ -362,8 +341,23 @@ gg_befprognos_procent$`befprogn_dalarnas kommuner_andel_alla_tot`
 
 # Kommunfördjupningar 
 
-*Uppdatering av kommunfördjupningarna pågår. Publiceras vid ett senare tillfälle.*
-
+<ul style = "columns : 2">
+  <li>[Avesta](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_avesta){target="_blank"}</li>
+  <li>[Borlänge](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_borlange.html){target="_blank"}</li>
+  <li>[Falun](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_falun.html){target="_blank"}</li>
+  <li>[Gagnef](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_gagnef.html){target="_blank"}</li>
+  <li>[Hedemora](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_hedemora.html){target="_blank"}</li>
+  <li>[Leksand](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_leksand.html){target="_blank"}</li>
+  <li>[Ludvika](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_ludvika.html){target="_blank"}</li>
+  <li>[Malung-Sälen](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_malung_salen.html){target="_blank"}</li>
+  <li>[Mora](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_mora.html){target="_blank"}</li>
+  <li>[Orsa](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_orsa.html){target="_blank"}</li>
+  <li>[Rättvik](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_rattvik.html){target="_blank"}</li>
+  <li>[Smedjebacken](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_smedjebacken.html){target="_blank"}</li>
+  <li>[Säter](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_sater.html){target="_blank"}</li>
+  <li>[Vansbro](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_vansbro.html){target="_blank"}</li>
+  <li>[Älvdalen](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_alvdalen.html){target="_blank"}</li>
+</ul>
 
 ```{r, results='asis', echo=FALSE}
 cat('
