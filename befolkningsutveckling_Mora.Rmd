@@ -121,7 +121,7 @@ gg_flytt$Invandringsöverskott_Mora
 ```
 
 ## Inrikes flyttnetto
-Det inrikes flyttnettot varierar relativt mycket mellan åren i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`, med omväxlande perioder av positivt och negativt flyttnetto. Från 2019 och några år framåt var dock nettot positivt med en topp 2021, då befolkningen ökade med närmare 150 personer till följd av inrikes flyttar. Detta kan möjligtvis vara en effekt kopplad till Corona-pandemin, då nettot var avsevärt mycket lägre 2020 (människor fördröjde eventuellt sina flyttar). År `r max(befolkning_df$år)` flyttade `r abs(flytt_df %>% filter(år == max(år),region == region_val, variabel == "Inrikes flyttningsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde)` personer netto till kommunen inrikes, vilket var en tydlig förändring jämfört med året innan när nettot var positivt.
+Det inrikes flyttnettot varierar relativt mycket mellan åren i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`, med omväxlande perioder av positivt och negativt flyttnetto. Från 2019 och några år framåt var dock nettot positivt med en topp 2021, då befolkningen ökade med närmare 150 personer till följd av inrikes flyttar. Detta kan möjligtvis vara en effekt kopplad till Corona-pandemin, då nettot var avsevärt mycket lägre 2020 (människor fördröjde eventuellt sina flyttar). År `r max(befolkning_df$år)` flyttade klart fler personer från än till kommunen inrikes, vilket var en tydlig förändring jämfört med året innan när det inrikes flyttnettot var positivt.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt$`Inrikes flyttningsöverskott_Mora`
@@ -131,7 +131,7 @@ För att bättre förstå vilka som flyttar till och från kommunen inrikes, del
 
 ### Uppdelat på ålder
 
-I `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` är det framförallt personer under 30 år som flyttar från kommunen till andra delar av Sverige, medan det omvända gäller för de flesta andra åldersgrupperna i diagrammet nedan. Intressant att notera är dock att det var klart fler under 30 år som flyttade från kommunen inrikes 2025 (netto), jämfört med åren innan. Dessa var dock koncentrerade till åldersgruppen 20-29 år, bland personer under 20 år var det inrikes flyttnettot något positivt.
+I `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` är det framförallt personer under 30 år som flyttar från kommunen till andra delar av Sverige, medan det omvända gäller för de flesta andra åldersgrupperna i diagrammet nedan. Intressant att notera är dock att det var klart fler under 30 år som flyttade från kommunen inrikes 2025 (netto), jämfört med åren innan. Dessa var dock koncentrerade till åldersgruppen 20-29 år, bland personer under 20 år var det inrikes flyttnettot positivt.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt_alder$Inrikes_flyttnetto_alder_Mora
