@@ -49,9 +49,9 @@ Senast uppdaterad: `r Sys.Date()`</i>
 # Sammanfattning { - }
 Syftet med den här korta analysen är att undersöka `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s befolkningsutveckling. Ett antal viktiga slutsatser sammanfattas här:
 
-* I `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` minskade folkmängden år 2024, men minskningen var något lägre än året innan.
-* Det föddes ovanligt få barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` år 2024 (det lägsta antalet sedan 1969). Även i Sverige som helhet föddes få barn, då barnafödandet per kvinna i riket 2024 var det lägsta som har uppmätts.
-* Det utrikes flyttnettot till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` ökade något 2024, jämfört med året. Ökningen kan delvis förklaras med att personer födda i Ukraina sedan juni 2024 haft möjlighet att ansöka om att bli folkbokförda i Sverige.
+* Precis som åren innan, minskade folkmängden i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` år 2025.
+* De senaste två åren har det fötts klart färre barn i Gagnef än tidigare, även om antalet födda barn ökade något mellan 2024 och 2025.
+* Det utrikes flyttnettot till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` minskade 2025, jämfört med året innan.
 * Färre barn och unga vuxna under 30 år  flyttade från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` till andra delar av Sverige under 2024 (netto), jämfört med året innan.
 
 För mer info om statistiken, klicka på rutan nedan:
@@ -64,6 +64,16 @@ För mer info om statistiken, klicka på rutan nedan:
 Under 2023 inledde Skatteverket ett arbete med att granska registret över folkbokförda. Det förde med sig att SCB avregistrerade flera tusen folkbokförda personer som visade sig inte längre bo i Sverige. I folkbokföringen har dessa registrerats som utvandrade till okänt utvandringsland. Detta arbete fortsatte under 2024. Läs mer [här](https://www.scb.se/pressmeddelande/sverige-gar-mot-lagsta-befolkningsokningen-pa-manga-ar/){target="_blank"}.
 
 All data som används i rapporten är offentlig och finns under kategorin befolkning i SCB:s [Statistikdatabas](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/){target="_blank"}. Där finns även data för exempelvis befolkningsutvecklingen under 2025 på månadsbasis som publiceras löpande, något som inte behandlas i denna rapport.
+
+
+Från och med referensåret 2025 och framåt är en liten kontrollerad slumpmässig osäkerhet införd i samtliga redovisade uppgifter. Osäkerheten har tillförts för att skydda enskilda personer så att ingen riskerar att röjas i statistiken. Till följd av detta så är inte alltid de redovisade totalerna lika med summan av deras redovisade delar.
+
+Om redovisade statistikvärden adderas för att skapa en ny total, så adderas även osäkerheten. Det finns därför risk för att den nya totalen innehåller större osäkerhet än vad som, enligt metoden, skulle ha tillförts ett enskilt statistikvärde.
+
+Metoden som används för röjandekontroll heter Cell Key Method (CKM). Du kan läsa mer om metoden här: [Skyddsmetoder för röjandekontroll](https://www.scb.se/dokumentation/statistiska-metoder/skyddsmetoder-for-rojandekontroll/){target="_blank"} och här: [utveckling av röjandeskyddet](https://www.scb.se/dokumentation/statistikomraden-under-forandring/utveckling-av-rojandeskyddet/){target="_blank"}, samt i befolkningsstatistikens dokumentation (kvalitetsdeklarationen, avsnitt 2.2.6).
+
+FAQ om CKM-metoden hittar du här: [Frågor och svar om röjandeskydd i befolkningsstatistiken](https://www.scb.se/FAQ-CKM){target="_blank"}
+
 </details>
 
 # Hur har befolkningen förändrats?
@@ -82,9 +92,9 @@ I fortsättningen av denna korta analys delas befolkningsutveckling upp i dess k
 
 Med undantag för Corona-pandemin (2020) är en trend att det dör något färre personer i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` idag än det gjorde längre tillbaka i tiden. På senare år har ofta under 100 personer dött årligen i kommunen, att jämföra med en bit över 100 per år under exempelvis 1970-talet. Denna utveckling härrör sannolikt till utveckling inom det medicinska området. Befolkningens medelålder ökar över tid och har gjort så länge.
 
-När det gäller antalet födslar har `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` länge skiljt sig från de flesta andra kommuner i Dalarna, då utvecklingen sedan slutet av 1960-talet har varit positiv. Under `r max(fodda_doda_df$år)` föddes dock ovanligt få barn i kommunen (det lägsta antalet sedan 1969) och kommunen gick från att ha högst fruktsamhet bland Dalarnas kommuner 2023 till lägst 2024 (se rapporten för Dalarnas län). Exakt vad detta beror på är svårt att sia om, men Gagnef är en relativt liten kommun och variationen kan därför vara stor mellan åren.
+När det gäller antalet födslar har `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` länge skiljt sig från de flesta andra kommuner i Dalarna, då utvecklingen sedan slutet av 1960-talet har varit positiv. De senaste två åren har det dock fötts klart färre barn än tidigare, även om antalet födda barn ökade något mellan 2024 och `r max(fodda_doda_df$år)`.
 
-Nettot mellan födda och döda, se de svarta linjerna i diagrammet nedan, varierar relativt mycket mellan åren, men har under 2010-talet och åren därefter mestadels varit positiv. År `r max(fodda_doda_df$år)` medförde dock de ovanligt låga födelsetalen att befolkningen minskade `r abs(fodda_doda_df %>% filter(år == max(år),region == region_val,variabel == "netto") %>% .$varde)` personer till följd av ett negativt födelsenetto, vilket var en tydlig förändring jämfört med åren innan när födelsenettot var positivt.
+Nettot mellan födda och döda, se de svarta linjerna i diagrammet nedan, varierar relativt mycket mellan åren, men har under 2010-talet och åren därefter mestadels varit positiv. De senaste två åren har dock de ovanligt låga födelsetalen lett till att födelsenettot har varit negativt i kommunen.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_fodda_doda$fodelsenetto_Gagnef
@@ -93,7 +103,7 @@ gg_fodda_doda$fodelsenetto_Gagnef
 # Flyttnetto
 Den andra komponenten som styr befolkningsutvecklingen är det så kallade flyttnettot. Detta kan i sin tur delas upp i två komponenter, inrikes och utrikes flyttar. I det här avsnittet är fokus först på flyttnettot, innan de två komponenterna undersöks.
 
-Nettot mellan antalet personer som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`, som varierar relativt mycket mellan åren, har varit positivt under stora delar av 2010-talet. Många flyttade till kommunen i mitten på 2010-talet, men även under 2020 och 2021 var inflyttningen stor (netto). På senare år har flyttnettot dock varit negativt. År `r max(flytt_df$år)` minskade befolkningen i Gagnef med `r abs(flytt_df %>% filter(år==max(år),region == region_val) %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde)` personer på grund av ett negativt flyttnetto. Detta var en tydligt större minskning än året innan.
+Nettot mellan antalet personer som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`, som varierar relativt mycket mellan åren, har varit positivt under stora delar av 2010-talet. Många flyttade till kommunen i mitten på 2010-talet, men även under 2020 och 2021 var inflyttningen stor (netto). På senare år har flyttnettot dock varit negativt, men varierat en del mellan åren.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt$Flyttnetto_Gagnef
@@ -103,16 +113,16 @@ gg_flytt$Flyttnetto_Gagnef
 ## Utrikes flyttnetto
 Som berördes i föregående avsnitt, flyttade många till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` i mitten på 2010-talet, vilket till stor del kan förklaras av att invandringen då var stor. I slutet av 1990-talet var invandringen ofta väldigt låg och till och med negativ under vissa år (fler utvandrade än invandrade), men därefter skedde en gradvis ökning innan den stora toppen 2017. Därefter minskade invandringen tydligt, vilket sannolikt har att göra med en stramare nationell migrationspolitik. Med undantag för pandemiåret 2020, och 2023, har dock invandringen legat på relativt höga nivåer.
 
-Efter att ha varit negativt år 2023, ökade invandringsöverskottet tydligt under `r max(flytt_df$år)` till `r flytt_df %>% filter(år==max(år),region == region_val, variabel == "Invandringsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer, det högsta nettot sedan 2019. Att nettot ökade jämfört med året innan kan delvis förklaras med att personer födda i Ukraina sedan juni 2024 haft möjlighet att ansöka om att bli folkbokförda i Sverige, vilket medförde att antalet personer födda i Ukraina ökade med drygt 20 personer i Gagnef under 2024 (se  [SCB](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0101__BE0101E/FolkmRegFlandK/table/tableViewLayout1/){target="_blank"}). Läs mer i den klickbara rutan "mer information om statistiken" ovan.
+Efter att ha varit tydligt positivt år 2024, minskade invandringsöverskottet under `r max(flytt_df$år)` men var fortfarande positivt. Att nettot ökade så tydligt mellan 2023 och 2024 kan delvis förklaras med att personer födda i Ukraina sedan juni 2024 haft möjlighet att ansöka om att bli folkbokförda i Sverige, vilket medförde att antalet personer födda i Ukraina ökade med drygt 20 personer i kommunen under 2024 (se  [SCB](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0101__BE0101E/FolkmRegFlandK/table/tableViewLayout1/){target="_blank"}). Läs mer i den klickbara rutan "mer information om statistiken" ovan.
 
-Värt att notera är även att de avregistreringar av utvandrade som Skattemyndigheten påbörjade under 2023 (se informationsrutan under avsnittet introduktion ovan) får en påverkan på utvandringen under såväl 2023 som 2024.
+Värt att notera är även att de avregistreringar av utvandrade som Skattemyndigheten påbörjade under 2023 (se informationsrutan under avsnittet introduktion ovan) får en påverkan på utvandringen under åtminstone 2023 och 2024.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt$Invandringsöverskott_Gagnef
 ```
 
 ## Inrikes flyttnetto
-Det inrikes flyttnettot varierar förhållandevis mycket mellan åren i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`, med omväxlande perioder av positivt och negativt flyttnetto. Under åren runt Corona-pandemin (2020-2021) var nettot tydligt positivt, då befolkningen ökade med mer än 150 personer till följd av inrikes flyttar. De senaste åren har utveckling återigen vänt och fler personer flyttar från än till kommunen inrikes. År `r max(befolkning_df$år)` flyttade `r abs(flytt_df %>% filter(år == max(år),region == region_val, variabel == "Inrikes flyttningsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde)` personer netto från kommunen inrikes, vilket var färre än åren innan.
+Det inrikes flyttnettot varierar förhållandevis mycket mellan åren i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`, med omväxlande perioder av positivt och negativt flyttnetto. Under åren runt Corona-pandemin (2020-2021) var nettot tydligt positivt, då befolkningen ökade med mer än 150 personer till följd av inrikes flyttar. De senaste åren har utveckling återigen vänt och fler personer flyttar från än till kommunen inrikes.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt$`Inrikes flyttningsöverskott_Gagnef`
@@ -153,11 +163,13 @@ gg_flytt_bakgrund$Flyttnetto_bakgrund_Gagnef
 
 ```
 
-I nästa avsnitt är fokus istället på framtiden. Hur kommer `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd att utvecklas fram till 2033?
+I nästa avsnitt är fokus istället på framtiden. Hur kommer `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd att utvecklas fram till 2034?
 
 # Vad händer i framtiden?
 
-För en djupare förståelse runt hur Region Dalarna gör befolkningsprognoser, se motsvarande avsnitt i rapporten för hela Dalarnas län. Det viktigaste att ha i åtanke är att ingen hänsyn tas i prognoserna till planerat bostadsbyggande, företagsetableringar eller andra framtida mål och förutsättningar som kommunerna har i sina planer.
+*Notera att prognosen nedan gjordes våren 2025. Avsnittet kommer därför att uppdateras med en ny prognos under våren 2026.*
+
+För en djupare förståelse runt hur Region Dalarna gör befolkningsprognoser, se motsvarande avsnitt i rapporten för hela Dalarnas län. Det viktigaste att ha i åtanke är att ingen hänsyn tas i prognoserna till exempelvis företagsetableringar eller andra framtida mål och förutsättningar som kommunerna har i sina planer.
 
 I diagrammet nedan visas befolkningsutvecklingen i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` fram till `r prognos_ar` uppdelat på åldersgrupper, enligt Region Dalarnas prognos från våren 2025.
 

@@ -90,7 +90,7 @@ Under `r max(fodda_doda_df$år)` avled drygt `r plyr::round_any(fodda_doda_df %>
 
 När det gäller antalet födslar är trenden negativ om man jämför med framförallt det tidiga 1990-talet. Under 2000-talet har trenden dock varit mer stabil och antalet födslar har till och med ökat under vissa perioder. År `r max(fodda_doda_df$år)` föddes drygt `r plyr::round_any(fodda_doda_df %>% filter(år == max(år),region == region_val,variabel == "födda") %>% .$varde,10)` barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`, vilket är något färre än året innan.
 
-Nettot mellan födda och döda, se de svarta linjerna i diagrammet nedan, är alltid negativt i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`, en indikation på att kommunen har en relativt hög medelålder (Dalarnas högsta). Hur många invånare som kommunen tappar på grund av det varierar relativt mycket över tid. År `r max(fodda_doda_df$år)` minskade befolkningen med cirka `r abs(plyr::round_any(fodda_doda_df %>% filter(år == max(år),region == region_val,variabel == "netto") %>% .$varde,10))` personer till följd av ett negativt födelsenetto.
+Nettot mellan födda och döda, se de svarta linjerna i diagrammet nedan, är alltid negativt i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`, en indikation på att kommunen har en relativt hög medelålder (Dalarnas högsta). Hur många invånare som kommunen tappar på grund av det varierar relativt mycket över tid.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_fodda_doda$fodelsenetto_Rättvik
@@ -120,8 +120,7 @@ gg_flytt$Invandringsöverskott_Rättvik
 ```
 
 ## Inrikes flyttnetto
-Till skillnad från många andra kommuner i Dalarna är `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` en kommun som människor flyttar till inrikes (netto). Visserligen kan nettot variera mycket mellan åren, men är för det mesta positivt. Efter en topp under år 2020, som möjligtvis kan ha med Corona-pandemin att göra, har dock det inrikes flyttnettot minskat på sistone. År `r max(befolkning_df$år)` flyttade runt `r plyr::round_any(flytt_df %>% filter(år == max(år),region == region_val, variabel == "Inrikes flyttningsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde,5)` personer netto till kommunen inrikes, vilket var fler än året innan.
-
+Till skillnad från många andra kommuner i Dalarna är `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` en kommun som människor flyttar till inrikes (netto). Visserligen kan nettot variera mycket mellan åren, men är för det mesta positivt. Efter en topp under år 2020, som möjligtvis kan ha med Corona-pandemin att göra, har dock det inrikes flyttnettot minskat på sistone. 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt$`Inrikes flyttningsöverskott_Rättvik`
 ```

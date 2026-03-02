@@ -50,7 +50,7 @@ Senast uppdaterad: `r Sys.Date()`</i>
 Syftet med den här korta analysen är att undersöka `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s befolkningsutveckling. Ett antal viktiga slutsatser sammanfattas här:
 
 * `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd minskade med `r abs(befolkning_df %>% filter(år == max(år),region == region_val, variabel == "Folkökning") %>% .$varde) ` personer år 2025, men minskningen var lägre än föregående år.
-* Det föddes färre barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` 2025., jämfört med åren innan. Sjunkande födelsetal är en nationell trend men också en trend i de flesta av världens utvecklade länder.
+* Det föddes färre barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` 2025, jämfört med åren innan. Sjunkande födelsetal är en nationell trend men också en trend i de flesta av världens utvecklade länder.
 * Fler personer flyttade till än från Smedjebacken 2025, vilket var en tydlig förändring jämfört med året innan när nettot var negativt.
 
 För mer info om statistiken, klicka på rutan nedan:
@@ -93,7 +93,7 @@ En trend är att det dör färre personer boende i `r unique(befolkning_df %>% f
 
 Även när det gäller antalet födslar är trenden negativ. Under tidigt 1990-tal föddes ofta över 150 barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` per år, men en tydlig negativ trend inleddes i samband med finanskrisen i början på 1990-talet, när befolkningen också minskade kraftigt. Under 2010-talet ökade födslarna igen, något som sannolikt har att göra med att `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s befolkning då ökade till följd av högre invandring. År `r max(fodda_doda_df$år)` föddes knappt `r plyr::round_any(fodda_doda_df %>% filter(år == max(år),region == region_val,variabel == "födda") %>% .$varde,10)` barn, vilket var tydligt färre än åren innan.
 
-Med undantag för 2015, har nettot mellan födda och döda, se de svarta linjerna i diagrammet nedan, varit negativt i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` under varje år sedan mitten av 1990-talet. Hur många invånare som kommunen tappar på grund av det varierar relativt mycket mellan åren. År `r max(fodda_doda_df$år)` minskade befolkningen med runt `r abs(fodda_doda_df %>% filter(år == max(år),region == region_val,variabel == "netto") %>% .$varde)` personer till följd av ett negativt födelsenetto, vilket ar en större minskning än åren innan.
+Med undantag för 2015, har nettot mellan födda och döda, se de svarta linjerna i diagrammet nedan, varit negativt i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` under varje år sedan mitten av 1990-talet. Hur många invånare som kommunen tappar på grund av det varierar relativt mycket mellan åren.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_fodda_doda$fodelsenetto_Smedjebacken

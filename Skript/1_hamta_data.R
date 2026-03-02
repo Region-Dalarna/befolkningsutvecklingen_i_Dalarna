@@ -75,7 +75,14 @@ if(uppdatera_data == TRUE){
                                                   returnera_data = TRUE)
   
   # # Diagram  flyttnetto
-  source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_flytt_inrikes_utrikes_netto_SCB.R", encoding="UTF-8")
+  # source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_flytt_inrikes_utrikes_netto_SCB.R", encoding="UTF-8")
+  # gg_flytt <- diagram_inr_utr_flytt(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE),
+  #                                   spara_figur = spara_figur,
+  #                                   #tid = c(2000:9999),
+  #                                   returnera_data = TRUE,
+  #                                   output_mapp_figur = Output_mapp_figur)
+  
+  source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_flytt_inrikes_utrikes_netto_SCB_tillfallig.R", encoding="UTF-8")
   gg_flytt <- diagram_inr_utr_flytt(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE),
                                     spara_figur = spara_figur,
                                     #tid = c(2000:9999),
@@ -87,6 +94,7 @@ if(uppdatera_data == TRUE){
   gg_flytt_alder <- diagram_inrikes_flytt_alder(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE),
                                                 #tid = c(2000:9999),
                                                 spara_figur = spara_figur,
+                                                visa_etiketter = FALSE,
                                                 valda_ar = c("2023","2024","2025"),
                                                 avrunda_fem = FALSE,
                                                 output_mapp_figur = Output_mapp_figur)

@@ -89,9 +89,10 @@ I fortsättningen av denna korta analys delas befolkningsutveckling upp i dess k
 
 Under `r max(fodda_doda_df$år)` avled `r fodda_doda_df %>% filter(år == max(år),region == region_val,variabel == "Döda") %>% .$varde` personer i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`, vilket var färre än åren innan. På längre sikt är trenden att allt färre dör i kommunen. På senare år har ofta mellan 160 och 180 personer dött årligen, att jämföra med ofta en bit över 200 personer per år under exempelvis 1970- och 1980-talen. Denna utveckling härrör sannolikt till utveckling inom det medicinska området. Befolkningens medelålder ökar över tid och har gjort så länge.
 
-När det gäller antalet födslar är trenden negativ om man jämför med framförallt det tidiga 1990-talet, men under 2000-talet har antalet födda legat på en relativt stabil nivå. Under slutet av 1980-talet föddes vissa år över 200 barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`, att jämföra med `r fodda_doda_df %>% filter(år == max(år),region == region_val,variabel == "födda") %>% .$varde` barn år `r max(fodda_doda_df$år)`.
+När det gäller antalet födslar är trenden negativ om man jämför med framförallt det tidiga 1990-talet, men under 2000-talet har antalet födda legat på en relativt stabil nivå. Under slutet av 1980-talet föddes vissa år över 200 barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`, att jämföra med strax över `r plyr::round_any(fodda_doda_df %>% filter(år == max(år),region == region_val,variabel == "födda") %>% .$varde,100)` barn år `r max(fodda_doda_df$år)`.
 
-Nettot mellan födda och döda, se de svarta linjerna i diagrammet nedan, har varit negativt och relativt stabilt på senare år. År `r max(fodda_doda_df$år)` minskade befolkningen med `r abs(fodda_doda_df %>% filter(år == max(år),region == region_val,variabel == "netto") %>% .$varde)` personer till följd av ett negativt födelsenetto. Värt att notera är även att födelsenettot enbart vid ett tillfälle sedan slutet av 1960-talet har varit positivt i Leksand, en indikation på att kommunen har en relativt hög medelålder.
+
+Nettot mellan födda och döda, se de svarta linjerna i diagrammet nedan, varierar relativt mycket mellan åren, men är i praktiken alltid negativt i Leksand, en indikation på att kommunen har en relativt hög medelålder.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_fodda_doda$fodelsenetto_Leksand
@@ -100,7 +101,7 @@ gg_fodda_doda$fodelsenetto_Leksand
 # Flyttnetto
 Den andra komponenten som styr befolkningsutvecklingen är det så kallade flyttnettot. Detta kan i sin tur delas upp i två komponenter, inrikes och utrikes flyttar. I det här avsnittet är fokus först på flyttnettot, innan de två komponenterna undersöks.
 
-Nettot mellan antalet personer som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` varierar relativt mycket mellan åren, men har varit positivt under stora delar av 2010-talet. Många flyttade till kommunen mellan framförallt 2013 och 2017, men även under 2021,2022 och 2024 var inflyttningen stor (netto). År `r max(flytt_df$år)` var flyttnettot positivt men lägre än året innan (`r flytt_df %>% filter(år==max(år),region == region_val) %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer).
+Nettot mellan antalet personer som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` varierar relativt mycket mellan åren, men har varit positivt under stora delar av 2010-talet. Många flyttade till kommunen mellan framförallt 2013 och 2017, men även under 2021, 2022 och 2024 var inflyttningen stor (netto). Även år `r max(flytt_df$år)` var flyttnettot positivt men klart lägre än året innan.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt$Flyttnetto_Leksand
@@ -120,7 +121,7 @@ gg_flytt$Invandringsöverskott_Leksand
 ```
 
 ## Inrikes flyttnetto
-Det inrikes flyttnettot varierar relativt mycket mellan åren i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`, med omväxlande perioder av positivt och negativt flyttnetto. Från 2017 och framåt har dock nettot varit positivt under de flesta åren med en topp 2021, då befolkningen ökade med mer än 200 personer till följd av inrikes flyttar. Detta kan möjligtvis vara en effekt kopplad till Corona-pandemin, då nettot var avsevärt mycket lägre 2020 (människor fördröjde eventuellt sina flyttar). År `r max(befolkning_df$år)` flyttade `r abs(flytt_df %>% filter(år == max(år),region == region_val, variabel == "Inrikes flyttningsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde)` personer netto till kommunen inrikes, vilket var klart färre än året innan.
+Det inrikes flyttnettot varierar relativt mycket mellan åren i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`, med omväxlande perioder av positivt och negativt flyttnetto. Från 2017 och framåt har dock nettot varit positivt under de flesta åren med en topp 2021, då befolkningen ökade med mer än 200 personer till följd av inrikes flyttar. Detta kan möjligtvis vara en effekt kopplad till Corona-pandemin, då nettot var avsevärt mycket lägre 2020 (människor fördröjde eventuellt sina flyttar). År `r max(befolkning_df$år)` var det inrikes flyttnettot positivt, men klart lägre än åren innan.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt$`Inrikes flyttningsöverskott_Leksand`

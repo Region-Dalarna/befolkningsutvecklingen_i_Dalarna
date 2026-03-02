@@ -49,9 +49,9 @@ Senast uppdaterad: `r Sys.Date()`</i>
 # Sammanfattning { - }
 Syftet med den här korta analysen är att undersöka `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s befolkningsutveckling. Ett antal viktiga slutsatser sammanfattas här:
 
-* `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd minskade under 2024, men minskningen var något lägre jämfört med året innan.
-* Det föddes ungefär lika många barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` år 2024 som året innan. I jämförelse med tidigare år är antalet födslar dock fortfarande relativt lågt. 
-* En stramare nationell migrationspolitik gör att färre invandrar till Sverige än tidigare, vilket även påverkar inflyttningen till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`. Att det utrikes flyttnettot ökade tydligt jämfört med året innan, kan dock potentiellt delvis förklaras med att personer födda i Ukraina sedan juni 2024 haft möjlighet att ansöka om att bli folkbokförda i Sverige.
+* `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd minskade under 2025.
+* Det föddes färre barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` år 2025 jämfört med året innan. Sjunkande födelsetal är en nationell trend men också en trend i de flesta av världens utvecklade länder.
+* En stramare nationell migrationspolitik gör att färre invandrar till Sverige än tidigare, vilket även påverkar inflyttningen till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`. Det utrikes flyttnettot har dock ökat sedan 2023, vilket potentiellt delvis kan förklaras med att personer födda i Ukraina sedan juni 2024 haft möjlighet att ansöka om att bli folkbokförda i Sverige.
 * Fler personer under 19 år flyttade till än från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` år 2024, vilket var en förändring jämfört med åren innan när flyttnettot i åldersgruppen var negativt.
 
 För mer info om statistiken, klicka på rutan nedan:
@@ -111,7 +111,7 @@ gg_flytt$Flyttnetto_Älvdalen
 ```
 
 ## Utrikes flyttnetto
-Som berördes i föregående avsnitt, flyttade många till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` mellan 2015 och 2018, vilket till stor del kan förklaras av att invandringen då var stor. I slutet av 1990-talet var invandringen negativ under flera år (fler utvandrade än invandrade), men därefter skedde en gradvis ökning innan den stora toppen 2016. Därefter minskade invandringen tydligt under några år, innan den återigen ökade under 2021 och 2022. Efter att ha varit ovanligt lågt 2023, ökade det utrikes flyttnettot år `r max(flytt_df$år)`  till `r flytt_df %>% filter(år==max(år),region == region_val, variabel == "Invandringsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer. Detta kan potentiellt delvis förklaras med att personer födda i Ukraina sedan juni 2024 haft möjlighet att ansöka om att bli folkbokförda i Sverige (se  [SCB](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0101__BE0101E/FolkmRegFlandK/table/tableViewLayout1/){target="_blank"}). Läs mer i den klickbara rutan "mer information om statistiken" ovan.
+Som berördes i föregående avsnitt, flyttade många till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` mellan 2015 och 2018, vilket till stor del kan förklaras av att invandringen då var stor. I slutet av 1990-talet var invandringen negativ under flera år (fler utvandrade än invandrade), men därefter skedde en gradvis ökning innan den stora toppen 2016. Därefter minskade invandringen tydligt under några år, innan den återigen ökade under 2021 och 2022. Efter att ha varit ovanligt lågt 2023, ökade det utrikes flyttnettot tydligt år 2024, men minskade något igen `r max(flytt_df$år)`. Att invandringen (netto) har ökat sedan 2023 kan potentiellt delvis förklaras med att personer födda i Ukraina sedan juni 2024 haft möjlighet att ansöka om att bli folkbokförda i Sverige (se  [SCB](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0101__BE0101E/FolkmRegFlandK/table/tableViewLayout1/){target="_blank"}). Läs mer i den klickbara rutan "mer information om statistiken" ovan.
 
 Generellt invandrar ungefär lika många kvinnor och män till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`.
 
@@ -120,7 +120,7 @@ gg_flytt$Invandringsöverskott_Älvdalen
 ```
 
 ## Inrikes flyttnetto
-Utvecklingen för det inrikes flyttnettot är i mångt och mycket det omvända mot det utrikes, under en majoritet av åren sedan slutet på 1990-talet flyttade fler personer från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` till andra delar av Sverige än de som flyttade till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`. Efter ett tydligt negativt flyttetto  2019, var det inrikes flyttnettot återigen positivt 2020. Från 2022 har nettot dock varit tydligt negativt. År `r max(befolkning_df$år)` flyttade `r abs(flytt_df %>% filter(år == max(år),region == region_val, variabel == "Inrikes flyttningsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde)` personer netto från kommunen inrikes.
+Utvecklingen för det inrikes flyttnettot är i mångt och mycket det omvända mot det utrikes, under en majoritet av åren sedan slutet på 1990-talet flyttade fler personer från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` till andra delar av Sverige än de som flyttade till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`. Efter ett tydligt negativt flyttetto  2019, var det inrikes flyttnettot återigen positivt 2020. Från 2022 har nettot dock varit negativt, men varierat en del mellan åren.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt$`Inrikes flyttningsöverskott_Älvdalen`
@@ -156,11 +156,13 @@ gg_flytt_bakgrund$Flyttnetto_bakgrund_Älvdalen
 
 ```
 
-I nästa avsnitt är fokus istället på framtiden. Hur kommer `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd att utvecklas fram till 2033?
+I nästa avsnitt är fokus istället på framtiden. Hur kommer `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd att utvecklas fram till 2034?
 
 # Vad händer i framtiden?
 
-För en djupare förståelse runt hur Region Dalarna gör befolkningsprognoser, se motsvarande avsnitt i rapporten för hela Dalarnas län. Det viktigaste att ha i åtanke är att ingen hänsyn tas i prognoserna till planerat bostadsbyggande, företagsetableringar eller andra framtida mål och förutsättningar som kommunerna har i sina planer.
+*Notera att prognosen nedan gjordes våren 2025. Avsnittet kommer därför att uppdateras med en ny prognos under våren 2026.*
+
+För en djupare förståelse runt hur Region Dalarna gör befolkningsprognoser, se motsvarande avsnitt i rapporten för hela Dalarnas län. Det viktigaste att ha i åtanke är att ingen hänsyn tas i prognoserna till exempelvis företagsetableringar eller andra framtida mål och förutsättningar som kommunerna har i sina planer.
 
 I diagrammet nedan visas befolkningsutvecklingen i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` fram till `r prognos_ar` uppdelat på åldersgrupper, enligt Region Dalarnas prognos från våren 2025.
 

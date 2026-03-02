@@ -94,7 +94,7 @@ Trots att folkmängden i `r unique(befolkning_df %>% filter(region == region_val
 
 När gäller antalet födslar är den långsiktiga trenden negativ, det föddes fler barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` på slutet av 1960-talet än det gör idag (trots att klart färre då bodde i kommunen). Under såväl flera år i början av 1990-talet som vissa år på slutet av 2010-talet ökade dock antalet födslar i kommunen och var betydligt högre än på 1960-talet. På senare år har trenden dock varit negativ. År `r max(fodda_doda_df$år)` föddes `r fodda_doda_df %>% filter(år == max(år),region == region_val,variabel == "födda") %>% .$varde` barn, vilket är något färre än året innan och den lägsta siffran sedan 2000.
 
-Under stora delar av 2000-talet var nettot mellan födda och döda, se de svarta linjerna i diagrammet nedan, positivt i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`. På senare år har dock nettot tydligt minskat och var år `r max(fodda_doda_df$år)` negativt för tredje gången sedan början av 2000-talet (`r fodda_doda_df %>% filter(år == max(år),region == region_val,variabel == "netto") %>% .$varde` personer).
+Under stora delar av 2000-talet var nettot mellan födda och döda, se de svarta linjerna i diagrammet nedan, positivt i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`. På senare år har dock nettot tydligt minskat och var år `r max(fodda_doda_df$år)` negativt för tredje gången sedan början av 2000-talet.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_fodda_doda$fodelsenetto_Borlänge
@@ -103,7 +103,7 @@ gg_fodda_doda$fodelsenetto_Borlänge
 # Flyttnetto
 Den andra komponenten som styr befolkningsutvecklingen är det så kallade flyttnettot. Detta kan i sin tur delas upp i två komponenter, inrikes och utrikes flyttar. I det här avsnittet är fokus först på flyttnettot, innan de två komponenterna undersöks.
 
-Antalet personer som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` har varierat relativt mycket över tid, med omväxlande perioder av positivt och negativt flyttnetto. Under åren efter finanskrisen i början på 1990-talet flyttade många från kommunen, men under stora delar av 2000-talet var flyttnettot istället positivt. Detta hänger samman med att invandringen då var stor. På senare år har flyttnettot återigen varit negativt. År `r max(flytt_df$år)` minskade befolkningen med `r abs(flytt_df %>% filter(år==max(år),region == region_val) %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde)` personer till följd av ett negativt flyttnetto, vilket var en klart lägre minskning än åren innan.
+Antalet personer som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` har varierat relativt mycket över tid, med omväxlande perioder av positivt och negativt flyttnetto. Under åren efter finanskrisen i början på 1990-talet flyttade många från kommunen, men under stora delar av 2000-talet var flyttnettot istället positivt. Detta hänger samman med att invandringen då var stor. På senare år har flyttnettot återigen varit negativt. Även år `r max(flytt_df$år)` var flyttnettot negativt, men mindre negativt än åren innan.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt$Flyttnetto_Borlänge
@@ -113,7 +113,7 @@ gg_flytt$Flyttnetto_Borlänge
 ## Utrikes flyttnetto
 Som berördes i föregående avsnitt, flyttade många till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` under såväl ett par år på mitten av 2010-talet som under en period mellan 2005 och 2010. Detta beror på att invandringen då var stor, vilket syns i diagrammet nedan. Längre tillbaka var invandringen ofta låg eller till och med negativ under vissa år. På senare år har dock invandringen minskat tydligt, vilket sannolikt hör samman med en stramare nationell migrationspolitik. 
 
-Efter att ha varit negativt 2023, ökade det utrikes flyttnettot till kommunen såväl 2024 som `r max(flytt_df$år)`. Ökningen `r max(flytt_df$år)` var dock klart större än året innan (`r flytt_df %>% filter(år==max(år),region == region_val, variabel == "Invandringsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde` personer). Att nettot ökat på senare år kan delvis förklaras med att personer födda i Ukraina sedan juni 2024 haft möjlighet att ansöka om att bli folkbokförda i Sverige, vilket medfört att antalet personer födda i Ukraina ökat med ungefär 75 personer i Borlänge sedan 2023 (se  [SCB](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0101__BE0101E/FolkmRegFlandKCKM/table/tableViewLayout1/){target="_blank"}). Läs mer i den klickbara rutan "mer information om statistiken" ovan.
+Efter att ha varit negativt 2023, ökade det utrikes flyttnettot till kommunen såväl 2024 som `r max(flytt_df$år)`. Ökningen `r max(flytt_df$år)` var dock klart större än året innan (drygt `r plyr::round_any(flytt_df %>% filter(år==max(år),region == region_val, variabel == "Invandringsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde,10)` personer). Att nettot ökat på senare år kan delvis förklaras med att personer födda i Ukraina sedan juni 2024 haft möjlighet att ansöka om att bli folkbokförda i Sverige, vilket medfört att antalet personer födda i Ukraina ökat med ungefär 75 personer i Borlänge sedan 2023 (se  [SCB](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0101__BE0101E/FolkmRegFlandKCKM/table/tableViewLayout1/){target="_blank"}). Läs mer i den klickbara rutan "mer information om statistiken" ovan.
 
 Värt att notera är även att de avregistreringar av utvandrade som Skattemyndigheten påbörjade under 2023 (se informationsrutan under avsnittet introduktion ovan) får en påverkan på utvandringen under åtminstone 2023 och 2024.
 
@@ -124,7 +124,7 @@ gg_flytt$Invandringsöverskott_Borlänge
 ```
 
 ## Inrikes flyttnetto
-Även det inrikes flyttnettot till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s varierar relativt mycket mellan åren, men är i praktiken alltid negativt. År `r max(befolkning_df$år)` flyttade `r abs(flytt_df %>% filter(år == max(år),region == region_val, variabel == "Inrikes flyttningsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde)` personer netto från kommunen inrikes, vilket var klart färre än åren innan.
+Även det inrikes flyttnettot till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s varierar relativt mycket mellan åren, men är i praktiken alltid negativt. Även år `r max(befolkning_df$år)` flyttade fler från än till kommunen inrikes, men utflyttningen (netto) var lägre än åren innan.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt$`Inrikes flyttningsöverskott_Borlänge`
