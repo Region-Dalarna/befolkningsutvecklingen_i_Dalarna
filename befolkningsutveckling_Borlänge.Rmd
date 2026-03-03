@@ -52,7 +52,6 @@ Syftet med den här korta analysen är att undersöka `r unique(befolkning_df %>
 * I `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` minskade folkmängden år 2025, men minskningen var lägre än åren innan.
 * Det föddes färre barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` år 2025, jämfört med åren innan. Detta är i linje med en större trend i samhället, då barnafödandet per kvinna i Sverige 2025 var det lägsta som har uppmätts.
 * Det utrikes flyttnettot till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` ökade under 2025, jämfört med åren innan men är fortfarande lågt. Ökningen kan delvis förklaras med att personer födda i Ukraina sedan juni 2024 haft möjlighet att ansöka om att bli folkbokförda i Sverige.
-* Utflyttningen (netto) i åldersgruppen 0-19 år minskade tydligt under 2025, jämfört med åren innan.
 
 För mer info om statistiken, klicka på rutan nedan:
 
@@ -113,7 +112,7 @@ gg_flytt$Flyttnetto_Borlänge
 ## Utrikes flyttnetto
 Som berördes i föregående avsnitt, flyttade många till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` under såväl ett par år på mitten av 2010-talet som under en period mellan 2005 och 2010. Detta beror på att invandringen då var stor, vilket syns i diagrammet nedan. Längre tillbaka var invandringen ofta låg eller till och med negativ under vissa år. På senare år har dock invandringen minskat tydligt, vilket sannolikt hör samman med en stramare nationell migrationspolitik. 
 
-Efter att ha varit negativt 2023, ökade det utrikes flyttnettot till kommunen såväl 2024 som `r max(flytt_df$år)`. Ökningen `r max(flytt_df$år)` var dock klart större än året innan (drygt `r plyr::round_any(flytt_df %>% filter(år==max(år),region == region_val, variabel == "Invandringsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde,10)` personer). Att nettot ökat på senare år kan delvis förklaras med att personer födda i Ukraina sedan juni 2024 haft möjlighet att ansöka om att bli folkbokförda i Sverige, vilket medfört att antalet personer födda i Ukraina ökat med ungefär 75 personer i Borlänge sedan 2023 (se  [SCB](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0101__BE0101E/FolkmRegFlandKCKM/table/tableViewLayout1/){target="_blank"}). Läs mer i den klickbara rutan "mer information om statistiken" ovan.
+Efter att ha varit negativt 2023, ökade det utrikes flyttnettot till kommunen såväl 2024 som `r max(flytt_df$år)`. Ökningen `r max(flytt_df$år)` var dock klart större än året innan (drygt `r plyr::round_any(flytt_df %>% filter(år==max(år),region == region_val, variabel == "Invandringsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde,10)` personer). Att nettot ökat på senare år kan delvis förklaras med att personer födda i Ukraina sedan juni 2024 haft möjlighet att ansöka om att bli folkbokförda i Sverige, vilket medfört att antalet personer födda i Ukraina ökat med ungefär 75 personer i Borlänge sedan 2023 (se [SCB](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0101__BE0101E/FolkmRegFlandK/table/tableViewLayout1/){target="_blank"} och [SCB](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0101__BE0101E/FodelselandArKCKM/){target="_blank"}). Läs mer i den klickbara rutan "mer information om statistiken" ovan.
 
 Värt att notera är även att de avregistreringar av utvandrade som Skattemyndigheten påbörjade under 2023 (se informationsrutan under avsnittet introduktion ovan) får en påverkan på utvandringen under åtminstone 2023 och 2024.
 
@@ -130,41 +129,13 @@ gg_flytt$Invandringsöverskott_Borlänge
 gg_flytt$`Inrikes flyttningsöverskott_Borlänge`
 ```
 
-För att bättre förstå vilka som flyttar till och från kommunen inrikes, delas de som flyttar härnäst upp efter ålder. Normalt är personer mest benägna att flytta till en annan ort när de är i 20-års åldern, innan flyttandet gradvis avtar. 
-
-### Uppdelat på ålder
-Ett tydligt mönster på senare år är att det i första hand är personer under 40 år som lämnar `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` för andra delar av Sverige, medan flyttnetto är mer otydligt i övriga åldersgrupper. Under såväl 2024 som `r max(flytt_aldersgrupper_df$år)` var dock det inrikes flyttnettot negativt i samtliga åldersgrupper som redovisas i diagrammet nedan.
-
-Den största utflyttningen år `r max(flytt_aldersgrupper_df$år)` skedde åldersgruppen 30 - 39 år (`r sum(flytt_aldersgrupper_df %>% filter(år == max(år),variabel == "Inrikes flyttningsöverskott",region == region_val,alder_grupper%in%c("30-39 år")) %>% .$varde)` personer). Även bland personer under 30 år, var antalet uflyttare fler än antalet inflyttare (`r sum(flytt_aldersgrupper_df %>% filter(år == max(år),variabel == "Inrikes flyttningsöverskott",region == region_val,alder_grupper%in%c("0-19 år","20-29 år")) %>% .$varde)` personer). Intressant att notera är dock att det inrikes flyttnettot i åldersgruppen 0-19 år var klart mindre negativt år `r max(flytt_aldersgrupper_df$år)`, jämfört med året innan.
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_flytt_alder$Inrikes_flyttnetto_alder_Borlänge
-```
-
-Om fokus enbart läggs på åldersgruppen 20-29 år, blir det tydligt att det under de allra flesta år flyttar fler unga vuxna från än till kommunen inrikes. Historiskt varierar det inrikes flyttnettot i åldersgruppen mellan åren, vilket exempelvis kan bero på att olika årskullar av barn är olika stora. Under `r max(flytt_aldersgrupper_df$år)` flyttade `r abs(flytt_aldersgrupper_df %>% filter(år == max(år),variabel == "Inrikes flyttningsöverskott",region == region_val,alder_grupper == "20-29 år") %>% .$varde)` personer netto från kommunen inrikes, vilket var en större utflyttning än året innan men en lägre än åren dessförinnan.
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_flytt_alder$`Inrikes flyttnetto_alder_20-29 år_Borlänge`
-```
-
-### Uppdelat på bakgrund
-
-*Notera att de diagrammet nedan inte har uppdaterats med ny data. Detta sker vid ett senare tillfälle.*
-
-För att ytterligare förtydliga vilka som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` inrikes, delas de i detta avsnitt upp efter sin bakgrund, inrikes eller utrikes födda. 
-
-För såväl inrikes som utrikes födda varierar det inrikes flyttnettot relativt mycket mellan åren i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`, men under en majoritet av åren är det negativt. För utrikes födda är undantaget år 2014 och något år därefter, när många flyttade till kommunen. På senare år har dock många utrikesfödda flyttat från kommunen netto. Bland de som är födda i Sverige är det inrikes flyttnettot alltid negativt, men var mindre negativt år `r max(flytt_bakgrund_df$år)` jämfört med året innan.
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_flytt_bakgrund$Flyttnetto_bakgrund_Borlänge
-
-```
-
 I nästa avsnitt är fokus istället på framtiden. Hur kommer `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd att utvecklas fram till 2034?
 
 # Vad händer i framtiden?
 
-För en djupare förståelse runt hur Region Dalarna gör befolkningsprognoser, se motsvarande avsnitt i rapporten för hela Dalarnas län. Det viktigaste att ha i åtanke är att ingen hänsyn tas i prognoserna till planerat bostadsbyggande, företagsetableringar eller andra framtida mål och förutsättningar som kommunerna har i sina planer.
+*Notera att prognosen nedan gjordes våren 2025. Avsnittet kommer därför att uppdateras med en ny prognos under våren 2026.*
+
+För en djupare förståelse runt hur Region Dalarna gör befolkningsprognoser, se motsvarande avsnitt i rapporten för hela Dalarnas län. Det viktigaste att ha i åtanke är att ingen hänsyn tas i prognoserna till exempelvis företagsetableringar eller andra framtida mål och förutsättningar som kommunerna har i sina planer.
 
 I diagrammet nedan visas befolkningsutvecklingen i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` fram till `r prognos_ar` uppdelat på åldersgrupper, enligt Region Dalarnas prognos från våren 2025.
 

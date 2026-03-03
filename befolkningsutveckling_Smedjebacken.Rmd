@@ -133,38 +133,6 @@ Utvecklingen för det inrikes flyttnettot följer i mångt och mycket `r unique(
 gg_flytt$`Inrikes flyttningsöverskott_Smedjebacken`
 ```
 
-För att bättre förstå för vilka som flyttar till och från kommunen inrikes, delas de som flyttar härnäst upp efter ålder. Normalt är personer mest benägna att flytta till en annan ort när de är i 20-års åldern, innan flyttandet gradvis avtar. 
-
-### Uppdelat på ålder
-Ett mönster på senare år är att de personer under 30 år som flyttar från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` är fler än de personer under 30 år som flyttar dit, dvs. kommunen förlorar invånare i den åldersgruppen på grund av inrikes flyttar.
-
-Bland de åldersgrupper som redovisas i diagrammet nedan skedde den största utflyttningen år `r max(flytt_aldersgrupper_df$år)` i gruppen som är under 20 år. Utflyttningen (netto) i den gruppen minskade dock tydligt jämfört med året innan.
-
-Den största inflyttningen, netto, skedde i åldersgruppen `r flytt_aldersgrupper_df %>% filter(år == max(år),variabel == "Inrikes flyttningsöverskott",region == region_val) %>% filter(varde==max(varde)) %>% .$alder_grupper`. Även i den gruppen var förändringen jämfört med föregående år positiv, då flyttnettot var negativt.
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_flytt_alder$Inrikes_flyttnetto_alder_Smedjebacken
-```
-
-Om fokus enbart läggs på åldersgruppen 20-29 år, blir det tydligt att det i praktiken alltid flyttar fler personer från än till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` i åldersgruppen. Utflyttningen var som störst runt millennieskiftet, men har minskat något de senaste åren (med undantag för 2023).
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_flytt_alder$`Inrikes flyttnetto_alder_20-29 år_Smedjebacken`
-```
-
-### Uppdelat på bakgrund
-
-*Notera att de diagrammet nedan inte har uppdaterats med ny data. Detta sker vid ett senare tillfälle.*
-
-För att ytterligare förtydliga vilka som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` inrikes, delas de i detta avsnitt upp efter sin bakgrund, inrikes eller utrikes födda. 
-
-Tydligt är att en del av de som invandrade till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` under framförallt 2016 flyttade därifrån till andra delar av Sverige under åren därefter. Det inrikes flyttnettot för gruppen utrikes födda har varit negativt varje år sedan 2017. Bland de som är födda i Sverige är bilden annorlunda. Under början av 00-talet flyttade många i den gruppen från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` till andra delar av Sverige, men den trenden vände i mitten av 2010-talet. Därefter var det inrikes flyttnettot positivt för gruppen varje år mellan 2015 och 2023. Under `r max(flytt_bakgrund_df$år)` flyttade dock `r abs(flytt_bakgrund_df %>% filter(år == max(år),region == region_val, födelseregion == "Född i Sverige") %>% .$Inrikes_flyttnetto)` personer födda i Sverige från kommunen inrikes (netto), vilket var det första negativa nettot i gruppen sedan 2014.
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_flytt_bakgrund$Flyttnetto_bakgrund_Smedjebacken
-
-```
-
 I nästa avsnitt är fokus istället på framtiden. Hur kommer `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd att utvecklas fram till 2034?
 
 # Vad händer i framtiden?

@@ -52,7 +52,6 @@ Syftet med den här korta analysen är att undersöka `r unique(befolkning_df %>
 * `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd minskade under 2025.
 * Det föddes färre barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` år 2025 jämfört med året innan. Sjunkande födelsetal är en nationell trend men också en trend i de flesta av världens utvecklade länder.
 * En stramare nationell migrationspolitik gör att färre invandrar till Sverige än tidigare, vilket även påverkar inflyttningen till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`. Det utrikes flyttnettot har dock ökat sedan 2023, vilket potentiellt delvis kan förklaras med att personer födda i Ukraina sedan juni 2024 haft möjlighet att ansöka om att bli folkbokförda i Sverige.
-* Fler personer under 19 år flyttade till än från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` år 2024, vilket var en förändring jämfört med åren innan när flyttnettot i åldersgruppen var negativt.
 
 För mer info om statistiken, klicka på rutan nedan:
 
@@ -111,7 +110,7 @@ gg_flytt$Flyttnetto_Älvdalen
 ```
 
 ## Utrikes flyttnetto
-Som berördes i föregående avsnitt, flyttade många till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` mellan 2015 och 2018, vilket till stor del kan förklaras av att invandringen då var stor. I slutet av 1990-talet var invandringen negativ under flera år (fler utvandrade än invandrade), men därefter skedde en gradvis ökning innan den stora toppen 2016. Därefter minskade invandringen tydligt under några år, innan den återigen ökade under 2021 och 2022. Efter att ha varit ovanligt lågt 2023, ökade det utrikes flyttnettot tydligt år 2024, men minskade något igen `r max(flytt_df$år)`. Att invandringen (netto) har ökat sedan 2023 kan potentiellt delvis förklaras med att personer födda i Ukraina sedan juni 2024 haft möjlighet att ansöka om att bli folkbokförda i Sverige (se  [SCB](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0101__BE0101E/FolkmRegFlandK/table/tableViewLayout1/){target="_blank"}). Läs mer i den klickbara rutan "mer information om statistiken" ovan.
+Som berördes i föregående avsnitt, flyttade många till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` mellan 2015 och 2018, vilket till stor del kan förklaras av att invandringen då var stor. I slutet av 1990-talet var invandringen negativ under flera år (fler utvandrade än invandrade), men därefter skedde en gradvis ökning innan den stora toppen 2016. Därefter minskade invandringen tydligt under några år, innan den återigen ökade under 2021 och 2022. Efter att ha varit ovanligt lågt 2023, ökade det utrikes flyttnettot tydligt år 2024, men minskade något igen `r max(flytt_df$år)`. Att invandringen (netto) har ökat sedan 2023 kan potentiellt delvis förklaras med att personer födda i Ukraina sedan juni 2024 haft möjlighet att ansöka om att bli folkbokförda i Sverige (se [SCB](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0101__BE0101E/FolkmRegFlandK/table/tableViewLayout1/){target="_blank"} och [SCB](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0101__BE0101E/FodelselandArKCKM/){target="_blank"}). Läs mer i den klickbara rutan "mer information om statistiken" ovan.
 
 Generellt invandrar ungefär lika många kvinnor och män till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`.
 
@@ -124,36 +123,6 @@ Utvecklingen för det inrikes flyttnettot är i mångt och mycket det omvända m
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt$`Inrikes flyttningsöverskott_Älvdalen`
-```
-
-För att bättre förstå vilka som flyttar till och från kommunen inrikes, delas de som flyttar härnäst upp efter ålder. Normalt är personer mest benägna att flytta till en annan ort när de är i 20-års åldern, innan flyttandet gradvis avtar. 
-
-### Uppdelat på ålder
-Ett tydligt mönster är att de personer mellan 20 och 29 år som flyttar från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` är fler än de personer mellan 20 och 29 år som flyttar dit, dvs. kommunen förlorar invånare i den åldersgruppen på grund av inrikes flyttar. År `r max(befolkning_df$år)` var antalet utflyttare i åldesgruppen `r abs(sum(flytt_aldersgrupper_df %>% filter(år == max(år),variabel == "Inrikes flyttningsöverskott",region == region_val,alder_grupper%in%c("20-29 år")) %>% .$varde))` fler än antalet inflyttare. Även i åldersgruppen under 20 år brukar flyttnettot normalt vara negativt, men under år 2024 var det positivt (`r abs(sum(flytt_aldersgrupper_df %>% filter(år == max(år),variabel == "Inrikes flyttningsöverskott",region == region_val,alder_grupper%in%c("-19 år")) %>% .$varde))` personer).
-
-Bland övriga åldersgrupper som redovisas i diagrammet nedan var det inrikes flyttnettot negativt, vilket var en förändring jämfört med åren innan när åldersgrupperna över 50 år hade positiva flyttnetton.
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_flytt_alder$Inrikes_flyttnetto_alder_Älvdalen
-```
-
-Om fokus enbart läggs på åldersgruppen 20-29 år, blir det tydligt att det alltid flyttar fler unga vuxna från än till kommunen inrikes. Historiskt varierar det inrikes flyttnettot i åldersgruppen mellan åren, vilket exempelvis kan bero på att olika årskullar av barn är olika stora. År `r max(flytt_aldersgrupper_df$år)` flyttade `r abs(flytt_aldersgrupper_df %>% filter(år == max(år),variabel == "Inrikes flyttningsöverskott",region == region_val,alder_grupper == "20-29 år") %>% .$varde)` personer fler i åldersgruppen 20-29 år från än till kommunen inrikes, vilket var ett mindre negativt netto än året innan.
-
-Även i Dalarna som helhet flyttade fler i åldersgruppen ut än in under `r max(flytt_aldersgrupper_df$år)`.
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_flytt_alder$`Inrikes flyttnetto_alder_20-29 år_Älvdalen`
-```
-
-### Uppdelat på bakgrund
-
-För att ytterligare förtydliga vilka som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` inrikes, delas de i detta avsnitt upp efter sin bakgrund, inrikes eller utrikes födda. 
-
-Tydligt är att en del av de som invandrade till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` under åren runt 2015-2016 flyttade därifrån till andra delar av Sverige därefter. Det inrikes flyttnettot för gruppen utrikes födda har varit negativt varje år sedan 2016. Bland de som är födda i Sverige är bilden delvis annorlunda. Under 00-talet och början av 2010-talet flyttade många i den gruppen från Älvdalen till andra delar av Sverige, men den trenden vände delvis mellan 2016 och 2021. På senare år har dock det inrikes flyttnettot för personer födda i Sverige återigen varit negativt.
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_flytt_bakgrund$Flyttnetto_bakgrund_Älvdalen
-
 ```
 
 I nästa avsnitt är fokus istället på framtiden. Hur kommer `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd att utvecklas fram till 2034?

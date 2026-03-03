@@ -50,9 +50,8 @@ Senast uppdaterad: `r Sys.Date()`</i>
 Syftet med den här korta analysen är att undersöka `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s befolkningsutveckling. Ett antal viktiga slutsatser sammanfattas här:
 
 * `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` var den kommun i Dalarna vars folkmängd ökade mest år 2025 (+ `r abs(befolkning_df %>% filter(år == max(år),region == region_val, variabel == "Folkökning") %>% .$varde)` personer).
-* Det föddes färre barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` 2025 jämfört med åren innan. Sjunkande födelsetal är en nationell trend men också en trend i de flesta av världens utvecklade länder. . 
+* Det föddes färre barn i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` 2025 jämfört med åren innan. Sjunkande födelsetal är en nationell trend men också en trend i de flesta av världens utvecklade länder.
 * Trots en stramare nationell migrationspolitik, har invandringen till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` ökat sedan 2023, vilket dels kan förklaras med att personer födda i Ukraina sedan juni 2024 haft möjlighet att ansöka om att bli folkbokförda i Sverige, men sannolikt även med att Hitachi rekryterar personer internationellt till sin verksamhet i kommunen.
-* Fler personer mellan 20 och 29 år flyttade till än från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` inrikes under 2025, vilket var första gången sedan åtminstone 1997 som nettot i gruppen var positivt.
 
 För mer info om statistiken, klicka på rutan nedan:
 
@@ -111,7 +110,7 @@ gg_flytt$Flyttnetto_Ludvika
 ```
 
 ## Utrikes flyttnetto
-Som berördes i föregående avsnitt flyttade många till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` mellan framförallt 2014 och 2016, vilket till stor del kan förklaras av att invandringen då var stor. I slutet av 1990-talet var invandringen ofta väldigt låg och till och med negativ under något år (fler utvandrade än invandrade), men därefter skedde en gradvis ökning innan den stora toppen 2016. Därefter minskade invandringen tydligt. Trots en stramare nationell migrationspolitik, har dock invandringen till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` ökat till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` på senare år, jämfört med perioden 2020-2022. År `r max(flytt_df$år)` var  det utrikes flyttnettot knappt `r plyr::round_any(flytt_df %>% filter(år==max(år),region == region_val, variabel == "Invandringsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde,10)` personer, vilket dock var lägre än året innan. Att nettot ökat sedan 2023 kan delvis förklaras med att personer födda i Ukraina sedan juni 2024 haft möjlighet att ansöka om att bli folkbokförda i Sverige, vilket medfört att antalet personer födda i Ukraina ökade med knappt 70 personer i Ludvika under 2024 (se  [SCB](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0101__BE0101E/FolkmRegFlandK/table/tableViewLayout1/){target="_blank"}). Läs mer i den klickbara rutan "mer information om statistiken" ovan. En viktig förklaring är dock sannolikt också att Hitachi rekryterar personer internationellt till sin verksamhet i kommunen. 
+Som berördes i föregående avsnitt flyttade många till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` mellan framförallt 2014 och 2016, vilket till stor del kan förklaras av att invandringen då var stor. I slutet av 1990-talet var invandringen ofta väldigt låg och till och med negativ under något år (fler utvandrade än invandrade), men därefter skedde en gradvis ökning innan den stora toppen 2016. Därefter minskade invandringen tydligt. Trots en stramare nationell migrationspolitik, har dock invandringen till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` ökat till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` på senare år, jämfört med perioden 2020-2022. År `r max(flytt_df$år)` var  det utrikes flyttnettot knappt `r plyr::round_any(flytt_df %>% filter(år==max(år),region == region_val, variabel == "Invandringsöverskott") %>% group_by(region) %>% summarize(varde=sum(varde)) %>% .$varde,10)` personer, vilket dock var lägre än året innan. Att nettot ökat sedan 2023 kan delvis förklaras med att personer födda i Ukraina sedan juni 2024 haft möjlighet att ansöka om att bli folkbokförda i Sverige, vilket medfört att antalet personer födda i Ukraina ökade med knappt 70 personer i Ludvika under 2024  (se [SCB](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0101__BE0101E/FolkmRegFlandK/table/tableViewLayout1/){target="_blank"} och [SCB](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0101__BE0101E/FodelselandArKCKM/){target="_blank"}). Läs mer i den klickbara rutan "mer information om statistiken" ovan. En viktig förklaring är dock sannolikt också att Hitachi rekryterar personer internationellt till sin verksamhet i kommunen. 
 
 Värt att notera är även att de avregistreringar av utvandrade som Skattemyndigheten påbörjade under 2023 (se informationsrutan under avsnittet introduktion ovan) fått en påverkan på utvandringen under åtminstone 2023 och 2024.
 
@@ -126,38 +125,6 @@ Utvecklingen för det inrikes flyttnettot har i mångt och mycket varit det omv�
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
 gg_flytt$`Inrikes flyttningsöverskott_Ludvika`
-```
-
-För att bättre förstå vilka som flyttar till och från kommunen inrikes, delas de som flyttar härnäst upp efter ålder. Normalt är personer mest benägna att flytta till en annan ort när de är i 20-års åldern, innan flyttandet gradvis avtar. 
-
-### Uppdelat på ålder
-Ett mönster är att de personer under 20 år som flyttar från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` är fler än de personer under 30 år som flyttar dit, dvs. kommunen förlorar invånare i den åldersgruppen på grund av inrikes flyttar. Även i gruppen som är äldre än 60 år skedde en relativt stor utflyttning r max(flytt_aldersgrupper_df$år)`.
-
-Bland de åldersgrupper som redovisas i diagrammet nedan skedde den största utflyttningen år `r max(flytt_aldersgrupper_df$år)` i gruppen som är under 20 år. I denna grupp, tillsammans med de som är 20-29 år, var antalet utflyttare `r abs(sum(flytt_aldersgrupper_df %>% filter(år == max(år),variabel == "Inrikes flyttningsöverskott",region == region_val,alder_grupper%in%c("-19 år","20-29 år")) %>% .$varde))` fler än antalet inflyttare. Detta var en ökning jämfört med året innan.
-
-Bland de åldersgrupper som redovisas i diagrammet nedan skedde den största inflyttningen, netto, skedde i åldersgruppen `r flytt_aldersgrupper_df %>% filter(år == max(år),variabel == "Inrikes flyttningsöverskott",region == region_val) %>% filter(varde==max(varde)) %>% .$alder_grupper`, i vilken det flyttade `r flytt_aldersgrupper_df %>% filter(år == max(år),variabel == "Inrikes flyttningsöverskott",region == region_val) %>% filter(varde==max(varde)) %>% .$varde` personer fler till än från kommunen inrikes år `r max(flytt_aldersgrupper_df$år)`. Detta var en tydlig förändring jämfört med föregående år, när nettot i åldersgruppen var negativt. Även i åldersgruppen 20-29 år flyttade många till Ludvika inrikes, vilket var en stor skillnad jämfört med året innan när nettot i gruppen var negativt. Mer om det i nästa stycke.
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_flytt_alder$Inrikes_flyttnetto_alder_Ludvika
-```
-
-Om fokus enbart läggs på åldersgruppen 20-29 år, blir det tydligt att det har skett en gradvis förbättring på senare år. Under framförallt några år från 2016 och framåt flyttade många unga från kommunen, men de senaste åren har flyttnettot i gruppen gradvis förbättrats. År `r max(flytt_aldersgrupper_df$år)` flyttade `r abs(flytt_aldersgrupper_df %>% filter(år == max(år),variabel == "Inrikes flyttningsöverskott",region == region_val,alder_grupper == "20-29 år") %>% .$varde)` personer fler i åldersgruppen 20-29 år till än från  kommunen inrikes, vilket var den största inflyttningen i gruppen (netto) sedan åtminstone 1997.
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_flytt_alder$`Inrikes flyttnetto_alder_20-29 år_Ludvika`
-```
-
-### Uppdelat på bakgrund
-
-*Notera att de diagrammet nedan inte har uppdaterats med ny data. Detta sker vid ett senare tillfälle.*
-
-För att ytterligare förtydliga vilka som flyttar till och från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` inrikes, delas de i detta avsnitt upp efter sin bakgrund, inrikes eller utrikes födda. 
-
-Tydligt är att många av de som invandrade till `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` under några år i mitten på 2010-talet flyttade därifrån under åren därefter. På senare år har dock det inrikes flyttnettot i gruppen blivit tydligt mer positivt och år `r max(befolkning_df$år)` flyttade fler utrikes födda personer till än från `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` inrikes.  Även bland inrikes födda har utflyttningen inrikes varit stor (netto) historiskt, men minskat på senare år. 
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_flytt_bakgrund$Flyttnetto_bakgrund_Ludvika
-
 ```
 
 I nästa avsnitt är fokus istället på framtiden. Hur kommer `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`s folkmängd att utvecklas fram till 2034?
