@@ -290,4 +290,38 @@ html[data-scroll="scrolled"] .tocify {
 }
 }
 
+.infobox {
+  margin: 1.2rem 0;
+  border-radius: 8px;
+  border: 1px solid #9ee6f3;
+  overflow: hidden;
+  font-size: 0.85rem;
+}
+
+/* header */
+.infobox p:first-child {
+   background: #cff4fc;
+  border-bottom: 1px solid #9ee6f3;
+  font-weight: 700;
+  padding: 8px 12px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* icon */
+.infobox p:first-child::before {
+  content: "";
+}
+
+/* body */
+.infobox p:not(:first-child) {
+  padding: 10px 12px;
+  margin: 0;
+  background: #f4fcfe;
+}
+
+
+
 

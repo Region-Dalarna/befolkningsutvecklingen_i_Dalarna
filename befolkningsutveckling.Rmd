@@ -27,23 +27,25 @@ p_load(tidyverse)
 Senast uppdaterad: `r Sys.Date()`</i>
 </p>
 
+
 # Sammanfattning {-}
 * Dalarnas befolkning minskade med ungefär 500 personer under 2025, en befolkningsminskning som var mindre än året innan. Att befolkningsminskningen har dämpats något år 2025 beror framförallt på att färre personer flyttade från länet än tidigare. Totalt bodde det drygt 286 000 personer i Dalarna vid utgången av år 2025.
 * År 2025 uppvisar det lägsta antalet födda barn i Dalarna sen mätningarna började år 1968. Sjunkande födelsetal är en nationell trend men också en trend i de flesta av världens utvecklade länder. De sjunkande födelsetalen planar ut något nationellt men inte i Dalarna. 
 * Enligt den senaste befolkningsprognosen från Region Dalarna (våren 2025) förväntas den negativa trenden i Dalarnas befolkningsutveckling fortsätta även i framtiden. Befolkningen minskar framförallt i yngre åldersgrupper, medan antalet äldre invånare förväntas öka avsevärt.
 
 # Introduktion {-}
-Hur folkmängden förändras över tid är en central fråga för såväl samhällsplanering som politik. Befolkningsutvecklingen påverkar allt från bostadsmarknaden och arbetsmarknaden till skatteintäkter och välfärdssystem. Såväl Västvärlden i stort som delar av Asien står inför en rad demografiska utmaningar, såsom en åldrande befolkning och minskande barnafödande. I Sverige var exempelvis barnafödandet per kvinna under 2025 det lägsta som uppmätts. 
 
-Under det senaste året har befolkningsutvecklingen förändrats markant och många kommuner som har växt på sistone har nu istället en krympande befolkning. Med utgångspunkt i den typen av trender, analyseras i denna rapport befolkningsutvecklingen i Dalarnas län med fokus på hur folkmängden har förändrats över tid. Genom att undersöka faktorer som födelsetal, dödstal, in- och utvandring, samt flyttmönster, presenteras en bild av de demografiska trenderna i länet. Rapporten ger också en översikt av utvecklingen i länets kommuner.
+::: infobox
+**Ny metod för röjandekontroll**
 
-För viktig information om den statistik som rapporten bygger på, klicka nedan:
+Från och med referensåret 2025 och framåt har SCB infört en liten kontrollerad slumpmässig osäkerhet (CKM) i befolkningsstatistiken. Osäkerheten har tillförts för att skydda enskilda personer så att ingen riskerar att röjas i statistiken. Till följd av detta så är inte alltid de redovisade totalerna lika med summan av deras redovisade delar. Läs mer om det och annan relevant information i den klickbara rutan information om statistiken nedan eller på SCB:s hemsida.
+:::
 
 <details>
-<summary>Viktig information om statistiken</summary>
+<summary>Information om statistiken</summary>
 
 <div title="Källa: SCB">
-Från och med referensåret 2025 och framåt är en liten kontrollerad slumpmässig osäkerhet införd i samtliga redovisade uppgifter. Osäkerheten har tillförts för att skydda enskilda personer så att ingen riskerar att röjas i statistiken. Till följd av detta så är inte alltid de redovisade totalerna lika med summan av deras redovisade delar.
+Från och med referensåret 2025 och framåt har SCB infört en liten kontrollerad slumpmässig osäkerhet i befolkningsstatistiken. Osäkerheten har tillförts för att skydda enskilda personer så att ingen riskerar att röjas i statistiken. Till följd av detta så är inte alltid de redovisade totalerna lika med summan av deras redovisade delar.
 
 Om redovisade statistikvärden adderas för att skapa en ny total, så adderas även osäkerheten. Det finns därför risk för att den nya totalen innehåller större osäkerhet än vad som, enligt metoden, skulle ha tillförts ett enskilt statistikvärde.
 
@@ -51,7 +53,7 @@ Metoden som används för röjandekontroll heter Cell Key Method (CKM). Du kan l
 
 FAQ om CKM-metoden hittar du här: [Frågor och svar om röjandeskydd i befolkningsstatistiken](https://www.scb.se/FAQ-CKM){target="_blank"}
 
-Notera att vissa av diagrammen från en tidigare version av rapporten har tagit bort för att säkerställa att resultaten är tillförlitliga givet CKM.
+Notera att vissa av diagrammen från en tidigare version av rapporten av denna anledning har tagits bort och kommer eventuellt att publiceras vid ett senare tillfälle.
 
 I folkmängden räknas endast personer som är folkbokförda i landet. För att den som flyttar till Sverige ska bli folkbokförd ska personen ha för avsikt och rätt att stanna i Sverige i minst ett år. För personer som inte är medborgare i ett EU-land innebär det att det krävs ett uppehållstillstånd som gäller minst 12 månader för att bli folkbokförd. 
 
@@ -65,6 +67,10 @@ All data som används i rapporten, förutom befolkningsprognoserna, är offentli
 
 </div>
 </details>
+
+Hur folkmängden förändras över tid är en central fråga för såväl samhällsplanering som politik. Befolkningsutvecklingen påverkar allt från bostadsmarknaden och arbetsmarknaden till skatteintäkter och välfärdssystem. Såväl Västvärlden i stort som delar av Asien står inför en rad demografiska utmaningar, såsom en åldrande befolkning och minskande barnafödande. I Sverige var exempelvis barnafödandet per kvinna under 2025 det lägsta som uppmätts. 
+
+Under det senaste året har befolkningsutvecklingen förändrats markant och många kommuner som har växt på sistone har nu istället en krympande befolkning. Med utgångspunkt i den typen av trender, analyseras i denna rapport befolkningsutvecklingen i Dalarnas län med fokus på hur folkmängden har förändrats över tid. Genom att undersöka faktorer som födelsetal, dödstal, in- och utvandring, samt flyttmönster, presenteras en bild av de demografiska trenderna i länet. Rapporten ger också en översikt av utvecklingen i länets kommuner.
 
 # Befolkningsutveckling
 
@@ -315,7 +321,7 @@ gg_befprognos_procent$`befprogn_dalarnas kommuner_andel_alla_tot`
 
 # Kommunfördjupningar 
 
-*Kommunfördjupningarna publiceras vid ett senare tillfälle*.
+*På grund av att SCB infört en ny röjandekontrollsmetod (CKM) kommer kommunfördjupningarna att fördröjas och publiceras vid ett senare tillfälle. Läs mer om CKM i avsnittet introduktion*.
 
 
 
