@@ -37,21 +37,12 @@ Hur folkmängden förändras över tid är en central fråga för såväl samhä
 
 Under det senaste året har befolkningsutvecklingen förändrats markant och många kommuner som har växt på sistone har nu istället en krympande befolkning. Med utgångspunkt i den typen av trender, analyseras i denna rapport befolkningsutvecklingen i Dalarnas län med fokus på hur folkmängden har förändrats över tid. Genom att undersöka faktorer som födelsetal, dödstal, in- och utvandring, samt flyttmönster, presenteras en bild av de demografiska trenderna i länet. Rapporten ger också en översikt av utvecklingen i länets kommuner.
 
-För mer information om den statistik som rapporten bygger på, klicka nedan:
+För viktig information om den statistik som rapporten bygger på, klicka nedan:
 
 <details>
-<summary>Mer information om statistiken</summary>
+<summary>Viktig information om statistiken</summary>
 
-<div title="Källa: SCB">I folkmängden räknas endast personer som är folkbokförda i landet. För att den som flyttar till Sverige ska bli folkbokförd ska personen ha för avsikt och rätt att stanna i Sverige i minst ett år. För personer som inte är medborgare i ett EU-land innebär det att det krävs ett uppehållstillstånd som gäller minst 12 månader för att bli folkbokförd. 
-
-Till följd av Rysslands invasion av Ukraina den 24 februari 2022 har Europeiska unionen (EU) beslutat att aktivera massflyktsdirektivet, vilket innebär att personer från Ukraina utan individuell prövning ska erbjudas tidsbegränsat uppehålls- och arbetstillstånd inom EU. Personer som får uppehållstillstånd enligt massflyktsdirektivet ska i regel inte bli folkbokförda och ingår därmed inte i den officiella befolkningsstatistiken. Läs mer [här](https://www.scb.se/hitta-statistik/statistik-efter-amne/befolkning-och-levnadsforhallanden/befolkningens-sammansattning-och-utveckling/befolkningsstatistik/produktrelaterat/Fordjupad-information/statistik-om-invandring---fragor-och-svar/){target="_blank"}. Sedan juni 2024 har dock personer födda i Ukraina haft möjlighet att ansöka om att bli folkbokförda i Sverige [(SCB)](https://www.scb.se/hitta-statistik/statistik-efter-amne/befolkning-och-levnadsforhallanden/befolkningens-sammansattning-och-utveckling/befolkningsstatistik/pong/statistiknyhet/befolkningsstatistik-helaret-20242/){target="_blank"}.
-
-Under 2023 inledde Skatteverket ett arbete med att granska registret över folkbokförda. Det förde med sig att SCB avregistrerade flera tusen folkbokförda personer som visade sig inte längre bo i Sverige. I folkbokföringen har dessa registrerats som utvandrade till okänt utvandringsland. Läs mer [här](https://www.scb.se/pressmeddelande/sverige-gar-mot-lagsta-befolkningsokningen-pa-manga-ar/){target="_blank"}.
-
-För en större genomgång av hur folk- och bostadsräkningar går till i Sverige, se SCBs genomgång [här](https://www.scb.se/hitta-statistik/statistik-efter-amne/befolkning-och-levnadsforhallanden/befolkningens-sammansattning-och-utveckling/registerbaserad-folk--och-bostadsrakning-census/produktrelaterat/Fordjupad-information/fragor-och-svar-om-folk--och-bostadsrakningar-census-med-mera/){target="_blank"}.
-
-All data som används i rapporten, förutom befolkningsprognoserna, är offentlig och finns under kategorin befolkning i SCB:s [Statistikdatabas](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/){target="_blank"}. Där finns även data för exempelvis befolkningsutvecklingen under 2025 på månadsbasis som publiceras löpande, något som inte behandlas i denna rapport.
-
+<div title="Källa: SCB">
 Från och med referensåret 2025 och framåt är en liten kontrollerad slumpmässig osäkerhet införd i samtliga redovisade uppgifter. Osäkerheten har tillförts för att skydda enskilda personer så att ingen riskerar att röjas i statistiken. Till följd av detta så är inte alltid de redovisade totalerna lika med summan av deras redovisade delar.
 
 Om redovisade statistikvärden adderas för att skapa en ny total, så adderas även osäkerheten. Det finns därför risk för att den nya totalen innehåller större osäkerhet än vad som, enligt metoden, skulle ha tillförts ett enskilt statistikvärde.
@@ -61,6 +52,16 @@ Metoden som används för röjandekontroll heter Cell Key Method (CKM). Du kan l
 FAQ om CKM-metoden hittar du här: [Frågor och svar om röjandeskydd i befolkningsstatistiken](https://www.scb.se/FAQ-CKM){target="_blank"}
 
 Notera att vissa av diagrammen från en tidigare version av rapporten har tagit bort för att säkerställa att resultaten är tillförlitliga givet CKM.
+
+I folkmängden räknas endast personer som är folkbokförda i landet. För att den som flyttar till Sverige ska bli folkbokförd ska personen ha för avsikt och rätt att stanna i Sverige i minst ett år. För personer som inte är medborgare i ett EU-land innebär det att det krävs ett uppehållstillstånd som gäller minst 12 månader för att bli folkbokförd. 
+
+Till följd av Rysslands invasion av Ukraina den 24 februari 2022 har Europeiska unionen (EU) beslutat att aktivera massflyktsdirektivet, vilket innebär att personer från Ukraina utan individuell prövning ska erbjudas tidsbegränsat uppehålls- och arbetstillstånd inom EU. Personer som får uppehållstillstånd enligt massflyktsdirektivet ska i regel inte bli folkbokförda och ingår därmed inte i den officiella befolkningsstatistiken. Läs mer [här](https://www.scb.se/hitta-statistik/statistik-efter-amne/befolkning-och-levnadsforhallanden/befolkningens-sammansattning-och-utveckling/befolkningsstatistik/produktrelaterat/Fordjupad-information/statistik-om-invandring---fragor-och-svar/){target="_blank"}. Sedan juni 2024 har dock personer födda i Ukraina haft möjlighet att ansöka om att bli folkbokförda i Sverige [(SCB)](https://www.scb.se/hitta-statistik/statistik-efter-amne/befolkning-och-levnadsforhallanden/befolkningens-sammansattning-och-utveckling/befolkningsstatistik/pong/statistiknyhet/befolkningsstatistik-helaret-20242/){target="_blank"}.
+
+Under 2023 inledde Skatteverket ett arbete med att granska registret över folkbokförda. Det förde med sig att SCB avregistrerade flera tusen folkbokförda personer som visade sig inte längre bo i Sverige. I folkbokföringen har dessa registrerats som utvandrade till okänt utvandringsland. Läs mer [här](https://www.scb.se/pressmeddelande/sverige-gar-mot-lagsta-befolkningsokningen-pa-manga-ar/){target="_blank"}.
+
+För en större genomgång av hur folk- och bostadsräkningar går till i Sverige, se SCBs genomgång [här](https://www.scb.se/hitta-statistik/statistik-efter-amne/befolkning-och-levnadsforhallanden/befolkningens-sammansattning-och-utveckling/registerbaserad-folk--och-bostadsrakning-census/produktrelaterat/Fordjupad-information/fragor-och-svar-om-folk--och-bostadsrakningar-census-med-mera/){target="_blank"}.
+
+All data som används i rapporten, förutom befolkningsprognoserna, är offentlig och finns under kategorin befolkning i SCB:s [Statistikdatabas](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/){target="_blank"}. Där finns även data för exempelvis befolkningsutvecklingen under 2025 på månadsbasis som publiceras löpande, något som inte behandlas i denna rapport.
 
 </div>
 </details>
@@ -250,9 +251,9 @@ gg_inflytt_lan$Flytt_till_Dalarna
 
 ## Utrikes flyttningar
 
-Trots att såväl det inrikes flyttnettot som födelsenettot i normala fall är negativa i Dalarna, har befolkningen i länet ökat med runt `r format(plyr::round_any(befolkning_df %>% filter(region == "Dalarnas län",år>"1999",variabel == "Folkökning") %>% .$varde %>% sum(),100),big.mark = " ")` personer sedan millennieskiftet. Detta beror på att den sista komponenten som styr befolkningsutvecklingen, det utrikes flyttnettot, har varit positivt.  Framförallt invandrade många till Dalarna under åren runt 2015-2016, då mer än 7000 personer netto flyttade till länet från utlandet under ett par år. Sedan dess har invandringen dock minskat avsevärt och under `r unique(flytt_overskott$år)` var det utrikes flyttnettot i Dalarna `r flytt_overskott %>% filter(region=="Dalarnas län",variabel == "Invandringsöverskott") %>% .$varde` personer. Detta är i linje med perioden 2019-2022 samt 2024, men klart högre än 2023. Den tydliga ökningen `r unique(flytt_overskott$år)` och 2024, jämfört med 2023, beror sannolikt delvis på att personer födda i Ukraina, som tidigare haft ett uppehållstillstånd med tillfälligt skydd enligt massflyktdirektivet, har haft möjlighet att ansöka om att bli folkbokförda i Sverige sedan i juni 2024 [(SCB)](https://www.scb.se/hitta-statistik/statistik-efter-amne/befolkning-och-levnadsforhallanden/befolkningens-sammansattning-och-utveckling/befolkningsstatistik/pong/statistiknyhet/befolkningsstatistik-helaret-20242/){target="_blank"}. Antalet folkbokförda i Dalarna födda i Ukraina har ökat från drygt 200 personer 2023 till 750 personer 2025 [(SCB)](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0101__BE0101E/FolkmRegFlandKCKM/table/tableViewLayout1/){target="_blank"}. 
+Trots att såväl det inrikes flyttnettot som födelsenettot i normala fall är negativa i Dalarna, har befolkningen i länet ökat med runt `r format(plyr::round_any(befolkning_df %>% filter(region == "Dalarnas län",år>"1999",variabel == "Folkökning") %>% .$varde %>% sum(),100),big.mark = " ")` personer sedan millennieskiftet. Detta beror på att den sista komponenten som styr befolkningsutvecklingen, det utrikes flyttnettot, har varit positivt.  Framförallt invandrade många till Dalarna under åren runt 2015-2016, då mer än 7000 personer netto flyttade till länet från utlandet under ett par år. Sedan dess har invandringen dock minskat avsevärt och under `r unique(flytt_overskott$år)` var det utrikes flyttnettot i Dalarna `r flytt_overskott %>% filter(region=="Dalarnas län",variabel == "Invandringsöverskott") %>% .$varde` personer. Detta är i linje med perioden 2019-2022 samt 2024, men klart högre än 2023. Den tydliga ökningen `r unique(flytt_overskott$år)` och 2024, jämfört med 2023, beror sannolikt delvis på att personer födda i Ukraina, som tidigare haft ett uppehållstillstånd med tillfälligt skydd enligt massflyktdirektivet, har haft möjlighet att ansöka om att bli folkbokförda i Sverige sedan i juni 2024 [(SCB)](https://www.scb.se/hitta-statistik/statistik-efter-amne/befolkning-och-levnadsforhallanden/befolkningens-sammansattning-och-utveckling/befolkningsstatistik/pong/statistiknyhet/befolkningsstatistik-helaret-20242/){target="_blank"}. Antalet folkbokförda i Dalarna födda i Ukraina har ökat med mer än 500 personer sedan 2023 (se [SCB](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0101__BE0101E/FolkmRegFlandKCKM/table/tableViewLayout1/){target="_blank"} och [SCB](https://www.statistikdatabasen.scb.se/pxweb/sv/ssd/START__BE__BE0101__BE0101E/FolkmRegFlandKCKM/table/tableViewLayout1/){target="_blank"}). 
 
-Viktigt att notera är även att det anmärkningsvärt låga nettot 2023, jämfört med åren innan, delvis kan förklaras med att Skatteverket under 2023 inledde ett arbete med att avregistrera tusentals folkbokförda personer som vid en granskning visat sig inte längre bo i Sverige (se informationsrutan under avsnittet introduktion ovan). Totalt avskrevs drygt 190 personer i Dalarna som utvandrade 2023 och 260 personer 2024.
+Viktigt att notera är även att det anmärkningsvärt låga nettot 2023, jämfört med åren innan, delvis kan förklaras med att Skatteverket under 2023 inledde ett arbete med att avregistrera tusentals folkbokförda personer som vid en granskning visat sig inte längre bo i Sverige (se informationsrutan under avsnittet introduktion ovan). Totalt avskrevs drygt 190 personer i Dalarna som utvandrade 2023 och ungefär 260 personer 2024.
 
 Den främsta anledningen till det låga invandringsöverskottet på senare år är dock sannolikt en förändrad migrationspolitik. Med undantag för 2024, invandrade mellan 1 400 och 1 800 personer till Dalarna årligen under perioden 2020-2023 samt 2025, att jämföra med mellan 2 000 och 3 000 personer årligen åren dessförinnan. 
 
@@ -314,23 +315,7 @@ gg_befprognos_procent$`befprogn_dalarnas kommuner_andel_alla_tot`
 
 # Kommunfördjupningar 
 
-<ul style = "columns : 2">
-  <li>[Avesta](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_avesta){target="_blank"}</li>
-  <li>[Borlänge](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_borlange.html){target="_blank"}</li>
-  <li>[Falun](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_falun.html){target="_blank"}</li>
-  <li>[Gagnef](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_gagnef.html){target="_blank"}</li>
-  <li>[Hedemora](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_hedemora.html){target="_blank"}</li>
-  <li>[Leksand](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_leksand.html){target="_blank"}</li>
-  <li>[Ludvika](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_ludvika.html){target="_blank"}</li>
-  <li>[Malung-Sälen](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_malung_salen.html){target="_blank"}</li>
-  <li>[Mora](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_mora.html){target="_blank"}</li>
-  <li>[Orsa](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_orsa.html){target="_blank"}</li>
-  <li>[Rättvik](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_rattvik.html){target="_blank"}</li>
-  <li>[Smedjebacken](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_smedjebacken.html){target="_blank"}</li>
-  <li>[Säter](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_sater.html){target="_blank"}</li>
-  <li>[Vansbro](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_vansbro.html){target="_blank"}</li>
-  <li>[Älvdalen](https://samhallsanalys.regiondalarna.se/befolkningsutveckling_alvdalen.html){target="_blank"}</li>
-</ul>
+*Kommunfördjupningarna publiceras vid ett senare tillfälle*.
 
 
 
