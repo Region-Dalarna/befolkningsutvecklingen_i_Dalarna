@@ -94,7 +94,7 @@ if(uppdatera_data == TRUE){
   gg_flytt_alder <- diagram_inrikes_flytt_alder(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE),
                                                 #tid = c(2000:9999),
                                                 spara_figur = spara_figur,
-                                                visa_etiketter = FALSE,
+                                                visa_etiketter = TRUE,
                                                 valda_ar = c("2023","2024","2025"),
                                                 avrunda_fem = FALSE,
                                                 output_mapp_figur = Output_mapp_figur)
@@ -111,28 +111,49 @@ if(uppdatera_data == TRUE){
   
   # Diagram fruktsamhet
   # Jmf Sverige och Dalarna
-  source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_fruktsamhet_SCB.R", encoding="UTF-8")
-  gg_fruktsamhet <- diagram_fruktsamhet(region_vekt = c("00",valt_lan),
-                                        diag_facet = TRUE, # diag_fokus_tid som facet-diagram istället för ett per region
-                                        diag_jmf_lan = FALSE, # Skapa diagram för jämförelse mellan valda regioner
-                                        diag_forandring = FALSE, # Skapa diagram för förändringar över tid
-                                        spara_figur = spara_figur,
-                                        ta_bort_nast_sista = TRUE,
-                                        output_mapp_figur = Output_mapp_figur,
-                                        vald_period = "*",
-                                        facet_skala = "fixed",
-                                        returnera_data = TRUE)
-  # Jmf Dalarnas kommuner
-  gg_fruktsamhet_kommun <- diagram_fruktsamhet(region_vekt = hamtakommuner(valt_lan,tamedriket = FALSE,tamedlan=FALSE),
-                                        diag_facet = TRUE, # diag_fokus_tid som facet-diagram istället för ett per region
-                                        diag_jmf_lan = TRUE, # Skapa diagram för jämförelse mellan valda regioner
-                                        diag_forandring = FALSE, # Skapa diagram för förändringar över tid
-                                        ta_bort_nast_sista = TRUE,
-                                        spara_figur = spara_figur,
-                                        output_mapp_figur = Output_mapp_figur,
-                                        facet_skala = "fixed",
-                                        vald_period = "*",
-                                        returnera_data = TRUE)
+  # source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_fruktsamhet_SCB.R", encoding="UTF-8")
+  # gg_fruktsamhet <- diagram_fruktsamhet(region_vekt = c("00",valt_lan),
+  #                                       diag_facet = TRUE, # diag_fokus_tid som facet-diagram istället för ett per region
+  #                                       diag_jmf_lan = FALSE, # Skapa diagram för jämförelse mellan valda regioner
+  #                                       diag_forandring = FALSE, # Skapa diagram för förändringar över tid
+  #                                       spara_figur = spara_figur,
+  #                                       ta_bort_nast_sista = TRUE,
+  #                                       output_mapp_figur = Output_mapp_figur,
+  #                                       vald_period = "*",
+  #                                       facet_skala = "fixed",
+  #                                       returnera_data = TRUE)
+  # # Jmf Dalarnas kommuner
+  # gg_fruktsamhet_kommun <- diagram_fruktsamhet(region_vekt = hamtakommuner(valt_lan,tamedriket = FALSE,tamedlan=FALSE),
+  #                                       diag_facet = TRUE, # diag_fokus_tid som facet-diagram istället för ett per region
+  #                                       diag_jmf_lan = TRUE, # Skapa diagram för jämförelse mellan valda regioner
+  #                                       diag_forandring = FALSE, # Skapa diagram för förändringar över tid
+  #                                       ta_bort_nast_sista = TRUE,
+  #                                       spara_figur = spara_figur,
+  #                                       output_mapp_figur = Output_mapp_figur,
+  #                                       facet_skala = "fixed",
+  #                                       vald_period = "*",
+  #                                       returnera_data = TRUE)
+  
+  # Ersätter skript ovan där fruktsamhet beräknades av oss snarare än SCB
+  source("https://raw.githubusercontent.com/Region-Dalarna/diagram/refs/heads/main/diag_fodelsetal_summerad_fruktsamhet_jmfr_riket_lan_kommuner.R")
+  gg_fruktsamhet <- diag_fodelsetal_summerad_fruktsamhet_jmfr_riket_lan_kommuner(region_vekt = "20",
+                                                                                 output_fold = Output_mapp_figur,
+                                                                                 visa_var_xte_etikett = 2,
+                                                                                 ta_bort_nast_sista_etikett = TRUE,
+                                                                                 skriv_diagramfil = FALSE)
+  
+  fruktsamhet_df <- gg_fruktsamhet$sum_fruktsamhet_riket_dalarna_plus_kommuner_2000_2025$data %>% 
+    filter(år == max(år))
+  
+  fruktsamhet_dalarna_varde <- str_replace(round(fruktsamhet_df %>% filter(region == "Dalarna") %>% .$total,1), pattern = "\\.", replacement = ",")
+  
+  fruktsamhet_sverige_varde <- str_replace(round(fruktsamhet_df %>% filter(region == "Sverige") %>% .$total,1), pattern = "\\.", replacement = ",")
+  
+  fruktsamhet_max_kommun = fruktsamhet_df %>% filter(!(region %in% c("Sverige","Dalarna"))) %>% filter(total == max(total)) %>% .$region
+  fruktsamhet_max_kommun_varde <- str_replace(round(fruktsamhet_df %>% filter(region == fruktsamhet_max_kommun) %>% filter(total == max(total)) %>% .$total,1), pattern = "\\.", replacement = ",")
+  
+  fruktsamhet_min_kommun = fruktsamhet_df %>% filter(!(region %in% c("Sverige","Dalarna"))) %>% filter(total == min(total)) %>% .$region
+  fruktsamhet_min_kommun_varde <- str_replace(round(fruktsamhet_df %>% filter(region == fruktsamhet_min_kommun) %>% filter(total == min(total)) %>% .$total,1), pattern = "\\.", replacement = ",")
   
   ## Befolkningspyramid
   source("G:/skript/diagram/diag_befpyramid.R")
