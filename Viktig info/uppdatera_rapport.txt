@@ -1,0 +1,7 @@
+Hur uppdatera Befolkningsutvecklingen i Dalarna:
+
+- Kör skriptet 1_hamta_data.R. All data hämtas från Statistikdatabasen och uppdateras automagiskt. Viktigt att tänka på är att alla kommunrapporter
+knittas, vilket för att skriptet kan ta lite tid (typ 5 minuter).
+- Om rapporten skall uppdateras på Webben, sätt publicera = TRUE på rad 18 (på raden ovanför kan man bestämma om figurer skall sparas).
+När man sparar mot Github uppdateras hemsidan automatiskt. Se till att ändra variabeln till FALSE därefter, annars publiceras alla ändringar som sparas mot GH.
+Jon, 2024-10-18

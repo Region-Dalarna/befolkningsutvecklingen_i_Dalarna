@@ -49,7 +49,7 @@ diagram_inflytt <- function(region_vekt = hamtaAllaLan(tamedriket = FALSE), # Va
         mutate(region = skapa_kortnamn_lan(region))
 
     if(length(unique(data$år))==1){
-      diagram_titel <- paste0(overskott," ", data$år)
+      diagram_titel <- paste0(overskott," ", unique(data$år))
     } else{
       diagram_titel <- paste0(overskott," ", min(data$år),"-",max(data$år))
     } 
@@ -77,7 +77,7 @@ diagram_inflytt <- function(region_vekt = hamtaAllaLan(tamedriket = FALSE), # Va
                                  manual_y_axis_title = "",
                                  manual_color = vald_farg,
                                  output_mapp = output_mapp_figur,
-                                 skriv_till_diagramfil = spara_figur,
+                                 skriv_till_diagramfil = FALSE,
                                  filnamn_diagram = diagramfilnamn)
     
     gg_list <- c(gg_list, list(gg_obj))
