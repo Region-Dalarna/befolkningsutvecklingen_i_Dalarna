@@ -88,7 +88,7 @@ En trend är att det dör färre personer i `r unique(befolkning_df %>% filter(r
 Med undantag för 2020, har nettot mellan födda och döda, se de svarta linjerna i diagrammet nedan, varit negativt i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)` under varje år sedan början av 1990-talet. Hur många invånare som kommunen tappar på grund av det varierar relativt mycket mellan åren, men det har skett en tydlig ökning under de senaste åren. År `r max(fodda_doda_df$år)` minskade befolkningen med `r abs(fodda_doda_df %>% filter(år == max(år),region == region_val,variabel == "netto") %>% .$varde)` personer till följd av ett negativt födelsenetto.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_fodda_doda$Födelsenetto_Hedemora
+gg_fodda_doda$fodelsenetto_Hedemora
 ```
 
 # Flyttnetto

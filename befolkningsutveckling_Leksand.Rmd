@@ -85,7 +85,7 @@ När det gäller antalet födslar är trenden negativ om man jämför med framf�
 Nettot mellan födda och döda, se de svarta linjerna i diagrammet nedan, har varit negativt och relativt stabilt på senare år. År `r max(fodda_doda_df$år)` minskade befolkningen med `r abs(fodda_doda_df %>% filter(år == max(år),region == region_val,variabel == "netto") %>% .$varde)` personer till följd av ett negativt födelsenetto, vilket är det lägsta nettot sedan 2012. Värt att notera är även att födelsenettot enbart vid ett tillfälle sedan slutet av 1960-talet har varit positivt i Leksand, en indikation på att kommunen har en relativt hög medelålder.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_fodda_doda$Födelsenetto_Leksand
+gg_fodda_doda$fodelsenetto_Leksand
 ```
 
 # Flyttnetto

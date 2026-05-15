@@ -89,7 +89,7 @@ Sammantaget har nettot mellan födda och döda, se de svarta linjerna i diagramm
 
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_fodda_doda$Födelsenetto_Vansbro_ar_1968_2023
+gg_fodda_doda$fodelsenetto_Vansbro_ar_1968_2023
 ```
 
 # Flyttnetto

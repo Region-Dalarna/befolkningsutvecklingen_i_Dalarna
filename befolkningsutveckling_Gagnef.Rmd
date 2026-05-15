@@ -87,7 +87,7 @@ När det gäller antalet födslar skiljer sig `r unique(befolkning_df %>% filter
 Nettot mellan födda och döda, se de svarta linjerna i diagrammet nedan, varierar relativt mycket mellan åren, men har under 2010-talet och åren därefter mestadels varit positiv. År `r max(fodda_doda_df$år)` ökade befolkningen med `r abs(fodda_doda_df %>% filter(år == max(år),region == region_val,variabel == "netto") %>% .$varde)` personer till följd av ett positivt födelsenetto, vilket är det högsta nettot sedan 2014.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_fodda_doda$Födelsenetto_Gagnef
+gg_fodda_doda$fodelsenetto_Gagnef
 ```
 
 # Flyttnetto

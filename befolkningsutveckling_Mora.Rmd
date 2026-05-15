@@ -85,7 +85,7 @@ När det gäller antalet födslar är trenden negativ om man jämför med framf�
 Nettot mellan födda och döda, se de svarta linjerna i diagrammet nedan, är i praktiken alltid negativt i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`. År `r max(fodda_doda_df$år)` var dock exceptionellt, då kommunens befolkning minskade med `r abs(fodda_doda_df %>% filter(år == max(år),region == region_val,variabel == "netto") %>% .$varde)` personer till följd av ett negativt födelsenetto, vilket är den största minskningen sedan åtminstone slutet på 1960-talet.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_fodda_doda$Födelsenetto_Mora
+gg_fodda_doda$fodelsenetto_Mora
 ```
 
 # Flyttnetto

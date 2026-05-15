@@ -88,7 +88,7 @@ När gäller antalet födslar är den långsiktiga trenden negativ, det föddes 
 Under stora delar av 2000-talet var nettot mellan födda och döda, se de svarta linjerna i diagrammet nedan, positivt i `r unique(befolkning_df %>% filter(region == region_val) %>% .$region)`. På senare år har dock nettot tydligt minskat och var år `r max(fodda_doda_df$år)` negativt för första gången sedan början av 2000-talet (`r fodda_doda_df %>% filter(år == max(år),region == region_val,variabel == "netto") %>% .$varde` personer).
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_fodda_doda$Födelsenetto_Borlänge
+gg_fodda_doda$fodelsenetto_Borlänge
 ```
 
 # Flyttnetto

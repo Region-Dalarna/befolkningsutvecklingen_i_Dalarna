@@ -151,7 +151,7 @@ Under `r max(fodda_doda_df$år)` avled `r format(fodda_doda_df %>% filter(år ==
 Sammantaget har nettot mellan födda och döda, se de svarta linjerna i diagrammet nedan, varit negativt i Dalarna under varje år sedan början av 1990-talet. Hur många invånare som länet tappar på grund av det varierar relativt mycket mellan åren, men under 2023 minskade befolkningen med `r abs(fodda_doda_df %>% filter(år == max(år),variabel == "netto",region == "Dalarnas län") %>% .$varde)` personer till följd av ett negativt födelsenetto.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=5, fig.width=8, fig.align='center'}
-gg_fodda_doda$Födelsenetto_Dalarna
+gg_fodda_doda$fodelsenetto_Dalarna
 
 ```
 
