@@ -75,19 +75,19 @@ if(uppdatera_data == TRUE){
                                                   returnera_data = TRUE)
   
   # # Diagram  flyttnetto
-  # source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_flytt_inrikes_utrikes_netto_SCB.R", encoding="UTF-8")
-  # gg_flytt <- diagram_inr_utr_flytt(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE),
-  #                                   spara_figur = spara_figur,
-  #                                   #tid = c(2000:9999),
-  #                                   returnera_data = TRUE,
-  #                                   output_mapp_figur = Output_mapp_figur)
-  
-  source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_flytt_inrikes_utrikes_netto_SCB_tillfallig.R", encoding="UTF-8")
+  source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_flytt_inrikes_utrikes_netto_SCB.R", encoding="UTF-8")
   gg_flytt <- diagram_inr_utr_flytt(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE),
                                     spara_figur = spara_figur,
                                     #tid = c(2000:9999),
                                     returnera_data = TRUE,
                                     output_mapp_figur = Output_mapp_figur)
+  
+  # source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_flytt_inrikes_utrikes_netto_SCB_tillfallig.R", encoding="UTF-8")
+  # gg_flytt <- diagram_inr_utr_flytt(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE),
+  #                                   spara_figur = spara_figur,
+  #                                   #tid = c(2000:9999),
+  #                                   returnera_data = TRUE,
+  #                                   output_mapp_figur = Output_mapp_figur)
   
   # # Diagram flyttnetto åldersgrupper
   source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_flytt_inrikes_aldersgrupper_SCB.R", encoding="UTF-8")
@@ -189,97 +189,97 @@ if(uppdatera_data == TRUE){
   
   prognos_ar <- bef_progn_nms_df$slut_ar %>% unique()
   prognos_forsta_ar <- bef_progn_nms_df$start_ar %>% unique()
-  befprognos_dalarna_totalt_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Dalarnas län",aldergrp == "totalt") %>% .$antal),10),big.mark= " ")
-  befprognos_dalarna_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Dalarnas län",aldergrp == "totalt") %>% .$`2034`),100),big.mark= " ")
+  befprognos_dalarna_totalt_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Dalarnas län",aldergrp == "totalt") %>% .$antal),100),big.mark= " ")
+  befprognos_dalarna_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Dalarnas län",aldergrp == "totalt") %>% .[[prognos_ar]]),100),big.mark= " ")
   befprognos_dalarna_0_19_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Dalarnas län",aldergrp == "0-19 år") %>% .$antal),100),big.mark= " ")
   befprognos_dalarna_80plus_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Dalarnas län",aldergrp == "80+ år") %>% .$antal),100),big.mark= " ")
   
   befprognos_Avesta_totalt_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Avesta",aldergrp == "totalt") %>% .$antal),10),big.mark= " ")
-  befprognos_Avesta_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Avesta",aldergrp == "totalt") %>% .$`2034`),100),big.mark= " ")
+  befprognos_Avesta_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Avesta",aldergrp == "totalt") %>% .[[prognos_ar]]),100),big.mark= " ")
   befprognos_Avesta_0_19_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Avesta",aldergrp == "0-19 år") %>% .$antal),100),big.mark= " ")
   befprognos_Avesta_80plus_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Avesta",aldergrp == "80+ år") %>% .$antal),100),big.mark= " ")
   befprognos_Avesta_20_65_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Avesta",aldergrp == "20-65 år") %>% .$antal),100),big.mark= " ")
   
   befprognos_Borlange_totalt_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Borlänge",aldergrp == "totalt") %>% .$antal),10),big.mark= " ")
-  befprognos_Borlange_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Borlänge",aldergrp == "totalt") %>% .$`2034`),100),big.mark= " ")
+  befprognos_Borlange_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Borlänge",aldergrp == "totalt") %>% .[[prognos_ar]]),100),big.mark= " ")
   befprognos_Borlange_0_19_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Borlänge",aldergrp == "0-19 år") %>% .$antal),100),big.mark= " ")
   befprognos_Borlange_80plus_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Borlänge",aldergrp == "80+ år") %>% .$antal),100),big.mark= " ")
   befprognos_Borlange_20_65_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Borlänge",aldergrp == "20-65 år") %>% .$antal),100),big.mark= " ")
   
   befprognos_Falun_totalt_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Falun",aldergrp == "totalt") %>% .$antal),10),big.mark= " ")
-  befprognos_Falun_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Falun",aldergrp == "totalt") %>% .$`2034`),100),big.mark= " ")
+  befprognos_Falun_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Falun",aldergrp == "totalt") %>% .[[prognos_ar]]),100),big.mark= " ")
   befprognos_Falun_0_19_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Falun",aldergrp == "0-19 år") %>% .$antal),100),big.mark= " ")
   befprognos_Falun_80plus_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Falun",aldergrp == "80+ år") %>% .$antal),100),big.mark= " ")
   befprognos_Falun_20_65_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Falun",aldergrp == "20-65 år") %>% .$antal),100),big.mark= " ")
   
   befprognos_Gagnef_totalt_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Gagnef",aldergrp == "totalt") %>% .$antal),10),big.mark= " ")
-  befprognos_Gagnef_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Gagnef",aldergrp == "totalt") %>% .$`2034`),10),big.mark= " ")
+  befprognos_Gagnef_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Gagnef",aldergrp == "totalt") %>% .[[prognos_ar]]),10),big.mark= " ")
   befprognos_Gagnef_0_19_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Gagnef",aldergrp == "0-19 år") %>% .$antal),10),big.mark= " ")
   befprognos_Gagnef_80plus_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Gagnef",aldergrp == "80+ år") %>% .$antal),10),big.mark= " ")
   befprognos_Gagnef_20_65_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Gagnef",aldergrp == "20-65 år") %>% .$antal),10),big.mark= " ")
   
   befprognos_Hedemora_totalt_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Hedemora",aldergrp == "totalt") %>% .$antal),10),big.mark= " ")
-  befprognos_Hedemora_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Hedemora",aldergrp == "totalt") %>% .$`2034`),10),big.mark= " ")
+  befprognos_Hedemora_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Hedemora",aldergrp == "totalt") %>% .[[prognos_ar]]),10),big.mark= " ")
   befprognos_Hedemora_0_19_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Hedemora",aldergrp == "0-19 år") %>% .$antal),10),big.mark= " ")
   befprognos_Hedemora_80plus_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Hedemora",aldergrp == "80+ år") %>% .$antal),10),big.mark= " ")
   befprognos_Hedemora_20_65_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Hedemora",aldergrp == "20-65 år") %>% .$antal),10),big.mark= " ")
   
   befprognos_Leksand_totalt_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Leksand",aldergrp == "totalt") %>% .$antal),10),big.mark= " ")
-  befprognos_Leksand_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Leksand",aldergrp == "totalt") %>% .$`2034`),10),big.mark= " ")
+  befprognos_Leksand_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Leksand",aldergrp == "totalt") %>% .[[prognos_ar]]),10),big.mark= " ")
   befprognos_Leksand_0_19_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Leksand",aldergrp == "0-19 år") %>% .$antal),10),big.mark= " ")
   befprognos_Leksand_80plus_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Leksand",aldergrp == "80+ år") %>% .$antal),10),big.mark= " ")
   befprognos_Leksand_20_65_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Leksand",aldergrp == "20-65 år") %>% .$antal),10),big.mark= " ")
   
   befprognos_Ludvika_totalt_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Ludvika",aldergrp == "totalt") %>% .$antal),100),big.mark= " ")
-  befprognos_Ludvika_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Ludvika",aldergrp == "totalt") %>% .$`2034`),100),big.mark= " ")
+  befprognos_Ludvika_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Ludvika",aldergrp == "totalt") %>% .[[prognos_ar]]),100),big.mark= " ")
   befprognos_Ludvika_0_19_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Ludvika",aldergrp == "0-19 år") %>% .$antal),100),big.mark= " ")
   befprognos_Ludvika_80plus_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Ludvika",aldergrp == "80+ år") %>% .$antal),100),big.mark= " ")
   befprognos_Ludvika_20_65_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Ludvika",aldergrp == "20-65 år") %>% .$antal),100),big.mark= " ")
   
   befprognos_Mora_totalt_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Mora",aldergrp == "totalt") %>% .$antal),10),big.mark= " ")
-  befprognos_Mora_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Mora",aldergrp == "totalt") %>% .$`2034`),10),big.mark= " ")
+  befprognos_Mora_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Mora",aldergrp == "totalt") %>% .[[prognos_ar]]),10),big.mark= " ")
   befprognos_Mora_0_19_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Mora",aldergrp == "0-19 år") %>% .$antal),10),big.mark= " ")
   befprognos_Mora_80plus_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Mora",aldergrp == "80+ år") %>% .$antal),10),big.mark= " ")
   befprognos_Mora_20_65_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Mora",aldergrp == "20-65 år") %>% .$antal),10),big.mark= " ")
   
   befprognos_Malung_totalt_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Malung-Sälen",aldergrp == "totalt") %>% .$antal),10),big.mark= " ")
-  befprognos_Malung_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Malung-Sälen",aldergrp == "totalt") %>% .$`2034`),10),big.mark= " ")
+  befprognos_Malung_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Malung-Sälen",aldergrp == "totalt") %>% .[[prognos_ar]]),10),big.mark= " ")
   befprognos_Malung_0_19_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Malung-Sälen",aldergrp == "0-19 år") %>% .$antal),10),big.mark= " ")
   befprognos_Malung_80plus_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Malung-Sälen",aldergrp == "80+ år") %>% .$antal),10),big.mark= " ")
   befprognos_Malung_20_65_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Malung-Sälen",aldergrp == "20-65 år") %>% .$antal),10),big.mark= " ")
   
   befprognos_Orsa_totalt_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Orsa",aldergrp == "totalt") %>% .$antal),10),big.mark= " ")
-  befprognos_Orsa_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Orsa",aldergrp == "totalt") %>% .$`2034`),10),big.mark= " ")
+  befprognos_Orsa_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Orsa",aldergrp == "totalt") %>% .[[prognos_ar]]),10),big.mark= " ")
   befprognos_Orsa_0_19_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Orsa",aldergrp == "0-19 år") %>% .$antal),10),big.mark= " ")
   befprognos_Orsa_80plus_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Orsa",aldergrp == "80+ år") %>% .$antal),10),big.mark= " ")
   befprognos_Orsa_20_65_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Orsa",aldergrp == "20-65 år") %>% .$antal),10),big.mark= " ")
   
   befprognos_Rattvik_totalt_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Rättvik",aldergrp == "totalt") %>% .$antal),10),big.mark= " ")
-  befprognos_Rattvik_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Rättvik",aldergrp == "totalt") %>% .$`2034`),10),big.mark= " ")
+  befprognos_Rattvik_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Rättvik",aldergrp == "totalt") %>% .[[prognos_ar]]),10),big.mark= " ")
   befprognos_Rattvik_0_19_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Rättvik",aldergrp == "0-19 år") %>% .$antal),10),big.mark= " ")
   befprognos_Rattvik_80plus_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Rättvik",aldergrp == "80+ år") %>% .$antal),10),big.mark= " ")
   befprognos_Rattvik_20_65_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Rättvik",aldergrp == "20-65 år") %>% .$antal),10),big.mark= " ")
   
   befprognos_Sater_totalt_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Säter",aldergrp == "totalt") %>% .$antal),10),big.mark= " ")
-  befprognos_Sater_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Säter",aldergrp == "totalt") %>% .$`2034`),10),big.mark= " ")
+  befprognos_Sater_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Säter",aldergrp == "totalt") %>% .[[prognos_ar]]),10),big.mark= " ")
   befprognos_Sater_0_19_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Säter",aldergrp == "0-19 år") %>% .$antal),10),big.mark= " ")
   befprognos_Sater_80plus_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Säter",aldergrp == "80+ år") %>% .$antal),10),big.mark= " ")
   befprognos_Sater_20_65_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Säter",aldergrp == "20-65 år") %>% .$antal),10),big.mark= " ")
   
   befprognos_Smedjebacken_totalt_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Smedjebacken",aldergrp == "totalt") %>% .$antal),10),big.mark= " ")
-  befprognos_Smedjebacken_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Smedjebacken",aldergrp == "totalt") %>% .$`2034`),10),big.mark= " ")
+  befprognos_Smedjebacken_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Smedjebacken",aldergrp == "totalt") %>% .[[prognos_ar]]),10),big.mark= " ")
   befprognos_Smedjebacken_0_19_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Smedjebacken",aldergrp == "0-19 år") %>% .$antal),10),big.mark= " ")
   befprognos_Smedjebacken_80plus_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Smedjebacken",aldergrp == "80+ år") %>% .$antal),10),big.mark= " ")
   befprognos_Smedjebacken_20_65_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Smedjebacken",aldergrp == "20-65 år") %>% .$antal),10),big.mark= " ")
   
   befprognos_Alvdalen_totalt_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Älvdalen",aldergrp == "totalt") %>% .$antal),10),big.mark= " ")
-  befprognos_Alvdalen_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Älvdalen",aldergrp == "totalt") %>% .$`2034`),10),big.mark= " ")
+  befprognos_Alvdalen_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Älvdalen",aldergrp == "totalt") %>% .[[prognos_ar]]),10),big.mark= " ")
   befprognos_Alvdalen_0_19_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Älvdalen",aldergrp == "0-19 år") %>% .$antal),10),big.mark= " ")
   befprognos_Alvdalen_80plus_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Älvdalen",aldergrp == "80+ år") %>% .$antal),10),big.mark= " ")
   befprognos_Alvdalen_20_65_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Älvdalen",aldergrp == "20-65 år") %>% .$antal),10),big.mark= " ")
   
   befprognos_Vansbro_totalt_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Vansbro",aldergrp == "totalt") %>% .$antal),10),big.mark= " ")
-  befprognos_Vansbro_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Vansbro",aldergrp == "totalt") %>% .$`2034`),10),big.mark= " ")
+  befprognos_Vansbro_totalt <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Vansbro",aldergrp == "totalt") %>% .[[prognos_ar]]),10),big.mark= " ")
   befprognos_Vansbro_0_19_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Vansbro",aldergrp == "0-19 år") %>% .$antal),10),big.mark= " ")
   befprognos_Vansbro_80plus_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Vansbro",aldergrp == "80+ år") %>% .$antal),10),big.mark= " ")
   befprognos_Vansbro_20_65_forandring <- format(plyr::round_any(abs(bef_progn_nms_df %>% filter(region == "Vansbro",aldergrp == "20-65 år") %>% .$antal),10),big.mark= " ")
