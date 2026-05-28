@@ -89,24 +89,24 @@ if(uppdatera_data == TRUE){
   #                                   returnera_data = TRUE,
   #                                   output_mapp_figur = Output_mapp_figur)
   
-  # # Diagram flyttnetto åldersgrupper
-  source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_flytt_inrikes_aldersgrupper_SCB.R", encoding="UTF-8")
-  gg_flytt_alder <- diagram_inrikes_flytt_alder(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE),
-                                                #tid = c(2000:9999),
-                                                spara_figur = spara_figur,
-                                                visa_etiketter = TRUE,
-                                                valda_ar = c("2023","2024","2025"),
-                                                avrunda_fem = FALSE,
-                                                output_mapp_figur = Output_mapp_figur)
+  # # Diagram flyttnetto åldersgrupper - ej längre i rapporten
+  # source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_flytt_inrikes_aldersgrupper_SCB.R", encoding="UTF-8")
+  # gg_flytt_alder <- diagram_inrikes_flytt_alder(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE),
+  #                                               #tid = c(2000:9999),
+  #                                               spara_figur = spara_figur,
+  #                                               visa_etiketter = TRUE,
+  #                                               valda_ar = c("2023","2024","2025"),
+  #                                               avrunda_fem = FALSE,
+  #                                               output_mapp_figur = Output_mapp_figur)
   
-  # Diagram flyttnetto födelseregion
-  source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_flytt_inrikes_bakgrund_SCB.R", encoding="UTF-8")
-  gg_flytt_bakgrund <- diag_inr_flyttnetto_inr_utr_fodda(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE),
-                                                         skriv_diagram = spara_figur,
-                                                         output_mapp =  Output_mapp_figur,
-                                                         returnera_data = TRUE,
-                                                         fixa_y_axel_varden_jamna_tal = FALSE, 
-                                                         farg_vekt = diagramfarger("rus_sex")[2:1])
+  # Diagram flyttnetto födelseregion - ej längre i rapporten
+  # source("https://raw.githubusercontent.com/Region-Dalarna/diagram/main/diagram_flytt_inrikes_bakgrund_SCB.R", encoding="UTF-8")
+  # gg_flytt_bakgrund <- diag_inr_flyttnetto_inr_utr_fodda(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE),
+  #                                                        skriv_diagram = spara_figur,
+  #                                                        output_mapp =  Output_mapp_figur,
+  #                                                        returnera_data = TRUE,
+  #                                                        fixa_y_axel_varden_jamna_tal = FALSE, 
+  #                                                        farg_vekt = diagramfarger("rus_sex")[2:1])
 
   
   # Diagram fruktsamhet
@@ -185,6 +185,7 @@ if(uppdatera_data == TRUE){
   gg_befprognos <- SkapaBefPrognosDiagram(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE,tamedlan=TRUE),
                                           output_fold = Output_mapp_figur,
                                           skapa_fil = spara_figur,
+                                          diagram_capt = "Källa: Region Dalarnas egna befolkningsprognos, bearbetning av Samhällsanalys, Region Dalarna\nPrognosen för Ludvika kommun har justerats för att fånga den expansion som pågår kring Hitachi. Detta scenario\nligger något lägre än den prognos Ludvika kommun själva tagit fram i deras scenario med medelstark tillväxt\nmen väsentligt högre än en ojusterad prognos.",
                                           spara_dataframe_till_global_environment = TRUE)
   
   prognos_ar <- bef_progn_nms_df$slut_ar %>% unique()
@@ -291,6 +292,7 @@ if(uppdatera_data == TRUE){
   gg_befprognos_procent <- diag_befprognos_diff_tot_per_region_scb(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE,tamedlan=TRUE),
                                                                    output_fold = Output_mapp_figur,
                                                                    skapa_fil = spara_figur,
+                                                                   diagram_capt = "Källa: Region Dalarnas egna befolkningsprognos, bearbetning av Samhällsanalys, Region Dalarna\nPrognosen för Ludvika kommun har justerats för att fånga den expansion som pågår kring Hitachi. Detta scenario\nligger något lägre än den prognos Ludvika kommun själva tagit fram i deras scenario med medelstark tillväxt\nmen väsentligt högre än en ojusterad prognos.",
                                                                    andel_istallet_for_antal = TRUE)
   
   # gg_befprognos_procent <- diagram_befprognos(region_vekt = hamtakommuner(vald_region,tamedriket = FALSE,tamedlan=TRUE),
@@ -336,7 +338,8 @@ if(uppdatera_data == TRUE){
 }
 
 # Kartor över befolkningsutvecklingen. Går inte att hämta från en sparad environment, varför de alltid skapas
-source(here("Skript","kartor.R"), encoding="UTF-8")
+skriptrader_upprepa_om_fel({source(here("Skript","kartor.R"), encoding="UTF-8")
 gg_kartor <- kartor_befolkning(karta_kommun = TRUE,
                                karta_lan = TRUE,
                                returnera_data = TRUE)
+})
