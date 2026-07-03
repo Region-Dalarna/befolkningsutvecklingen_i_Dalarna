@@ -6,7 +6,7 @@ source("https://raw.githubusercontent.com/Region-Dalarna/funktioner/main/func_AP
 
 # hämta kommunnamnen för att använda i walk-loopen nedan
 dala_kommuner <- hamtaregion_kod_namn(regionkod = hamtakommuner(lan = "20", F, F))$region %>% str_replace("-", "_") %>% paste0("_", .) %>% c("", .)
-dala_kommuner <- tolower(svenska_tecken_byt_ut(dala_kommuner))
+#dala_kommuner <- tolower(svenska_tecken_byt_ut(dala_kommuner))
 
 walk(dala_kommuner, ~ {
   rmarkdown::render(
@@ -73,11 +73,11 @@ rmarkdown::render(
 #   envir = parent.frame()
 # )
 # 
-rmarkdown::render(
-  input = 'befolkningsutveckling_Malung_Sälen.Rmd',
-  output_file = paste0("befolkningsutveckling_Malung_Sälen.html"),
-  envir = parent.frame()
-)
+# rmarkdown::render(
+#   input = 'befolkningsutveckling_Malung_Sälen.Rmd',
+#   output_file = paste0("befolkningsutveckling_Malung_Sälen.html"),
+#   envir = parent.frame()
+# )
 # 
 # rmarkdown::render(
 #   input = 'befolkningsutveckling_Orsa.Rmd',
