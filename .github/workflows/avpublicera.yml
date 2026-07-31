@@ -25,7 +25,10 @@ jobs:
     steps:
       - name: Kontrollera bekräftelse
         run: |
-          if [ "${{ inputs.bekraftelse }}" != "${{ github.event.repository.name }}" ]; then
+          BEKRAFTELSE_GEMENER=$(echo "${{ inputs.bekraftelse }}" | tr '[:upper:]' '[:lower:]')
+          REPO_NAMN_GEMENER=$(echo "${{ github.event.repository.name }}" | tr '[:upper:]' '[:lower:]')
+
+          if [ "$BEKRAFTELSE_GEMENER" != "$REPO_NAMN_GEMENER" ]; then
             echo "FEL: Bekräftelseordet matchar inte repo-namnet."
             exit 1
           fi
@@ -33,7 +36,8 @@ jobs:
 
       - name: Ta bort rapport från servern
         run: |
-          RAPPORT_DIR="/srv/rapporter/${{ github.event.repository.name }}"
+          REPO_NAMN_GEMENER=$(echo "${{ github.event.repository.name }}" | tr '[:upper:]' '[:lower:]')
+          RAPPORT_DIR="/srv/rapporter/$REPO_NAMN_GEMENER"
 
           # säkerhetsräcke: pathen MÅSTE ligga under /srv/rapporter/
           # och får inte vara just själva foldern
@@ -52,4 +56,8 @@ jobs:
 
       - name: Regenerera landningssida
         run: |
-          sudo /usr/local/bin/generera_landningssida.sh || echo "Varning: kunde inte regenerera landningssidan (ej kritiskt fel)"
+          sudo -u shiny /usr/local/bin/generera_landningssida.sh || echo "Varning: kunde inte regenerera landningssidan (ej kritiskt fel)"
+
+      - name: Synka app-lista mot databasen
+        run: |
+          sudo -u shiny /usr/local/bin/synka_app_lista.sh || echo "Varning: kunde inte synka app-listan (ej kritiskt fel)"
