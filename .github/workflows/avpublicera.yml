@@ -36,11 +36,12 @@ jobs:
 
       - name: Ta bort rapport från servern
         run: |
-          REPO_NAMN_GEMENER=$(echo "${{ github.event.repository.name }}" | tr '[:upper:]' '[:lower:]')
-          RAPPORT_DIR="/srv/rapporter/$REPO_NAMN_GEMENER"
+          REPO_NAMN="${{ github.event.repository.name }}"
+          if [ -f ".rapport_deploy_namn" ]; then
+            REPO_NAMN="$(cat .rapport_deploy_namn | tr -d '[:space:]')"
+          fi
+          RAPPORT_DIR="/srv/rapporter/${REPO_NAMN}"
 
-          # säkerhetsräcke: pathen MÅSTE ligga under /srv/rapporter/
-          # och får inte vara just själva foldern
           if [[ "$RAPPORT_DIR" != /srv/rapporter/* ]] || [ "$RAPPORT_DIR" = "/srv/rapporter/" ]; then
             echo "FEL: Otillåten sökväg: $RAPPORT_DIR"
             exit 1
